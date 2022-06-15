@@ -14,6 +14,7 @@ lec_notes_lyx/*.md
 *notebook.tex
 *.tex
 *figure/*.*
+_build/
 
 *.lnk
 
