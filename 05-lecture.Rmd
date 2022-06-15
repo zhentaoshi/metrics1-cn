@@ -1,0 +1,388 @@
+
+# Basic Asymptotic Theory
+
+
+Our universe, though enormous, consists of fewer than $10^{82}$ atoms,
+which is a finite number. However, mathematical ideas are not bounded by
+secular realities. Asymptotic theory is about behaviors of statistics
+when the sample size is arbitrarily large up to infinity. It is a set of
+approximation techniques to simplify complicated finite-sample analysis.
+Asymptotic theory is the cornerstone of modern econometrics. It sheds
+lights on estimation and inference procedures under much more general
+conditions than what are covered by exact finite sample theory.
+
+Nevertheless, we always have at hand a finite sample, and mostly it is
+difficult to increase the sample size in reality. Asymptotic theory
+rarely answers "how large is large", and we must be cautious about the
+treacherous landscape of *asymptopia*. In the era of big data, albeit
+the sheer size of data balloons dramatically, we build more
+sophisticated models to better capture heterogeneity in the data. Large
+sample is a relative notion to the complexity of the model and
+underlying (in)dependence structure of the data.
+
+Both the classical parametric approach, which is based on hard-to-verify
+parametric assumptions, and the asymptotic approach, which is predicated
+on imaginary infinite sequences, deviate from the reality. Which
+approach is more constructive can only be judged case by case. The
+prevalence of asymptotic theory is its mathematical amenability and
+generality. The law of evolution elevates asymptotic theory to the
+throne of mathematical statistics of our time.
+
+Modes of Convergence
+--------------------
+
+We first review what is *convergence* for a non-random sequence, which
+you learned in high school. Let $z_{1},z_{2},\ldots$ be an infinite
+sequence of non-random variables.
+
+Convergence of this non-random sequence means that for any
+$\varepsilon>0$, there exists an $N\left(\varepsilon\right)$ such that
+for all $n>N\left(\varepsilon\right)$, we have
+$\left|z_{n}-z\right|<\varepsilon$. We say $z$ is the limit of $z_{n}$,
+and write $z_{n}\to z$ or $\lim_{n\to\infty}z_{n}=z$.
+
+Instead of a deterministic sequence, we are interested in the
+convergence of a sequence of random variables. Since a random variable
+is "random" thanks to the induced probability measure by the measurable
+function, we must be clear what *convergence* means. Several modes of
+convergence are widely used.
+
+ We say a sequence of random variables $\left(z_{n}\right)$ converges in
+probability to $z$, where $z$ can be either a random variable or a
+non-random constant, if for any $\varepsilon>0$, the probability
+$P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|<\varepsilon\right\} \to1$
+(or equivalently
+$P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|\geq\varepsilon\right\} \to0$)
+as $n\to\infty$. We can write $z_{n}\stackrel{p}{\to}z$ or
+$\mathrm{plim}_{n\to\infty}z_{n}=z$.
+
+A sequence of random variables $\left(z_{n}\right)$ converges in
+squared-mean to $z$, where $z$ can be either a random variable or a
+non-random constant, if $E\left[\left(z_{n}-z\right)^{2}\right]\to0.$ It
+is denoted as $z_{n}\stackrel{m.s.}{\to}z$.
+
+In these definitions either
+$P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|>\varepsilon\right\}$
+or $E\left[\left(z_{n}-z\right)^{2}\right]$ is a non-random quantity,
+and it converges to 0 as a non-random sequence.
+
+Squared-mean convergence is stronger than convergence in probability.
+That is, $z_{n}\stackrel{m.s.}{\to}z$ implies $z_{n}\stackrel{p}{\to}z$
+but the converse is untrue. Here is an example.
+
+[\[eg:in\_p\_in\_ms\]]{#eg:in_p_in_ms label="eg:in_p_in_ms"}$(z_{n})$ is
+a sequence of binary random variables: $z_{n}=\sqrt{n}$ with probability
+$1/n$, and $z_{n}=0$ with probability $1-1/n$. Then
+$z_{n}\stackrel{p}{\to}0$ but $z_{n}\stackrel{m.s.}{\nrightarrow}0$. To
+verify these claims, notice that for any $\varepsilon>0$, we have
+$P\left(\omega:\left|z_{n}\left(\omega\right)-0\right|<\varepsilon\right)=P\left(\omega:z_{n}\left(\omega\right)=0\right)=1-1/n\rightarrow1$
+and thereby $z_{n}\stackrel{p}{\to}0$. On the other hand,
+$E\left[\left(z_{n}-0\right)^{2}\right]=n\cdot1/n+0\cdot(1-1/n)=1\nrightarrow0,$
+so $z_{n}\stackrel{m.s.}{\nrightarrow}0$.
+
+Example [\[eg:in\_p\_in\_ms\]](#eg:in_p_in_ms){reference-type="ref"
+reference="eg:in_p_in_ms"} highlights the difference between the two
+modes of convergence. Convergence in probability does not count what
+happens on a subset in the sample space of small probability.
+Squared-mean convergence deals with the average over the entire
+probability space. If a random variable can take a wild value, with
+small probability though, it may blow away the squared-mean convergence.
+On the contrary, such irregularity does not undermine convergence in
+probability.
+
+Both convergence in probability and squared-mean convergence are about
+convergence of random variables to a target random variable or constant.
+That is, the distribution of $z_{n}-z$ is concentrated around 0 as
+$n\to\infty$. Instead, *convergence in distribution* is about the
+convergence of CDF, but not the random variable. Let
+$F_{z_{n}}\left(\cdot\right)$ be the CDF of $z_{n}$ and
+$F_{z}\left(\cdot\right)$ be the CDF of $z$.
+
+We say a sequence of random variables $\left(z_{n}\right)$ converges in
+distribution to a random variable $z$ if
+$F_{z_{n}}\left(a\right)\to F_{z}\left(a\right)$ as $n\to\infty$ at each
+point $a\in\mathbb{R}$ such that where $F_{z}\left(\cdot\right)$ is
+continuous. We write $z_{n}\stackrel{d}{\to}z$.
+
+Convergence in distribution is the weakest mode. If
+$z_{n}\stackrel{p}{\to}z$, then $z_{n}\stackrel{d}{\to}z$. The converse
+is not true in general, unless $z$ is a non-random constant (A constant
+$z$ can be viewed as a degenerate random variables, with a corresponding
+"CDF" $F_{z}\left(\cdot\right)=1\left\{ \cdot\geq z\right\}$.
+
+Let $x\sim N\left(0,1\right)$. If $z_{n}=x+1/n$, then
+$z_{n}\stackrel{p}{\to}x$ and of course $z_{n}\stackrel{d}{\to}x$.
+However, if $z_{n}=-x+1/n$, or $z_{n}=y+1/n$ where
+$y\sim N\left(0,1\right)$ is independent of $x$, then
+$z_{n}\stackrel{d}{\to}x$ but $z_{n}\stackrel{p}{\nrightarrow}x$.
+
+$(z_{n})$ is a sequence of binary random variables: $z_{n}=n$ with
+probability $1/\sqrt{n}$, and $z_{n}=0$ with probability $1-1/\sqrt{n}$.
+Then $z_{n}\stackrel{d}{\to}z=0.$ Because
+$$F_{z_{n}}\left(a\right)=\begin{cases}
+0 & a<0\\
+1-1/\sqrt{n} & 0\leq a\leq n\\
+1 & a\geq n
+\end{cases}.$$ $F_{z}\left(a\right)=\begin{cases}
+0, & a<0\\
+1 & a\geq0
+\end{cases}$. It is easy to verify that $F_{z_{n}}\left(a\right)$
+converges to $F_{z}\left(a\right)$ *pointwisely* on each point in
+$\left(-\infty,0\right)\cup\left(0,+\infty\right)$, where
+$F_{z}\left(a\right)$ is continuous.
+
+So far we have talked about convergence of scalar variables. These three
+modes of converges can be easily generalized to random vectors. In
+particular, the *Cramer-Wold device* collapses a random vector into a
+random vector via arbitrary linear combination. We say a sequence of
+$K$-dimensional random vectors $\left(z_{n}\right)$ converge in
+distribution to $z$ if $\lambda'z_{n}\stackrel{d}{\to}\lambda'z$ for any
+$\lambda\in\mathbb{R}^{K}$ and $\left\Vert \lambda\right\Vert _{2}=1.$
+
+Law of Large Numbers
+--------------------
+
+(Weak) law of large numbers (LLN) is a collection of statements about
+convergence in probability of the sample average to its population
+counterpart. The basic form of LLN is:
+$$\frac{1}{n}\sum_{i=1}^{n}(z_{i}-E[z_{i}])\stackrel{p}{\to}0$$ as
+$n\to\infty$. Various versions of LLN work under different assumptions
+about some features and/or dependence of the underlying random
+variables.
+
+### Cherbyshev LLN
+
+We illustrate LLN by the simple example of Chebyshev LLN, which can be
+proved by elementary calculation. It utilizes the *Chebyshev
+inequality*.
+
+-   *Chebyshev inequality*: If a random variable $x$ has a finite second
+    moment $E\left[x^{2}\right]<\infty$, then we have
+    $P\left\{ \left|x\right|>\varepsilon\right\} \leq E\left[x^{2}\right]/\varepsilon^{2}$
+    for any constant $\varepsilon>0$.
+
+Show that if $r_{2}\geq r_{1}\geq1$, then
+$E\left[\left|x\right|^{r_{2}}\right]<\infty$ implies
+$E\left[\left|x\right|^{r_{1}}\right]<\infty.$ (Hint: use Holder's
+inequality.)
+
+The Chebyshev inequality is a special case of the *Markov inequality*.
+
+-   *Markov inequality*: If a random variable $x$ has a finite $r$-th
+    absolute moment $E\left[\left|x\right|^{r}\right]<\infty$ for some
+    $r\ge1$, then we have
+    $P\left\{ \left|x\right|>\varepsilon\right\} \leq E\left[\left|x\right|^{r}\right]/\varepsilon^{r}$
+    any constant $\varepsilon>0$.
+
+It is easy to verify the Markov inequality.
+$$\begin{aligned}E\left[\left|x\right|^{r}\right] & =\int_{\left|x\right|>\varepsilon}\left|x\right|^{r}dF_{X}+\int_{\left|x\right|\leq\varepsilon}\left|x\right|^{r}dF_{X}\\
+ & \geq\int_{\left|x\right|>\varepsilon}\left|x\right|^{r}dF_{X}\\
+ & \geq\varepsilon^{r}\int_{\left|x\right|>\varepsilon}dF_{X}=\varepsilon^{r}P\left\{ \left|x\right|>\varepsilon\right\} .
+\end{aligned}$$ Rearrange the above inequality and we obtain the Markov
+inequality.
+
+Let the *partial sum* $S_{n}=\sum_{i=1}^{n}x_{i}$, where
+$\mu_{i}=E\left[x_{i}\right]$ and
+$\sigma_{i}^{2}=\mathrm{var}\left[x_{i}\right]$. We apply the Chebyshev
+inequality to the sample mean
+$z_{n}=\overline{x}-\bar{\mu}=n^{-1}\left(S_{n}-E\left[S_{n}\right]\right)$.
+$$\begin{aligned}
+P\left\{ \left|z_{n}\right|\geq\varepsilon\right\}  & =P\left\{ n^{-1}\left|S_{n}-E\left[S_{n}\right]\right|\geq\varepsilon\right\} \nonumber \\
+ & \leq E\left[\left(n^{-1}\sum_{i=1}^{n}\left(x_{i}-\mu_{i}\right)\right)^{2}\right]/\varepsilon^{2}\nonumber \\
+ & =\left(n\varepsilon\right)^{-2}\left\{ E\left[\sum_{i=1}^{n}\left(x_{i}-\mu_{i}\right)^{2}\right]+\sum_{i=1}^{n}\sum_{j\neq i}E\left[\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right]\right\} \nonumber \\
+ & =\left(n\varepsilon\right)^{-2}\left\{ \sum_{i=1}^{n}\mathrm{var}\left(x_{i}\right)+\sum_{i=1}^{n}\sum_{j\neq i}\mathrm{cov}\left(x_{i},x_{j}\right)\right\} .\label{eq:cheby_mean}\end{aligned}$$
+Convergence in probability holds if the right-hand side shrinks to 0 as
+$n\to\infty$. For example, If $x_{1},\ldots,x_{n}$ are iid with
+$\mathrm{var}\left(x_{1}\right)=\sigma^{2}$, then the RHS of
+([\[eq:cheby\_mean\]](#eq:cheby_mean){reference-type="ref"
+reference="eq:cheby_mean"}) is
+$\left(n\varepsilon\right)^{-2}\left(n\sigma^{2}\right)=o\left(n^{-1}\right)\to0$.
+This result gives the Chebyshev LLN:
+
+-   Chebyshev LLN: If $\left(z_{1},\ldots,z_{n}\right)$ is a sample of
+    iid observations, $E\left[z_{1}\right]=\mu$ , and
+    $\sigma^{2}=\mathrm{var}\left[z_{1}\right]<\infty$ exists, then
+    $\frac{1}{n}\sum_{i=1}^{n}z_{i}\stackrel{p}{\to}\mu.$
+
+The convergence in probability can be indeed maintained under much more
+general conditions than under iid case. The random variables in the
+sample do not have to be identically distributed, and they do not have
+to be independent either.
+
+Consider an inid (independent but non-identically distributed) sample
+$\left(x_{1},\ldots,x_{n}\right)$ with $E\left[x_{i}\right]=0$ and
+$\mathrm{var}\left[x_{i}\right]=\sqrt{n}c$ for some constant $c>0$. Use
+the Chebyshev inequality to show that
+$n^{-1}\sum_{i=1}^{n}x_{i}\stackrel{p}{\to}0$.
+
+Consider the time series moving average model
+$x_{i}=\varepsilon_{i}+\theta\varepsilon_{i-1}$ for $i=1,\ldots,n$,
+where $\left|\theta\right|<1$, $E\left[\varepsilon_{i}\right]=0$,
+$\mathrm{var}\left[\varepsilon_{i}\right]=\sigma^{2}$, and
+$\left(\varepsilon_{i}\right)_{i=0}^{n}$ iid. Use the Chebyshev
+inequality to show that $n^{-1}\sum_{i=1}^{n}x_{i}\stackrel{p}{\to}0$.
+
+Another useful LLN is the *Kolmogorov LLN*. Since its derivation
+requires more advanced knowledge of probability theory, we state the
+result without proof.
+
+-   Kolmogorov LLN: If $\left(z_{1},\ldots,z_{n}\right)$ is a sample of
+    iid observations and $E\left[z_{1}\right]=\mu$ exists, then
+    $\frac{1}{n}\sum_{i=1}^{n}z_{i}\stackrel{p}{\to}\mu$.
+
+Compared with the Chebyshev LLN, the Kolmogorov LLN only requires the
+existence of the population mean, but not any higher moments. On the
+other hand, iid is essential for the Kolmogorov LLN.
+
+Consider three distributions: standard normal $N\left(0,1\right)$,
+$t\left(2\right)$ (zero mean, infinite variance), and the Cauchy
+distribution (no moments exist). We plot paths of the sample average
+with $n=2^{1},2^{2},\ldots,2^{20}$. We will see that the sample averages
+of $N\left(0,1\right)$ and $t\left(2\right)$ converge, but that of the
+Cauchy distribution does not.
+
+**knitrout**
+
+Central Limit Theorem
+---------------------
+
+The central limit theorem (CLT) is a collection of probability results
+about the convergence in distribution to a stable distribution. The
+limiting distribution is usually the Gaussian distribution. The basic
+form of the CLT is:
+
+-   *Under some conditions to be spelled out*, the sample average of
+    *zero-mean* random variables $\left(z_{1},\ldots,z_{n}\right)$
+    multiplied by $\sqrt{n}$ satisfies
+    $$\frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}\stackrel{d}{\to}N\left(0,\sigma^{2}\right)$$
+    as $n\to\infty$.
+
+Various versions of CLT work under different assumptions about the
+random variables. *Lindeberg-Levy CLT* is the simplest CLT.
+
+-   If the sample $\left(x_{1},\ldots,x_{n}\right)$ is iid,
+    $E\left[x_{1}\right]=0$ and
+    $\mathrm{var}\left[x_{1}\right]=\sigma^{2}<\infty$, then
+    $\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}\stackrel{d}{\to}N\left(0,\sigma^{2}\right)$.
+
+Lindeberg-Levy CLT can be proved by the *moment generating function*.
+For any random variable $x$, the function
+$M_{x}\left(t\right)=E\left[\exp\left(xt\right)\right]$ is called its
+the *moment generating function* (MGF) if it exists. MGF fully describes
+a distribution, just like PDF or CDF. For example, the MGF of
+$N\left(\mu,\sigma^{2}\right)$ is
+$\exp\left(\mu t+\frac{1}{2}\sigma^{2}t^{2}\right)$.
+
+If $E\left[\left|x\right|^{k}\right]<\infty$ for a positive integer $k$,
+then
+$$M_{X}\left(t\right)=1+tE\left[X\right]+\frac{t^{2}}{2}E\left[X^{2}\right]+\ldots\frac{t}{k!}E\left[X^{k}\right]+O\left(t^{k+1}\right).$$
+Under the assumption of Lindeberg-Levy CLT,
+$$M_{\frac{X_{i}}{\sqrt{n}}}\left(t\right)=1+\frac{t^{2}}{2n}\sigma^{2}+O\left(\frac{t^{3}}{n^{3/2}}\right)$$
+for all $i$, and by independence we have
+$$\begin{aligned}M_{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}}\left(t\right) & =\prod_{i=1}^{n}M_{\frac{X_{i}}{\sqrt{n}}}\left(t\right)=\left(1+\frac{t^{2}}{2n}\sigma^{2}+O\left(\frac{t^{3}}{n^{3/2}}\right)\right)^{n}\\
+ & \to\exp\left(\frac{\sigma^{2}}{2}t^{2}\right),
+\end{aligned}$$ where the limit is exactly the characteristic function
+of $N\left(0,\sigma^{2}\right)$.
+
+This proof with MGF is simple and elementary. Its drawback is that not
+all distributions have a well-defined MGF. A more general proof can be
+carried out by replacing MGF with the *characteristic function*
+$\varphi_{x}\left(t\right)=E\left[\exp\left(\mathrm{i}xt\right)\right]$,
+where "$\mathrm{i}$" is the imaginary number. The characteristic
+function is the *Fourier transform* of the probability measure and it
+always exists. Such a proof will require background knowledge of Fourier
+transform and inverse transform, which we do not pursuit here.
+
+-   Lindeberg-Feller CLT: $\left(x_{i}\right)_{i=1}^{n}$ is inid. If the
+    *Lindeberg condition* is satisfied (for any fixed $\varepsilon>0$,
+    $\frac{1}{s_{n}^{2}}\sum_{i=1}^{n}E\left[x_{i}^{2}\cdot\boldsymbol{1}\left\{ \left|x_{i}\right|\geq\varepsilon s_{n}\right\} \right]\to0$
+    where $s_{n}=\sqrt{\sum_{i=1}^{n}\sigma_{i}^{2}}$), then we have
+    $$\frac{\sum_{i=1}^{n}x_{i}}{s_{n}}\stackrel{d}{\to}N\left(0,1\right).$$
+
+-   Lyapunov CLT: $\left(x_{i}\right)_{i=1}^{n}$ is inid. If
+    $\max_{i\leq n}E\left[\left|x_{i}\right|^{3}\right]<C<\infty,$ then
+    we have
+    $$\frac{\sum_{i=1}^{n}x_{i}}{s_{n}}\stackrel{d}{\to}N\left(0,1\right).$$
+
+This is a simulated example.
+
+\[knitrout\]
+
+Tools for Transformations
+-------------------------
+
+In their original forms, LLN deals with the sample mean, and CLT handles
+the scaled (by $\sqrt{n}$) and/or standardized (by standard deviation)
+sample mean. However, most of the econometric estimators of interest are
+functions of sample means. For example, in the OLS estimator
+$$\widehat{\beta}=\left(\frac{1}{n}\sum_{i}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i}x_{i}y_{i}$$
+involves matrix inverse and the matrix-vector multiplication. We need
+tools to handle transformations.
+
+-   Continuous mapping theorem 1: If $x_{n}\stackrel{p}{\to}a$ and
+    $f\left(\cdot\right)$ is continuous at $a$, then
+    $f\left(x_{n}\right)\stackrel{p}{\to}f\left(a\right)$.
+
+-   Continuous mapping theorem 2: If $x_{n}\stackrel{d}{\to}x$ and
+    $f\left(\cdot\right)$ is continuous almost surely on the support of
+    $x$, then $f\left(x_{n}\right)\stackrel{d}{\to}f\left(x\right)$.
+
+-   Slutsky's theorem: If $x_{n}\stackrel{d}{\to}x$ and
+    $y_{n}\stackrel{p}{\to}a$, then
+
+    -   $x_{n}+y_{n}\stackrel{d}{\to}x+a$
+
+    -   $x_{n}y_{n}\stackrel{d}{\to}ax$
+
+    -   $x_{n}/y_{n}\stackrel{d}{\to}x/a$ if $a\neq0$.
+
+Slutsky's theorem consists of special cases of the continuous mapping
+theorem 2. Only because the addition, multiplication and division are
+encountered so frequently in practice, we list it as a separate theorem.
+
+-   Delta method: if
+    $\sqrt{n}\left(\widehat{\theta}-\theta_{0}\right)\stackrel{d}{\to}N\left(0,\Omega\right)$,
+    and $f\left(\cdot\right)$ is continuously differentiable at
+    $\theta_{0}$ (meaning
+    $\frac{\partial}{\partial\theta}f\left(\cdot\right)$ is continuous
+    at $\theta_{0}$), then we have
+    $$\sqrt{n}\left(f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)\right)\stackrel{d}{\to}N\left(0,\frac{\partial f}{\partial\theta'}\left(\theta_{0}\right)\Omega\left(\frac{\partial f}{\partial\theta}\left(\theta_{0}\right)\right)'\right).$$
+
+Take a Taylor expansion of $f\left(\widehat{\theta}\right)$ around
+$f\left(\theta_{0}\right)$:
+$$f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)=\frac{\partial f\left(\dot{\theta}\right)}{\partial\theta'}\left(\widehat{\theta}-\theta_{0}\right),$$
+where $\dot{\theta}$ lies on the line segment between $\widehat{\theta}$
+and $\theta_{0}$. Multiply $\sqrt{n}$ on both sides,
+$$\sqrt{n}\left(f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)\right)=\frac{\partial f\left(\dot{\theta}\right)}{\partial\theta'}\sqrt{n}\left(\widehat{\theta}-\theta_{0}\right).$$
+Because $\widehat{\theta}\stackrel{p}{\to}\theta_{0}$ implies
+$\dot{\theta}\stackrel{p}{\to}\theta_{0}$ and
+$\frac{\partial}{\partial\theta'}f\left(\cdot\right)$ is continuous at
+$\theta_{0}$, we have
+$\frac{\partial}{\partial\theta'}f\left(\dot{\theta}\right)\stackrel{p}{\to}\frac{\partial f\left(\theta_{0}\right)}{\partial\theta'}$
+by the continuous mapping theorem 1. In view of
+$\sqrt{n}\left(\widehat{\theta}-\theta_{0}\right)\stackrel{d}{\to}N\left(0,\Omega\right)$,
+Slutsky's Theorem implies
+$$\sqrt{n}\left(f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)\right)\stackrel{d}{\to}\frac{\partial f\left(\theta_{0}\right)}{\partial\theta'}N\left(0,\Omega\right)$$
+and the conclusion follows.
+
+Summary
+-------
+
+Asymptotic theory is a topic with vast breadth and depth. In this
+chapter we only scratch the very surface of it. We will discuss in the
+next chapter how to apply the asymptotic tools we learned here to the
+OLS estimator.
+
+**Historical notes**: Before 1980s, most econometricians did not have a
+good training in mathematical rigor to master asymptotic theory. A few
+prominent young (at that time) econometricians came to the field and
+changed the situation, among them were Halbert White (UCSD), Peter
+C.B. Phillips (Yale) and Peter Robinson (LSE), to name a few.
+
+**Further reading**: Halbert White (1950-2012) wrote an accessible book
+[@white2014asymptotic first edition 1984] to introduce asymptotics to
+econometricians. This book remains popular among researchers and
+graduate students in economics. @davidson1994stochastic is a longer and
+more self-contained monograph.
+
+\bibliographystyle{chicagoa}
