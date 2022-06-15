@@ -15,6 +15,7 @@ lec_notes_lyx/*.md
 *.tex
 *figure/*.*
 _build/
+libzmq*/
 
 *.lnk
 
