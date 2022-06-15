@@ -1,0 +1,19 @@
+library(pbdZMQ)
+Configure IRkernel on Codespace
+
+# install libzmq
+
+wget https://github.com/zeromq/libzmq/archive/v4.2.3.tar.gz
+tar zxvf v4.2.3.tar.gz
+cd libzmq-4.2.3/
+./autogen.sh
+./configure --prefix=/usr
+make
+make install
+
+
+# apt-get install pkg-config
+
+
+install.packages("IRkernel")
+IRkernel::installspec()
