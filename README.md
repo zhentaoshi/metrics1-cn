@@ -3,7 +3,7 @@
 # Style guideline
 
 * Foreigners' names, unless household names like 高斯 or 欧拉, in general we don't need to translate.
-* Because sometime "." also appear in math, let's unity all 句号 into "." in the text and math. It can be done with *find-and-replace* after we complete a chapter.
+* Because sometime "." also appear in math, let's unify all 句号 into "." in the text and math. It can be done with *find-and-replace* after we complete a chapter.
 * Leave a space before and after a math symbol. 这样的 $\beta$ 比$\beta$好看。
 
 
