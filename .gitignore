@@ -16,6 +16,7 @@ lec_notes_lyx/*.md
 *figure/*.*
 _build/
 libzmq*/
+.vscode/
 
 *.lnk
 
