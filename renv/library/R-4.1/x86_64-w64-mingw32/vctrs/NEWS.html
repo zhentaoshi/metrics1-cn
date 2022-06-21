@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vctrs 0.3.8 &#8212; 计量经济学</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/vctrs/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/vctrs/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   vctrs 0.3.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-7">
+   vctrs 0.3.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-6">
+   vctrs 0.3.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-5">
+   vctrs 0.3.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-4">
+   vctrs 0.3.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-3">
+   vctrs 0.3.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-2">
+   vctrs 0.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-1">
+   vctrs 0.3.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cran-results">
+     CRAN results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-0">
+   vctrs 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reverse-dependencies-troubleshooting">
+     Reverse dependencies troubleshooting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-system">
+     Type system
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compatibility-and-fallbacks">
+     Compatibility and fallbacks
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-operations">
+     Vector operations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-and-names">
+     Indexing and names
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditions">
+     Conditions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     CRAN results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-4">
+   vctrs 0.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-3">
+   vctrs 0.2.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-2">
+   vctrs 0.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-1">
+   vctrs 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-0">
+   vctrs 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-features-and-bug-fixes">
+     Other features and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>vctrs 0.3.8</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   vctrs 0.3.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-7">
+   vctrs 0.3.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-6">
+   vctrs 0.3.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-5">
+   vctrs 0.3.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-4">
+   vctrs 0.3.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-3">
+   vctrs 0.3.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-2">
+   vctrs 0.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-1">
+   vctrs 0.3.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cran-results">
+     CRAN results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-3-0">
+   vctrs 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reverse-dependencies-troubleshooting">
+     Reverse dependencies troubleshooting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-system">
+     Type system
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compatibility-and-fallbacks">
+     Compatibility and fallbacks
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-operations">
+     Vector operations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-and-names">
+     Indexing and names
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditions">
+     Conditions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     CRAN results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-4">
+   vctrs 0.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-3">
+   vctrs 0.2.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-2">
+   vctrs 0.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-1">
+   vctrs 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vctrs-0-2-0">
+   vctrs 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-features-and-bug-fixes">
+     Other features and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-8">
+<h1>vctrs 0.3.8<a class="headerlink" href="#vctrs-0-3-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Compatibility with next version of rlang.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-7">
+<h1>vctrs 0.3.7<a class="headerlink" href="#vctrs-0-3-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype_abbr()</span></code> gains arguments to control whether to indicate
+named vectors with a prefix (<code class="docutils literal notranslate"><span class="pre">prefix_named</span></code>) and indicate shaped
+vectors with a suffix (<code class="docutils literal notranslate"><span class="pre">suffix_shape</span></code>) (#781, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> is now an optional <em>performance</em> generic. It is not necessary
+to implement, but if your class has a static prototype, you might consider
+implementing a custom <code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> method that returns a constant to
+improve performance in some cases (such as common type imputation).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_detect_complete()</span></code>, inspired by <code class="docutils literal notranslate"><span class="pre">stats::complete.cases()</span></code>. For most
+vectors, this is identical to <code class="docutils literal notranslate"><span class="pre">!vec_equal_na()</span></code>. For data frames and
+matrices, this detects rows that only contain non-missing values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_order()</span></code> can now order complex vectors (#1330).</p></li>
+<li><p>Removed dependency on digest in favor of <code class="docutils literal notranslate"><span class="pre">rlang::hash()</span></code>.</p></li>
+<li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">vctrs_rcrd</span></code> objects were not being proxied correctly
+when used as a data frame column (#1318).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">register_s3()</span></code> is now licensed with the “unlicense” which makes it very
+clear that it’s fine to copy and paste into your own package
+(&#64;maxheld83, #1254).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-6">
+<h1>vctrs 0.3.6<a class="headerlink" href="#vctrs-0-3-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed an issue with tibble 3.0.0 where removing column names with
+<code class="docutils literal notranslate"><span class="pre">names(x)</span> <span class="pre">&lt;-</span> <span class="pre">NULL</span></code> is now deprecated (#1298).</p></li>
+<li><p>Fixed a GCC 11 issue revealed by CRAN checks.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-5">
+<h1>vctrs 0.3.5<a class="headerlink" href="#vctrs-0-3-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New experimental <code class="docutils literal notranslate"><span class="pre">vec_fill_missing()</span></code> for filling in missing values with
+the previous or following value. It is similar to <code class="docutils literal notranslate"><span class="pre">tidyr::fill()</span></code>, but
+also works with data frames and has an additional <code class="docutils literal notranslate"><span class="pre">max_fill</span></code> argument to
+limit the number of sequential missing values to fill.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_unrep()</span></code> to compress a vector with repeated values. It is very
+similar to run length encoding, and works nicely alongside <code class="docutils literal notranslate"><span class="pre">vec_rep_each()</span></code>
+as a way to invert the compression.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code> with only empty data frames now preserves the common size of
+the inputs in the result (#1281).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> now correctly returns a named result with named empty inputs
+(#1263).</p></li>
+<li><p>vctrs has been relicensed as MIT (#1259).</p></li>
+<li><p>Functions that make comparisons within a single vector, such as
+<code class="docutils literal notranslate"><span class="pre">vec_unique()</span></code>, or between two vectors, such as <code class="docutils literal notranslate"><span class="pre">vec_match()</span></code>, now
+convert all character input to UTF-8 before making comparisons (#1246).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_identify_runs()</span></code> which returns a vector of identifiers for the
+elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> that indicate which run of repeated values they fall in
+(#1081).</p></li>
+<li><p>Fixed an encoding translation bug with lists containing data frames which
+have columns where <code class="docutils literal notranslate"><span class="pre">vec_size()</span></code> is different from the low level
+<code class="docutils literal notranslate"><span class="pre">Rf_length()</span></code> (#1233).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-4">
+<h1>vctrs 0.3.4<a class="headerlink" href="#vctrs-0-3-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a GCC sanitiser error revealed by CRAN checks.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-3">
+<h1>vctrs 0.3.3<a class="headerlink" href="#vctrs-0-3-3" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">table</span></code> class is now implemented as a wrapper type that
+delegates its coercion methods. It used to be restricted to integer
+tables (#1190).</p></li>
+<li><p>Named one-dimensional arrays now behave consistently with simple
+vectors in <code class="docutils literal notranslate"><span class="pre">vec_names()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_rcrd()</span></code> now uses <code class="docutils literal notranslate"><span class="pre">df_list()</span></code> to validate the fields. This makes
+it more flexible as the fields can now be of any type supported by
+vctrs, including data frames.</p></li>
+<li><p>Thanks to the previous change the <code class="docutils literal notranslate"><span class="pre">[[</span></code> method of records now
+preserves list fields (#1205).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_data()</span></code> now preserves data frames. This is consistent with the
+notion that data frames are a primitive vector type in vctrs. This
+shouldn’t affect code that uses <code class="docutils literal notranslate"><span class="pre">[[</span></code> and <code class="docutils literal notranslate"><span class="pre">length()</span></code> to manipulate
+the data. On the other hand, the vctrs primitives like <code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code>
+will now operate rowwise when <code class="docutils literal notranslate"><span class="pre">vec_data()</span></code> returns a data frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outer</span></code> is now passed unrecycled to name specifications. Instead,
+the return value is recycled (#1099).</p></li>
+<li><p>Name specifications can now return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. The names vector will
+only be allocated if the spec function returns non-<code class="docutils literal notranslate"><span class="pre">NULL</span></code> during the
+concatenation. This makes it possible to ignore outer names without
+having to create an empty names vector when there are no inner
+names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zap_outer_spec</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">is_character</span><span class="p">(</span><span class="n">inner</span><span class="p">))</span> <span class="n">inner</span>
+
+<span class="c1"># `NULL` names rather than a vector of &quot;&quot;</span>
+<span class="n">names</span><span class="p">(</span><span class="n">vec_c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="n">name_spec</span> <span class="o">=</span> <span class="n">zap_outer_spec</span><span class="p">))</span>
+<span class="c1">#&gt; NULL</span>
+
+<span class="c1"># Names are allocated when inner names exist</span>
+<span class="n">names</span><span class="p">(</span><span class="n">vec_c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="n">L</span><span class="p">),</span> <span class="o">.</span><span class="n">name_spec</span> <span class="o">=</span> <span class="n">zap_outer_spec</span><span class="p">))</span>
+<span class="c1">#&gt; [1] &quot;&quot;  &quot;&quot;  &quot;b&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Fixed several performance issues in <code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_unchop()</span></code>
+with named vectors.</p></li>
+<li><p>The restriction that S3 lists must have a list-based proxy to be considered
+lists by <code class="docutils literal notranslate"><span class="pre">vec_is_list()</span></code> has been removed (#1208).</p></li>
+<li><p>New performant <code class="docutils literal notranslate"><span class="pre">data_frame()</span></code> constructor for creating data frames in a way
+that follows tidyverse semantics. Among other things, inputs are recycled
+using tidyverse recycling rules, strings are never converted to factors,
+list-columns are easier to create, and unnamed data frame input is
+automatically spliced.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">df_list()</span></code> for safely and consistently constructing the data structure
+underlying a data frame, a named list of equal-length vectors. It is useful
+in combination with <code class="docutils literal notranslate"><span class="pre">new_data_frame()</span></code> for creating user-friendly
+constructors for data frame subclasses that use the tidyverse rules for
+recycling and determining types.</p></li>
+<li><p>Fixed performance issue with <code class="docutils literal notranslate"><span class="pre">vec_order()</span></code> on classed vectors which
+affected <code class="docutils literal notranslate"><span class="pre">dplyr::group_by()</span></code> (tidyverse/dplyr#5423).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_set_names()</span></code> no longer alters the input in-place (#1194).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_proxy_order()</span></code> that provides an ordering proxy for use in
+<code class="docutils literal notranslate"><span class="pre">vec_order()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_sort()</span></code>. The default method falls through to
+<code class="docutils literal notranslate"><span class="pre">vec_proxy_compare()</span></code>. Lists are special cased, and return an integer
+vector proxy that orders by first appearance.</p></li>
+<li><p>List columns in data frames are no longer comparable through <code class="docutils literal notranslate"><span class="pre">vec_compare()</span></code>.</p></li>
+<li><p>The experimental <code class="docutils literal notranslate"><span class="pre">relax</span></code> argument has been removed from
+<code class="docutils literal notranslate"><span class="pre">vec_proxy_compare()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-2">
+<h1>vctrs 0.3.2<a class="headerlink" href="#vctrs-0-3-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a performance issue in <code class="docutils literal notranslate"><span class="pre">bind_rows()</span></code> with S3 columns (#1122,
+#1124, #1151, tidyverse/dplyr#5327).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> now checks sizes of data frame columns in case the
+data structure is corrupt (#552).</p></li>
+<li><p>The native routines in vctrs now dispatch and evaluate in the vctrs
+namespace. This improves the continuity of evaluation in backtraces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_data_frame()</span></code> is now twice as fast when <code class="docutils literal notranslate"><span class="pre">class</span></code> is supplied.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_names2()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_names()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_set_names()</span></code> (#1173).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-1">
+<h1>vctrs 0.3.1<a class="headerlink" href="#vctrs-0-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> no longer restores attributes of foreign objects for
+which a <code class="docutils literal notranslate"><span class="pre">[</span></code> method exist. This fixes an issue with <code class="docutils literal notranslate"><span class="pre">ts</span></code> objects
+which were previously incorrectly restored.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">as.list()</span></code> method for <code class="docutils literal notranslate"><span class="pre">vctrs_rcrd</span></code> objects has been removed in favor
+of directly using the method for <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code>, which calls <code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now fall back to <code class="docutils literal notranslate"><span class="pre">base::c()</span></code> if the
+inputs have a common class hierarchy for which a <code class="docutils literal notranslate"><span class="pre">c()</span></code> method is
+implemented but no self-to-self <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> method is
+implemented.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now internally calls <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code> on
+the data frame common type that is used to create the output (#1109).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_location2(&quot;0&quot;)</span></code> now works correctly (#1131).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?reference-faq-compatibility</span></code> is a new reference guide on vctrs
+primitives. It includes an overview of the fallbacks to base R
+generics implemented in vctrs for compatibility with existing
+classes.</p></li>
+<li><p>The documentation of vctrs functions now includes a Dependencies
+section to reference which other vctrs operations are called from
+that function. By following the dependencies links recursively, you
+will find the vctrs primitives on which an operation relies.</p></li>
+</ul>
+<div class="section" id="cran-results">
+<h2>CRAN results<a class="headerlink" href="#cran-results" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed type declaration mismatches revealed by LTO build.</p></li>
+<li><p>Fixed r-devel issue with new <code class="docutils literal notranslate"><span class="pre">c.factor()</span></code> method.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-3-0">
+<h1>vctrs 0.3.0<a class="headerlink" href="#vctrs-0-3-0" title="Permalink to this headline">¶</a></h1>
+<p>This version features an overhaul of the coercion system to make it
+more consistent and easier to implement. See the <em>Breaking changes</em>
+and <em>Type system</em> sections for details.</p>
+<p>There are three new documentation topics if you’d like to learn how to
+implement coercion methods to make your class compatible with
+tidyverse packages like dplyr:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://vctrs.r-lib.org/reference/theory-faq-coercion.html">https://vctrs.r-lib.org/reference/theory-faq-coercion.html</a> for an
+overview of the coercion mechanism in vctrs.</p></li>
+<li><p><a class="reference external" href="https://vctrs.r-lib.org/reference/howto-faq-coercion.html">https://vctrs.r-lib.org/reference/howto-faq-coercion.html</a> for a
+practical guide about implementing methods for vectors.</p></li>
+<li><p><a class="reference external" href="https://vctrs.r-lib.org/reference/howto-faq-coercion-data-frame.html">https://vctrs.r-lib.org/reference/howto-faq-coercion-data-frame.html</a>
+for a practical guide about implementing methods for data frames.</p></li>
+</ul>
+<div class="section" id="reverse-dependencies-troubleshooting">
+<h2>Reverse dependencies troubleshooting<a class="headerlink" href="#reverse-dependencies-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>The following errors are caused by breaking changes.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Can't</span> <span class="pre">convert</span> <span class="pre">&lt;character&gt;</span> <span class="pre">to</span> <span class="pre">&lt;list&gt;.&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> no longer converts to list. Use <code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code> or
+<code class="docutils literal notranslate"><span class="pre">as.list()</span></code> instead.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Can't</span> <span class="pre">convert</span> <span class="pre">&lt;integer&gt;</span> <span class="pre">to</span> <span class="pre">&lt;character&gt;.&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> no longer converts to character. Use <code class="docutils literal notranslate"><span class="pre">as.character()</span></code>to
+deparse objects.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;names</span> <span class="pre">for</span> <span class="pre">target</span> <span class="pre">but</span> <span class="pre">not</span> <span class="pre">for</span> <span class="pre">current&quot;</span></code></p>
+<p>Names of list-columns are now preserved by <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>. Adjust
+tests accordingly.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Double-dispatch methods for <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> are no
+longer inherited (#710). Class implementers must implement one set
+of methods for each compatible class.</p>
+<p>For example, a tibble subclass no longer inherits from the
+<code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods between <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> and <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>. This means
+that you explicitly need to implement <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods with
+<code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> and <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>.</p>
+<p>This change requires a bit more work from class maintainers but is
+safer because the coercion hierarchies are generally different from
+class hierarchies. See the S3 dispatch section of <code class="docutils literal notranslate"><span class="pre">?vec_ptype2</span></code> for
+more information.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> is now restricted to the same conversions as
+<code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods (#606, #741). This change is motivated by
+safety and performance:</p>
+<ul class="simple">
+<li><p>It is generally sloppy to generically convert arbitrary inputs to
+one type. Restricted coercions are more predictable and allow your
+code to fail earlier when there is a type issue.</p></li>
+<li><p>When unrestricted conversions are useful, this is generally
+towards a known type. For example, <code class="docutils literal notranslate"><span class="pre">glue::glue()</span></code> needs to convert
+arbitrary inputs to the known character type. In this case, using
+double dispatch instead of a single dispatch generic like
+<code class="docutils literal notranslate"><span class="pre">as.character()</span></code> is wasteful.</p></li>
+<li><p>To implement the useful semantics of coercible casts (already used
+in <code class="docutils literal notranslate"><span class="pre">vec_assign()</span></code>), two double dispatch were needed. Now it can be
+done with one double dispatch by calling <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> directly.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop_incompatible_cast()</span></code> now throws an error of class
+<code class="docutils literal notranslate"><span class="pre">vctrs_error_incompatible_type</span></code> rather than <code class="docutils literal notranslate"><span class="pre">vctrs_error_incompatible_cast</span></code>.
+This means that <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> also throws errors of this class, which better
+aligns it with <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> now that they are restricted to the same
+conversions.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">y</span></code> argument of <code class="docutils literal notranslate"><span class="pre">stop_incompatible_cast()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">to</span></code> to
+better match <code class="docutils literal notranslate"><span class="pre">to_arg</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="type-system">
+<h2>Type system<a class="headerlink" href="#type-system" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Double-dispatch methods for <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> are now
+easier to implement. They no longer need any the boiler plate.
+Implementing a method for classes <code class="docutils literal notranslate"><span class="pre">foo</span></code> and <code class="docutils literal notranslate"><span class="pre">bar</span></code> is now as simple as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39; @export</span>
+<span class="n">vec_ptype2</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="n">new_foo</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>vctrs also takes care of implementing the default and unspecified
+methods. If you have implemented these methods, they are no longer
+called and can now be removed.</p>
+<p>One consequence of the new dispatch mechanism is that <code class="docutils literal notranslate"><span class="pre">NextMethod()</span></code>
+is now completely unsupported. This is for the best as it never
+worked correctly in a double-dispatch setting. Parent methods must
+now be called manually.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods now get zero-size prototypes as inputs. This
+guarantees that methods do not peek at the data to determine the
+richer type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_is_list()</span></code> no longer allows S3 lists that implement a <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code>
+method to automatically be considered lists. A S3 list must explicitly
+inherit from <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> in the base class to be considered a list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code> no longer restores row names if the target is not a
+data frame. This fixes an issue where <code class="docutils literal notranslate"><span class="pre">POSIXlt</span></code> objects would carry
+a <code class="docutils literal notranslate"><span class="pre">row.names</span></code> attribute after a proxy/restore roundtrip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> to and from data frames preserves the row names of
+inputs.</p></li>
+<li><p>The internal function <code class="docutils literal notranslate"><span class="pre">vec_names()</span></code> now returns row names if the
+input is a data frame. Similarly, <code class="docutils literal notranslate"><span class="pre">vec_set_names()</span></code> sets row names
+on data frames. This is part of a general effort at making row names
+the vector names of data frames in vctrs.</p>
+<p>If necessary, the row names are repaired verbosely but without error
+to make them unique. This should be a mostly harmless change for
+users, but it could break unit tests in packages if they make
+assumptions about the row names.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="compatibility-and-fallbacks">
+<h2>Compatibility and fallbacks<a class="headerlink" href="#compatibility-and-fallbacks" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>With the double dispatch changes, the coercion methods are no longer
+inherited from parent classes. This is because the coercion
+hierarchy is in principle different from the S3 hierarchy. A
+consequence of this change is that subclasses that don’t implement
+coercion methods are now in principle incompatible.</p>
+<p>This is particularly problematic with subclasses of data frames for
+which throwing incompatible errors would be too incovenient for
+users. To work around this, we have implemented a fallback to the
+relevant base data frame class (either <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> or <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code>) in
+coercion methods (#981). This fallback is silent unless you set the
+<code class="docutils literal notranslate"><span class="pre">vctrs:::warn_on_fallback</span></code> option to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p>
+<p>In the future we may extend this fallback principle to other base
+types when they are explicitly included in the class vector (such as
+<code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code>).</p>
+</li>
+<li><p>Improved support for foreign classes in the combining operations
+<code class="docutils literal notranslate"><span class="pre">vec_c()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>, and <code class="docutils literal notranslate"><span class="pre">vec_unchop()</span></code>. A foreign class is a
+class that doesn’t implement <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code>. When all the objects to
+combine have the same foreign class, one of these fallbacks is invoked:</p>
+<ul class="simple">
+<li><p>If the class implements a <code class="docutils literal notranslate"><span class="pre">base::c()</span></code> method, the method is used
+for the combination. (FIXME: <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> currently doesn’t use
+this fallback.)</p></li>
+<li><p>Otherwise if the objects have identical attributes and the same
+base type, we consider them to be compatible. The vectors are
+concatenated and the attributes are restored (#776).</p></li>
+</ul>
+<p>These fallbacks do not make your class completely compatible with
+vctrs-powered packages, but they should help in many simple cases.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_unchop()</span></code> now fall back to <code class="docutils literal notranslate"><span class="pre">base::c()</span></code> for S4 objects if
+the object doesn’t implement <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> but sets an S4 <code class="docutils literal notranslate"><span class="pre">c()</span></code>
+method (#919).</p></li>
+</ul>
+</div>
+<div class="section" id="vector-operations">
+<h2>Vector operations<a class="headerlink" href="#vector-operations" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> with data frame inputs now consistently
+preserve the names of list-columns, df-columns, and matrix-columns
+(#689). This can cause some false positives in unit tests, if they
+are sensitive to internal names (#1007).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now repairs row names silently to avoid confusing
+messages when the row names are not informative and were not created
+on purpose.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> gains option to treat input names as row names. This
+is disabled by default (#966).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_rep()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_rep_each()</span></code> for repeating an entire vector
+and elements of a vector, respectively. These two functions provide
+a clearer interface for the functionality of <code class="docutils literal notranslate"><span class="pre">vec_repeat()</span></code>, which
+is now deprecated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code> now calls <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code> on inputs emptied of their
+columns before computing the common type. This has
+consequences for data frame classes with special columns that
+devolve into simpler classes when the columns are subsetted
+out. These classes are now always simplified by <code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code>.</p>
+<p>For instance, column-binding a grouped data frame with a data frame
+now produces a tibble (the simplified class of a grouped data
+frame).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_match()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_in()</span></code> gain parameters for argument tags (#944).</p></li>
+<li><p>The internal version of <code class="docutils literal notranslate"><span class="pre">vec_assign()</span></code> now has support for assigning
+names and inner names. For data frames, the names are assigned
+recursively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_assign()</span></code> gains <code class="docutils literal notranslate"><span class="pre">x_arg</span></code> and <code class="docutils literal notranslate"><span class="pre">value_arg</span></code> parameters (#918).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_group_loc()</span></code>, which powers <code class="docutils literal notranslate"><span class="pre">dplyr::group_by()</span></code>, now has more
+efficient vector access (#911).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> gained an <code class="docutils literal notranslate"><span class="pre">x_arg</span></code> argument.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">list_sizes()</span></code> for computing the size of every element in a list.
+<code class="docutils literal notranslate"><span class="pre">list_sizes()</span></code> is to <code class="docutils literal notranslate"><span class="pre">vec_size()</span></code> as <code class="docutils literal notranslate"><span class="pre">lengths()</span></code> is to <code class="docutils literal notranslate"><span class="pre">length()</span></code>, except
+that it only supports lists. Atomic vectors and data frames result in an
+error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_data_frame()</span></code> infers size from row names when <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">NULL</span></code> (#894).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> now accepts <code class="docutils literal notranslate"><span class="pre">rlang::zap()</span></code> as <code class="docutils literal notranslate"><span class="pre">.name_spec</span></code> input. The
+returned vector is then always unnamed, and the names do not cause
+errors when they can’t be combined. They are still used to create
+more informative messages when the inputs have incompatible types (#232).</p></li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>vctrs now supports the <code class="docutils literal notranslate"><span class="pre">data.table</span></code> class. The common type of a data
+frame and a data table is a data table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_vctr()</span></code> now always appends a base <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> class to list <code class="docutils literal notranslate"><span class="pre">.data</span></code> to
+be compatible with changes to <code class="docutils literal notranslate"><span class="pre">vec_is_list()</span></code>. This affects <code class="docutils literal notranslate"><span class="pre">new_list_of()</span></code>,
+which now returns an object with a base class of <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code>.</p></li>
+<li><p>dplyr methods are now implemented for <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code>, and <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code>. The user-visible consequence (and
+breaking change) is that row-binding a grouped data frame and a data
+frame or tibble now returns a grouped data frame. It would
+previously return a tibble.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">is.na&lt;-()</span></code> method for <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code> now supports numeric and
+character subscripts to indicate where to insert missing values (#947).</p></li>
+<li><p>Improved support for vector-like S4 objects (#550, #551).</p></li>
+<li><p>The base classes <code class="docutils literal notranslate"><span class="pre">AsIs</span></code> and <code class="docutils literal notranslate"><span class="pre">table</span></code> have vctrs methods (#904, #906).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POSIXlt</span></code> and <code class="docutils literal notranslate"><span class="pre">POSIXct</span></code> vectors are handled more consistently (#901).</p></li>
+<li><p>Ordered factors that do not have identical levels are now incompatible.
+They are now incompatible with all factors.</p></li>
+</ul>
+</div>
+<div class="section" id="indexing-and-names">
+<h2>Indexing and names<a class="headerlink" href="#indexing-and-names" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_subscript()</span></code> now fails when the subscript is a matrix or an
+array, consistently with <code class="docutils literal notranslate"><span class="pre">vec_as_location()</span></code>.</p></li>
+<li><p>Improved error messages in <code class="docutils literal notranslate"><span class="pre">vec_as_location()</span></code> when subscript is a
+matrix or array (#936).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_location2()</span></code> properly picks up <code class="docutils literal notranslate"><span class="pre">subscript_arg</span></code>
+(tidyverse/tibble#735).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_names()</span></code> now has more informative error messages when names
+are not unique (#882).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_names()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">repair_arg</span></code> argument that when set will cause
+<code class="docutils literal notranslate"><span class="pre">repair</span> <span class="pre">=</span> <span class="pre">&quot;check_unique&quot;</span></code> to generate an informative hint (#692).</p></li>
+</ul>
+</div>
+<div class="section" id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stop_incompatible_type()</span></code> now has an <code class="docutils literal notranslate"><span class="pre">action</span></code> argument for customizing
+whether the coercion error came from <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> or <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">stop_incompatible_cast()</span></code> is now a thin wrapper around
+<code class="docutils literal notranslate"><span class="pre">stop_incompatible_type(action</span> <span class="pre">=</span> <span class="pre">&quot;convert&quot;)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop_</span></code> functions now take <code class="docutils literal notranslate"><span class="pre">details</span></code> after the dots. This argument
+can no longer be passed by position.</p></li>
+<li><p>Supplying both <code class="docutils literal notranslate"><span class="pre">details</span></code> and <code class="docutils literal notranslate"><span class="pre">message</span></code> to the <code class="docutils literal notranslate"><span class="pre">stop_</span></code> functions is
+now an internal error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_arg</span></code>, <code class="docutils literal notranslate"><span class="pre">y_arg</span></code>, and <code class="docutils literal notranslate"><span class="pre">to_arg</span></code> are now compulsory arguments in
+<code class="docutils literal notranslate"><span class="pre">stop_</span></code> functions like <code class="docutils literal notranslate"><span class="pre">stop_incompatible_type()</span></code>.</p></li>
+<li><p>Lossy cast errors are now considered internal. Please don’t test for
+the class or explicitly handle them.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">loss_type</span></code> for the experimental function
+<code class="docutils literal notranslate"><span class="pre">maybe_lossy_cast()</span></code>. It can take the values “precision” or
+“generality” to indicate in the error message which kind of loss is
+the error about (double to integer loses precision, character to
+factor loses generality).</p></li>
+<li><p>Coercion and recycling errors are now more consistent.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>CRAN results<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed clang-UBSAN error “nan is outside the range of representable
+values of type ‘int’” (#902).</p></li>
+<li><p>Fixed compilation of stability vignette following the date
+conversion changes on R-devel.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-2-4">
+<h1>vctrs 0.2.4<a class="headerlink" href="#vctrs-0-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Factors and dates methods are now implemented in C for efficiency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_data_frame()</span></code> now correctly updates attributes and supports merging
+of the <code class="docutils literal notranslate"><span class="pre">&quot;names&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;row.names&quot;</span></code> arguments (#883).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_match()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">na_equal</span></code> argument (#718).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code>’s <code class="docutils literal notranslate"><span class="pre">indices</span></code> argument has been restricted to positive integer
+vectors. Character and logical subscripts haven’t proven useful, and this
+aligns <code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code> with <code class="docutils literal notranslate"><span class="pre">vec_unchop()</span></code>, for which only positive integer
+vectors make sense.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_unchop()</span></code> for combining a list of vectors into a single vector. It
+is similar to <code class="docutils literal notranslate"><span class="pre">vec_c()</span></code>, but gives greater control over how the elements
+are placed in the output through the use of a secondary <code class="docutils literal notranslate"><span class="pre">indices</span></code> argument.</p></li>
+<li><p>Breaking change: When <code class="docutils literal notranslate"><span class="pre">.id</span></code> is supplied, <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now creates
+the identifier column at the start of the data frame rather than at
+the end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numeric_version</span></code> and <code class="docutils literal notranslate"><span class="pre">package_version</span></code> lists are now treated as
+vectors (#723).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> now properly handles symbols and S3 subscripts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_location()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_as_subscript()</span></code> are now fully
+implemented in C for efficiency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_as_location()</span></code> gains a new argument, <code class="docutils literal notranslate"><span class="pre">zero</span></code>, for controlling whether
+to <code class="docutils literal notranslate"><span class="pre">&quot;remove&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ignore&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code> on zero values (#852).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-2-3">
+<h1>vctrs 0.2.3<a class="headerlink" href="#vctrs-0-2-3" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>The main feature of this release is considerable performance
+improvements with factors and dates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> now falls back to <code class="docutils literal notranslate"><span class="pre">base::c()</span></code> if the vector doesn’t
+implement <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> but implements <code class="docutils literal notranslate"><span class="pre">c()</span></code>. This should improve
+the compatibility of vctrs-based functions with foreign classes
+(#801).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_data_frame()</span></code> is now faster.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_is_list()</span></code> for detecting if a vector is a list in the vctrs sense.
+For instance, objects of class <code class="docutils literal notranslate"><span class="pre">lm</span></code> are not lists. In general, classes need
+to explicitly inherit from <code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> to be considered as lists by vctrs.</p></li>
+<li><p>Unspecified vectors of <code class="docutils literal notranslate"><span class="pre">NA</span></code> can now be assigned into a list (#819).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">vec_slice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">NA</span>
+<span class="n">x</span>
+<span class="c1">#&gt; [[1]]</span>
+<span class="c1">#&gt; NULL</span>
+<span class="c1">#&gt;</span>
+<span class="c1">#&gt; [[2]]</span>
+<span class="c1">#&gt; 2</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> now errors on scalar inputs (#807).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype_finalise()</span></code> is now recursive over all data frame types, ensuring
+that unspecified columns are correctly finalised to logical (#800).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> now correctly handles unspecified columns in data frames, and
+will always return an unspecified column type (#800).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code> now work correctly with <code class="docutils literal notranslate"><span class="pre">bit64::integer64()</span></code>
+objects when an <code class="docutils literal notranslate"><span class="pre">NA</span></code> subscript is supplied. By extension, this means that
+<code class="docutils literal notranslate"><span class="pre">vec_init()</span></code> now works with these objects as well (#813).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now binds row names. When named inputs are supplied
+and <code class="docutils literal notranslate"><span class="pre">names_to</span></code> is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, the names define row names. If <code class="docutils literal notranslate"><span class="pre">names_to</span></code>
+is supplied, they are assigned in the column name as before.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code> now uses the row names of the first named input.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">c()</span></code> method for <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code> now throws an error when
+<code class="docutils literal notranslate"><span class="pre">recursive</span></code> or <code class="docutils literal notranslate"><span class="pre">use.names</span></code> is supplied (#791).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-2-2">
+<h1>vctrs 0.2.2<a class="headerlink" href="#vctrs-0-2-2" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_as_subscript()</span></code> function to cast inputs to the base type
+of a subscript (logical, numeric, or character). <code class="docutils literal notranslate"><span class="pre">vec_as_index()</span></code>
+has been renamed to <code class="docutils literal notranslate"><span class="pre">vec_as_location()</span></code>. Use <code class="docutils literal notranslate"><span class="pre">num_as_location()</span></code> if
+you need more options to control how numeric subscripts are
+converted to a vector of locations.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_as_subscript2()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_as_location2()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">num_as_location2()</span></code> variants for validating scalar subscripts and
+locations (e.g. for indexing with <code class="docutils literal notranslate"><span class="pre">[[</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_as_location()</span></code> now preserves names of its inputs if possible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods for base classes now prevent
+inheritance. This makes sense because the subtyping graph created by
+<code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> methods is generally not the same as the inheritance
+relationships defined by S3 classes. For instance, subclasses are
+often a richer type than their superclasses, and should often be
+declared as supertypes (e.g. <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> should return the
+subclass).</p>
+<p>We introduced this breaking change in a patch release because
+<code class="docutils literal notranslate"><span class="pre">new_vctr()</span></code> now adds the base type to the class vector by default,
+which caused <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> to dispatch erroneously to the methods
+for base types. We’ll finish switching to this approach in vctrs
+0.3.0 for the rest of the base S3 classes (dates, data frames, …).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_equal_na()</span></code> now works with complex vectors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code> class gains an <code class="docutils literal notranslate"><span class="pre">as.POSIXlt()</span></code> method (#717).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_is()</span></code> now ignores names and row names (#707).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> now support Altvec vectors (&#64;jimhester, #696).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_proxy_equal()</span></code> is now applied recursively across the columns of
+data frames (#641).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_split()</span></code> no longer returns the <code class="docutils literal notranslate"><span class="pre">val</span></code> column as a <code class="docutils literal notranslate"><span class="pre">list_of</span></code>. It is now
+returned as a bare list (#660).</p></li>
+<li><p>Complex numbers are now coercible with integer and double (#564).</p></li>
+<li><p>zeallot has been moved from Imports to Suggests, meaning that <code class="docutils literal notranslate"><span class="pre">%&lt;-%</span></code> is no
+longer re-exported from vctrs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_equal()</span></code> no longer propagates missing values when comparing list
+elements. This means that <code class="docutils literal notranslate"><span class="pre">vec_equal(list(NULL),</span> <span class="pre">list(NULL))</span></code> will continue to
+return <code class="docutils literal notranslate"><span class="pre">NA</span></code> because <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is the missing element for a list, but now
+<code class="docutils literal notranslate"><span class="pre">vec_equal(list(NA),</span> <span class="pre">list(NA))</span></code> returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> because the <code class="docutils literal notranslate"><span class="pre">NA</span></code> values are
+compared directly without checking for missingness.</p></li>
+<li><p>Lists of expressions are now supported in <code class="docutils literal notranslate"><span class="pre">vec_equal()</span></code> and functions that
+compare elements, such as <code class="docutils literal notranslate"><span class="pre">vec_unique()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_match()</span></code>. This ensures that
+they work with the result of modeling functions like <code class="docutils literal notranslate"><span class="pre">glm()</span></code> and <code class="docutils literal notranslate"><span class="pre">mgcv::gam()</span></code>
+which store “family” objects containing expressions (#643).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_vctr()</span></code> gains an experimental <code class="docutils literal notranslate"><span class="pre">inherit_base_type</span></code> argument
+which determines whether or not the class of the underlying type
+will be included in the class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of()</span></code> now inherits explicitly from “list” (#593).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> has relaxed default behaviour for base types; now if two
+vectors both inherit from (e.g.) “character”, the common type is also
+“character” (#497).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_equal()</span></code> now correctly treats <code class="docutils literal notranslate"><span class="pre">NULL</span></code> as the missing value element for
+lists (#653).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> now casts data frames to lists rowwise, i.e. to a list of
+data frames of size 1. This preserves the invariant of
+<code class="docutils literal notranslate"><span class="pre">vec_size(vec_cast(x,</span> <span class="pre">to))</span> <span class="pre">==</span> <span class="pre">vec_size(x)</span></code> (#639).</p></li>
+<li><p>Positive and negative 0 are now considered equivalent by all functions that
+check for equality or uniqueness (#637).</p></li>
+<li><p>New experimental functions <code class="docutils literal notranslate"><span class="pre">vec_group_rle()</span></code> for returning run
+length encoded groups; <code class="docutils literal notranslate"><span class="pre">vec_group_id()</span></code> for constructing group
+identifiers from a vector; <code class="docutils literal notranslate"><span class="pre">vec_group_loc()</span></code> for computing the
+locations of unique groups in a vector (#514).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_chop()</span></code> for repeatedly slicing a vector. It efficiently captures
+the pattern of <code class="docutils literal notranslate"><span class="pre">map(indices,</span> <span class="pre">vec_slice,</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">x)</span></code>.</p></li>
+<li><p>Support for multiple character encodings has been added to functions that
+compare elements within a single vector, such as <code class="docutils literal notranslate"><span class="pre">vec_unique()</span></code>, and across
+multiple vectors, such as <code class="docutils literal notranslate"><span class="pre">vec_match()</span></code>. When multiple encodings are
+encountered, a translation to UTF-8 is performed before any comparisons are
+made (#600, #553).</p></li>
+<li><p>Equality and ordering methods are now implemented for raw and
+complex vectors (&#64;romainfrancois).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-2-1">
+<h1>vctrs 0.2.1<a class="headerlink" href="#vctrs-0-2-1" title="Permalink to this headline">¶</a></h1>
+<p>Maintenance release for CRAN checks.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vctrs-0-2-0">
+<h1>vctrs 0.2.0<a class="headerlink" href="#vctrs-0-2-0" title="Permalink to this headline">¶</a></h1>
+<p>With the 0.2.0 release, many vctrs functions have been rewritten with
+native C code to improve performance. Functions like <code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> should now be fast enough to be used in packages. This
+is an ongoing effort, for instance the handling of factors and dates
+has not been rewritten yet. These classes still slow down vctrs
+primitives.</p>
+<p>The API in 0.2.0 has been updated, please see a list of breaking
+changes below. vctrs has now graduated from experimental to a maturing
+package.
+Please note that API changes are still planned for future releases,
+for instance <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_cast()</span></code> might need to return a
+sentinel instead of failing with an error when there is no common type
+or possible cast.</p>
+<div class="section" id="id2">
+<h2>Breaking changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Lossy casts now throw errors of type <code class="docutils literal notranslate"><span class="pre">vctrs_error_cast_lossy</span></code>.
+Previously these were warnings. You can suppress these errors
+selectively with <code class="docutils literal notranslate"><span class="pre">allow_lossy_cast()</span></code> to get the partial cast
+results. To implement your own lossy cast operation, call the new
+exported function <code class="docutils literal notranslate"><span class="pre">maybe_lossy_cast()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> now fails when an input is supplied with a name but has
+internal names or is length &gt; 1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vec_c</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1">#&gt; Error: Can&#39;t merge the outer name `foo` with a named vector.</span>
+<span class="c1">#&gt; Please supply a `.name_spec` specification.</span>
+
+<span class="n">vec_c</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">#&gt; Error: Can&#39;t merge the outer name `foo` with a vector of length &gt; 1.</span>
+<span class="c1">#&gt; Please supply a `.name_spec` specification.</span>
+</pre></div>
+</div>
+<p>You can supply a name specification that describes how to combine
+the external name of the input with its internal names or positions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Name spec as glue string:</span>
+<span class="n">vec_c</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="o">.</span><span class="n">name_spec</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{outer}</span><span class="s2">_</span><span class="si">{inner}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Name spec as a function:</span>
+<span class="n">vec_c</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="o">.</span><span class="n">name_spec</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">inner</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="p">))</span>
+<span class="n">vec_c</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="o">.</span><span class="n">name_spec</span> <span class="o">=</span> <span class="o">~</span> <span class="n">paste</span><span class="p">(</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_empty()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">vec_is_empty()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_dim()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_dims()</span></code> are no longer exported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_na()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">vec_init()</span></code>, as the primary use case
+is to initialize an output container.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice&lt;-</span></code> is now type stable (#140). It always returns the same
+type as the LHS. If needed, the RHS is cast to the correct type, but
+only if both inputs are coercible. See examples in <code class="docutils literal notranslate"><span class="pre">?vec_slice</span></code>.</p></li>
+<li><p>We have renamed the <code class="docutils literal notranslate"><span class="pre">type</span></code> particle to <code class="docutils literal notranslate"><span class="pre">ptype</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_type()</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_type2()</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">vec_ptype2()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_type_common()</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">vec_ptype_common()</span></code></p></li>
+</ul>
+<p>Consequently, <code class="docutils literal notranslate"><span class="pre">vec_ptype()</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">vec_ptype_show()</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code> generic. This is the main customisation point in
+vctrs along with <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code>. You should only implement it when
+your type is designed around a non-vector class (atomic vectors,
+bare lists, data frames). In this case, <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code> should return
+such a vector class. The vctrs operations will be applied on the
+proxy and <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code> is called to restore the original
+representation of your type.</p>
+<p>The most common case where you need to implement <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code> is
+for S3 lists. In vctrs, S3 lists are treated as scalars by
+default. This way we don’t treat objects like model fits as
+vectors. To prevent vctrs from treating your S3 list as a scalar,
+unclass it from the <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code> method. For instance here is the
+definition for <code class="docutils literal notranslate"><span class="pre">list_of</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39; @export</span>
+<span class="n">vec_proxy</span><span class="o">.</span><span class="n">vctrs_list_of</span> <span class="o">&lt;-</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">unclass</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you inherit from <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code> or <code class="docutils literal notranslate"><span class="pre">vctrs_rcrd</span></code> you don’t need to
+implement <code class="docutils literal notranslate"><span class="pre">vec_proxy()</span></code>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>, and <code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code> gain a <code class="docutils literal notranslate"><span class="pre">.name_repair</span></code>
+argument (#227, #229).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>, <code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code>, and all functions relying
+on <code class="docutils literal notranslate"><span class="pre">vec_ptype_common()</span></code> now have more informative error messages
+when some of the inputs have nested data frames that are not
+convergent:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">&lt;-</span> <span class="n">tibble</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">tibble</span><span class="p">(</span><span class="n">bar</span> <span class="o">=</span> <span class="n">tibble</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">letters</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])))</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="n">tibble</span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="n">tibble</span><span class="p">(</span><span class="n">bar</span> <span class="o">=</span> <span class="n">tibble</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)))</span>
+
+<span class="n">vec_rbind</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+<span class="c1">#&gt; Error: No common type for `..1$foo$bar$y` &lt;character&gt; and `..2$foo$bar$y` &lt;integer&gt;.</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cbind()</span></code> now turns named data frames to packed columns.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span> <span class="n">tibble</span><span class="o">::</span><span class="nf">tibble</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">vec_cbind</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">packed</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">data</span>
+<span class="c1"># A tibble: 3 x 3</span>
+      <span class="n">x</span> <span class="n">y</span>     <span class="n">packed</span><span class="o">$</span><span class="n">x</span> <span class="o">$</span><span class="n">y</span>
+  <span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>    <span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>
+<span class="m">1</span>     <span class="m">1</span> <span class="n">a</span>            <span class="m">1</span> <span class="n">a</span>
+<span class="m">2</span>     <span class="m">2</span> <span class="n">b</span>            <span class="m">2</span> <span class="n">b</span>
+<span class="m">3</span>     <span class="m">3</span> <span class="n">c</span>            <span class="m">3</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>Packed data frames are nested in a single column. This makes it
+possible to access it through a single name:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">$</span><span class="n">packed</span>
+<span class="c1"># A tibble: 3 x 2</span>
+      <span class="n">x</span> <span class="n">y</span>
+  <span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span>
+<span class="m">1</span>     <span class="m">1</span> <span class="n">a</span>
+<span class="m">2</span>     <span class="m">2</span> <span class="n">b</span>
+<span class="m">3</span>     <span class="m">3</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>We are planning to use this syntax more widely in the tidyverse.</p>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_is()</span></code> function to check whether a vector conforms to a
+prototype and/or a size. Unlike <code class="docutils literal notranslate"><span class="pre">vec_assert()</span></code>, it doesn’t throw
+errors but returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#79).</p>
+<p>Called without a specific type or size, <code class="docutils literal notranslate"><span class="pre">vec_assert()</span></code> tests whether
+an object is a data vector or a scalar. S3 lists are treated as
+scalars by default. Implement a <code class="docutils literal notranslate"><span class="pre">vec_is_vector()</span></code> for your class to
+override this property (or derive from <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code>).</p>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_order()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_sort()</span></code> for ordering and sorting
+generalised vectors.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">.names_to</span></code> parameter for <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code>. If supplied, this
+should be the name of a column where the names of the inputs are
+copied. This is similar to the <code class="docutils literal notranslate"><span class="pre">.id</span></code> parameter of
+<code class="docutils literal notranslate"><span class="pre">dplyr::bind_rows()</span></code>.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_seq_along()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_init_along()</span></code> create useful sequences (#189).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> now preserves character row names, if present.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_split(x,</span> <span class="pre">by)</span></code> is a generalisation of <code class="docutils literal notranslate"><span class="pre">split()</span></code> that can divide
+a vector into groups formed by the unique values of another vector. Returns
+a two-column data frame containing unique values of <code class="docutils literal notranslate"><span class="pre">by</span></code> aligned with
+matching <code class="docutils literal notranslate"><span class="pre">x</span></code> values (#196).</p></li>
+</ul>
+</div>
+<div class="section" id="other-features-and-bug-fixes">
+<h2>Other features and bug fixes<a class="headerlink" href="#other-features-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using classed errors of class <code class="docutils literal notranslate"><span class="pre">&quot;vctrs_error_assert&quot;</span></code> for failed
+assertions, and of class <code class="docutils literal notranslate"><span class="pre">&quot;vctrs_error_incompatible&quot;</span></code> (with
+subclasses <code class="docutils literal notranslate"><span class="pre">_type</span></code>, <code class="docutils literal notranslate"><span class="pre">_cast</span></code> and <code class="docutils literal notranslate"><span class="pre">_op</span></code>) for errors on incompatible
+types (#184).</p></li>
+<li><p>Character indexing is now only supported for named objects, an error
+is raised for unnamed objects (#171).</p></li>
+<li><p>Predicate generics now consistently return logical vectors when
+passed a <code class="docutils literal notranslate"><span class="pre">vctrs_vctr</span></code> class. They used to restore the output to
+their input type (#251).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of()</span></code> now has an <code class="docutils literal notranslate"><span class="pre">as.character()</span></code> method. It uses
+<code class="docutils literal notranslate"><span class="pre">vec_ptype_abbr()</span></code> to collapse complex objects into their type
+representation (tidyverse/tidyr#654).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">stop_incompatible_size()</span></code> to signal a failure due to mismatched sizes.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">validate_list_of()</span></code> (#193).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_arith()</span></code> is consistent with base R when combining <code class="docutils literal notranslate"><span class="pre">difftime</span></code>
+and <code class="docutils literal notranslate"><span class="pre">date</span></code>, with a warning if casts are lossy (#192).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_c()</span></code> and <code class="docutils literal notranslate"><span class="pre">vec_rbind()</span></code> now handle data.frame columns properly
+(&#64;yutannihilation, #182).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_cast(x,</span> <span class="pre">data.frame())</span></code> preserves the number of rows in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_equal()</span></code> now handles missing values symmetrically (#204).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_equal_na()</span></code> now returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> for data frames and records when
+every component is missing, not when <em>any</em> component is missing
+(#201).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_init()</span></code> checks input is a vector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_proxy_compare()</span></code> gains an experimental <code class="docutils literal notranslate"><span class="pre">relax</span></code> argument, which
+allows data frames to be orderable even if all their columns are not
+(#210).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_size()</span></code> now works with positive short row names. This fixes
+issues with data frames created with jsonlite (#220).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice&lt;-</span></code> now has a <code class="docutils literal notranslate"><span class="pre">vec_assign()</span></code> alias. Use <code class="docutils literal notranslate"><span class="pre">vec_assign()</span></code>
+when you don’t want to modify the original input.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> now calls <code class="docutils literal notranslate"><span class="pre">vec_restore()</span></code> automatically. Unlike the
+default <code class="docutils literal notranslate"><span class="pre">[</span></code> method from base R, attributes are preserved by default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_slice()</span></code> can correct slice 0-row data frames (#179).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vec_repeat()</span></code> for repeating each element of a vector the same number
+of times.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_type2(x,</span> <span class="pre">data.frame())</span></code> ensures that the returned object has
+names that are a length-0 character vector.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./renv\library\R-4.1\x86_64-w64-mingw32\vctrs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

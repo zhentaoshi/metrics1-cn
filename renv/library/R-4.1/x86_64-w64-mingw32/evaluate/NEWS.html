@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Version 0.15 &#8212; 计量经济学</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/evaluate/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/evaluate/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Version 0.15
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-14">
+   Version 0.14
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-13">
+   Version 0.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-12">
+   Version 0.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-11">
+   Version 0.11
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10-1">
+   Version 0.10.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10">
+   Version 0.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-9">
+   Version 0.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-8-3">
+   Version 0.8.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-8">
+   Version 0.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-7-2">
+   Version 0.7.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-7">
+   Version 0.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-6">
+   Version 0.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-5">
+   Version 0.5.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-3">
+   Version 0.5.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-1">
+   Version 0.5.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5">
+   Version 0.5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     MAJOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-7">
+   Version 0.4.7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-4">
+   Version 0.4.4
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maintainence">
+     MAINTAINENCE
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-3">
+   Version 0.4.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-2">
+   Version 0.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-1">
+   Version 0.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4">
+   Version 0.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-3">
+   Version 0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2">
+   Version 0.2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Version 0.15</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Version 0.15
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-14">
+   Version 0.14
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-13">
+   Version 0.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-12">
+   Version 0.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-11">
+   Version 0.11
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10-1">
+   Version 0.10.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10">
+   Version 0.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-9">
+   Version 0.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-8-3">
+   Version 0.8.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-8">
+   Version 0.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-7-2">
+   Version 0.7.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-7">
+   Version 0.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-6">
+   Version 0.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-5">
+   Version 0.5.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-3">
+   Version 0.5.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5-1">
+   Version 0.5.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-5">
+   Version 0.5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     MAJOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-7">
+   Version 0.4.7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-4">
+   Version 0.4.4
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maintainence">
+     MAINTAINENCE
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-3">
+   Version 0.4.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-2">
+   Version 0.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4-1">
+   Version 0.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-4">
+   Version 0.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-3">
+   Version 0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2">
+   Version 0.2
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="version-0-15">
+<h1>Version 0.15<a class="headerlink" href="#version-0-15" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">new_output_handler()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">calling_handlers</span></code> argument. These are passed to <code class="docutils literal notranslate"><span class="pre">withCallingHandlers()</span></code> before <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> captures any conditions.</p></li>
+<li><p>Fixed #106: do not assume that <code class="docutils literal notranslate"><span class="pre">is.atomic(NULL)</span></code> returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (thanks, &#64;mmaechler).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-14">
+<h1>Version 0.14<a class="headerlink" href="#version-0-14" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The hooks <code class="docutils literal notranslate"><span class="pre">persp</span></code>, <code class="docutils literal notranslate"><span class="pre">before.plot.new</span></code>, and <code class="docutils literal notranslate"><span class="pre">before.grid.newpage</span></code> set by users will be respected throughout the R session (thanks, &#64;KKPMW, #96).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-13">
+<h1>Version 0.13<a class="headerlink" href="#version-0-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Errors generated by try() are now part of the output (for R &gt;= 3.4). To achieve this, the try.outFile option is set for the duration of all evaluations (thanks, &#64;krlmlr, #91)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-12">
+<h1>Version 0.12<a class="headerlink" href="#version-0-12" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removed the stringr dependency (thanks, &#64;mllg, #90).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-11">
+<h1>Version 0.11<a class="headerlink" href="#version-0-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for regression introduced in 0.10.1 in parse_all.call() (fixes #77)</p></li>
+<li><p>evaluate() now respects options(warn &gt;= 2); all warnings are turned into errors (#81)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-10-1">
+<h1>Version 0.10.1<a class="headerlink" href="#version-0-10-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added parse_all.call() method to use the original source for evaluating call objects (because base::deparse() breaks non-ascii source code) (fixes #74)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-10">
+<h1>Version 0.10<a class="headerlink" href="#version-0-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added option for the evaluate function to include timing information of ran commands. This information will be subsequently rendered by the replay. Example usage: evaluate::replay(evaluate::evaluate(‘Sys.sleep(1)’, include_timing = TRUE))</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">flush_console()</span></code> to emulate <code class="docutils literal notranslate"><span class="pre">flush.console()</span></code> in <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> (#61).</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">inject_funs()</span></code> function to create functions in the environment passed to the <code class="docutils literal notranslate"><span class="pre">envir</span></code> argument of <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-9">
+<h1>Version 0.9<a class="headerlink" href="#version-0-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">allow_error</span></code> to <code class="docutils literal notranslate"><span class="pre">parse_all()</span></code> to allow syntactical errors in R source code when <code class="docutils literal notranslate"><span class="pre">allow_error</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>; this means <code class="docutils literal notranslate"><span class="pre">evaluate(stop_on_error</span> <span class="pre">=</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">1)</span></code> will no longer stop on syntactical errors but returns a list of source code and the error object instead. This can be useful to show syntactical errors for pedagogical purposes.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-8-3">
+<h1>Version 0.8.3<a class="headerlink" href="#version-0-8-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">filename</span></code> to evaluate() and parse_all() (thanks, &#64;flying-sheep, #58).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-8">
+<h1>Version 0.8<a class="headerlink" href="#version-0-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed package license to MIT.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-7-2">
+<h1>Version 0.7.2<a class="headerlink" href="#version-0-7-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>replay() fails to replay certain objects such as NULL (#53).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-7">
+<h1>Version 0.7<a class="headerlink" href="#version-0-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>R 3.0.2 is the minimal required version for this package now.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-6">
+<h1>Version 0.6<a class="headerlink" href="#version-0-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Plots are no longer recorded when the current graphical device has been changed, which may introduce issues like yihui/knitr#824.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_all()</span></code> can parse R code that contains multibyte characters correctly now (#49, yihui/knitr#988)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-5-5">
+<h1>Version 0.5.5<a class="headerlink" href="#version-0-5-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Actually use the <code class="docutils literal notranslate"><span class="pre">text</span></code> and <code class="docutils literal notranslate"><span class="pre">graphics</span></code> in <code class="docutils literal notranslate"><span class="pre">new_output_handler</span></code></p></li>
+<li><p>Multiple expressions separated by <code class="docutils literal notranslate"><span class="pre">;</span></code> on the same line can be printed as expected when the result returned is visible, e.g. both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> will be printed when the source code is <code class="docutils literal notranslate"><span class="pre">x;</span> <span class="pre">y</span></code>. In previous versions, only <code class="docutils literal notranslate"><span class="pre">y</span></code> is printed. (thanks, Bill Venables)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-5-3">
+<h1>Version 0.5.3<a class="headerlink" href="#version-0-5-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bug-fixes">
+<h2>BUG FIXES<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>fixed the bug reported at <a class="reference external" href="https://github.com/yihui/knitr/issues/722">https://github.com/yihui/knitr/issues/722</a> (repeatedly knitting the same code results in plots being omitted randomly) (thanks, Simon Urbanek)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-5-1">
+<h1>Version 0.5.1<a class="headerlink" href="#version-0-5-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>BUG FIXES<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>under R 2.15.x, evaluate() was unable to filter out the plots triggered by clip() (thanks, Uwe Ligges)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-5">
+<h1>Version 0.5<a class="headerlink" href="#version-0-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>NEW FEATURES<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>evaluate() is better at telling if a new plot should render a new page due to the new par(‘page’) in R 3.0.2</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>BUG FIXES<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>fixed yihui/knitr#600: when the last expression in the code is a comment, the previous incomplete plot was not captured</p></li>
+<li><p>the empty plots produced by strwidth(), strheight(), and clip() are no longer recorded</p></li>
+</ul>
+</div>
+<div class="section" id="major-changes">
+<h2>MAJOR CHANGES<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>evaluate() no longer records warnings in case of options(warn = -1); see yihui/knitr#610</p></li>
+<li><p>for ‘output_handler’ in evaluate(), visible values from the ‘value’ handler will be saved to the output list; this makes it possible for users to save the original values instead of their printed side effects; this change will not affect those who use the default output handlers (#40, thanks, Gabriel Becker)</p></li>
+<li><p>the ‘value’ handler in new_output_handler() may take an additional argument that means if the value is visible or not; this makes it possible to save the invisible values as well (#41, thanks, Joroen Ooms)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4-7">
+<h1>Version 0.4.7<a class="headerlink" href="#version-0-4-7" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>NEW FEATURES<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>added two arguments keep_warning and keep_message in evaluate() so that it is possible not to capture warnings or messages now</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>BUG FIXES<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>fixed #25: plots can be correctly recorded under a complex layout now (#25, thanks, Jack Tanner and Andy Barbour)</p></li>
+<li><p>fixed yihui/knitr#582: evaluate() misclassified some plot changes as “par changes” and removed some plots when it should not; now it is better at identifying plot changes dur to par() (thanks, Keith Twombley)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4-4">
+<h1>Version 0.4.4<a class="headerlink" href="#version-0-4-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>BUG FIXES<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Perspective plots from <code class="docutils literal notranslate"><span class="pre">persp()</span></code> are captured now (thanks to Harvey Lime and Yihui Xie)</p></li>
+<li><p>If an error occurs during printing a visible value, evaluate will halt on a cryptic error “operator is invalid for atomic vectors” (#26, fixed by Yihui Xie)</p></li>
+<li><p>If the internal connection was accidentally closed by the user, a more informative message will show up (#23)</p></li>
+<li><p>Now the graphical device will always try to record graphics by default (when new_device = TRUE) (#34)</p></li>
+<li><p>Some empty and incomplete plots caused by par() or layout() will be filtered out correctly for R 3.0 (#35)</p></li>
+</ul>
+</div>
+<div class="section" id="maintainence">
+<h2>MAINTAINENCE<a class="headerlink" href="#maintainence" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Yihui Xie is the new maintainer of this package now</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4-3">
+<h1>Version 0.4.3<a class="headerlink" href="#version-0-4-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h2>NEW FEATURES<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">output_handler</span></code> argument to <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>. Should be a <code class="docutils literal notranslate"><span class="pre">output_handler</span></code> object, which is a list of functions for handling each type of result, prior to printing of visible return values. This allows clients to override the console-like printing of values, while still processing them in the correct temporal context. The other handlers are necessary to convey the correct ordering of the output. This essentially provides stream-based processing, as an alternative to the existing deferred processing.</p></li>
+<li><p>New option, <code class="docutils literal notranslate"><span class="pre">stop_on_error</span></code> which controls behaviour when errors occur. The default value, <code class="docutils literal notranslate"><span class="pre">0</span></code>, acts like you’ve copied and pasted the code into the console, and continues to execute all code. <code class="docutils literal notranslate"><span class="pre">1</span></code> will stop the code execution and return the results of evaluation up to that point, and <code class="docutils literal notranslate"><span class="pre">2</span></code> will raise an error.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>BUG FIXES<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Compound expressions like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">10;</span> <span class="pre">x</span></code> are now evaluated completely.</p></li>
+<li><p>Chinese characters on windows now work correctly (thanks to Yihui Xie)</p></li>
+<li><p>Graphics and output interleaved correctly when generated from a loop or other compound statements</p></li>
+<li><p>By default, <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> will now open a new graphics device and clean it up afterwards. To suppress that behaviour use <code class="docutils literal notranslate"><span class="pre">new_device</span> <span class="pre">=</span> <span class="pre">FALSE</span></code></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">show</span></code> to display S4 objects.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4-2">
+<h1>Version 0.4.2<a class="headerlink" href="#version-0-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>replace deprecated <code class="docutils literal notranslate"><span class="pre">.Internal(eval.with.vis)</span></code> with correct <code class="docutils literal notranslate"><span class="pre">withVisible</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evaluate</span></code> gains <code class="docutils literal notranslate"><span class="pre">debug</span></code> argument</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4-1">
+<h1>Version 0.4.1<a class="headerlink" href="#version-0-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>use <code class="docutils literal notranslate"><span class="pre">test_package</span></code> to avoid problems with latest version of <code class="docutils literal notranslate"><span class="pre">testthat</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-4">
+<h1>Version 0.4<a class="headerlink" href="#version-0-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Use plot hooks to capture multiple plots created in a loop or within a function. (Contributed by Yihui Xie)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-3">
+<h1>Version 0.3<a class="headerlink" href="#version-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">stringr</span></code> instead of depending on it.</p></li>
+<li><p>Test plot recording only in the presence of interactive devices.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-2">
+<h1>Version 0.2<a class="headerlink" href="#version-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>try_capture_stack and create_traceback do a much better job of removing infrastructure calls from the captured traceback</p></li>
+<li><p>visible results are automatically evaluated and their outputs are captured. This is particularly important for lattice and ggplot graphics, which otherwise require special handling. It also correctly captures warnings, errors and messages raised by the print method.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./renv\library\R-4.1\x86_64-w64-mingw32\evaluate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

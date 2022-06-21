@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title: “Calculating SHA1 hashes with digest() and sha1()” author: “Thierry Onkelinx and Dirk Eddelbuettel” date: “Written Jan 2016, updated Jan 2018 and Oct 2020” css: “water.css” &#8212; 计量经济学</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/digest/doc/sha1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/digest/doc/sha1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   title: “Calculating SHA1 hashes with digest() and sha1()”
+author: “Thierry Onkelinx and Dirk Eddelbuettel”
+date: “Written Jan 2016, updated Jan 2018 and Oct 2020”
+css: “water.css”
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-intro-on-hashes">
+   Short intro on hashes
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-between-digest-and-sha1">
+   Difference between
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     digest()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sha1()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-digest-or-sha1">
+   Choosing
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     digest()
+    </span>
+   </code>
+   or
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sha1()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-sha1-method-for-other-classes">
+   Creating a sha1 method for other classes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to">
+     How to
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-lm">
+     summary.lm
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lm">
+     lm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-hashes-to-track-changes-in-analysis">
+   Using hashes to track changes in analysis
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>title: “Calculating SHA1 hashes with digest() and sha1()”
+author: “Thierry Onkelinx and Dirk Eddelbuettel”
+date: “Written Jan 2016, updated Jan 2018 and Oct 2020”
+css: “water.css”</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   title: “Calculating SHA1 hashes with digest() and sha1()”
+author: “Thierry Onkelinx and Dirk Eddelbuettel”
+date: “Written Jan 2016, updated Jan 2018 and Oct 2020”
+css: “water.css”
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-intro-on-hashes">
+   Short intro on hashes
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-between-digest-and-sha1">
+   Difference between
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     digest()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sha1()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-digest-or-sha1">
+   Choosing
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     digest()
+    </span>
+   </code>
+   or
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sha1()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-sha1-method-for-other-classes">
+   Creating a sha1 method for other classes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to">
+     How to
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-lm">
+     summary.lm
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lm">
+     lm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-hashes-to-track-changes-in-analysis">
+   Using hashes to track changes in analysis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <!--
+%\VignetteIndexEntry{sha1() versus digest()}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
+<hr class="docutils" />
+<div class="section" id="title-calculating-sha1-hashes-with-digest-and-sha1-author-thierry-onkelinx-and-dirk-eddelbuettel-date-written-jan-2016-updated-jan-2018-and-oct-2020-css-water-css">
+<h1>title: “Calculating SHA1 hashes with digest() and sha1()”
+author: “Thierry Onkelinx and Dirk Eddelbuettel”
+date: “Written Jan 2016, updated Jan 2018 and Oct 2020”
+css: “water.css”<a class="headerlink" href="#title-calculating-sha1-hashes-with-digest-and-sha1-author-thierry-onkelinx-and-dirk-eddelbuettel-date-written-jan-2016-updated-jan-2018-and-oct-2020-css-water-css" title="Permalink to this headline">¶</a></h1>
+<p>NB: This vignette is (still) work-in-progress and not yet complete.</p>
+</div>
+<div class="section" id="short-intro-on-hashes">
+<h1>Short intro on hashes<a class="headerlink" href="#short-intro-on-hashes" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="difference-between-digest-and-sha1">
+<h1>Difference between <code class="docutils literal notranslate"><span class="pre">digest()</span></code> and <code class="docutils literal notranslate"><span class="pre">sha1()</span></code><a class="headerlink" href="#difference-between-digest-and-sha1" title="Permalink to this headline">¶</a></h1>
+<p>R <a class="reference external" href="https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-doesn_0027t-R-think-these-numbers-are-equal_003f">FAQ 7.31</a> illustrates potential problems with floating point arithmetic. Mathematically the equality <span class="math notranslate nohighlight">\(x = \sqrt{x}^2\)</span> should hold. But the precision of floating points numbers is finite. Hence some rounding is done, leading to numbers which are no longer identical.</p>
+<p>An illustration:</p>
+<div class="highlight-{#faq7_31 notranslate"><div class="highlight"><pre><span></span># FAQ 7.31
+a0 &lt;- 2
+b &lt;- sqrt(a0)
+a1 &lt;- b ^ 2
+identical(a0, a1)
+a0 - a1
+a &lt;- c(a0, a1)
+# hexadecimal representation
+sprintf(&quot;%a&quot;, a)
+</pre></div>
+</div>
+<p>Although the difference is small, any difference will result in different hash when using the <code class="docutils literal notranslate"><span class="pre">digest()</span></code> function.
+However, the <code class="docutils literal notranslate"><span class="pre">sha1()</span></code> function tackles this problem by using the hexadecimal representation of the numbers and truncates
+that representation to a certain number of digits prior to calculating the hash function.</p>
+<div class="highlight-{#faq7_31digest notranslate"><div class="highlight"><pre><span></span>library(digest)
+# different hashes with digest
+sapply(a, digest, algo = &quot;sha1&quot;)
+# same hash with sha1 with default digits (14)
+sapply(a, sha1)
+# larger digits can lead to different hashes
+sapply(a, sha1, digits = 15)
+# decreasing the number of digits gives a stronger truncation
+# the hash will change when then truncation gives a different result
+# case where truncating gives same hexadecimal value
+sapply(a, sha1, digits = 13)
+sapply(a, sha1, digits = 10)
+# case where truncating gives different hexadecimal value
+c(sha1(pi), sha1(pi, digits = 13), sha1(pi, digits = 10))
+</pre></div>
+</div>
+<p>The result of floating point arithematic on 32-bit and 64-bit can be slightly different. E.g. <code class="docutils literal notranslate"><span class="pre">print(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">22)</span></code> returns <code class="docutils literal notranslate"><span class="pre">294204.01797389047</span></code> on 32-bit and <code class="docutils literal notranslate"><span class="pre">294204.01797389053</span></code> on 64-bit. Note that only the last 2 digits are different.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>command</p></th>
+<th class="head"><p>32-bit</p></th>
+<th class="head"><p>64-bit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">print(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">22)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">294204.01797389047</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">294204.01797389053</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sprintf(&quot;%a&quot;,</span> <span class="pre">pi</span> <span class="pre">^</span> <span class="pre">11)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;0x1.1f4f01267bf5fp+18&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;0x1.1f4f01267bf6p+18&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">digest(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">algo</span> <span class="pre">=</span> <span class="pre">&quot;sha1&quot;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;c5efc7f167df1bb402b27cf9b405d7cebfba339a&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;b61f6fea5e2a7952692cefe8bba86a00af3de713&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sha1(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">digits</span> <span class="pre">=</span> <span class="pre">14)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;5c7740500b8f78ec2354ea6af58ea69634d9b7b1&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;4f3e296b9922a7ddece2183b1478d0685609a359&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sha1(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">digits</span> <span class="pre">=</span> <span class="pre">13)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;372289f87396b0877ccb4790cf40bcb5e658cad7&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;372289f87396b0877ccb4790cf40bcb5e658cad7&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sha1(pi</span> <span class="pre">^</span> <span class="pre">11,</span> <span class="pre">digits</span> <span class="pre">=</span> <span class="pre">10)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;c05965af43f9566bfb5622f335817f674abfc9e4&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;c05965af43f9566bfb5622f335817f674abfc9e4&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="choosing-digest-or-sha1">
+<h1>Choosing <code class="docutils literal notranslate"><span class="pre">digest()</span></code> or <code class="docutils literal notranslate"><span class="pre">sha1()</span></code><a class="headerlink" href="#choosing-digest-or-sha1" title="Permalink to this headline">¶</a></h1>
+<p>TBD</p>
+</div>
+<div class="section" id="creating-a-sha1-method-for-other-classes">
+<h1>Creating a sha1 method for other classes<a class="headerlink" href="#creating-a-sha1-method-for-other-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to">
+<h2>How to<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Identify the relevant components for the hash.</p></li>
+<li><p>Determine the class of each relevant component and check if they are handled by <code class="docutils literal notranslate"><span class="pre">sha1()</span></code>.</p>
+<ul class="simple">
+<li><p>Write a method for each component class not yet handled by <code class="docutils literal notranslate"><span class="pre">sha1</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Extract the relevant components.</p></li>
+<li><p>Combine the relevant components into a list. Not required in case of a single component.</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">sha1()</span></code> on the (list of) relevant component(s).</p></li>
+<li><p>Turn this into a function with name sha1.<em>classname</em>.</p></li>
+<li><p>sha1.<em>classname</em> needs exactly the same arguments as <code class="docutils literal notranslate"><span class="pre">sha1()</span></code></p></li>
+<li><p>Choose sensible defaults for the arguments</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zapsmall</span> <span class="pre">=</span> <span class="pre">7</span></code> is recommended.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">digits</span> <span class="pre">=</span> <span class="pre">14</span></code> is recommended in case all numerics are data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">digits</span> <span class="pre">=</span> <span class="pre">4</span></code> is recommended in case some numerics stem from floating point arithmetic.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="summary-lm">
+<h2>summary.lm<a class="headerlink" href="#summary-lm" title="Permalink to this headline">¶</a></h2>
+<p>Let’s illustrate this using the summary of a simple linear regression. Suppose that we want a hash that takes into account the coefficients, their standard error and sigma.</p>
+<div class="highlight-{#sha1_lm_sum notranslate"><div class="highlight"><pre><span></span># taken from the help file of lm.influence
+lm_SR &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = LifeCycleSavings)
+lm_sum &lt;- summary(lm_SR)
+class(lm_sum)
+# str() gives the structure of the lm object
+str(lm_sum)
+# extract the coefficients and their standard error
+coef_sum &lt;- coef(lm_sum)[, c(&quot;Estimate&quot;, &quot;Std. Error&quot;)]
+# extract sigma
+sigma &lt;- lm_sum$sigma
+# check the class of each component
+class(coef_sum)
+class(sigma)
+# sha1() has methods for both matrix and numeric
+# because the values originate from floating point arithmetic it is better to use a low number of digits
+sha1(coef_sum, digits = 4)
+sha1(sigma, digits = 4)
+# we want a single hash
+# combining the components in a list is a solution that works
+sha1(list(coef_sum, sigma), digits = 4)
+# now turn everything into an S3 method
+#   - a function with name &quot;sha1.classname&quot;
+#   - must have the same arguments as sha1()
+sha1.summary.lm &lt;- function(x, digits = 4, zapsmall = 7){
+    coef_sum &lt;- coef(x)[, c(&quot;Estimate&quot;, &quot;Std. Error&quot;)]
+    sigma &lt;- x$sigma
+    combined &lt;- list(coef_sum, sigma)
+    sha1(combined, digits = digits, zapsmall = zapsmall)
+}
+sha1(lm_sum)
+
+# try an altered dataset
+LCS2 &lt;- LifeCycleSavings[rownames(LifeCycleSavings) != &quot;Zambia&quot;, ]
+lm_SR2 &lt;- lm(sr ~ pop15 + pop75 + dpi + ddpi, data = LCS2)
+sha1(summary(lm_SR2))
+</pre></div>
+</div>
+</div>
+<div class="section" id="lm">
+<h2>lm<a class="headerlink" href="#lm" title="Permalink to this headline">¶</a></h2>
+<p>Let’s illustrate this using the summary of a simple linear regression. Suppose that we want a hash that takes into account the coefficients, their standard error and sigma.</p>
+<div class="highlight-{#sha1_lm notranslate"><div class="highlight"><pre><span></span>class(lm_SR)
+# str() gives the structure of the lm object
+str(lm_SR)
+# extract the model and the terms
+lm_model &lt;- lm_SR$model
+lm_terms &lt;- lm_SR$terms
+# check their class
+class(lm_model) # handled by sha1()
+class(lm_terms) # not handled by sha1()
+# define a method for formula
+sha1.formula &lt;- function(x, digits = 14, zapsmall = 7, ..., algo = &quot;sha1&quot;){
+    sha1(as.character(x), digits = digits, zapsmall = zapsmall, algo = algo)
+}
+sha1(lm_terms)
+sha1(lm_model)
+# define a method for lm
+sha1.lm &lt;- function(x, digits = 14, zapsmall = 7, ..., algo = &quot;sha1&quot;){
+    lm_model &lt;- x$model
+    lm_terms &lt;- x$terms
+    combined &lt;- list(lm_model, lm_terms)
+    sha1(combined, digits = digits, zapsmall = zapsmall, ..., algo = algo)
+}
+sha1(lm_SR)
+sha1(lm_SR2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-hashes-to-track-changes-in-analysis">
+<h1>Using hashes to track changes in analysis<a class="headerlink" href="#using-hashes-to-track-changes-in-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Use case</p>
+<ul>
+<li><p>automated analysis</p></li>
+<li><p>update frequency of the data might be lower than the frequency of automated analysis</p></li>
+<li><p>similar analyses on many datasets (e.g. many species in ecology)</p></li>
+<li><p>analyses that require a lot of computing time</p>
+<ul class="simple">
+<li><p>not rerunning an analysis because nothing has changed saves enough resources to compensate the overhead of tracking changes</p></li>
+</ul>
+</li>
+<li><p>Bundle all relevant information on an analysis in a class</p>
+<ul class="simple">
+<li><p>data</p></li>
+<li><p>method</p></li>
+<li><p>formula</p></li>
+<li><p>other metadata</p></li>
+<li><p>resulting model</p></li>
+</ul>
+</li>
+<li><p>calculate <code class="docutils literal notranslate"><span class="pre">sha1()</span></code></p>
+<p>file fingerprint
+~ <code class="docutils literal notranslate"><span class="pre">sha1()</span></code> on the stable parts</p>
+<p>status fingerprint
+~ <code class="docutils literal notranslate"><span class="pre">sha1()</span></code> on the parts that result for the model</p>
+</li>
+</ul>
+<ol class="simple">
+<li><p>Prepare analysis objects</p></li>
+<li><p>Store each analysis object in a rda file which uses the file fingerprint as filename</p>
+<ul class="simple">
+<li><p>File will already exist when no change in analysis</p></li>
+<li><p>Don’t overwrite existing files</p></li>
+</ul>
+</li>
+<li><p>Loop over all rda files</p>
+<ul class="simple">
+<li><p>Do nothing if the analysis was run</p></li>
+<li><p>Otherwise run the analysis and update the status and status fingerprint</p></li>
+</ul>
+</li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./renv\library\R-4.1\x86_64-w64-mingw32\digest\doc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

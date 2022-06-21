@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fansi Release Notes &#8212; 计量经济学</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/fansi/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/fansi/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v1-0-0-2">
+   v1.0.0-2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features">
+     Features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-functions">
+     Deprecated Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#behavior-changes">
+     Behavior Changes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug Fixes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#internal-changes">
+     Internal Changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-5-0">
+   v0.5.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-2">
+   v0.4.2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-1">
+   v0.4.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-0">
+   v0.4.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-3-0">
+   v0.3.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-3">
+   v0.2.3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-2">
+   v0.2.2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-1">
+   v0.2.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-0">
+   v0.2.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-1-0">
+   v0.1.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>fansi Release Notes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v1-0-0-2">
+   v1.0.0-2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features">
+     Features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-functions">
+     Deprecated Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#behavior-changes">
+     Behavior Changes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug Fixes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#internal-changes">
+     Internal Changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-5-0">
+   v0.5.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-2">
+   v0.4.2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-1">
+   v0.4.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-4-0">
+   v0.4.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-3-0">
+   v0.3.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-3">
+   v0.2.3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-2">
+   v0.2.2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-1">
+   v0.2.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-2-0">
+   v0.2.0
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#v0-1-0">
+   v0.1.0
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fansi-release-notes">
+<h1>fansi Release Notes<a class="headerlink" href="#fansi-release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v1-0-0-2">
+<h2>v1.0.0-2<a class="headerlink" href="#v1-0-0-2" title="Permalink to this headline">¶</a></h2>
+<p>This is a major release and includes some behavior changes.</p>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>New functions:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/26">#26</a> Replacement forms of
+<code class="docutils literal notranslate"><span class="pre">substr_cl</span></code> (i.e <code class="docutils literal notranslate"><span class="pre">substr_ctl&lt;-</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">state_at_end</span></code> to compute active state at end of a string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close_state</span></code> to generate a closing sequence given an active state.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/31">#31</a> <code class="docutils literal notranslate"><span class="pre">trimws_ctl</span></code> as an
+equivalent to <code class="docutils literal notranslate"><span class="pre">trimws</span></code>.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/64">#64</a> <code class="docutils literal notranslate"><span class="pre">normalize_sgr</span></code> converts
+compound <em>Control Sequences</em> into normalized form (e.g. “ESC[44;31m”
+becomes “ESC[31mESC[44m”) for better compatibility with
+<a class="reference external" href="https://github.com/r-lib/crayon"><code class="docutils literal notranslate"><span class="pre">crayon</span></code></a>.  Additionally, most functions
+gain a <code class="docutils literal notranslate"><span class="pre">normalize</span></code> parameter so that they may return their output in
+normalized form (h/t &#64;krlmlr).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/74">#74</a><code class="docutils literal notranslate"><span class="pre">substr_ctl</span></code> and related
+functions are now all-C instead of a combination of C offset computations and
+R level <code class="docutils literal notranslate"><span class="pre">substr</span></code> operations.  This greatly improves performance, particularly
+for vectors with many distinct strings.  Despite documentation claiming
+otherwise, <code class="docutils literal notranslate"><span class="pre">substr_ctl</span></code> was quite slow in that case.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/66">#66</a> Improved grapheme support,
+including accounting for them in <code class="docutils literal notranslate"><span class="pre">type=&quot;width&quot;</span></code> mode, as well as a
+<code class="docutils literal notranslate"><span class="pre">type=&quot;graphemes&quot;</span></code> mode to measure in graphemes instead of characters.
+Implementation is based on heuristics designed to work in most common use
+cases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_esc</span></code> gains a <code class="docutils literal notranslate"><span class="pre">what</span></code> parameter to indicate which HTML special characters
+should be escaped.</p></li>
+<li><p>Many functions gain <code class="docutils literal notranslate"><span class="pre">carry</span></code> and <code class="docutils literal notranslate"><span class="pre">terminate</span></code> parameters to control how <code class="docutils literal notranslate"><span class="pre">fansi</span></code>
+generated substrings interact with surrounding formats.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/71">#71</a> Functions that write SGR and
+OSC are now more parsimonious (see “Behavior Changes” below).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/73">#73</a> Default parameter values
+retrieved with <code class="docutils literal notranslate"><span class="pre">getOption</span></code> now always have explicit fallback values defined
+(h/t &#64;gadenbui).</p></li>
+<li><p>Better warnings and error messages, including more granular messages for
+<code class="docutils literal notranslate"><span class="pre">unhandled_ctl</span></code> for adjacent <em>Control Sequences</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">term.cap</span></code> parameter now accepts “all” as value, like the <code class="docutils literal notranslate"><span class="pre">ctl</span></code> parameter.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-functions">
+<h3>Deprecated Functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>All the “sgr” functions (e.g., <code class="docutils literal notranslate"><span class="pre">substr_sgr</span></code>, <code class="docutils literal notranslate"><span class="pre">strwrap_sgr</span></code>) are deprecated.
+They will likely live on indefinitely, but they are of limited usefulness and
+with the added support for OSC hyperlinks their name is misleading.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sgr_to_html</span></code> is now <code class="docutils literal notranslate"><span class="pre">to_html</span></code> with slight modifications to semantics; the old
+function remains and does not warn about unescaped “&lt;” or “&gt;” in the
+input string.</p></li>
+</ul>
+</div>
+<div class="section" id="behavior-changes">
+<h3>Behavior Changes<a class="headerlink" href="#behavior-changes" title="Permalink to this headline">¶</a></h3>
+<p>The major intentional behavior change is to default <code class="docutils literal notranslate"><span class="pre">fansi</span></code> to always recognize
+true color CSI SGR sequences (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;ESC[38;2;128;50;245m&quot;</span></code>).  The prior
+default was to match the active terminal capabilities, but it is unlikely that
+the intent of a user manipulating a string with truecolor sequences is to
+interpret them incorrectly, even if their terminal does.  <code class="docutils literal notranslate"><span class="pre">fansi</span></code> will continue
+to warn in this case.  To keep the pre-1.0 behavior add <code class="docutils literal notranslate"><span class="pre">&quot;old&quot;</span></code> to the
+<code class="docutils literal notranslate"><span class="pre">term.cap</span></code> parameter.</p>
+<p>Additionally, <code class="docutils literal notranslate"><span class="pre">to_html</span></code> will now warn if it encounters unescaped HTML special
+character “&lt;” or “&gt;” in the input string.</p>
+<p>Finally, the 1.0 release is an extensive refactoring of many parts of the
+SGR and OSC hyperlink controls (<em>Special Sequences</em>) intake and output
+algorithms.  In some cases this means that some <code class="docutils literal notranslate"><span class="pre">fansi</span></code> functions will output
+<em>Special Sequences</em> slightly differently than they did before.  In almost all
+cases the rendering of the output should remain unchanged, although there are
+some corner cases with changes (e.g. in <code class="docutils literal notranslate"><span class="pre">strwrap_ctl</span></code> SGRs embedded in
+whitespace sequences don’t break the sequence).</p>
+<p>The changes are a side effect of applying more consistent treatment of corner
+cases around leading and trailing control sequences and (partially) invalid
+control sequences.  Trailing <em>Special Sequences</em> in the output is now omitted as
+it would be immediately closed (assuming <code class="docutils literal notranslate"><span class="pre">terminate=TRUE</span></code>, the default).
+Leading SGR is interpreted and re-output.</p>
+<p>Normally output consistency alone would not be a reason to change behavior, but
+in this case the changes should be almost always undetectable in the
+<strong>rendered</strong> output, and maintaining old inconsistent behavior in the midst of a
+complete refactoring of the internals was beyond my patience.  I apologize if
+these behavior changes adversely affect your programs.</p>
+<blockquote>
+<div><p>WARNING: we will strive to keep rendered appearance of <code class="docutils literal notranslate"><span class="pre">fansi</span></code> outputs
+consistent across releases, but the exact bytes used in the output of <em>Special
+Sequences</em> may change.</p>
+</div></blockquote>
+<p>Other changes:</p>
+<ul class="simple">
+<li><p>Tests may no longer pass with R &lt; 4.0 although the package should still
+function correctly.  This is primarily because of changes to the character
+width Unicode Database that ships with R, and many of the newly added grapheme
+tests touch parts of that database that changed (emoji).</p></li>
+<li><p>CSI sequences with more than one “intermediate” byte are now considered valid,
+even though they are likely to be very rare, and CSI sequences consume all
+subsequent bytes until a valid closing byte or end of string is encountered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip_ctl</span></code> only warns with malformed CSI and OSC if they are reported as
+supported via the <code class="docutils literal notranslate"><span class="pre">ctl</span></code> parameter.  If CSI and OSC are indicated as not
+supported, but two byte escapes are, the two initial bytes of CSI and OSCs
+will be stripped.</p></li>
+<li><p>“unknown” encoded strings are no longer translated to UTF-8 in UTF-8 locales
+(they are instead assumed to be UTF-8).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nchar_ctl</span></code> preserves <code class="docutils literal notranslate"><span class="pre">dim</span></code>, <code class="docutils literal notranslate"><span class="pre">dimnames</span></code>, and <code class="docutils literal notranslate"><span class="pre">names</span></code> as the base functions do.</p></li>
+<li><p>UTF-8 known to be invalid should not be output, even if present in input
+(UTF-8 validation is not complete, only sequences that are obviously wrong are
+detected).</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">tabs_as_spaces</span></code> to handle sequential tabs, and to perform better on very
+wide strings.</p></li>
+<li><p>Strings with invalid UTF-8 sequences with “unknown” declared encoding in UTF-8
+locales now cause errors instead of being silently translated into byte
+escaped versions (e.g. “\xf0\xc2” (2 bytes), used to be interpreted as
+“<f0><c2>” (four characters).  These now cause errors as they would have if
+they had had “UTF-8” declared encoding.</p></li>
+<li><p>In some cases true colors of form “38;2;x;x;x” and “48;2;x;x;x” would only be
+partially transcribed.</p></li>
+</ul>
+</div>
+<div class="section" id="internal-changes">
+<h3>Internal Changes<a class="headerlink" href="#internal-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>More aggressive UTF-8 validation, also, invalid UTF-8 code points now advance
+only one byte instead of their putative width based on the initial byte.</p></li>
+<li><p>Reduce peak memory usage by making some intermediate buffers eligible for
+garbage collection prior to native code returning to R.</p></li>
+<li><p>Reworked internals to simplify buffer size computation and synchronization, in
+some cases this might cause slightly reduced performance.  Please report any
+significant performance regressions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nchar_ctl(...)</span></code> is no longer a wrapper for <code class="docutils literal notranslate"><span class="pre">nchar(strip_ctl(...))</span></code> so that it
+may correctly support grapheme width calculations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v0-5-0">
+<h2>v0.5.0<a class="headerlink" href="#v0-5-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/65">#65</a>: <code class="docutils literal notranslate"><span class="pre">sgr_to_html</span></code> optionally
+converts CSI SGR to classes instead of inline styles (h/t &#64;hadley).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/69">#69</a>: <code class="docutils literal notranslate"><span class="pre">sgr_to_html</span></code> is more
+disciplined about emitting unnecessary HTML (h/t &#64;hadley).</p></li>
+<li><p>New functions:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sgr_256</span></code>: Display all 256 8-bit colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_html</span></code>: Easily output HTML in a web page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_styles</span></code>: Easily produce CSS that matches 8-bit colors.</p></li>
+</ul>
+</li>
+<li><p>Adjust for changes to <code class="docutils literal notranslate"><span class="pre">nchar(...,</span> <span class="pre">type='width')</span></code> for C0-C1 control characters
+in R 4.1.</p></li>
+<li><p>Restore tests bypassed in 0.4.2.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-4-2">
+<h2>v0.4.2<a class="headerlink" href="#v0-4-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Temporarily bypass tests due to R bug introduced in R-devel 79799.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-4-1">
+<h2>v0.4.1<a class="headerlink" href="#v0-4-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Correctly define/declare global symbols as per WRE 1.6.4.1, (h/t Professor
+Ripley, Joshua Ulrich for example fixes).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/59">#59</a>: Provide a <code class="docutils literal notranslate"><span class="pre">split.nl</span></code> option
+to <code class="docutils literal notranslate"><span class="pre">set_knit_hooks</span></code> to mitigate white space issues when using blackfriday for
+the markdown-&gt;html conversion (&#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="section" id="v0-4-0">
+<h2>v0.4.0<a class="headerlink" href="#v0-4-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Systematized which control sequences are handled specially by adding the <code class="docutils literal notranslate"><span class="pre">ctl</span></code>
+parameter to most functions.  Some functions such as <code class="docutils literal notranslate"><span class="pre">strip_ctl</span></code> had existing
+parameters that did the same thing (e.g. <code class="docutils literal notranslate"><span class="pre">strip</span></code>, or <code class="docutils literal notranslate"><span class="pre">which</span></code>), and those have
+been deprecated in favor of <code class="docutils literal notranslate"><span class="pre">ctl</span></code>.  While technically this is a change in the
+API, it is backwards compatible (addresses
+<a class="reference external" href="https://github.com/brodieG/fansi/issues/56">#56</a> among and other things).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">*_sgr</span></code> version of most <code class="docutils literal notranslate"><span class="pre">*_ctl</span></code> functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nzchar_ctl</span></code> gains the <code class="docutils literal notranslate"><span class="pre">ctl</span></code> parameter.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/57">#57</a>: Correctly detect when CSI
+sequences are not actually SGR (previously would apply styles from some
+non-SGR CSI sequences).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/55">#55</a>: <code class="docutils literal notranslate"><span class="pre">strsplit_ctl</span></code> can now work
+with <code class="docutils literal notranslate"><span class="pre">ctl</span></code> parameters containing escape sequences provided those sequences
+are excluded from by the <code class="docutils literal notranslate"><span class="pre">ctl</span></code> parameter.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/54">#54</a>: fix <code class="docutils literal notranslate"><span class="pre">sgr_to_html</span></code> so that
+it can handle vector elements with un-terminated SGR sequences (&#64;krlmlr).</p></li>
+<li><p>Fix bug in width computation of first line onwards in <code class="docutils literal notranslate"><span class="pre">strwrap_ctl</span></code> when
+indent/exdent/prefix/initial widths vary from first to second line.</p></li>
+<li><p>Fix wrapping in <code class="docutils literal notranslate"><span class="pre">strwrap2_*(...,</span> <span class="pre">strip.spaces=FALSE)</span></code>, including a bug when
+<code class="docutils literal notranslate"><span class="pre">wrap.always=TRUE</span></code> and a line started in a word-whitespace boundary.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">term.cap</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">unhandled_ctl</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-3-0">
+<h2>v0.3.0<a class="headerlink" href="#v0-3-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fansi::set_knit_hooks</span></code> makes it easy to automatically convert ANSI CSI SGR
+sequences to HTML in Rmarkdown documents.  We also add a vignette that
+demonstrates how to do this.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/53">#53</a>: fix for systems where
+‘char’ is signed (found and fixed by &#64;QuLogic).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/52">#52</a>: fix bad compilation under
+ICC (&#64;kazumits).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/51">#51</a>: documentation improvements
+(&#64;krlmlr).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/50">#50</a>: run tests on R 3.1 - 3.4
+tests for the rc branch only (&#64;krlmlr).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/48">#48</a>: malformed call to error
+in FANSI_check_enc (&#64;msannell).</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/47">#47</a>: compatibility with R
+versions 3.2.0 and 3.2.1 (&#64;andreadega).</p></li>
+</ul>
+</div>
+<div class="section" id="v0-2-3">
+<h2>v0.2.3<a class="headerlink" href="#v0-2-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/45">#45</a>: add capability to run under
+R 3.1 <a class="reference external" href="https://github.com/hadley">hadley</a>, <a class="reference external" href="https://github.com/gaborcsardi">Gábor
+Csárdi</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/brodieG/fansi/issues/44">#44</a>: include bright color
+support in HTML conversion (h/t <a class="reference external" href="https://github.com/wlandau">Will Landau</a>).</p></li>
+</ul>
+<p>Other minor fixes (<a class="reference external" href="https://github.com/brodieG/fansi/issues/43">#43</a>, <a class="reference external" href="https://github.com/brodieG/fansi/issues/46">#46</a>).</p>
+</div>
+<div class="section" id="v0-2-2">
+<h2>v0.2.2<a class="headerlink" href="#v0-2-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Remove valgrind uninitialized string errors by avoiding <code class="docutils literal notranslate"><span class="pre">strsplit</span></code>.</p></li>
+<li><p>Reduce R dependency to &gt;= 3.2.x (&#64;gaborcsardi).</p></li>
+<li><p>Update tests to handle potential change in <code class="docutils literal notranslate"><span class="pre">substr</span></code> behavior starting with
+R-3.6.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-2-1">
+<h2>v0.2.1<a class="headerlink" href="#v0-2-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All string inputs are now encoded to UTF-8, not just those that are used in
+width calculations.</p></li>
+<li><p>UTF-8 tests skipped on Solaris.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-2-0">
+<h2>v0.2.0<a class="headerlink" href="#v0-2-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">strsplit_ctl</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="v0-1-0">
+<h2>v0.1.0<a class="headerlink" href="#v0-1-0" title="Permalink to this headline">¶</a></h2>
+<p>Initial release.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./renv\library\R-4.1\x86_64-w64-mingw32\fansi"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

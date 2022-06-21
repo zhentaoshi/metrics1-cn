@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cli 3.2.0 &#8212; 计量经济学</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/cli/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/cli/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   cli 3.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-change">
+     Breaking change
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-changes">
+     Other changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-1-1">
+   cli 3.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-1-0">
+   cli 3.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#smaller-improvements">
+     Smaller improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-0-1">
+   cli 3.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-0-0">
+   cli 3.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-5-0">
+   cli 2.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-4-0">
+   cli 2.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-3-1">
+   cli 2.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-3-0">
+   cli 2.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-2-0">
+   cli 2.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-1-0">
+   cli 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-2">
+   cli 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-1">
+   cli 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-0">
+   cli 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semantic-command-line-interface-tools">
+     Semantic command line interface tools
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-1-1-0">
+   cli 1.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-1-0-0">
+   cli 1.0.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>cli 3.2.0</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   cli 3.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-change">
+     Breaking change
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-changes">
+     Other changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-1-1">
+   cli 3.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-1-0">
+   cli 3.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#smaller-improvements">
+     Smaller improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-0-1">
+   cli 3.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-3-0-0">
+   cli 3.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-5-0">
+   cli 2.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-4-0">
+   cli 2.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-3-1">
+   cli 2.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-3-0">
+   cli 2.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-2-0">
+   cli 2.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-1-0">
+   cli 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-2">
+   cli 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-1">
+   cli 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-2-0-0">
+   cli 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semantic-command-line-interface-tools">
+     Semantic command line interface tools
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-1-1-0">
+   cli 1.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-1-0-0">
+   cli 1.0.0
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cli-3-2-0">
+<h1>cli 3.2.0<a class="headerlink" href="#cli-3-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-change">
+<h2>Breaking change<a class="headerlink" href="#breaking-change" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cli_theme_dark</span></code> option is know known as <code class="docutils literal notranslate"><span class="pre">cli.theme_dark</span></code>, to be
+consistent with all other cli option names (#380).</p></li>
+</ul>
+</div>
+<div class="section" id="other-changes">
+<h2>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The preferred names of the S3 clases <code class="docutils literal notranslate"><span class="pre">ansi_string</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_style</span></code>, <code class="docutils literal notranslate"><span class="pre">boxx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rule</span></code> and <code class="docutils literal notranslate"><span class="pre">tree</span></code> now have <code class="docutils literal notranslate"><span class="pre">cli_</span></code> prefix: <code class="docutils literal notranslate"><span class="pre">cli_ansi_string</span></code>, etc. This will
+help avoiding name conflicts with other packages eventually, but for now
+the old names are kept as well, for compatibility.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_abort()</span></code> has been updated to work nicely with rlang 1.0. The
+default <code class="docutils literal notranslate"><span class="pre">call</span></code> and backtrace soft-truncation are set to <code class="docutils literal notranslate"><span class="pre">.envir</span></code>
+(which itself is set to the immediate caller of <code class="docutils literal notranslate"><span class="pre">cli_abort()</span></code> by
+default).</p>
+<p>Line formatting now happens lazily at display time via
+<code class="docutils literal notranslate"><span class="pre">rlang::cnd_message()</span></code> (which is called by the <code class="docutils literal notranslate"><span class="pre">conditionMessage()</span></code>
+method for rlang errors).</p>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">hash_sha256()</span></code> function to calculate SHA-256 hashes. New
+<code class="docutils literal notranslate"><span class="pre">hash_raw_*()</span></code>, <code class="docutils literal notranslate"><span class="pre">hash_obj_*()</span></code> and <code class="docutils literal notranslate"><span class="pre">hash_file_*()</span></code> functions to calculate
+various hashes of raw vectors, R objects and files.</p></li>
+<li><p>You can use the new <code class="docutils literal notranslate"><span class="pre">cli.default_num_colors</span></code> option to set the default
+number of ANSI colors, only if ANSI support is otherwise detected.
+See the details in the manual of <code class="docutils literal notranslate"><span class="pre">num_ansi_colors()</span></code>.</p></li>
+<li><p>You can set the new <code class="docutils literal notranslate"><span class="pre">ESS_BACKGROUND_MODE</span></code> environment variable to
+<code class="docutils literal notranslate"><span class="pre">dark</span></code> to indicate dark mode.</p></li>
+<li><p>cli now handles quotes and comment characters better in the semantion
+<code class="docutils literal notranslate"><span class="pre">cli_*()</span></code> functions that perform glue string interpolation (#370).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-3-1-1">
+<h1>cli 3.1.1<a class="headerlink" href="#cli-3-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">style_hyperlink()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">params=</span></code> argument (#384).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-3-1-0">
+<h1>cli 3.1.0<a class="headerlink" href="#cli-3-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The C progress bar API now uses <code class="docutils literal notranslate"><span class="pre">double</span></code> instead of <code class="docutils literal notranslate"><span class="pre">int</span></code> as the data
+type of the progress units (#335).</p></li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Several improvements and changes in the <code class="docutils literal notranslate"><span class="pre">ansi_*()</span></code> functions:</p>
+<ul>
+<li><p>most <code class="docutils literal notranslate"><span class="pre">ansi_*()</span></code> functions are now implemented in C and they are
+much faster (#316).</p></li>
+<li><p>they handle <code class="docutils literal notranslate"><span class="pre">NA</span></code> values better.</p></li>
+<li><p>many functions now use UTF-8 graphemes by default instead of code
+points. E.g. <code class="docutils literal notranslate"><span class="pre">ansi_nchar()</span></code> counts graphemes, etc.</p></li>
+<li><p>they convert their input to UTF-8 and always return UTF-8
+encoded strings.</p></li>
+<li><p>new function <code class="docutils literal notranslate"><span class="pre">ansi_simplify()</span></code> to remove superfluous ANSI tags.</p></li>
+<li><p>new function <code class="docutils literal notranslate"><span class="pre">ansi_html()</span></code> to convert ANSI-highlighted strings
+to HTML.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansi_has_any()</span></code> and <code class="docutils literal notranslate"><span class="pre">ansi_strip()</span></code> now have <code class="docutils literal notranslate"><span class="pre">sgr</span></code> and <code class="docutils literal notranslate"><span class="pre">csi</span></code>
+arguments to look for SGR tags, CSI tags, or both.</p></li>
+</ul>
+</li>
+<li><p>New functions that handle UTF-8 encoded strings correctly:
+<code class="docutils literal notranslate"><span class="pre">utf8_graphemes()</span></code>, <code class="docutils literal notranslate"><span class="pre">utf8_nchar()</span></code>, <code class="docutils literal notranslate"><span class="pre">utf8_substr()</span></code>.</p></li>
+<li><p>Support for palettes, including a colorblind friendly palette.
+See <code class="docutils literal notranslate"><span class="pre">?ansi_palettes</span></code> for details.</p></li>
+<li><p>True color support: <code class="docutils literal notranslate"><span class="pre">num_ansi_colors()</span></code> now detects terminals with
+24 bit color support, and <code class="docutils literal notranslate"><span class="pre">make_ansi_style()</span></code> uses the exact RGB colors
+on these terminals (#208).</p></li>
+<li><p>The new <code class="docutils literal notranslate"><span class="pre">col_br_*()</span></code> and <code class="docutils literal notranslate"><span class="pre">bg_br_()</span></code> functions create bright versions of
+eight base ANSI colors (#327).</p></li>
+<li><p>New function <code class="docutils literal notranslate"><span class="pre">code_highlight()</span></code> to syntax highlight R code. It supports
+several themes out of the box, see <code class="docutils literal notranslate"><span class="pre">code_theme_list()</span></code> (#348).</p></li>
+<li><p>New functions for hashing: <code class="docutils literal notranslate"><span class="pre">hash_animal()</span></code>, <code class="docutils literal notranslate"><span class="pre">hash_emoji()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hash_md5()</span></code>.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">diff_chr()</span></code> and <code class="docutils literal notranslate"><span class="pre">diff_str()</span></code> functions to calculate the difference
+of character vectors and letters of strings.</p></li>
+</ul>
+</div>
+<div class="section" id="smaller-improvements">
+<h2>Smaller improvements<a class="headerlink" href="#smaller-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Progress bars with <code class="docutils literal notranslate"><span class="pre">clear</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> now print the last, completed, state
+properly.</p></li>
+<li><p>The progress bar for Shiny apps now handles output from
+<code class="docutils literal notranslate"><span class="pre">cli_progress_output()</span></code>.</p></li>
+<li><p>Progress variables in C <code class="docutils literal notranslate"><span class="pre">format_done</span></code> strings work correctly now (#337).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_dl()</span></code> now works with an empty description, and gives a better
+error for invalid input (#347).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rule()</span></code> is now works better if the labels have ANSI markup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_spark</span></code> objects now have <code class="docutils literal notranslate"><span class="pre">format()</span></code> and <code class="docutils literal notranslate"><span class="pre">print()</span></code> methods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_process_done()</span></code> now does not error without a process (#351).</p></li>
+<li><p>ANSI markup is now supported in RStudio jobs (#353).</p></li>
+<li><p>The lack of ANSI support is now again correctly detected if there is an
+active <code class="docutils literal notranslate"><span class="pre">sink()</span></code> (#366).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-3-0-1">
+<h1>cli 3.0.1<a class="headerlink" href="#cli-3-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ansi_strtrim()</span></code> now correctly keeps <code class="docutils literal notranslate"><span class="pre">NA</span></code> values (#309).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format_inline()</span></code> now uses the correct environment (&#64;rundel, #314).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-3-0-0">
+<h1>cli 3.0.0<a class="headerlink" href="#cli-3-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New functions for progress bars, please see the new articles at
+<a class="reference external" href="https://cli.r-lib.org/articles/">https://cli.r-lib.org/articles/</a> for details.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">cli_abort()</span></code>, <code class="docutils literal notranslate"><span class="pre">cli_warn()</span></code> and <code class="docutils literal notranslate"><span class="pre">cli_inform()</span></code> functions, to throw
+errors with cli pluralization and styling.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">format_inline()</span></code> function to format a cli string without emitting
+it (#278).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-5-0">
+<h1>cli 2.5.0<a class="headerlink" href="#cli-2-5-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">style_no_*()</span></code> functions to locally undo styling.
+New <code class="docutils literal notranslate"><span class="pre">col_none()</span></code> and <code class="docutils literal notranslate"><span class="pre">bg_none()</span></code> functions to locally undo text color
+and background color.</p></li>
+<li><p>It is now possible to undo text and background color in a theme, by
+setting them to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_memo()</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">cli_bullets()</span></code>, as it is by default
+formatted as a bullet list (#250).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ansi_toupper()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_tolower</span></code> and <code class="docutils literal notranslate"><span class="pre">ansi_chartr()</span></code> functions,
+the ANSI styling aware variants of <code class="docutils literal notranslate"><span class="pre">toupper()</span></code>, <code class="docutils literal notranslate"><span class="pre">tolower()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">chartr()</span></code> (#248).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">test_that_cli()</span></code> helper function to write testthat tests for
+cli output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tree()</span></code> now does not produce warnings for tibbles (#238).</p></li>
+<li><p>New inline style: <code class="docutils literal notranslate"><span class="pre">.cls</span></code> to format class names, e.g.
+<code class="docutils literal notranslate"><span class="pre">&quot;{.var</span> <span class="pre">fit}</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">an</span> <span class="pre">{.cls</span> <span class="pre">lm}</span> <span class="pre">object&quot;</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-4-0">
+<h1>cli 2.4.0<a class="headerlink" href="#cli-2-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">cli_memo()</span></code> function to create a list of items or tasks.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">cli::cli()</span></code> function to create a single cli message from multiple
+cli calls (#170).</p></li>
+<li><p>cli now highlights weird names, e.g. path names with leading or
+trailing space (#227).</p></li>
+<li><p>Styling is fixed at several places. In particular, nested lists should
+be now formatted better (#221).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">spark_bar()</span></code> and <code class="docutils literal notranslate"><span class="pre">spark_line()</span></code> functions to draw small bar or
+line charts.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-3-1">
+<h1>cli 2.3.1<a class="headerlink" href="#cli-2-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ANSI color support detection works correctly now in older RStudio,
+and also on older R versions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_h1()</span></code>, <code class="docutils literal notranslate"><span class="pre">cli_h2()</span></code> and <code class="docutils literal notranslate"><span class="pre">cli_h3()</span></code> now work with multiple glue
+substitutions (#218).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-3-0">
+<h1>cli 2.3.0<a class="headerlink" href="#cli-2-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">boxx()</span></code> now correctly calculates the width of the box for non-ASCII
+characters.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ansi_trimws()</span></code> and <code class="docutils literal notranslate"><span class="pre">ansi_strwrap()</span></code> functions, they are similar
+to <code class="docutils literal notranslate"><span class="pre">trimws()</span></code> and <code class="docutils literal notranslate"><span class="pre">strwrap()</span></code> but work on ANSI strings.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ansi_columns()</span></code> function to format ANSI strings in multiple columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansi_substr()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_substring()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_strsplit()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_align()</span></code>
+now always return <code class="docutils literal notranslate"><span class="pre">cli_ansi_string</span></code> objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansi_nchar()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_align()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_strtrim()</span></code> and the new
+<code class="docutils literal notranslate"><span class="pre">ansi_strwrap()</span></code> as well handle wide Unicode correctly, according to
+their display width.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boxx()</span></code> can now add headers and footers to boxes.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-2-0">
+<h1>cli 2.2.0<a class="headerlink" href="#cli-2-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">style_hyperlink()</span></code> function to add hyperlinks, on terminals that
+support them.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli_format_method()</span></code> now works properly in knitr, and other environments
+that catch message conditions (#159).</p></li>
+<li><p>ANSI strings created by <code class="docutils literal notranslate"><span class="pre">col_*</span></code>, <code class="docutils literal notranslate"><span class="pre">bg_*</span></code> and <code class="docutils literal notranslate"><span class="pre">style_*</span></code> now also add the
+<code class="docutils literal notranslate"><span class="pre">character</span></code> class to the result. This fixes issues with code that
+expect <code class="docutils literal notranslate"><span class="pre">character</span></code> objects.</p></li>
+<li><p>New functions to manipulate ANSI strings: <code class="docutils literal notranslate"><span class="pre">ansi_aling()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ansi_has_any()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_nchar()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_regex()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_strip()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ansi_strsplit()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_substr()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_substring()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-1-0">
+<h1>cli 2.1.0<a class="headerlink" href="#cli-2-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">cli_vec()</span></code> function to allow easier formatting of collapsed
+vectors. It is now also possible to use styling to set the collapsing
+parameters (#129).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">pluralize()</span></code> function to perform pluralization without generating
+cli output (#155).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">console_width()</span></code> works better now in RStudio, and also in terminals.</p></li>
+<li><p>Styling of verbatim text work properly now (#147, &#64;tzakharko).</p></li>
+<li><p>Messages (i.e. <code class="docutils literal notranslate"><span class="pre">message</span></code> conditions) coming from cli now have the
+<code class="docutils literal notranslate"><span class="pre">cliMessage</span></code> class, so you can easily suppress them without suppressing
+other messages (#156).</p></li>
+<li><p>cli prints the output to <code class="docutils literal notranslate"><span class="pre">stderr()</span></code> now, if there is an output or
+message sink. This is to make interactive and non-interactive sessions
+consistent (#153).</p></li>
+<li><p>Pluralization works correctly now if the last alternative is the
+empty string (#158).</p></li>
+<li><p>cli now caches the result of the dark background detection in iTerm on
+macOS. Reload cli to delete the cache (#131).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">is_dynamic_tty()</span></code>, <code class="docutils literal notranslate"><span class="pre">is_ansi_tty()</span></code> and <code class="docutils literal notranslate"><span class="pre">ansi_hide_cursor()</span></code> and
+related functions now default to the <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> stream, which is
+automatically selected to be either <code class="docutils literal notranslate"><span class="pre">stdout()</span></code> or <code class="docutils literal notranslate"><span class="pre">stderr()</span></code>.
+See the manual for details (#144).</p></li>
+<li><p>The default theme now quotes file names, paths, email addresses if they
+don’t start or end with an alphanumeric character or a slash. This is
+to make it easier to spot names that start or end with a space (#167).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_spinner()</span></code> clears the line properly now (&#64;tzakharko, #164).</p></li>
+<li><p>Semantic cli functions now automatically replace Unicode non-breaking
+space characters (<code class="docutils literal notranslate"><span class="pre">\u00a0</span></code>) with regular space characters, right before
+output. They are still used to calculate the line breaks, but not
+outputted (#161).</p></li>
+<li><p>Progress bars now respect <code class="docutils literal notranslate"><span class="pre">is_dynamic_tty()</span></code> and do not output <code class="docutils literal notranslate"><span class="pre">\r</span></code> when this
+is false (&#64;jimhester, #177)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-0-2">
+<h1>cli 2.0.2<a class="headerlink" href="#cli-2-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The status bar now does not simplify multiple spaces by a single space.</p></li>
+<li><p>cli now does not crash if it fails to detect whether the RStudio theme
+is a dark theme (#138).</p></li>
+<li><p>cli now works better with wide Unicode characters, for example emojis.
+In particular, a status bar containing emojis is cleared properly (#133).</p></li>
+<li><p>The status bar now does not flicker when updated, in terminals (#135).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-0-1">
+<h1>cli 2.0.1<a class="headerlink" href="#cli-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Symbols (<code class="docutils literal notranslate"><span class="pre">symbol$*</span></code>) are now correctly printed in RStudio on Windows (#124).</p></li>
+<li><p>The default theme for <code class="docutils literal notranslate"><span class="pre">cli_code()</span></code> output looks better now, especially
+in RStudio (#123).</p></li>
+<li><p>Remove spurious newline after a <code class="docutils literal notranslate"><span class="pre">cli_process_start()</span></code> was cleared
+manually, and also at the end of the function.</p></li>
+<li><p>Use Oxford comma when listing 3 or more items (&#64;jonocarroll, #128).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-2-0-0">
+<h1>cli 2.0.0<a class="headerlink" href="#cli-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="semantic-command-line-interface-tools">
+<h2>Semantic command line interface tools<a class="headerlink" href="#semantic-command-line-interface-tools" title="Permalink to this headline">¶</a></h2>
+<p>cli 2.0.0 has a new set of functions that help creating a CLI using a set
+of higher level elements: headings, paragraphs, lists, alerts, code blocks,
+etc. The formatting of all elements can be customized via themes.
+See the “Building a semantic CLI” article on the package web site:
+<a class="reference external" href="https://cli.r-lib.org">https://cli.r-lib.org</a></p>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes:<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix a bug in <code class="docutils literal notranslate"><span class="pre">is_dynamic_tty()</span></code>, setting <code class="docutils literal notranslate"><span class="pre">R_CLI_DYNAMIC=&quot;FALSE&quot;</span></code> now
+properly turns dynamic tty off (#70).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-1-1-0">
+<h1>cli 1.1.0<a class="headerlink" href="#cli-1-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>cli has now functions to add ANSI styles to text. These use the crayon
+package internally, and provide a simpler interface. See the <code class="docutils literal notranslate"><span class="pre">col_*</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bg_*</span></code>, <code class="docutils literal notranslate"><span class="pre">style_*</span></code> and also the <code class="docutils literal notranslate"><span class="pre">make_ansi_style()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">combine_ansi_styles()</span></code> functions (#51).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">is_dynamic_tty()</span></code> function detects if <code class="docutils literal notranslate"><span class="pre">\r</span></code> should be used for a
+stream (#62).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">is_ansi_tty()</span></code> function detects if ANSI control sequences can be
+used for a stream.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ansi_hide_cursor()</span></code>, <code class="docutils literal notranslate"><span class="pre">ansi_show_cursor()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ansi_with_hidden_cursor()</span></code> functions to hide and show the cursor in
+terminals.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">make_spinner()</span></code> function helps integrating spinners into your
+functions.</p></li>
+<li><p>Now <code class="docutils literal notranslate"><span class="pre">symbol</span></code> always uses ASCII symbols when the <code class="docutils literal notranslate"><span class="pre">cli.unicode</span></code> option is
+set to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>1.0.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">cli_sitrep()</span></code> function, situation report about UTF-8 and ANSI
+color support (#53).</p></li>
+<li><p>Fall back to ASCII only characters on non-Windows platforms without
+UTF-8 support, and also in LaTeX when running knitr (#34).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cli-1-0-0">
+<h1>cli 1.0.0<a class="headerlink" href="#cli-1-0-0" title="Permalink to this headline">¶</a></h1>
+<p>First public release.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./renv\library\R-4.1\x86_64-w64-mingw32\cli"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
