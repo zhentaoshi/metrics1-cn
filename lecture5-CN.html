@@ -321,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>寄蜉蝣于天地，渺沧海之一粟。哀吾生之须臾，羡长江之无穷。挟飞仙以遨游，抱明月而长终。</p>
 </div>
 <hr class="docutils" />
-<p>我们身处的浩瀚宇宙当中, 原子的数目小于 <span class="math notranslate nohighlight">\(10^{82}\)</span> 个。这是一个天文数字，然而也是一个有限的数字. 然而, 数学思想并不受制于现实. 渐进理论 (Asymptotic theory) 是一门有关无限的艺术, 它研究统计量在样本量趋于无穷大之时的性质与行为. 它用一系列“近似”的技巧来简化复杂的有限样本问题. 渐近理论是现代计量经济学的基石. 它超越了有限样本理论所涵盖范围, 揭示了在更普遍情况下的统计估计与推断理论.</p>
+<p>我们身处的浩瀚宇宙当中, 原子的数目小于 <span class="math notranslate nohighlight">\(10^{82}\)</span> 个. 这是一个天文数字，然而也是一个有限的数字. 然而, 数学思想并不受制于现实. 渐进理论 (Asymptotic theory) 是一门有关无限的艺术, 它研究统计量在样本量趋于无穷大之时的性质与行为. 它用一系列“近似”的技巧来简化复杂的有限样本问题. 渐近理论是现代计量经济学的基石. 它超越了有限样本理论所涵盖范围, 揭示了在更普遍情况下的统计估计与推断理论.</p>
 <p>然而现实与理想相悖：我们手中的样本量总是有限的, 而且在大多数情况下, 我们也很难去增加样本量. 渐近理论虽然研究无穷大, 却不能准确回答 “多大才是大”这个问题. 因此, 我们必须警惕 <em>渐近乌托邦 (asymptopia)</em> 的出现. 在大数据时代, 尽管数据的规模急剧膨胀, 同时我们希望建立复杂的模型来更好地捕捉数据的异质性. 大样本是一个相对的概念, 依赖于模型的复杂性和数据的基本生成过程.</p>
 <p>一方面，经典的参数化方法建立在难以验证的参数假设之上. 另一方面，渐进理论以假想的无限序列为前提. 可以说, 二者都偏离了现实. 哪种方法更有建设性? 我们只能根据具体情况来判断. 渐进理论的优点在于它数学上的普遍性与易操作性. 正因如此, 渐进理论摘得我们这个时代数理统计学的桂冠.</p>
 <div class="section" id="id2">
@@ -336,12 +336,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div><p>然而我们感兴趣的不是确定性序列, 而是随机变量序列. 何谓随机变量的收敛? 我们在此定义几种随机变量的收敛模式. 设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个随机变量序列, <span class="math notranslate nohighlight">\(z\)</span> 是随机变量或非随机常数.</p>
 <div class="proof definition admonition" id="con_in_prob">
-<p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (依概率收敛 (Convergence in probability))</p>
+<p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (依概率收敛, Convergence in probability)</p>
 <div class="definition-content section" id="proof-content">
 <p>如果对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 都有 <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|&lt;\varepsilon\right\} \to 1\)</span> (或者等价地, <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|\geq\varepsilon\right\} \to0\)</span>) , 则称随机变量序列 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依概率收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>.</p>
 </div>
 </div><div class="proof definition admonition" id="con_in_ms">
-<p class="admonition-title"><span class="caption-number">Definition 2.3 </span> (均方收敛 (Convergence in mean square))</p>
+<p class="admonition-title"><span class="caption-number">Definition 2.3 </span> (均方收敛, Convergence in mean square)</p>
 <div class="definition-content section" id="proof-content">
 <p>如果当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-z\right)^{2}\right]\to0\)</span>， 则称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 均方收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\to}z\)</span>.</p>
 </div>
@@ -350,7 +350,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="proof example admonition" id="in_p_in_ms">
 <p class="admonition-title"><span class="caption-number">Example 2.1 </span></p>
 <div class="example-content section" id="proof-content">
-<p><span class="math notranslate nohighlight">\((z_{n})\)</span> 是一个随机变量序列. <span class="math notranslate nohighlight">\(z_{n}=\sqrt{n}\)</span> 的概率为 <span class="math notranslate nohighlight">\(1/n\)</span>, <span class="math notranslate nohighlight">\(z_{n}=0\)</span> 的概率为 <span class="math notranslate nohighlight">\(1-1/n\)</span>. 那么 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}0\)</span>, 但 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\nrightarrow}0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((z_{n})\)</span> 是一个随机变量序列. <span class="math notranslate nohighlight">\(z_{n}=\sqrt{n}\)</span> 的概率为 <span class="math notranslate nohighlight">\(1/n\)</span>, <span class="math notranslate nohighlight">\(z_{n}=0\)</span> 的概率为 <span class="math notranslate nohighlight">\(1-1/n\)</span>. 那么 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}0\)</span>, 但 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\nrightarrow}0.\)</span></p>
 <div class="proof admonition" id="proof">
 <p>Proof. 注意到, 对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, <span class="math notranslate nohighlight">\(P\left(\omega:\left|z_{n}\left(\omega\right)-0\right|&lt;\varepsilon\right)=P\left(\omega:z_{n}\left(\omega\right)=0\right)=1-1/n\rightarrow1\)</span>, 因此 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}0\)</span>. 同时, <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-0\right)^{2}\right]=n\cdot1/n+0\cdot(1-1/n)=1\nrightarrow0\)</span>, 所以 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\nrightarrow}0\)</span>.</p>
 </div>
@@ -360,13 +360,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="remark-content section" id="proof-content">
 <p><a class="reference internal" href="#in_p_in_ms">Example 2.1</a> 揭示了两种收敛方式的不同. 依概率收敛并不考虑小概率事件是后果, 而均方收敛涉考虑的则是整个概率空间上的平均值. 如果某个随机变量可以取一个巨大的值, 即使这是小概率事件, 它也可能会影响均方收敛, 却并不会破坏依概率收敛.</p>
 </div>
-</div><p>依概率收敛与均方收敛都事关一个随机变量收敛至另一个随机变量或者常数. 也就是说, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(z_{n}-z\)</span> 的分布聚集在 0 左右. 但是, <em>依分布收敛 (convergence in distribution</em>) 关心的却是 <em>累积分布函数CDF</em> 的收敛方式, 并非随机变量的收敛方式.</p>
+</div><p>依概率收敛与均方收敛都事关一个随机变量收敛至另一个随机变量或者常数. 也就是说, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(z_{n}-z\)</span> 的分布聚集在 0 左右. 但是, <em>依分布收敛 (convergence in distribution</em>) 关心的却是累积分布函数的收敛方式, 并非随机变量本身的收敛.</p>
 <div class="proof definition admonition" id="con_in_dist">
-<p class="admonition-title"><span class="caption-number">Definition 2.4 </span> (依分布收敛 Convergence in distribution)</p>
+<p class="admonition-title"><span class="caption-number">Definition 2.4 </span> (依分布收敛, Convergence in distribution)</p>
 <div class="definition-content section" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(F_{z_{n}}\left(\cdot\right)\)</span> 随机变量序列 <span class="math notranslate nohighlight">\(z_{n}\)</span> 的累积分布函数, <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)\)</span> 的累计分布函数. 如果对于 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)\)</span> 的任意连续点 <span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 都有 <span class="math notranslate nohighlight">\(F_{z_{n}}\left(a\right)\to F_{z}\left(a\right)\)</span>, 那么称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依分布收敛到随机变量 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>.</p>
 </div>
-</div><p>依分布收敛是一种弱收敛性质. 如果 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 则 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>. 反之不一定成立, 除非 <span class="math notranslate nohighlight">\(z\)</span> 是一个(非随机)常数 (常数 <span class="math notranslate nohighlight">\(z\)</span> 可以被视作一个退化的随机变量, 其累积分布函数可写作 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)=1\left\{ \cdot\geq z\right\}\)</span>) .</p>
+</div><p>依分布收敛是一种很弱的收敛方式. 如果 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 则 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>. 反之不一定成立, 除非 <span class="math notranslate nohighlight">\(z\)</span> 是一个(非随机)常数 (常数 <span class="math notranslate nohighlight">\(z\)</span> 可以被视作一个退化的随机变量, 其累积分布函数可写作 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)=1\left\{ \cdot\geq z\right\}\)</span>) .</p>
 <div class="proof example admonition" id="in_p_in_dist">
 <p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
 <div class="example-content section" id="proof-content">
@@ -398,7 +398,7 @@ F_{z}\left(a\right)=\begin{cases} 0, &amp; a&lt;0\\ 1 &amp; a\geq0 \end{cases}.
 <p>易验证, 在定义域 <span class="math notranslate nohighlight">\(\left(-\infty, 0\right)\cup\left(0, +\infty\right)\)</span> 上, <span class="math notranslate nohighlight">\(F_{z_{n}}\left(a\right)\)</span> 逐点收敛于 <span class="math notranslate nohighlight">\(F_{z}\left(a\right)\)</span>, 其中 <span class="math notranslate nohighlight">\(F_{z}\left(a\right)\)</span> 是连续函数.</p>
 </div>
 </div>
-</div><p>到目前为止, 我们已经讨论了随机标量的收敛性. 这三种收敛模式可以很容易地推广到随机向量. 具体来说, 可以运用 <em>Cramer-Wold device</em>, 通过任意的线性组合, 将随机向量折叠成随机向量. 假设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个 <span class="math notranslate nohighlight">\(K\)</span> 维的随机向量序列, <span class="math notranslate nohighlight">\(z\)</span> 是一个<span class="math notranslate nohighlight">\(K\)</span> 维向量. 如果对于任意 <span class="math notranslate nohighlight">\(\lambda\in\mathbb{R}^{K}\)</span>, <span class="math notranslate nohighlight">\(\left\Vert \lambda\right\Vert _{2}=1\)</span>, 都有 <span class="math notranslate nohighlight">\(\lambda'z_{n}\stackrel{d}{\to}\lambda'z\)</span>, 那么称随机向量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依分布收敛到 <span class="math notranslate nohighlight">\(z\)</span>.</p>
+</div><p>到目前为止, 我们已经讨论了随机标量的收敛性. 这三种收敛模式可以很容易地推广到随机向量. 具体来说, 可以运用 <em>Cramer-Wold device</em>, 通过任意的线性组合, 将随机向量折叠成随机标量. 假设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个 <span class="math notranslate nohighlight">\(K\)</span> 维的随机向量序列, <span class="math notranslate nohighlight">\(z\)</span> 是一个<span class="math notranslate nohighlight">\(K\)</span> 维向量. 如果对于任意 <span class="math notranslate nohighlight">\(\lambda\in\mathbb{R}^{K}\)</span>, <span class="math notranslate nohighlight">\(\left\Vert \lambda\right\Vert _{2}=1\)</span>, 都有 <span class="math notranslate nohighlight">\(\lambda'z_{n}\stackrel{d}{\to}\lambda'z\)</span>, 则称随机向量序列 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依分布收敛到 <span class="math notranslate nohighlight">\(z\)</span>.</p>
 </div>
 <div class="section" id="id3">
 <h2><span class="section-number">2.2. </span>大数定律<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
@@ -408,7 +408,7 @@ F_{z}\left(a\right)=\begin{cases} 0, &amp; a&lt;0\\ 1 &amp; a\geq0 \end{cases}.
 \[
 \frac{1}{n}\sum_{i=1}^{n}(z_{i}-E[z_{i}])\stackrel{p}{\to}0. 
 \]</div>
-<p>不同版本的大数定律基于不同的假设, 也取决于对应随机变量的不同相依性(dependence).</p>
+<p>不同版本的大数定律基于不同的矩条件, 也取决于对应随机变量的不同相依性(dependence).</p>
 <div class="section" id="chebyshev">
 <h3><span class="section-number">2.2.1. </span>Chebyshev大数定律<a class="headerlink" href="#chebyshev" title="Permalink to this headline">¶</a></h3>
 <p>我们从最简单的Chebyshev大数定律入手, 来理解大数定律. Chebyshev大数定律利用了<em>Chebyshev不等式</em>, 其定义如下.</p>
@@ -448,9 +448,9 @@ P\left\{ \left|x\right|&gt;\varepsilon\right\} \leq \frac{E\left[\left|x\right|^
  &amp; \geq\varepsilon^{r}\int_{\left|x\right|&gt;\varepsilon}dF_{X}=\varepsilon^{r}P\left\{ \left|x\right|&gt;\varepsilon\right\} , 
 \end{aligned}
 \end{split}\]</div>
-<p>重新排列此不等式, 即可得到 Markov 不等式.</p>
+<p>重新排列此不等式, 即可得到Markov不等式.</p>
 </div>
-<p>接下来我们推导 Chebyshev 大数定律.</p>
+<p>接下来我们推导Chebyshev大数定律.</p>
 <p>假设 <em>部分和 (partial sum)</em> <span class="math notranslate nohighlight">\(S_{n}=\sum_{i=1}^{n}x_{i}\)</span>, 同时记 <span class="math notranslate nohighlight">\(\mu_{i}=E\left[x_{i}\right]\)</span>, <span class="math notranslate nohighlight">\(\sigma_{i}^{2}=\mathrm{var}\left[x_{i}\right]\)</span>.</p>
 <p>对样本均值 <span class="math notranslate nohighlight">\(z_{n}=\overline{x}-\bar{\mu}=n^{-1}\left(S_{n}-E\left[S_{n}\right]\right)\)</span> 运用 Chebyshev 不等式, 得到</p>
 <div class="math notranslate nohighlight" id="equation-eqn-cheb-mean">
@@ -462,10 +462,10 @@ P\left\{ \left|z_{n}\right|\geq\varepsilon\right\}  &amp; =P\left\{ n^{-1}\left|
  &amp; =\left(n\varepsilon\right)^{-2}\left\{ \sum_{i=1}^{n}\mathrm{var}\left(x_{i}\right)+\sum_{i=1}^{n}\sum_{j\neq i}\mathrm{cov}\left(x_{i}, x_{j}\right)\right\}. 
  \end{aligned}
 \end{split}\]</div>
-<p>如果在 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 右式趋近于0, 那么 <span class="math notranslate nohighlight">\(z_{n}\)</span> 依概率收敛至0. 比如, 若 <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{n}\)</span> 是 iid 变量, <span class="math notranslate nohighlight">\(\mathrm{var}\left(x_{1}\right)=\sigma^{2}\)</span>, 那么 <a class="reference internal" href="#equation-eqn-cheb-mean">(2.1)</a> 右式 <span class="math notranslate nohighlight">\(\left(n\varepsilon\right)^{-2}\left(n\sigma^{2}\right)=o\left(n^{-1}\right)\to0\)</span>.</p>
-<p>至此, 我们已经得到了 Chebyshev 大数定律.</p>
+<p>如果在 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 右式趋近于0, 那么 <span class="math notranslate nohighlight">\(z_{n}\)</span> 依概率收敛至0. 比如, 若 <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{n}\)</span> 是 iid 变量, <span class="math notranslate nohighlight">\(\mathrm{var}\left(x_{1}\right)=\sigma^{2}\)</span>, 那么 <a class="reference internal" href="#equation-eqn-cheb-mean">(2.1)</a> 右式 <span class="math notranslate nohighlight">\(\left(n\varepsilon\right)^{-2}\left(n\sigma^{2}\right)=O \left(n^{-1}\right)\to0\)</span>.</p>
+<p>至此, 我们已经得到了Chebyshev大数定律.</p>
 <div class="proof theorem admonition" id="cheb_lln">
-<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span> (Chebyshev 大数定律)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span> (Chebyshev大数定律)</p>
 <div class="theorem-content section" id="proof-content">
 <p>如果 <span class="math notranslate nohighlight">\(\left(z_{1}, \ldots, z_{n}\right)\)</span> 是独立同分布 (iid) 的随机样本, <span class="math notranslate nohighlight">\(E\left[z_{1}\right]=\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma^{2}=\mathrm{var}\left[z_{1}\right]&lt;\infty\)</span> 存在, 则</p>
 <div class="math notranslate nohighlight">
@@ -473,7 +473,7 @@ P\left\{ \left|z_{n}\right|\geq\varepsilon\right\}  &amp; =P\left\{ n^{-1}\left|
 \frac{1}{n}\sum_{i=1}^{n}z_{i}\stackrel{p}{\to}\mu. 
 \]</div>
 </div>
-</div><p>事实上, 依概率收敛的大数定律可以去除独立同分布 (iid) 的假设; 样本中的随机变量可以不是同分布的, 也不必相互独立.</p>
+</div><p>事实上, 依概率收敛的大数定律可以去除独立同分布 (iid) 的假设; 样本中的随机变量可以来自不同的分布, 也不必相互独立.</p>
 <div class="exercise admonition" id="exercise52">
 
 <p class="admonition-title"><span class="caption-number">Exercise 2.2 </span></p>
@@ -610,7 +610,7 @@ M_{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}}\left(t\right) &amp; =\prod_{i=1}^{n}M_
 </div>
 </div><p>我们继续介绍中心极限定理的两种常见形式.</p>
 <div class="proof theorem admonition" id="lf-clt">
-<p class="admonition-title"><span class="caption-number">Theorem 2.7 </span> (Lindeberg-Feller CLT)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.7 </span> (Lindeberg-Feller中心极限定理)</p>
 <div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 是相互独立的样本. 如果满足 <em>Lindeberg condition</em> (对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>,
 <span class="math notranslate nohighlight">\(\frac{1}{s_{n}^{2}}\sum_{i=1}^{n}E\left[x_{i}^{2}\cdot\boldsymbol{1}\left\{ \left|x_{i}\right|\geq\varepsilon s_{n}\right\} \right]\to0\)</span>, 其中 <span class="math notranslate nohighlight">\(s_{n}=\sqrt{\sum_{i=1}^{n}\sigma_{i}^{2}}\)</span>) , 那么</p>
@@ -620,7 +620,7 @@ M_{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}}\left(t\right) &amp; =\prod_{i=1}^{n}M_
 \]</div>
 </div>
 </div><div class="proof theorem admonition" id="lya-clt">
-<p class="admonition-title"><span class="caption-number">Theorem 2.8 </span> (Lyapunov CLT)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.8 </span> (Lyapunov中心极限定理)</p>
 <div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 是相互独立的样本. 如果 <span class="math notranslate nohighlight">\(\max_{i\leq n}E\left[\left|x_{i}\right|^{3}\right]&lt;C&lt;\infty\)</span>, 那么有</p>
 <div class="math notranslate nohighlight">
@@ -665,12 +665,12 @@ M_{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}}\left(t\right) &amp; =\prod_{i=1}^{n}M_
 </div>
 <div class="section" id="id5">
 <h2><span class="section-number">2.4. </span>转化方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
-<p>大数定律事关样本均值, 而中心极限定理则聚焦于缩小后 (除以 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ) 或标准化以后 (除以样本标准差) 的样本均值. 但是, 大多数计量经济学的问题不只是样本均值而已. 比如, 最小二乘估计量</p>
+<p>大数定律关注样本均值, 而中心极限定理则聚焦于放大后 (乘以 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ) 或标准化以后 (除以样本标准差) 的样本均值. 大多数计量经济学的估计量不只是样本均值而已. 比如, 最小二乘估计量</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}=\left(\frac{1}{n}\sum_{i}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i}x_{i}y_{i}
 \]</div>
-<p>涉及矩阵求逆和矩阵-向量乘法. 在此, 我们需要一些转化随机变量的工具.</p>
+<p>涉及矩阵求逆和矩阵-向量乘法. 在此, 我们需要一些转化收敛结果的工具.</p>
 <div class="proof theorem admonition" id="cmp1">
 <p class="admonition-title"><span class="caption-number">Theorem 2.9 </span> (连续映射定理 Continuous mapping theorem 1)</p>
 <div class="theorem-content section" id="proof-content">
@@ -724,14 +724,15 @@ f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)=\frac{\partial f\left(\d
 </div></div>
 <div class="section" id="id6">
 <h2><span class="section-number">2.5. </span>总结<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<p>渐进理论是一个既广且深的课题. 在本章中, 我们只触及了一些表面知识. 我们将在下一章继续探讨如何将渐进理论应用于最小二乘法.</p>
+<p>渐进理论是一个既广且深的课题. 在本章中, 我们只涉猎其表. 我们将在下一章继续探讨如何将渐进理论应用于最小二乘法.</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
-<p>在20世纪80年代之前, 大多数计量经济学家都没有受过严谨的数学训练, 因此无法很好地掌握渐进理论. 在当时, 几位著名的年轻计量经济学家改变了这一局面, 他们拓展了渐进理论在计量经济学中的发展. 其中的佼佼者有 Halbert White (UCSD), Peter C. B.  Phillips (Yale), 以及 Peter Robinson (LSE).</p>
+<p>在20世纪80年代之前, 大多数计量经济学家都没有受过严谨的数学训练, 因此无法很好地掌握渐进理论. 几位当时年轻的计量经济学家拓展了渐进理论在计量经济学中的疆域, 深刻地改变了计量经济学面貌. 其中的佼佼者有 Halbert White (UCSD), Peter C. B.  Phillips (Yale), 以及 Peter Robinson (LSE).</p>
 </div>
+<p>[need to add citations]</p>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
-<p>Halbert White (1950-2012) 写过一本非常易懂的教科书 (White, 2000, first edition 1984) 向计量经济学家介绍渐进理论. 时至今日, 这本书在经济学研究者和研究生中仍然很受欢迎. 另外, Davidson (1994) 是一本更详细、自成一体的专著.</p>
+<p>Halbert White (1950-2012) 写过一本相对易读易懂的教科书 (White, 2000, first edition 1984) 向计量经济学家介绍渐进理论. 时至今日, 这本书在经济学研究者和研究生中仍然很受欢迎. 另外, Davidson (1994) 是一本更详细、自成一体的专著.</p>
 </div>
 </div>
 </div>
