@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. 基本渐近理论 &#8212; 计量经济学</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,18 +18,22 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,21 +41,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="1. 最小二乘法：线性代数观点" href="lecture3-CN.html" />
@@ -64,21 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,10 +74,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -103,15 +89,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    介绍
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture3-CN.html">
    1. 最小二乘法：线性代数观点
@@ -125,17 +110,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -143,204 +123,107 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lecture5-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture5-CN.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/lecture5-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture5-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture5-CN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lecture5-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    2.1. 随机变量的收敛模式
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lln">
-   2.2. 大数定律 (LLN)
+  <a class="reference internal nav-link" href="#id3">
+   2.2. 大数定律
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#chebyshev-lln">
-     2.2.1. 切比雪夫大数定律 Chebyshev LLN
+    <a class="reference internal nav-link" href="#chebyshev">
+     2.2.1. Chebyshev大数定律
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -351,27 +234,28 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clt">
-   2.3. 中心极限定理 (CLT)
+  <a class="reference internal nav-link" href="#id4">
+   2.3. 中心极限定理
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    2.4. 转化方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    2.5. 总结
   </a>
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>基本渐近理论</h1>
@@ -390,13 +274,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lln">
-   2.2. 大数定律 (LLN)
+  <a class="reference internal nav-link" href="#id3">
+   2.2. 大数定律
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#chebyshev-lln">
-     2.2.1. 切比雪夫大数定律 Chebyshev LLN
+    <a class="reference internal nav-link" href="#chebyshev">
+     2.2.1. Chebyshev大数定律
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -407,17 +291,17 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clt">
-   2.3. 中心极限定理 (CLT)
+  <a class="reference internal nav-link" href="#id4">
+   2.3. 中心极限定理
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
+  <a class="reference internal nav-link" href="#id5">
    2.4. 转化方法
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
    2.5. 总结
   </a>
  </li>
@@ -427,75 +311,74 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">2. </span>基本渐近理论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">2. </span>基本渐近理论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="admonition- admonition">
 <p class="admonition-title">赤壁赋</p>
 <p>寄蜉蝣于天地，渺沧海之一粟。哀吾生之须臾，羡长江之无穷。挟飞仙以遨游，抱明月而长终。</p>
 </div>
 <hr class="docutils" />
-<p>我们身处的宇宙虽然浩瀚, 却只由不到 <span class="math notranslate nohighlight">\(10^{82}\)</span> 个原子组成——这是一个有限的数字. 然而, 数学思想并不受制于现实. 渐进理论 (Asymptotic theory) 是一门有关无限的艺术, 它研究统计量在样本量趋于无穷大之时的性质与行为. 它用一系列“近似”的技巧来简化复杂的有限样本分析问题. 可以说, 渐近理论是现代计量经济学的基石. 它超越了有限样本理论所涵盖的一切, 揭示了在更普遍情况下 (也即无限情况下) 的统计估计与推断理论.</p>
-<p>然而现实与理想相悖：我们手中的样本量总是有限的, 而且在大多数情况下, 我们也很难去增加样本量. 渐近理论虽然研究无穷大, 却不能准确回答 “多大才是大”这个问题. 因此, 我们必须警惕 <em>渐近乌托邦 (asymptopia)</em> 的出现. 在大数据时代, 尽管数据的规模急剧膨胀, 但我们仍有必要建立复杂的模型来更好地捕捉数据的异质性. 当然, 大样本是一个相对的概念, 与模型的复杂性和数据的基本 (非) 依赖性结构相对.</p>
-<p>经典的参数化方法建立在难以验证的参数化假设之上, 而渐进理论以假想的无限序列为前提, 可以说二者都偏离了现实. 哪种方法更有建设性? 我们只能根据具体情况来判断. 渐进理论的优点在于它数学上的普遍性与易操作性. 正因如此, 渐进理论摘得我们这个时代数理统计学的桂冠.</p>
-<section id="id2">
-<h2><span class="section-number">2.1. </span>随机变量的收敛模式<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>首先回顾一下什么是非随机序列的收敛, 这一点我们在高中就学过了.</p>
+<p>我们身处的浩瀚宇宙当中, 原子的数目小于 <span class="math notranslate nohighlight">\(10^{82}\)</span> 个。这是一个天文数字，然而也是一个有限的数字. 然而, 数学思想并不受制于现实. 渐进理论 (Asymptotic theory) 是一门有关无限的艺术, 它研究统计量在样本量趋于无穷大之时的性质与行为. 它用一系列“近似”的技巧来简化复杂的有限样本问题. 渐近理论是现代计量经济学的基石. 它超越了有限样本理论所涵盖范围, 揭示了在更普遍情况下的统计估计与推断理论.</p>
+<p>然而现实与理想相悖：我们手中的样本量总是有限的, 而且在大多数情况下, 我们也很难去增加样本量. 渐近理论虽然研究无穷大, 却不能准确回答 “多大才是大”这个问题. 因此, 我们必须警惕 <em>渐近乌托邦 (asymptopia)</em> 的出现. 在大数据时代, 尽管数据的规模急剧膨胀, 同时我们希望建立复杂的模型来更好地捕捉数据的异质性. 大样本是一个相对的概念, 依赖于模型的复杂性和数据的基本生成过程.</p>
+<p>一方面，经典的参数化方法建立在难以验证的参数假设之上. 另一方面，渐进理论以假想的无限序列为前提. 可以说, 二者都偏离了现实. 哪种方法更有建设性? 我们只能根据具体情况来判断. 渐进理论的优点在于它数学上的普遍性与易操作性. 正因如此, 渐进理论摘得我们这个时代数理统计学的桂冠.</p>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1. </span>随机变量的收敛模式<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>首先回顾一下什么是非随机序列的收敛.</p>
 <div class="proof definition admonition" id="con_of_dv">
-<p class="admonition-title"><span class="caption-number">Definition 2.1 </span> (非随机变量收敛 Convergence of deterministic variables)</p>
-<section class="definition-content" id="proof-content">
-<p>假设 <span class="math notranslate nohighlight">\(z_{1}, z_{2}, \ldots\)</span> 是一个非随机变量 (确定变量) 的无限序列. 如果对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 存在 <span class="math notranslate nohighlight">\(N\left(\varepsilon\right)\)</span> 使得：对于任意 <span class="math notranslate nohighlight">\(n&gt;N\left(\varepsilon\right)\)</span>, 都有
+<p class="admonition-title"><span class="caption-number">Definition 2.1 </span> (非随机序列的收敛)</p>
+<div class="definition-content section" id="proof-content">
+<p>假设 <span class="math notranslate nohighlight">\(z_{1}, z_{2}, \ldots\)</span> 是一个非随机的无限序列. 如果对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 存在 <span class="math notranslate nohighlight">\(N\left(\varepsilon\right)\)</span> 使得：对于所有 <span class="math notranslate nohighlight">\(n&gt;N\left(\varepsilon\right)\)</span>, 都有
 <span class="math notranslate nohighlight">\(\left|z_{n}-z\right|&lt;\varepsilon\)</span>, 那么称 <span class="math notranslate nohighlight">\(\{z_n\}\)</span> 是收敛序列.</p>
 <p>我们将 <span class="math notranslate nohighlight">\(z\)</span> 称作 <span class="math notranslate nohighlight">\(z_{n}\)</span> 的极限, 并记 <span class="math notranslate nohighlight">\(z_{n}\to z\)</span>, 或者 <span class="math notranslate nohighlight">\(\lim_{n\to\infty}z_{n}=z\)</span>.</p>
-</section>
-</div><p>然而我们感兴趣的不是确定变量, 而是一个随机变量序列的收敛性. 基于可测函数的概率测度, 我们得以建立随机变量的“随机”性. 那么, 何谓随机变量的收敛? 我们在此介绍几种不同的随机变量的收敛模式.</p>
+</div>
+</div><p>然而我们感兴趣的不是确定性序列, 而是随机变量序列. 何谓随机变量的收敛? 我们在此定义几种随机变量的收敛模式. 设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个随机变量序列, <span class="math notranslate nohighlight">\(z\)</span> 是随机变量或非随机常数.</p>
 <div class="proof definition admonition" id="con_in_prob">
-<p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (依概率收敛 Convergence in probability)</p>
-<section class="definition-content" id="proof-content">
-<p>设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个随机变量序列, <span class="math notranslate nohighlight">\(z\)</span> 是随机变量或非随机常数. 如果对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 都有 <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|&lt;\varepsilon\right\} \to 1\)</span> (或者等价地, <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|\geq\varepsilon\right\} \to0\)</span>) , 那么称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依概率收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>.</p>
-</section>
+<p class="admonition-title"><span class="caption-number">Definition 2.2 </span> (依概率收敛 (Convergence in probability))</p>
+<div class="definition-content section" id="proof-content">
+<p>如果对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 都有 <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|&lt;\varepsilon\right\} \to 1\)</span> (或者等价地, <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|\geq\varepsilon\right\} \to0\)</span>) , 则称随机变量序列 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依概率收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>.</p>
+</div>
 </div><div class="proof definition admonition" id="con_in_ms">
-<p class="admonition-title"><span class="caption-number">Definition 2.3 </span> (均方收敛 Convergence in mean square)</p>
-<section class="definition-content" id="proof-content">
-<p>设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个随机变量序列, <span class="math notranslate nohighlight">\(z\)</span> 是随机变量或非随机常数. 如果当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-z\right)^{2}\right]\to0\)</span>. 那么称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 均方收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\to}z\)</span>.</p>
-</section>
-</div><p>在 <a class="reference internal" href="#con_in_prob">Definition 2.2</a> 与 <a class="reference internal" href="#con_in_ms">Definition 2.3</a> 中, <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|&gt;\varepsilon\right\}\)</span> 与 <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-z\right)^{2}\right]\)</span> 都是非随机的变量, 它们以非随机变量的收敛方式 (<a class="reference internal" href="#con_of_dv">Definition 2.1</a>) 收敛至0.</p>
-<p>注意, 均方收敛的假设比依概率收敛的假设更强. 也就是说, 可以从 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\to}z\)</span> 推导出 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 但反过来并不成立. 下面是一个例子.</p>
+<p class="admonition-title"><span class="caption-number">Definition 2.3 </span> (均方收敛 (Convergence in mean square))</p>
+<div class="definition-content section" id="proof-content">
+<p>如果当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-z\right)^{2}\right]\to0\)</span>， 则称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 均方收敛到 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\to}z\)</span>.</p>
+</div>
+</div><p>在 <a class="reference internal" href="#con_in_prob">Definition 2.2</a> 与 <a class="reference internal" href="#con_in_ms">Definition 2.3</a> 中, <span class="math notranslate nohighlight">\(P\left\{ \omega:\left|z_{n}\left(\omega\right)-z\right|&gt;\varepsilon\right\}\)</span> 与 <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-z\right)^{2}\right]\)</span> 都是非随机的. 它们依非随机序列的收敛方式 (<a class="reference internal" href="#con_of_dv">Definition 2.1</a>) 趋近于0.</p>
+<p>注意, 均方收敛的假设比依概率收敛的假设更强. 也就是说, 可以从 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\to}z\)</span> 推导出 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 但反过来不成立. 下面是一个例子.</p>
 <div class="proof example admonition" id="in_p_in_ms">
 <p class="admonition-title"><span class="caption-number">Example 2.1 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\((z_{n})\)</span> 是一个随机变量序列. <span class="math notranslate nohighlight">\(z_{n}=\sqrt{n}\)</span> 的概率为 <span class="math notranslate nohighlight">\(1/n\)</span>, <span class="math notranslate nohighlight">\(z_{n}=0\)</span> 的概率为 <span class="math notranslate nohighlight">\(1-1/n\)</span>. 那么 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}0\)</span>, 但 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\nrightarrow}0\)</span>.</p>
 <div class="proof admonition" id="proof">
 <p>Proof. 注意到, 对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, <span class="math notranslate nohighlight">\(P\left(\omega:\left|z_{n}\left(\omega\right)-0\right|&lt;\varepsilon\right)=P\left(\omega:z_{n}\left(\omega\right)=0\right)=1-1/n\rightarrow1\)</span>, 因此 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}0\)</span>. 同时, <span class="math notranslate nohighlight">\(E\left[\left(z_{n}-0\right)^{2}\right]=n\cdot1/n+0\cdot(1-1/n)=1\nrightarrow0\)</span>, 所以 <span class="math notranslate nohighlight">\(z_{n}\stackrel{m. s. }{\nrightarrow}0\)</span>.</p>
 </div>
-</section>
+</div>
 </div><div class="proof remark admonition" id="remark1">
 <p class="admonition-title"><span class="caption-number">Remark 2.1 </span></p>
-<section class="remark-content" id="proof-content">
-<p><a class="reference internal" href="#in_p_in_ms">Example 2.1</a> 揭示了两种收敛方式的不同. 依概率收敛并不考虑小概率的样本空间上发生的事情, 而均方收敛涉考虑的则是整个概率空间的平均值. 如果某个随机变量可以取一个奇怪的值, 即使这是小概率事件, 它也可能会影响均方收敛, 却并不会破坏依概率收敛的性质.</p>
-</section>
-</div><p>依概率收敛与均方收敛都是定义一个随机变量收敛至一个随机变量 (或常数) . 也就是说, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(z_{n}-z\)</span> 的分布聚集在 0 左右. 但是, <em>依分布收敛 convergence in distribution</em> 关心的却是<strong>累积分布函数CDF</strong>的收敛方式, 并非随机变量的收敛方式.</p>
+<div class="remark-content section" id="proof-content">
+<p><a class="reference internal" href="#in_p_in_ms">Example 2.1</a> 揭示了两种收敛方式的不同. 依概率收敛并不考虑小概率事件是后果, 而均方收敛涉考虑的则是整个概率空间上的平均值. 如果某个随机变量可以取一个巨大的值, 即使这是小概率事件, 它也可能会影响均方收敛, 却并不会破坏依概率收敛.</p>
+</div>
+</div><p>依概率收敛与均方收敛都事关一个随机变量收敛至另一个随机变量或者常数. 也就是说, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, <span class="math notranslate nohighlight">\(z_{n}-z\)</span> 的分布聚集在 0 左右. 但是, <em>依分布收敛 (convergence in distribution</em>) 关心的却是 <em>累积分布函数CDF</em> 的收敛方式, 并非随机变量的收敛方式.</p>
 <div class="proof definition admonition" id="con_in_dist">
 <p class="admonition-title"><span class="caption-number">Definition 2.4 </span> (依分布收敛 Convergence in distribution)</p>
-<section class="definition-content" id="proof-content">
+<div class="definition-content section" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(F_{z_{n}}\left(\cdot\right)\)</span> 随机变量序列 <span class="math notranslate nohighlight">\(z_{n}\)</span> 的累积分布函数, <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)\)</span> 的累计分布函数. 如果对于 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)\)</span> 的任意连续点 <span class="math notranslate nohighlight">\(a\in\mathbb{R}\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 都有 <span class="math notranslate nohighlight">\(F_{z_{n}}\left(a\right)\to F_{z}\left(a\right)\)</span>, 那么称随机变量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依分布收敛到随机变量 <span class="math notranslate nohighlight">\(z\)</span>, 记作 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>.</p>
-</section>
-</div><p>依分布收敛是一种弱收敛性质. 如果 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 那么 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>. 反之不一定成立, 除非 <span class="math notranslate nohighlight">\(z\)</span> 是一个非随机的常数 (常数 <span class="math notranslate nohighlight">\(z\)</span> 可以被视作一个退化的随机变量, 其累积分布函数可写作 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)=1\left\{ \cdot\geq z\right\}\)</span>) .</p>
+</div>
+</div><p>依分布收敛是一种弱收敛性质. 如果 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}z\)</span>, 则 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z\)</span>. 反之不一定成立, 除非 <span class="math notranslate nohighlight">\(z\)</span> 是一个(非随机)常数 (常数 <span class="math notranslate nohighlight">\(z\)</span> 可以被视作一个退化的随机变量, 其累积分布函数可写作 <span class="math notranslate nohighlight">\(F_{z}\left(\cdot\right)=1\left\{ \cdot\geq z\right\}\)</span>) .</p>
 <div class="proof example admonition" id="in_p_in_dist">
 <p class="admonition-title"><span class="caption-number">Example 2.2 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(x\sim N\left(0, 1\right)\)</span>.</p>
 <ul class="simple">
 <li><p>若 <span class="math notranslate nohighlight">\(z_{n}=x+1/n\)</span>, 则 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}x\)</span>, 且 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}x\)</span>.</p></li>
 <li><p>若 <span class="math notranslate nohighlight">\(z_{n}=-x+1/n\)</span>, 或 <span class="math notranslate nohighlight">\(z_{n}=y+1/n\)</span> (其中 <span class="math notranslate nohighlight">\(y\sim N\left(0, 1\right)\)</span> 与 <span class="math notranslate nohighlight">\(x\)</span> 独立) , 则 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\to}x\)</span>, 但 <span class="math notranslate nohighlight">\(z_{n}\stackrel{p}{\nrightarrow}x\)</span>.</p></li>
 </ul>
-</section>
+</div>
 </div><div class="proof example admonition" id="in_dist">
 <p class="admonition-title"><span class="caption-number">Example 2.4 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\((z_{n})\)</span> 是一个随机变量序列. <span class="math notranslate nohighlight">\(z_{n}=\sqrt{n}\)</span> 的概率为 <span class="math notranslate nohighlight">\(1/\sqrt{n}\)</span>, <span class="math notranslate nohighlight">\(z_{n}=0\)</span> 的概率为 <span class="math notranslate nohighlight">\(1-1/\sqrt{n}\)</span>. 那么 <span class="math notranslate nohighlight">\(z_{n}\stackrel{d}{\to}z=0\)</span>.</p>
 <div class="proof admonition" id="proof">
 <p>Proof. 注意到</p>
@@ -514,48 +397,48 @@ F_{z}\left(a\right)=\begin{cases} 0, &amp; a&lt;0\\ 1 &amp; a\geq0 \end{cases}.
 \end{split}\]</div>
 <p>易验证, 在定义域 <span class="math notranslate nohighlight">\(\left(-\infty, 0\right)\cup\left(0, +\infty\right)\)</span> 上, <span class="math notranslate nohighlight">\(F_{z_{n}}\left(a\right)\)</span> 逐点收敛于 <span class="math notranslate nohighlight">\(F_{z}\left(a\right)\)</span>, 其中 <span class="math notranslate nohighlight">\(F_{z}\left(a\right)\)</span> 是连续函数.</p>
 </div>
-</section>
+</div>
 </div><p>到目前为止, 我们已经讨论了随机标量的收敛性. 这三种收敛模式可以很容易地推广到随机向量. 具体来说, 可以运用 <em>Cramer-Wold device</em>, 通过任意的线性组合, 将随机向量折叠成随机向量. 假设 <span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 是一个 <span class="math notranslate nohighlight">\(K\)</span> 维的随机向量序列, <span class="math notranslate nohighlight">\(z\)</span> 是一个<span class="math notranslate nohighlight">\(K\)</span> 维向量. 如果对于任意 <span class="math notranslate nohighlight">\(\lambda\in\mathbb{R}^{K}\)</span>, <span class="math notranslate nohighlight">\(\left\Vert \lambda\right\Vert _{2}=1\)</span>, 都有 <span class="math notranslate nohighlight">\(\lambda'z_{n}\stackrel{d}{\to}\lambda'z\)</span>, 那么称随机向量序列<span class="math notranslate nohighlight">\(\left(z_{n}\right)\)</span> 依分布收敛到 <span class="math notranslate nohighlight">\(z\)</span>.</p>
-</section>
-<section id="lln">
-<h2><span class="section-number">2.2. </span>大数定律 (LLN)<a class="headerlink" href="#lln" title="Permalink to this headline">#</a></h2>
-<p>(弱) 大数定律 (LLN) 是一组关于 <em>样本均值依概率收敛至总体均值</em> 的定理.</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.2. </span>大数定律<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>(弱) 大数定律 ((weak) law of large numbers) 是一组关于 <em>样本均值依概率收敛至总体均值</em> 的定理.</p>
 <p>大数定律的基本形式是, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 有</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{n}\sum_{i=1}^{n}(z_{i}-E[z_{i}])\stackrel{p}{\to}0. 
 \]</div>
-<p>不同版本的大数定律基于不同的假设, 也取决于对应随机变量的不同性质.</p>
-<section id="chebyshev-lln">
-<h3><span class="section-number">2.2.1. </span>切比雪夫大数定律 Chebyshev LLN<a class="headerlink" href="#chebyshev-lln" title="Permalink to this headline">#</a></h3>
-<p>我们从最简单的切比雪夫大数定律入手, 来理解大数定律. 切比雪夫大数定律利用了<em>切比雪夫不等式(Chebyshev’s inequality)</em>, 其定义如下.</p>
+<p>不同版本的大数定律基于不同的假设, 也取决于对应随机变量的不同相依性(dependence).</p>
+<div class="section" id="chebyshev">
+<h3><span class="section-number">2.2.1. </span>Chebyshev大数定律<a class="headerlink" href="#chebyshev" title="Permalink to this headline">¶</a></h3>
+<p>我们从最简单的Chebyshev大数定律入手, 来理解大数定律. Chebyshev大数定律利用了<em>Chebyshev不等式</em>, 其定义如下.</p>
 <div class="proof theorem admonition" id="cheb_ineq">
-<p class="admonition-title"><span class="caption-number">Theorem 2.1 </span> (切比雪夫不等式 Chebyshev’s inequality)</p>
-<section class="theorem-content" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Theorem 2.1 </span> (Chebyshev不等式)</p>
+<div class="theorem-content section" id="proof-content">
 <p>如果随机变量 <span class="math notranslate nohighlight">\(x\)</span> 的二阶矩存在且有限 <span class="math notranslate nohighlight">\(E\left[x^{2}\right]&lt;\infty\)</span>, 那么对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 都有</p>
 <div class="math notranslate nohighlight">
 \[
 P\left\{ \left|x\right|&gt;\varepsilon\right\} \leq \frac{E\left[x^{2}\right]}{\varepsilon^{2}}. 
 \]</div>
-</section>
+</div>
 </div><div class="exercise admonition" id="exercise51">
 
 <p class="admonition-title"><span class="caption-number">Exercise 2.1 </span></p>
-<section id="exercise-content">
+<div class="section" id="exercise-content">
 <p>证明：若 <span class="math notranslate nohighlight">\(r_{2}\geq r_{1}\geq1\)</span>, 则由 <span class="math notranslate nohighlight">\(E\left[\left|x\right|^{r_{2}}\right]&lt;\infty\)</span> 可推断出 <span class="math notranslate nohighlight">\(E\left[\left|x\right|^{r_{1}}\right]&lt;\infty\)</span>. (提示：使用 Holder’s 不等式. )</p>
-</section>
 </div>
-<p>其实, 切比雪夫不等式是 <em>马尔可夫不等式 (Markov’s inequality)</em> 的一种特殊情况.</p>
+</div>
+<p>其实, Chebyshev不等式是 <em>Markov不等式</em> 的一种特殊情况.</p>
 <div class="proof theorem admonition" id="markov_ineq">
-<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (马尔可夫不等式 Markov’s inequality)</p>
-<section class="theorem-content" id="proof-content">
-<p>如果随机变量 <span class="math notranslate nohighlight">\(x\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩(<span class="math notranslate nohighlight">\(r\ge1\)</span>)存在且有限 <span class="math notranslate nohighlight">\(E\left[\left|x\right|^{r}\right]&lt;\infty\)</span>, 那么对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 都有</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.2 </span> (Markov不等式)</p>
+<div class="theorem-content section" id="proof-content">
+<p>如果随机变量 <span class="math notranslate nohighlight">\(x\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩 (<span class="math notranslate nohighlight">\(r\ge1\)</span>) 存在且有限 <span class="math notranslate nohighlight">\(E\left[\left|x\right|^{r}\right]&lt;\infty\)</span>, 则对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, 都有</p>
 <div class="math notranslate nohighlight">
 \[
 P\left\{ \left|x\right|&gt;\varepsilon\right\} \leq \frac{E\left[\left|x\right|^{r}\right]}{\varepsilon^{r}}. 
 \]</div>
-</section>
-</div><p>马尔可夫不等式的证明十分简单.</p>
+</div>
+</div><p>Markov不等式的证明十分简单.</p>
 <div class="proof admonition" id="proof">
 <p>Proof. 注意到</p>
 <div class="math notranslate nohighlight">
@@ -565,13 +448,13 @@ P\left\{ \left|x\right|&gt;\varepsilon\right\} \leq \frac{E\left[\left|x\right|^
  &amp; \geq\varepsilon^{r}\int_{\left|x\right|&gt;\varepsilon}dF_{X}=\varepsilon^{r}P\left\{ \left|x\right|&gt;\varepsilon\right\} , 
 \end{aligned}
 \end{split}\]</div>
-<p>重新排列此不等式, 即可得到马尔可夫不等式.</p>
+<p>重新排列此不等式, 即可得到 Markov 不等式.</p>
 </div>
-<p>接下来我们尝试导出切比雪夫大数定律.</p>
+<p>接下来我们推导 Chebyshev 大数定律.</p>
 <p>假设 <em>部分和 (partial sum)</em> <span class="math notranslate nohighlight">\(S_{n}=\sum_{i=1}^{n}x_{i}\)</span>, 同时记 <span class="math notranslate nohighlight">\(\mu_{i}=E\left[x_{i}\right]\)</span>, <span class="math notranslate nohighlight">\(\sigma_{i}^{2}=\mathrm{var}\left[x_{i}\right]\)</span>.</p>
-<p>对样本均值 <span class="math notranslate nohighlight">\(z_{n}=\overline{x}-\bar{\mu}=n^{-1}\left(S_{n}-E\left[S_{n}\right]\right)\)</span> 运用切比雪夫不等式, 得到</p>
+<p>对样本均值 <span class="math notranslate nohighlight">\(z_{n}=\overline{x}-\bar{\mu}=n^{-1}\left(S_{n}-E\left[S_{n}\right]\right)\)</span> 运用 Chebyshev 不等式, 得到</p>
 <div class="math notranslate nohighlight" id="equation-eqn-cheb-mean">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eqn-cheb-mean" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eqn-cheb-mean" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
 P\left\{ \left|z_{n}\right|\geq\varepsilon\right\}  &amp; =P\left\{ n^{-1}\left|S_{n}-E\left[S_{n}\right]\right|\geq\varepsilon\right\} \\
  &amp; \leq E\left[\left(n^{-1}\sum_{i=1}^{n}\left(x_{i}-\mu_{i}\right)\right)^{2}\right]/\varepsilon^{2}\\
@@ -580,44 +463,45 @@ P\left\{ \left|z_{n}\right|\geq\varepsilon\right\}  &amp; =P\left\{ n^{-1}\left|
  \end{aligned}
 \end{split}\]</div>
 <p>如果在 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时, 右式趋近于0, 那么 <span class="math notranslate nohighlight">\(z_{n}\)</span> 依概率收敛至0. 比如, 若 <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{n}\)</span> 是 iid 变量, <span class="math notranslate nohighlight">\(\mathrm{var}\left(x_{1}\right)=\sigma^{2}\)</span>, 那么 <a class="reference internal" href="#equation-eqn-cheb-mean">(2.1)</a> 右式 <span class="math notranslate nohighlight">\(\left(n\varepsilon\right)^{-2}\left(n\sigma^{2}\right)=o\left(n^{-1}\right)\to0\)</span>.</p>
-<p>至此, 我们已经得到了切比雪夫大数定律.</p>
+<p>至此, 我们已经得到了 Chebyshev 大数定律.</p>
 <div class="proof theorem admonition" id="cheb_lln">
-<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span> (切比雪夫大数定律 Chebyshev LLN)</p>
-<section class="theorem-content" id="proof-content">
-<p>如果 <span class="math notranslate nohighlight">\(\left(z_{1}, \ldots, z_{n}\right)\)</span> 是独立同分布 (iid) 的随机样本, <span class="math notranslate nohighlight">\(E\left[z_{1}\right]=\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma^{2}=\mathrm{var}\left[z_{1}\right]&lt;\infty\)</span> 存在, 那么</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2.3 </span> (Chebyshev 大数定律)</p>
+<div class="theorem-content section" id="proof-content">
+<p>如果 <span class="math notranslate nohighlight">\(\left(z_{1}, \ldots, z_{n}\right)\)</span> 是独立同分布 (iid) 的随机样本, <span class="math notranslate nohighlight">\(E\left[z_{1}\right]=\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma^{2}=\mathrm{var}\left[z_{1}\right]&lt;\infty\)</span> 存在, 则</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{n}\sum_{i=1}^{n}z_{i}\stackrel{p}{\to}\mu. 
 \]</div>
-</section>
-</div><p>事实上, 依概率收敛的大数定律可以去除独立同分布 (iid) 的假设：样本中的随机变量可以不是同分布的, 也不必相互独立.</p>
+</div>
+</div><p>事实上, 依概率收敛的大数定律可以去除独立同分布 (iid) 的假设; 样本中的随机变量可以不是同分布的, 也不必相互独立.</p>
 <div class="exercise admonition" id="exercise52">
 
 <p class="admonition-title"><span class="caption-number">Exercise 2.2 </span></p>
-<section id="exercise-content">
-<p>考虑一组相互独立 (不一定同分布) 的随机样本 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 使得 <span class="math notranslate nohighlight">\(E\left[x_{i}\right]=0\)</span>, <span class="math notranslate nohighlight">\(\mathrm{var}\left[x_{i}\right]=\sqrt{n}c\)</span>, <span class="math notranslate nohighlight">\(c&gt;0\)</span>是常数. 利用切比雪夫不等式, 证明 <span class="math notranslate nohighlight">\(n^{-1}\sum_{i=1}^{n}x_{i}\stackrel{p}{\to}0\)</span>.</p>
-</section>
+<div class="section" id="exercise-content">
+<p>考虑一组相互独立 (不一定同分布) 的随机样本 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 使得 <span class="math notranslate nohighlight">\(E\left[x_{i}\right]=0\)</span>, <span class="math notranslate nohighlight">\(\mathrm{var}\left[x_{i}\right]=\sqrt{n}c\)</span>, <span class="math notranslate nohighlight">\(c&gt;0\)</span>是常数. 利用 Chebyshev 不等式, 证明 <span class="math notranslate nohighlight">\(n^{-1}\sum_{i=1}^{n}x_{i}\stackrel{p}{\to}0\)</span>.</p>
 </div>
-</section>
-<section id="kolmogorov">
-<h3><span class="section-number">2.2.2. </span>Kolmogorov大数定律<a class="headerlink" href="#kolmogorov" title="Permalink to this headline">#</a></h3>
-<p>大数定律的另一个常见版本是<em>Kolmogorov大数定律</em>. 要导出 Kolmogorov大数定律, 需要更高阶的概率论知识, 因此我们只在此给出结果, 证明略去.</p>
+</div>
+</div>
+<div class="section" id="kolmogorov">
+<h3><span class="section-number">2.2.2. </span>Kolmogorov大数定律<a class="headerlink" href="#kolmogorov" title="Permalink to this headline">¶</a></h3>
+<p>大数定律的另一个常见版本是<em>Kolmogorov大数定律</em>. 要导出 Kolmogorov大数定律, 需要更高阶的概率论知识, 因此我们只在此给出结果, 略去证明.</p>
 <div class="proof theorem admonition" id="kolm_lln">
 <p class="admonition-title"><span class="caption-number">Theorem 2.4 </span> (Kolmogorov LLN)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>如果 <span class="math notranslate nohighlight">\(\left(z_{1}, \ldots, z_{n}\right)\)</span> 是独立同分布 (iid) 的随机样本, <span class="math notranslate nohighlight">\(E\left[z_{1}\right]=\mu\)</span> 存在, 那么</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{n}\sum_{i=1}^{n}z_{i}\stackrel{p}{\to}\mu. 
 \]</div>
-</section>
+</div>
 </div><p>与 Chebyshev大数定律相比, Kolmogorov大数定律只要求总体均值是存在的, 并不对更高阶的矩作要求. 独立同分布的假设对于Kolmogorov大数定律来说已然足够.</p>
 <div class="proof example admonition" id="in_dist">
 <p class="admonition-title"><span class="caption-number">Example 2.4 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>考虑三种分布, 标准正态分布 <span class="math notranslate nohighlight">\(N\left(0, 1\right)\)</span>, <span class="math notranslate nohighlight">\(t\)</span>-分布 <span class="math notranslate nohighlight">\(t\left(2\right)\)</span> (均值为0, 方差无限大) , 柯西分布 (所有的矩都不存在) . 在不同样本容量 <span class="math notranslate nohighlight">\(n=2^{1}, 2^{2}, \ldots, 2^{20}\)</span> 的假设下, 绘制出样本均值的轨迹图. 我们发现, <span class="math notranslate nohighlight">\(N\left(0, 1\right)\)</span> 与 <span class="math notranslate nohighlight">\(t\left(2\right)\)</span> 的样本均值收敛, 而柯西分布的样本均值并不收敛.</p>
-</section>
-</div><p>This script demonstrates the law of large numbers (LLN) along with the underlying assumptions.</p>
+</div>
+</div><p>[need translation]</p>
+<p>This script demonstrates the law of large numbers (LLN) along with the underlying assumptions.</p>
 <p>Write a function to generate the sample mean given the sample size <span class="math notranslate nohighlight">\(n\)</span> and the distribution.
 We allow three distributions, namely, <span class="math notranslate nohighlight">\(N(0,1)\)</span>, <span class="math notranslate nohighlight">\(t(2)\)</span> and Cauchy.</p>
 <p>The sample size is chosen as <span class="math notranslate nohighlight">\(2^x\)</span>, where <span class="math notranslate nohighlight">\(x=1:20\)</span>. We have the following observations.</p>
@@ -628,12 +512,12 @@ We allow three distributions, namely, <span class="math notranslate nohighlight"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span><span class="o">.</span><span class="n">mean</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">distribution</span> <span class="p">){</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample.mean</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="n">distribution</span> <span class="p">){</span>
   <span class="c1"># get sample mean for a given distribution</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s2">&quot;normal&quot;</span><span class="p">){</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span> <span class="n">n</span> <span class="p">)</span> <span class="p">}</span> 
-  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s2">&quot;t2&quot;</span><span class="p">)</span> <span class="p">{</span><span class="n">y</span> <span class="o">=</span> <span class="n">rt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s2">&quot;cauchy&quot;</span><span class="p">)</span> <span class="p">{</span><span class="n">y</span> <span class="o">=</span> <span class="n">rcauchy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">}</span>
-  <span class="k">return</span><span class="p">(</span> <span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s">&quot;normal&quot;</span><span class="p">){</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span> <span class="n">n</span> <span class="p">)</span> <span class="p">}</span> 
+  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s">&quot;t2&quot;</span><span class="p">)</span> <span class="p">{</span><span class="n">y</span> <span class="o">=</span> <span class="nf">rt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s">&quot;cauchy&quot;</span><span class="p">)</span> <span class="p">{</span><span class="n">y</span> <span class="o">=</span> <span class="nf">rcauchy</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">}</span>
+  <span class="nf">return</span><span class="p">(</span> <span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -642,62 +526,62 @@ We allow three distributions, namely, <span class="math notranslate nohighlight"
 <p>This function plots the sample mean over the path of geometrically increasing sample size.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LLN</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">distribution</span><span class="p">){</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">LLN.plot</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">distribution</span><span class="p">){</span>
   <span class="c1"># draw the sample mean graph</span>
-  <span class="n">ybar</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">NN</span><span class="p">),</span> <span class="mi">3</span> <span class="p">)</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">rr</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">){</span>
-    <span class="k">for</span> <span class="p">(</span> <span class="n">ii</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">NN</span><span class="p">)){</span>
-      <span class="n">n</span> <span class="o">=</span> <span class="n">NN</span><span class="p">[</span><span class="n">ii</span><span class="p">];</span> <span class="n">ybar</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">rr</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span>
+  <span class="n">ybar</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">NN</span><span class="p">),</span> <span class="m">3</span> <span class="p">)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">rr</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">){</span>
+    <span class="nf">for </span><span class="p">(</span> <span class="n">ii</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">NN</span><span class="p">)){</span>
+      <span class="n">n</span> <span class="o">=</span> <span class="n">NN</span><span class="p">[</span><span class="n">ii</span><span class="p">];</span> <span class="n">ybar</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">rr</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sample.mean</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span>
     <span class="p">}</span>  
   <span class="p">}</span>
-  <span class="n">matplot</span><span class="p">(</span><span class="n">ybar</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
-       <span class="n">lwd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">)</span>
-  <span class="n">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-  <span class="k">return</span><span class="p">(</span><span class="n">ybar</span><span class="p">)</span>
+  <span class="nf">matplot</span><span class="p">(</span><span class="n">ybar</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> 
+       <span class="n">lwd</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">)</span>
+  <span class="nf">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+  <span class="nf">return</span><span class="p">(</span><span class="n">ybar</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="c1"># calculation</span>
-<span class="n">NN</span> <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">);</span> <span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">7</span><span class="p">);</span> <span class="n">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">LLN</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;normal&quot;</span><span class="p">);</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">LLN</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;t2&quot;</span><span class="p">);</span> <span class="n">l3</span> <span class="o">=</span> <span class="n">LLN</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;cauchy&quot;</span><span class="p">)</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="m">2</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">);</span> <span class="nf">set.seed</span><span class="p">(</span><span class="m">2020-10-7</span><span class="p">);</span> <span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="nf">LLN.plot</span><span class="p">(</span><span class="s">&quot;normal&quot;</span><span class="p">);</span> <span class="n">l2</span> <span class="o">=</span> <span class="nf">LLN.plot</span><span class="p">(</span><span class="s">&quot;t2&quot;</span><span class="p">);</span> <span class="n">l3</span> <span class="o">=</span> <span class="nf">LLN.plot</span><span class="p">(</span><span class="s">&quot;cauchy&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="clt">
-<h2><span class="section-number">2.3. </span>中心极限定理 (CLT)<a class="headerlink" href="#clt" title="Permalink to this headline">#</a></h2>
-<p>中心极限定理 (CLT) 是一组关于某随机变量序列 <em>依分布收敛至某稳定分布</em> 的定理. 通常来说, 收敛至极限状态的稳定分布即为正态分布.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">2.3. </span>中心极限定理<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>中心极限定理 (central limit theorem) 是一组关于某随机变量序列 <em>依分布收敛至某稳定分布</em> 的定理. 极限分布通常是正态分布.</p>
 <div class="proof theorem admonition" id="clt">
-<p class="admonition-title"><span class="caption-number">Theorem 2.5 </span> (中心极限定理 CLT)</p>
-<section class="theorem-content" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Theorem 2.5 </span> (中心极限定理)</p>
+<div class="theorem-content section" id="proof-content">
 <p><em>在适当条件下</em>, 对于均值为0的随机样本 <span class="math notranslate nohighlight">\(\left(z_{1}, \ldots, z_{n}\right)\)</span>, 当 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时,</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}\stackrel{d}{\to}N\left(0, \sigma^{2}\right). 
 \]</div>
-</section>
-</div><p>不同版本的中心极限定理基于对随机变量的不同假设. 其中, <em>Lindeberg-Levy CLT</em> 是最简单的中心极限定理.</p>
+</div>
+</div><p>不同版本的中心极限定理基于对随机变量的不同假设. 其中, <em>Lindeberg-Levy 中心极限定理</em> 最为简单.</p>
 <div class="proof theorem admonition" id="ll-clt">
 <p class="admonition-title"><span class="caption-number">Theorem 2.6 </span> (Lindeberg-Levy CLT)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 是独立同分布的样本, <span class="math notranslate nohighlight">\(E\left[x_{1}\right]=0\)</span>, <span class="math notranslate nohighlight">\(\mathrm{var}\left[x_{1}\right]=\sigma^{2}&lt;\infty\)</span>, 那么</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}\stackrel{d}{\to}N\left(0, \sigma^{2}\right). 
 \]</div>
-</section>
-</div><p>Lindeberg-Levy CLT 的证明依赖于 <em>矩生成函数 (MGF, moment generating function)</em>.</p>
+</div>
+</div><p>Lindeberg-Levy 中心极限定理的证明依赖于 <em>矩母函数 (MGF, moment generating function)</em>.</p>
 <div class="proof definition admonition" id="mgf">
 <p class="admonition-title"><span class="caption-number">Definition 2.5 </span> (矩生成函数 MGF)</p>
-<section class="definition-content" id="proof-content">
+<div class="definition-content section" id="proof-content">
 <p>随机变量 <span class="math notranslate nohighlight">\(x\)</span> 的矩生成函数定义为：</p>
 <div class="math notranslate nohighlight">
 \[
 M_{x}\left(t\right)=E\left[\exp\left(xt\right)\right], 
 \]</div>
 <p>前提是这个期望值存在.</p>
-</section>
-</div><p>MGF (矩生成函数) 完全刻画了一个分布的性质, 它等价于 PDF (概率密度函数) , CDF (累积分布函数) . 例如, 正态分布 <span class="math notranslate nohighlight">\(N\left(\mu, \sigma^{2}\right)\)</span> 的 MGF 是 <span class="math notranslate nohighlight">\(\exp\left(\mu t+\frac{1}{2}\sigma^{2}t^{2}\right)\)</span>.</p>
+</div>
+</div><p>与概率密度函数和累积分布函数一样, 矩母函数也可以完全刻画了一个分布. 例如, 正态分布 <span class="math notranslate nohighlight">\(N\left(\mu, \sigma^{2}\right)\)</span> 的矩母函数是 <span class="math notranslate nohighlight">\(\exp\left(\mu t+\frac{1}{2}\sigma^{2}t^{2}\right)\)</span>.</p>
 <div class="proof admonition" id="proof">
 <p>Proof. 如果对于任意正整数 <span class="math notranslate nohighlight">\(k\)</span>, 都有 <span class="math notranslate nohighlight">\(E\left[\left|x\right|^{k}\right]&lt;\infty\)</span>, 那么</p>
 <div class="math notranslate nohighlight">
@@ -717,100 +601,100 @@ M_{\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}}\left(t\right) &amp; =\prod_{i=1}^{n}M_
  &amp; \to\exp\left(\frac{\sigma^{2}}{2}t^{2}\right). 
 \end{aligned}
 \end{split}\]</div>
-<p>右式的极限分布恰为正态分布的 <span class="math notranslate nohighlight">\(N\left(0, \sigma^{2}\right)\)</span> 的 MGF.</p>
+<p>右式的极限分布恰为正态分布的 <span class="math notranslate nohighlight">\(N\left(0, \sigma^{2}\right)\)</span> 的矩母函数.</p>
 </div>
 <div class="proof remark admonition" id="remark51">
 <p class="admonition-title"><span class="caption-number">Remark 2.2 </span></p>
-<section class="remark-content" id="proof-content">
-<p>上述依赖于 MGF 的证明非常易于理解, 但缺点在于, 并非所有分布都有定义良好的 MGF. 更一般的证明过程是把 MGF 替换为 <em>特征函数(characteristic function)</em> <span class="math notranslate nohighlight">\(\varphi_{x}\left(t\right)=E\left[\exp\left(\mathrm{i}xt\right)\right]\)</span>, 其中 “<span class="math notranslate nohighlight">\(\mathrm{i}\)</span>” 是虚数单位. 特征函数是概率测度的 <em>傅立叶变换</em> , 它必然存在. 用这种方法来证明中心极限定理, 需要傅立叶变换与逆转换的知识, 我们在这里不做要求.</p>
-</section>
+<div class="remark-content section" id="proof-content">
+<p>上述依赖于 MGF 的证明非常易于理解, 但缺点在于, 并非所有分布都有定义良好的矩母函数. 更一般的证明过程是把矩母函数替换为 <em>特征函数(characteristic function)</em> <span class="math notranslate nohighlight">\(\varphi_{x}\left(t\right)=E\left[\exp\left(\mathrm{i}xt\right)\right]\)</span>, 其中 “<span class="math notranslate nohighlight">\(\mathrm{i}\)</span>” 是虚数单位. 特征函数是概率测度的 <em>傅立叶变换</em> , 它必然存在. 用这种方法来证明中心极限定理, 需要傅立叶变换与逆转换的知识, 我们在这里不做要求.</p>
+</div>
 </div><p>我们继续介绍中心极限定理的两种常见形式.</p>
 <div class="proof theorem admonition" id="lf-clt">
 <p class="admonition-title"><span class="caption-number">Theorem 2.7 </span> (Lindeberg-Feller CLT)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 是相互独立的样本. 如果满足 <em>Lindeberg condition</em> (对于任意 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>,
 <span class="math notranslate nohighlight">\(\frac{1}{s_{n}^{2}}\sum_{i=1}^{n}E\left[x_{i}^{2}\cdot\boldsymbol{1}\left\{ \left|x_{i}\right|\geq\varepsilon s_{n}\right\} \right]\to0\)</span>, 其中 <span class="math notranslate nohighlight">\(s_{n}=\sqrt{\sum_{i=1}^{n}\sigma_{i}^{2}}\)</span>) , 那么</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\sum_{i=1}^{n}x_{i}}{s_{n}}\stackrel{d}{\to}N\left(0, 1\right). 
 \]</div>
-</section>
+</div>
 </div><div class="proof theorem admonition" id="lya-clt">
 <p class="admonition-title"><span class="caption-number">Theorem 2.8 </span> (Lyapunov CLT)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\left(x_{1}, \ldots, x_{n}\right)\)</span> 是相互独立的样本. 如果 <span class="math notranslate nohighlight">\(\max_{i\leq n}E\left[\left|x_{i}\right|^{3}\right]&lt;C&lt;\infty\)</span>, 那么有</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\sum_{i=1}^{n}x_{i}}{s_{n}}\stackrel{d}{\to}N\left(0, 1\right). 
 \]</div>
-</section>
+</div>
 </div><p>下面是一个模拟案例.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z_fun</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">){</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s2">&quot;normal&quot;</span><span class="p">){</span>
-      <span class="n">z</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">mean</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s2">&quot;chisq2&quot;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">df</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> 
-      <span class="n">x</span> <span class="o">=</span> <span class="n">rchisq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-      <span class="n">z</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span> <span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Z_fun</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">){</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s">&quot;normal&quot;</span><span class="p">){</span>
+      <span class="n">z</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="nf">mean</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+	<span class="p">}</span> <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">distribution</span> <span class="o">==</span> <span class="s">&quot;chisq2&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">df</span> <span class="o">=</span> <span class="m">2</span><span class="p">;</span> 
+      <span class="n">x</span> <span class="o">=</span> <span class="nf">rchisq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+      <span class="n">z</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span> <span class="p">)</span> <span class="o">/</span> <span class="nf">sqrt</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="n">df</span><span class="p">)</span>
       <span class="p">}</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">z</span><span class="p">)</span>
+  <span class="nf">return </span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="n">CLT_plot</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">){</span>
-  <span class="n">Rep</span> <span class="o">=</span> <span class="mi">10000</span>
-  <span class="n">ZZ</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Rep</span><span class="p">)</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">Rep</span><span class="p">)</span> <span class="p">{</span><span class="n">ZZ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Z_fun</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)}</span>
+<span class="n">CLT_plot</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">){</span>
+  <span class="n">Rep</span> <span class="o">=</span> <span class="m">10000</span>
+  <span class="n">ZZ</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">Rep</span><span class="p">)</span>
+  <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">Rep</span><span class="p">)</span> <span class="p">{</span><span class="n">ZZ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">Z_fun</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)}</span>
 
-  <span class="n">xbase</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">length</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-  <span class="n">hist</span><span class="p">(</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> 
-    <span class="n">xlim</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span> <span class="nb">min</span><span class="p">(</span><span class="n">xbase</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xbase</span><span class="p">)</span> <span class="p">),</span>
-    <span class="n">main</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s2">&quot;hist with sample size &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">)</span>
-  <span class="n">lines</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">xbase</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">dnorm</span><span class="p">(</span><span class="n">xbase</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">ZZ</span><span class="p">)</span>
+  <span class="n">xbase</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-4.0</span><span class="p">,</span> <span class="m">4.0</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+  <span class="nf">hist</span><span class="p">(</span> <span class="n">ZZ</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> 
+    <span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span> <span class="nf">min</span><span class="p">(</span><span class="n">xbase</span><span class="p">),</span> <span class="nf">max</span><span class="p">(</span><span class="n">xbase</span><span class="p">)</span> <span class="p">),</span>
+    <span class="n">main</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;hist with sample size &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">)</span>
+  <span class="nf">lines</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">xbase</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">xbase</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+  <span class="nf">return </span><span class="p">(</span><span class="n">ZZ</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">phist</span> <span class="o">=</span> <span class="n">CLT_plot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;chisq2&quot;</span><span class="p">)</span>
-<span class="n">phist</span> <span class="o">=</span> <span class="n">CLT_plot</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;chisq2&quot;</span><span class="p">)</span>
-<span class="n">phist</span> <span class="o">=</span> <span class="n">CLT_plot</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;chisq2&quot;</span><span class="p">)</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">phist</span> <span class="o">=</span> <span class="nf">CLT_plot</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">&quot;chisq2&quot;</span><span class="p">)</span>
+<span class="n">phist</span> <span class="o">=</span> <span class="nf">CLT_plot</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="s">&quot;chisq2&quot;</span><span class="p">)</span>
+<span class="n">phist</span> <span class="o">=</span> <span class="nf">CLT_plot</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="s">&quot;chisq2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id3">
-<h2><span class="section-number">2.4. </span>转化方法<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
-<p>在原始定理下, 大数定律直接解决样本均值问题, 中心极限定理则聚焦于缩小后 (除以 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ) 或标准化以后 (除以样本标准差) 的样本均值. 但是, 大多数计量经济学的问题直接取决于样本均值. 比如, 最小二乘法的参数估计量</p>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.4. </span>转化方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>大数定律事关样本均值, 而中心极限定理则聚焦于缩小后 (除以 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ) 或标准化以后 (除以样本标准差) 的样本均值. 但是, 大多数计量经济学的问题不只是样本均值而已. 比如, 最小二乘估计量</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}=\left(\frac{1}{n}\sum_{i}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i}x_{i}y_{i}
 \]</div>
-<p>蕴含了矩阵的取逆计算以及矩阵-向量的乘法. 在此, 我们需要一些转化随机变量的工具.</p>
+<p>涉及矩阵求逆和矩阵-向量乘法. 在此, 我们需要一些转化随机变量的工具.</p>
 <div class="proof theorem admonition" id="cmp1">
 <p class="admonition-title"><span class="caption-number">Theorem 2.9 </span> (连续映射定理 Continuous mapping theorem 1)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>如果 <span class="math notranslate nohighlight">\(x_{n}\stackrel{p}{\to}a\)</span>, 并且 <span class="math notranslate nohighlight">\(f\left(\cdot\right)\)</span> 在 <span class="math notranslate nohighlight">\(a\)</span> 处连续, 那么 <span class="math notranslate nohighlight">\(f\left(x_{n}\right)\stackrel{p}{\to}f\left(a\right)\)</span>.</p>
-</section>
+</div>
 </div><div class="proof theorem admonition" id="cmp2">
 <p class="admonition-title"><span class="caption-number">Theorem 2.10 </span> (连续映射定理 Continuous mapping theorem 2)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>如果 <span class="math notranslate nohighlight">\(x_{n}\stackrel{p}{\to}a\)</span>, 并且 <span class="math notranslate nohighlight">\(f\left(\cdot\right)\)</span> 在 <span class="math notranslate nohighlight">\(x\)</span> 的支撑集上 <em>几乎处处</em> 连续, 那么 <span class="math notranslate nohighlight">\(f\left(x_{n}\right)\stackrel{d}{\to}f\left(x\right)\)</span>.</p>
-</section>
+</div>
 </div><div class="proof theorem admonition" id="slutsky">
 <p class="admonition-title"><span class="caption-number">Theorem 2.11 </span> (Slutsky’s theorem)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(x_{n}\stackrel{d}{\to}x\)</span>, <span class="math notranslate nohighlight">\(y_{n}\stackrel{p}{\to}a\)</span>, 那么</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_{n}+y_{n}\stackrel{d}{\to}x+a\)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(x_{n}y_{n}\stackrel{d}{\to}ax\)</span>;</p></li>
 <li><p>若 <span class="math notranslate nohighlight">\(a\neq0\)</span>, 则 <span class="math notranslate nohighlight">\(x_{n}/y_{n}\stackrel{d}{\to}x/a\)</span>.</p></li>
 </ul>
-</section>
-</div><p><a class="reference internal" href="#slutsky">Slutsky’s theorem</a> 只是 <a class="reference internal" href="#cmp2">Continuous mapping theorem 2</a> 的特殊情况. 由于加法、乘法、除法在现实中单独出现的频率很高, 我们将其列为单独的定理.</p>
+</div>
+</div><p><a class="reference internal" href="#slutsky">Slutsky’s theorem</a> 只是 <a class="reference internal" href="#cmp2">Continuous mapping theorem 2</a> 的特殊情况. 由于加法、乘法、除法是现实中最常用的运算, 故将单列为定理.</p>
 <div class="proof theorem admonition" id="delta">
 <p class="admonition-title"><span class="caption-number">Theorem 2.12 </span> (Delta method)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(\sqrt{n}\left(\widehat{\theta}-\theta_{0}\right)\stackrel{d}{\to}N\left(0, \Omega\right)\)</span>, 并且 <span class="math notranslate nohighlight">\(f\left(\cdot\right)\)</span> 在 <span class="math notranslate nohighlight">\(\theta_{0}\)</span> 处连续可微 (即 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial\theta}f\left(\cdot\right)\)</span> 在 <span class="math notranslate nohighlight">\(\theta_{0}\)</span> 处连续) , 那么</p>
 <div class="math notranslate nohighlight">
 \[
@@ -836,21 +720,21 @@ f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)=\frac{\partial f\left(\d
 \]</div>
 <p>证明完毕.</p>
 </div>
-</section>
-</div></section>
-<section id="id4">
-<h2><span class="section-number">2.5. </span>总结<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<p>渐进理论是一个既广且深的课题. 在本章中, 我们只触及了一些表面知识. 下一章, 我们将继续探讨如何将渐进理论应用于最小二乘法.</p>
+</div>
+</div></div>
+<div class="section" id="id6">
+<h2><span class="section-number">2.5. </span>总结<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>渐进理论是一个既广且深的课题. 在本章中, 我们只触及了一些表面知识. 我们将在下一章继续探讨如何将渐进理论应用于最小二乘法.</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
-<p>在20世纪80年代之前, 大多数计量经济学家都没有受过严谨的数学训练, 因此无法很好地掌握渐进理论. 在当时, 几位著名的年轻计量经济学家改变了这一局面, 他们拓展了渐进理论在计量经济学中的发展. 其中的佼佼者有 Halbert White (UCSD), Peter C. B.  Phillips (Yale), Peter Robinson (LSE), 仅举几例.</p>
+<p>在20世纪80年代之前, 大多数计量经济学家都没有受过严谨的数学训练, 因此无法很好地掌握渐进理论. 在当时, 几位著名的年轻计量经济学家改变了这一局面, 他们拓展了渐进理论在计量经济学中的发展. 其中的佼佼者有 Halbert White (UCSD), Peter C. B.  Phillips (Yale), 以及 Peter Robinson (LSE).</p>
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
-<p>Halbert White (1950-2012) 写过一本非常易懂的教科书 (White, 2000, first edition 1984) 向计量经济学家介绍渐进理论. 时至今日, 这本书在经济学研究者和研究生中仍然很受欢迎. 另外, Davidson (1994) 是一本更长、更自成一体的专著.</p>
+<p>Halbert White (1950-2012) 写过一本非常易懂的教科书 (White, 2000, first edition 1984) 向计量经济学家介绍渐进理论. 时至今日, 这本书在经济学研究者和研究生中仍然很受欢迎. 另外, Davidson (1994) 是一本更详细、自成一体的专著.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -874,11 +758,9 @@ f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)=\frac{\partial f\left(\d
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="lecture3-CN.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -887,28 +769,24 @@ f\left(\widehat{\theta}\right)-f\left(\theta_{0}\right)=\frac{\partial f\left(\d
         </div>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Zhentao Shi<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Zhentao Shi<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
