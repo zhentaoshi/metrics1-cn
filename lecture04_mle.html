@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Least Squares: Finite Sample Theory &#8212; 计量经济学</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    介绍
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture04_mle.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture04_mle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maximum-likelihood">
+   Maximum Likelihood
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#likelihood-estimation-for-regression">
+   Likelihood Estimation for Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-sample-distribution">
+   Finite Sample Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-and-variance-span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+   Mean and Variance
+   <span id="mean-and-variance" label="mean-and-variance">
+    [mean-and-variance]
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gauss-markov-theorem">
+   Gauss-Markov Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   Appendix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#joint-normal-distribution">
+     Joint Normal Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basus-theorem-subsec-basu-s-theorem-subsec-basus-theorem-label-subsec-basus-theorem">
+     Basu’s Theorem* [[subsec:Basu’s-Theorem]]{#subsec:Basu’s-Theorem label=“subsec:Basu’s-Theorem”}
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Least Squares: Finite Sample Theory</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maximum-likelihood">
+   Maximum Likelihood
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#likelihood-estimation-for-regression">
+   Likelihood Estimation for Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-sample-distribution">
+   Finite Sample Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-and-variance-span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+   Mean and Variance
+   <span id="mean-and-variance" label="mean-and-variance">
+    [mean-and-variance]
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gauss-markov-theorem">
+   Gauss-Markov Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   Appendix
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#joint-normal-distribution">
+     Joint Normal Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basus-theorem-subsec-basu-s-theorem-subsec-basus-theorem-label-subsec-basus-theorem">
+     Basu’s Theorem* [[subsec:Basu’s-Theorem]]{#subsec:Basu’s-Theorem label=“subsec:Basu’s-Theorem”}
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="least-squares-finite-sample-theory">
+<h1>Least Squares: Finite Sample Theory<a class="headerlink" href="#least-squares-finite-sample-theory" title="Permalink to this headline">#</a></h1>
+<p>We continue with properties of OLS. We will show that OLS coincides with
+the maximum likelihood estimator if the error term follows a normal
+distribution. We derive its finite-sample exact distribution which can
+be used for statistical inference. The Gauss-Markov theorem justifies
+the optimality of OLS under the classical assumptions.</p>
+<p>Suppose the data is generated from a parametric model. Statistical
+estimation looks for the unknown parameter from the observed data. A
+<em>principle</em> is an ideology about a proper way of estimation. Over the
+history of statistics, only a few principles are widely accepted. Among
+them Maximum Likelihood is the most important and fundamental. The
+maximum likelihood principle entails that the unknown parameter being
+found as the maximizer of the log-likelihood function.</p>
+<section id="maximum-likelihood">
+<h2>Maximum Likelihood<a class="headerlink" href="#maximum-likelihood" title="Permalink to this headline">#</a></h2>
+<p>In this chapter, we first give an introduction of the maximum likelihood
+estimation. Consider a random sample of
+<span class="math notranslate nohighlight">\(Z=\left(z_{1},z_{2},\ldots,z_{n}\right)\)</span> drawn from a parametric
+distribution with density <span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta\right)\)</span>, where
+<span class="math notranslate nohighlight">\(z_{i}\)</span> is either a scalar random variable or a random vector. A
+parametric distribution is completely characterized by a
+finite-dimensional parameter <span class="math notranslate nohighlight">\(\theta\)</span>. We know that <span class="math notranslate nohighlight">\(\theta\)</span> belongs to
+a parameter space <span class="math notranslate nohighlight">\(\Theta\)</span>. We use the data to estimate <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>The log-likelihood of observing the entire sample <span class="math notranslate nohighlight">\(Z\)</span> is
+$<span class="math notranslate nohighlight">\(L_{n}\left(\theta;Z\right):=\log\left(\prod_{i=1}^{n}f_{z}\left(z_{i};\theta\right)\right)=\sum_{i=1}^{n}\log f_{z}\left(z_{i};\theta\right).\label{eq:raw_likelihood}\)</span><span class="math notranslate nohighlight">\(
+In reality the sample \)</span>Z<span class="math notranslate nohighlight">\( is given and for each \)</span>\theta\in\Theta<span class="math notranslate nohighlight">\( we can
+evaluate \)</span>L_{n}\left(\theta;Z\right)<span class="math notranslate nohighlight">\(. The maximum likelihood estimator
+is
+\)</span><span class="math notranslate nohighlight">\(\widehat{\theta}_{MLE}:=\arg\max_{\theta\in\Theta}L_{n}\left(\theta;Z\right).\)</span><span class="math notranslate nohighlight">\(
+Why maximizing the log-likelihood function is desirable? An intuitive
+explanation is that \)</span>\widehat{\theta}_{MLE}<span class="math notranslate nohighlight">\( makes observing \)</span>Z$ the
+“most likely” in the entire parametric space.</p>
+<p>A more formal justification requires an explicitly defined distance.
+Suppose that the true parameter value that generates the data is
+<span class="math notranslate nohighlight">\(\theta_{0}\)</span>, so that the true distribution is
+<span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta_{0}\right)\)</span>. Any generic point
+<span class="math notranslate nohighlight">\(\theta\in\Theta\)</span> produces <span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta\right)\)</span>. To measure
+their difference, we introduce the <em>Kullback-Leibler divergence</em>, or the
+Kullback-Leibler distance, defined as the logarithms of the expected
+log-likelihood ratio $<span class="math notranslate nohighlight">\(\begin{aligned}
+D_{f}\left(\theta_{0}\Vert\theta\right) &amp; =D\left(f_{z}\left(z_{i};\theta_{0}\right)\Vert f_{z}\left(z_{i};\theta\right)\right):=E_{\theta_{0}}\left[\log\frac{f_{z}\left(z_{i};\theta_{0}\right)}{f_{z}\left(z_{i};\theta\right)}\right]\\
+ &amp; =E_{\theta_{0}}\left[\log f_{z}\left(z_{i};\theta_{0}\right)\right]-E_{\theta_{0}}\left[\log f_{z}\left(z_{i};\theta\right)\right].\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+We call it a “distance” because it is non-negative, although it is not
+symmetric in that
+\)</span>D_{f}\left(\theta_{1}\Vert\theta_{2}\right)\neq D_{f}\left(\theta_{2}\Vert\theta_{1}\right)<span class="math notranslate nohighlight">\(
+and it does not satisfy the triangle inequality. To see
+\)</span>D_{f}\left(\theta_{0}\Vert\theta\right)<span class="math notranslate nohighlight">\( is non-negative, notice that
+\)</span>-\log\left(\cdot\right)<span class="math notranslate nohighlight">\( is strictly convex and then by Jensen’s
+inequality \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+E_{\theta_{0}}\left[\log\frac{f_{z}\left(z_{i};\theta_{0}\right)}{f_{z}\left(z_{i};\theta\right)}\right] &amp; =E_{\theta_{0}}\left[-\log\frac{f_{z}\left(z_{i};\theta\right)}{f_{z}\left(z_{i};\theta_{0}\right)}\right]\geq-\log\left(E_{\theta_{0}}\left[\frac{f_{z}\left(z_{i};\theta\right)}{f_{z}\left(z_{i};\theta_{0}\right)}\right]\right)\\
+ &amp; =-\log\left(\int\frac{f_{z}\left(z_{i};\theta\right)}{f_{z}\left(z_{i};\theta_{0}\right)}f_{z}\left(z_{i};\theta_{0}\right)dz_{i}\right)=-\log\left(\int f_{z}\left(z_{i};\theta\right)dz_{i}\right)\\
+ &amp; =-\log1=0,\end{aligned}\)</span><span class="math notranslate nohighlight">\( where
+\)</span>\int f_{z}\left(z_{i};\theta\right)dz_{i}=1<span class="math notranslate nohighlight">\( for any pdf. The equality
+holds if and only if
+\)</span>f_{z}\left(z_{i};\theta\right)=f_{z}\left(z_{i};\theta_{0}\right)<span class="math notranslate nohighlight">\(
+almost everywhere. Furthermore, if there is a one-to-one mapping between
+\)</span>\theta<span class="math notranslate nohighlight">\( and \)</span>f_{z}\left(z_{i};\theta\right)<span class="math notranslate nohighlight">\( on \)</span>\Theta<span class="math notranslate nohighlight">\(
+(identification), then
+\)</span>\theta_{0}=\arg\min_{\theta\in\Theta}D_{f}\left(\theta_{0}\Vert\theta\right)$
+is the unique solution.</p>
+<p>In information theory,
+<span class="math notranslate nohighlight">\(-E_{\theta_{0}}\left[\log f_{z}\left(z_{i};\theta_{0}\right)\right]\)</span> is
+the <em>entropy</em> of the continuous distribution of
+<span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta_{0}\right)\)</span>. Entropy measures the uncertainty
+of a random variable; the larger is the value, the more chaotic is the
+random variable. The Kullback-Leibler distance is the <em>relative entropy</em>
+between the distribution <span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta_{0}\right)\)</span> and
+<span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta\right)\)</span>. It measures the inefficiency of
+assuming that the distribution is <span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta\right)\)</span> when
+the true distribution is indeed <span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\theta_{0}\right)\)</span>.
+[&#64;cover2006elements p.19]</p>
+<p>Consider the Gaussian location model <span class="math notranslate nohighlight">\(z_{i}\sim N\left(\mu,1\right)\)</span>,
+where <span class="math notranslate nohighlight">\(\mu\)</span> is the unknown parameter to be estimated. The likelihood of
+observing <span class="math notranslate nohighlight">\(z_{i}\)</span> is
+<span class="math notranslate nohighlight">\(f_{z}\left(z_{i};\mu\right)=\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(z_{i}-\mu\right)^{2}\right)\)</span>.
+The likelihood of observing the sample <span class="math notranslate nohighlight">\(Z\)</span> is
+$<span class="math notranslate nohighlight">\(f_{Z}\left(Z;\mu\right)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(z_{i}-\mu\right)^{2}\right)\)</span><span class="math notranslate nohighlight">\(
+and the log-likelihood is
+\)</span><span class="math notranslate nohighlight">\(L_{n}\left(\mu;Z\right)=-\frac{n}{2}\log\left(2\pi\right)-\frac{1}{2}\sum_{i=1}^{n}\left(z_{i}-\mu\right)^{2}.\)</span><span class="math notranslate nohighlight">\(
+The (averaged) log-likelihood function for the \)</span>n<span class="math notranslate nohighlight">\( observations is
+\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\ell_{n}\left(\mu\right) &amp; =-\frac{1}{2}\log\left(2\pi\right)-\frac{1}{2n}\sum_{i=1}^{n}\left(z_{i}-\mu\right)^{2}.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+We work with the averaged log-likelihood \)</span>\ell_{n}<span class="math notranslate nohighlight">\(, instead of the
+(raw) log-likelihood \)</span>L_{n}<span class="math notranslate nohighlight">\(, to make it directly comparable with the
+expected log density \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+E_{\mu_{0}}\left[\log f_{z}\left(z;\mu\right)\right] &amp; =E_{\mu_{0}}\left[\ell_{n}\left(\mu\right)\right]\\
+ &amp; =-\frac{1}{2}\log\left(2\pi\right)-\frac{1}{2}E_{\mu_{0}}\left[\left(z_{i}-\mu\right)^{2}\right]\\
+ &amp; =-\frac{1}{2}\log\left(2\pi\right)-\frac{1}{2}E_{\mu_{0}}\left[\left(\left(z_{i}-\mu_{0}\right)+\left(\mu_{0}-\mu\right)\right)^{2}\right]\\
+ &amp; =-\frac{1}{2}\log\left(2\pi\right)-\frac{1}{2}E_{\mu_{0}}\left[\left(z_{i}-\mu_{0}\right)^{2}\right]-E_{\mu_{0}}\left[z_{i}-\mu_{0}\right]\left(\mu_{0}-\mu\right)-\frac{1}{2}\left(\mu_{0}-\mu\right)^{2}\\
+ &amp; =-\frac{1}{2}\log\left(2\pi\right)-\frac{1}{2}-\frac{1}{2}\left(\mu-\mu_{0}\right)^{2}.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where the first equality holds because of random sampling. Obviously,
+\)</span>\ell_{n}\left(\mu\right)<span class="math notranslate nohighlight">\( is maximized at
+\)</span>\bar{z}=\frac{1}{n}\sum_{i=1}^{n}z_{i}<span class="math notranslate nohighlight">\( while
+\)</span>E_{\mu_{0}}\left[\ell_{n}\left(\mu\right)\right]<span class="math notranslate nohighlight">\( is maximized at
+\)</span>\mu=\mu_{0}<span class="math notranslate nohighlight">\(. The Kullback-Leibler divergence in this example is
+\)</span><span class="math notranslate nohighlight">\(D\left(\mu_{0}\Vert\mu\right)=E_{\mu_{0}}\left[\ell_{n}\left(\mu_{0}\right)\right]-E_{\mu_{0}}\left[\ell_{n}\left(\mu\right)\right]=\frac{1}{2}\left(\mu-\mu_{0}\right)^{2},\)</span><span class="math notranslate nohighlight">\(
+where
+\)</span>-E_{\mu_{0}}\left[\ell_{n}\left(\mu_{0}\right)\right]=\frac{1}{2}\left(\log\left(2\pi\right)+1\right)$
+is the entropy of the normal distribution with unit variance.</p>
+<p>We use the following code to demonstrate the population log-likelihood
+<span class="math notranslate nohighlight">\(E\left[\ell_{n}\left(\mu\right)\right]\)</span> when <span class="math notranslate nohighlight">\(\mu_{0}=2\)</span> (solid line)
+and the 3 sample realizations when <span class="math notranslate nohighlight">\(n=4\)</span> (dashed lines).</p>
+<p>**there is a knitr** part</p>
+</section>
+<section id="likelihood-estimation-for-regression">
+<h2>Likelihood Estimation for Regression<a class="headerlink" href="#likelihood-estimation-for-regression" title="Permalink to this headline">#</a></h2>
+<p>Notation: <span class="math notranslate nohighlight">\(y_{i}\)</span> is a scalar, and
+<span class="math notranslate nohighlight">\(x_{i}=\left(x_{i1},\ldots,x_{iK}\right)'\)</span> is a <span class="math notranslate nohighlight">\(K\times1\)</span> vector. <span class="math notranslate nohighlight">\(Y\)</span>
+is an <span class="math notranslate nohighlight">\(n\times1\)</span> vector, and <span class="math notranslate nohighlight">\(X\)</span> is an <span class="math notranslate nohighlight">\(n\times K\)</span> matrix.</p>
+<p>In this chapter we employ the classical statistical framework under
+restrictive distributional assumption
+$<span class="math notranslate nohighlight">\(y_{i}|x_{i}\sim N\left(x_{i}'\beta,\gamma\right),\label{eq:normal_yx}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\gamma=\sigma^{2}<span class="math notranslate nohighlight">\( to ease the differentiation. This assumption
+is equivalent to
+\)</span>e_{i}|x_{i}=\left(y_{i}-x_{i}’\beta\right)|x_{i}\sim N\left(0,\gamma\right)<span class="math notranslate nohighlight">\(.
+Because the distribution of \)</span>e_{i}<span class="math notranslate nohighlight">\( is invariant to \)</span>x_{i}<span class="math notranslate nohighlight">\(, the error
+term \)</span>e_{i}\sim N\left(0,\gamma\right)<span class="math notranslate nohighlight">\( and is statistically independent
+of \)</span>x_{i}$. This is a very strong assumption.</p>
+<p>The likelihood of observing a pair <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> is
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+f_{yx}\left(y_{i},x_{i}\right) &amp; =f_{y|x}\left(y_{i}|x_{i}\right)f_{x}\left(x\right)\\
+ &amp; =\frac{1}{\sqrt{2\pi\gamma}}\exp\left(-\frac{1}{2\gamma}\left(y_{i}-x_{i}'\beta\right)^{2}\right)\times f_{x}\left(x\right),\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>f_{yx}<span class="math notranslate nohighlight">\( is the joint pdf, \)</span>f_{y|x}<span class="math notranslate nohighlight">\( is the conditional pdf and
+\)</span>f_{x}<span class="math notranslate nohighlight">\( is the marginal pdf of \)</span>x<span class="math notranslate nohighlight">\(, and the second equality holds under
+(&lt;a href=&quot;#eq:normal_yx&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;eq:normal_yx&quot;&gt;[eq:normal_yx]&lt;/a&gt;).
+The likelihood of the random sample \)</span>\left(y_{i},x_{i}\right)<em>{i=1}^{n}<span class="math notranslate nohighlight">\(
+is \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\prod_{i=1}^{n}f_{yx}\left(y_{i},x_{i}\right) &amp; =\prod_{i=1}^{n}f_{y|x}\left(y_{i}|x_{i}\right)f_{x}\left(x\right)\\
+ &amp; =\prod_{i=1}^{n}f_{y|x}\left(y_{i}|x_{i}\right)\times\prod_{i=1}^{n}f_{x}\left(x\right)\\
+ &amp; =\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi\gamma}}\exp\left(-\frac{1}{2\gamma}\left(y_{i}-x_{i}'\beta\right)^{2}\right)\times\prod_{i=1}^{n}f_{x}\left(x\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+The parameters of interest \)</span>\left(\beta,\gamma\right)<span class="math notranslate nohighlight">\( are irrelevant to
+the second term \)</span>\prod</em>{i=1}^{n}f_{x}\left(x\right)<span class="math notranslate nohighlight">\( for they appear
+only in the *conditional likelihood*
+\)</span><span class="math notranslate nohighlight">\(\prod_{i=1}^{n}f_{y|x}\left(y_{i}|x_{i}\right)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi\gamma}}\exp\left(-\frac{1}{2\gamma}\left(y_{i}-x_{i}'\beta\right)^{2}\right).\)</span><span class="math notranslate nohighlight">\(
+We focus on the conditional likelihood. To facilitate derivation, we
+work with the (averaged) conditional log-likelihood function
+\)</span><span class="math notranslate nohighlight">\(\ell_{n}\left(\beta,\gamma\right)=-\frac{1}{2}\log2\pi-\frac{1}{2}\log\gamma-\frac{1}{2n\gamma}\sum_{i=1}^{n}\left(y_{i}-x_{i}'\beta\right)^{2},\)</span><span class="math notranslate nohighlight">\(
+for \)</span>\log\left(\cdot\right)<span class="math notranslate nohighlight">\( is a monotonic transformation that does not
+change the maximizer. The maximum likelihood estimator
+\)</span>\widehat{\beta}<em>{MLE}<span class="math notranslate nohighlight">\( can be found using the FOC: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\frac{\partial}{\partial\beta}\ell_{n}\left(\beta,\gamma\right) &amp; =\frac{1}{n\gamma}\sum_{i=1}^{n}x_{i}\left(y_{i}-x_{i}'\beta\right)=0\\
+\frac{\partial}{\partial\gamma}\ell_{n}\left(\beta,\gamma\right) &amp; =-\frac{1}{2\gamma}+\frac{1}{2n\gamma^{2}}\sum_{i=1}^{n}\left(y_{i}-x_{i}'\beta\right)^{2}=0.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Rearranging the above equations in matrix form: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+X'X\beta &amp; =X'Y\\
+\gamma &amp; =\frac{1}{n}\left(Y-X\beta\right)'\left(Y-X\beta\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+We solve \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta}_{MLE} &amp; =(X'X)^{-1}X'Y\\
+\widehat{\gamma}_{\mathrm{MLE}} &amp; =\frac{1}{n}\left(Y-X\widehat{\beta}_{MLE}\right)'\left(Y-X\widehat{\beta}_{MLE}\right)=\widehat{e}'\widehat{e}/n\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+when \)</span>X’X<span class="math notranslate nohighlight">\( is invertible. The MLE of the slope coefficient
+\)</span>\widehat{\beta}</em>{MLE}<span class="math notranslate nohighlight">\( coincides with the OLS estimator, and
+\)</span>\widehat{e}$ is exactly the OLS residual.</p>
+</section>
+<section id="finite-sample-distribution">
+<h2>Finite Sample Distribution<a class="headerlink" href="#finite-sample-distribution" title="Permalink to this headline">#</a></h2>
+<p>We can show the finite-sample exact distribution of <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span>
+assuming the error term follows a Gaussian distribution. <em>Finite sample
+distribution</em> means that the distribution holds for any <span class="math notranslate nohighlight">\(n\)</span>; it is in
+contrast to <em>asymptotic distribution</em>, which is a large sample
+approximation to the finite sample distribution. We first review some
+properties of a generic jointly normal random vector.</p>
+<p><span id="fact31" label="fact31">[fact31]</span> Let
+<span class="math notranslate nohighlight">\(z\sim N\left(\mu,\Omega\right)\)</span> be an <span class="math notranslate nohighlight">\(l\times1\)</span> random vector with a
+positive definite variance-covariance matrix <span class="math notranslate nohighlight">\(\Omega\)</span>. Let <span class="math notranslate nohighlight">\(A\)</span> be an
+<span class="math notranslate nohighlight">\(m\times l\)</span> non-random matrix where <span class="math notranslate nohighlight">\(m\leq l\)</span>. Then
+<span class="math notranslate nohighlight">\(Az\sim N\left(A\mu,A\Omega A'\right)\)</span>.</p>
+<p><span id="fact32" label="fact32">[fact32]</span>If
+<span class="math notranslate nohighlight">\(z\sim N\left(0,1\right)\)</span>, <span class="math notranslate nohighlight">\(w\sim\chi^{2}\left(d\right)\)</span> and <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w\)</span>
+are independent. Then <span class="math notranslate nohighlight">\(\frac{z}{\sqrt{w/d}}\sim t\left(d\right)\)</span>.</p>
+<p>The OLS estimator
+$<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'Y=\left(X'X\right)^{-1}X'\left(X'\beta+e\right)=\beta+\left(X'X\right)^{-1}X'e,\)</span><span class="math notranslate nohighlight">\(
+and its conditional distribution can be written as \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta}|X &amp; =\beta+\left(X'X\right)^{-1}X'e|X\\
+ &amp; \sim\beta+\left(X'X\right)^{-1}X'\cdot N\left(0_{n},\gamma I_{n}\right)\\
+ &amp; \sim N\left(\beta,\gamma\left(X'X\right)^{-1}X'X\left(X'X\right)^{-1}\right)\sim N\left(\beta,\gamma\left(X'X\right)^{-1}\right)\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+by Fact
+&lt;a href=&quot;#fact31&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact31&quot;&gt;[fact31]&lt;/a&gt;.
+The \)</span>k<span class="math notranslate nohighlight">\(-th element of the vector coefficient
+\)</span><span class="math notranslate nohighlight">\(\widehat{\beta}_{k}|X=\eta_{k}'\widehat{\beta}|X\sim N\left(\beta_{k},\gamma\eta_{k}'\left(X'X\right)^{-1}\eta_{k}\right)\sim N\left(\beta_{k},\gamma\left[\left(X'X\right)^{-1}\right]_{kk}\right),\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\eta_{k}=\left(1\left{ l=k\right} \right)_{l=1,\ldots,K}<span class="math notranslate nohighlight">\( is
+the selector of the \)</span>k$-th element.</p>
+<p>In reality, <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> is an unknown parameter, and
+$<span class="math notranslate nohighlight">\(s^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)=e'M_{X}e/\left(n-K\right)\)</span><span class="math notranslate nohighlight">\(
+is an unbiased estimator of \)</span>\gamma<span class="math notranslate nohighlight">\(. (Because \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+E\left[s^{2}|X\right] &amp; =\frac{1}{n-K}E\left[e'M_{X}e|X\right]=\frac{1}{n-K}\mathrm{trace}\left(E\left[e'M_{X}e|X\right]\right)\\
+ &amp; =\frac{1}{n-K}\mathrm{trace}\left(E\left[M_{X}ee'|X\right]\right)=\frac{1}{n-K}\mathrm{trace}\left(M_{X}E\left[ee'|X\right]\right)\\
+ &amp; =\frac{1}{n-K}\mathrm{trace}\left(M_{X}\gamma I_{n}\right)=\frac{\gamma}{n-K}\mathrm{trace}\left(M_{X}\right)=\gamma\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where we use the property of trace
+\)</span>\mathrm{trace}\left(AB\right)=\mathrm{trace}\left(BA\right)$.)</p>
+<p>Under the null hypothesis <span class="math notranslate nohighlight">\(H_{0}:\beta_{k}=\beta_{k}^{*}\)</span>, where
+<span class="math notranslate nohighlight">\(\beta_{k}^{*}\)</span> is the hypothesized value we want to test. We can
+construct a <span class="math notranslate nohighlight">\(t\)</span>-statistic
+$<span class="math notranslate nohighlight">\(T_{k}=\frac{\widehat{\beta}_{k}-\beta_{k}^{*}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}},\)</span><span class="math notranslate nohighlight">\(
+which is *infeasible* is that sense that it can be directly computed
+from the data because there is no unknown object in this statistic. When
+the hypothesis is true, \)</span>\beta_{k}=\beta_{k}^{*}<span class="math notranslate nohighlight">\( and thus
+\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+T_{k} &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\nonumber \\
+ &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\sigma^{2}}}{\sqrt{s^{2}}}\nonumber \\
+ &amp; =\frac{\left(\widehat{\beta}_{k}-\beta_{0,k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}{\sqrt{\frac{e'}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}},\label{eq:t-stat}\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where we introduce the population quantity \)</span>\sigma^{2}<span class="math notranslate nohighlight">\( into the second
+equality to help derive the distribution of the numerator and the
+denominator of the last expression. The numerator
+\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}_{k}-\beta_{k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}\sim N\left(0,1\right),\)</span><span class="math notranslate nohighlight">\(
+and the denominator
+\)</span>\sqrt{\frac{e’}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}<span class="math notranslate nohighlight">\( follows
+\)</span>\sqrt{\frac{1}{n-K}\chi^{2}\left(n-K\right)}<span class="math notranslate nohighlight">\(. Moreover, because
+\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\begin{bmatrix}\widehat{\beta}-\beta\\
+\widehat{e}
+\end{bmatrix} &amp; =\begin{bmatrix}\left(X'X\right)^{-1}X'e\\
+M_{X}e
+\end{bmatrix}=\begin{bmatrix}\left(X'X\right)^{-1}X'\\
+M_{X}
+\end{bmatrix}e\\
+ &amp; \sim\begin{bmatrix}\left(X'X\right)^{-1}X'\\
+M_{X}
+\end{bmatrix}\cdot N\left(0,\gamma I_{n}\right)\sim N\left(0,\gamma\begin{bmatrix}\left(X'X\right)^{-1} &amp; 0\\
+0 &amp; M_{X}
+\end{bmatrix}\right)\end{aligned}\)</span><span class="math notranslate nohighlight">\( are jointly normal with zero
+off-diagonal blocks, \)</span>\left(\widehat{\beta}-\beta\right)<span class="math notranslate nohighlight">\( and
+\)</span>\widehat{e}<span class="math notranslate nohighlight">\( are statistically independent. (This claim is true,
+although the covariance matrix of the \)</span>\widehat{e}<span class="math notranslate nohighlight">\( is singular.) Given
+that \)</span>X<span class="math notranslate nohighlight">\( is viewed as if non-random, the numerator and the denominator
+of
+(&lt;a href=&quot;#eq:t-stat&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;eq:t-stat&quot;&gt;[eq:t-stat]&lt;/a&gt;)
+are statistically independent as well is a function since the former is
+a function of \)</span>\left(\widehat{\beta}-\beta\right)<span class="math notranslate nohighlight">\( and latter is a
+function of \)</span>\widehat{e}<span class="math notranslate nohighlight">\(. (Alternatively, the statistically independent
+can be verified by Basu’s theorem, See Appendix
+&lt;a href=&quot;#subsec:Basu&amp;#39;s-Theorem&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;subsec:Basu&amp;#39;s-Theorem&quot;&gt;[subsec:Basu's-Theorem]&lt;/a&gt;.)
+As a result, we conclude \)</span>T_{k}\sim t\left(n-K\right)$ by Fact
+<a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a>.
+This finite sample distribution allows us to conduct statistical
+inference.</p>
+</section>
+<section id="mean-and-variance-span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+<h2>Mean and Variance<span id="mean-and-variance" label="mean-and-variance">[mean-and-variance]</span><a class="headerlink" href="#mean-and-variance-span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span" title="Permalink to this headline">#</a></h2>
+<p>Now we relax the normality assumption and statistical independence.
+Instead, we represent the regression model as <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> and
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+E[e|X] &amp; =0_{n}\\
+\mathrm{var}\left[e|X\right] &amp; =E\left[ee'|X\right]=\sigma^{2}I_{n}.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where the first condition is the *mean independence* assumption, and the
+second condition is the *homoskedasticity* assumption. These assumptions
+are about the first and second *moments* of \)</span>e_{i}<span class="math notranslate nohighlight">\( conditional on
+\)</span>x_{i}<span class="math notranslate nohighlight">\(. Unlike the normality assumption, they do not restrict the
+distribution of \)</span>e_{i}$.</p>
+<ul class="simple">
+<li><p>Unbiasedness: $<span class="math notranslate nohighlight">\(\begin{aligned}
+E\left[\widehat{\beta}|X\right] &amp; =E\left[\left(X'X\right)^{-1}XY|X\right]=E\left[\left(X'X\right)^{-1}X\left(X'\beta+e\right)|X\right]\\
+ &amp; =\beta+\left(X'X\right)^{-1}XE\left[e|X\right]=\beta.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+By the law of iterated expectations, the unconditional expectation
+\)</span>E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\beta.$
+Unbiasedness does not rely on homoskedasticity.</p></li>
+<li><p>Variance:
+$<span class="math notranslate nohighlight">\(\begin{aligned}\mathrm{var}\left[\widehat{\beta}|X\right] &amp; =E\left[\left(\widehat{\beta}-E\widehat{\beta}\right)\left(\widehat{\beta}-E\widehat{\beta}\right)'|X\right]\\
+ &amp; =E\left[\left(\widehat{\beta}-\beta\right)\left(\widehat{\beta}-\beta\right)'|X\right]\\
+ &amp; =E\left[\left(X'X\right)^{-1}X'ee'X\left(X'X\right)^{-1}|X\right]\\
+ &amp; =\left(X'X\right)^{-1}X'E\left[ee'|X\right]X\left(X'X\right)^{-1}
+\end{aligned}\)</span>$ where the second equality holds as</p></li>
+<li><p>Under the assumption of homoskedasticity, it can be simplified as
+$<span class="math notranslate nohighlight">\(\begin{aligned}\mathrm{var}\left[\widehat{\beta}|X\right] &amp; =\left(X'X\right)^{-1}X'\left(\sigma^{2}I_{n}\right)X\left(X'X\right)^{-1}\\
+ &amp; =\sigma^{2}\left(X'X\right)^{-1}X'I_{n}X\left(X'X\right)^{-1}\\
+ &amp; =\sigma^{2}\left(X'X\right)^{-1}.
+\end{aligned}\)</span>$</p></li>
+</ul>
+<p>(Heteroskedasticity) If <span class="math notranslate nohighlight">\(e_{i}=x_{i}u_{i}\)</span>, where <span class="math notranslate nohighlight">\(x_{i}\)</span> is a scalar
+random variable, <span class="math notranslate nohighlight">\(u_{i}\)</span> is statistically independent of <span class="math notranslate nohighlight">\(x_{i}\)</span>,
+<span class="math notranslate nohighlight">\(E\left[u_{i}\right]=0\)</span> and <span class="math notranslate nohighlight">\(E\left[u_{i}^{2}\right]=\sigma_{u}^{2}\)</span>.
+Then
+<span class="math notranslate nohighlight">\(E\left[e_{i}|x_{i}\right]=E\left[x_{i}u_{i}|x_{i}\right]=x_{i}E\left[u_{i}|x_{i}\right]=0\)</span>
+but
+<span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]=E\left[x_{i}^{2}u_{i}^{2}|x_{i}\right]=x_{i}^{2}E\left[u_{i}^{2}|x_{i}\right]=\sigma_{u}^{2}x_{i}^{2}\)</span>
+is a function of <span class="math notranslate nohighlight">\(x_{i}\)</span>. We say <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> is a heteroskedastic error.</p>
+<p>**knitr**</p>
+<p>It is important to notice that independently and identically distributed
+sample (iid) <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> does not imply homoskedasticity.
+Homoskedasticity or heteroskedasticity is about the relationship between
+<span class="math notranslate nohighlight">\(\left(x_{i},e_{i}=y_{i}-\beta x\right)\)</span> within an observation, whereas
+iid is about the relationship between <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> and
+<span class="math notranslate nohighlight">\(\left(y_{j},x_{j}\right)\)</span> for <span class="math notranslate nohighlight">\(i\neq j\)</span> across observations.</p>
+</section>
+<section id="gauss-markov-theorem">
+<h2>Gauss-Markov Theorem<a class="headerlink" href="#gauss-markov-theorem" title="Permalink to this headline">#</a></h2>
+<p>Gauss-Markov theorem is concerned about the optimality of OLS. It
+justifies OLS as the efficient estimator among all linear unbiased ones.
+<em>Efficient</em> here means that it enjoys the smallest variance in a family
+of estimators.</p>
+<p>We have shown that OLS is unbiased in that
+<span class="math notranslate nohighlight">\(E\left[\widehat{\beta}\right]=\beta\)</span>. There are numerous linearly
+unbiased estimators. For example, <span class="math notranslate nohighlight">\(\left(Z'X\right)^{-1}Z'y\)</span> for
+<span class="math notranslate nohighlight">\(z_{i}=x_{i}^{2}\)</span> is unbiased because
+<span class="math notranslate nohighlight">\(E\left[\left(Z'X\right)^{-1}Z'y\right]=E\left[\left(Z'X\right)^{-1}Z'\left(X\beta+e\right)\right]=\beta\)</span>.
+We cannot say OLS is better than those other unbiased estimators because
+they are all unbiased — they are equally good at this aspect. We move to
+the second order property of variance: an estimator is better if its
+variance is smaller.</p>
+<p>For two generic random vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> of the same size, we say
+<span class="math notranslate nohighlight">\(X\)</span>’s variance is smaller or equal to <span class="math notranslate nohighlight">\(Y\)</span>’s variance if
+<span class="math notranslate nohighlight">\(\left(\Omega_{Y}-\Omega_{X}\right)\)</span> is a positive semi-definite matrix.
+The comparison is defined this way because for any non-zero constant
+vector <span class="math notranslate nohighlight">\(c\)</span>, the variance of the linear combination of <span class="math notranslate nohighlight">\(X\)</span>
+$<span class="math notranslate nohighlight">\(\mathrm{var}\left(c'X\right)=c'\Omega_{X}c\leq c'\Omega_{Y}c=\mathrm{var}\left(c'Y\right)\)</span><span class="math notranslate nohighlight">\(
+is no bigger than the same linear combination of \)</span>Y$.</p>
+<p>Let <span class="math notranslate nohighlight">\(\tilde{\beta}=A'y\)</span> be a generic linear estimator, where <span class="math notranslate nohighlight">\(A\)</span> is any
+<span class="math notranslate nohighlight">\(n\times K\)</span> functions of <span class="math notranslate nohighlight">\(X\)</span>. As
+$<span class="math notranslate nohighlight">\(E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta.\)</span><span class="math notranslate nohighlight">\(
+So the linearity and unbiasedness of \)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( implies
+\)</span>A’X=I_{n}<span class="math notranslate nohighlight">\(. Moreover, the variance
+\)</span><span class="math notranslate nohighlight">\(\mbox{var}\left(A'y|X\right)=E\left[\left(A'y-\beta\right)\left(A'y-\beta\right)'|X\right]=E\left[A'ee'A|X\right]=\sigma^{2}A'A.\)</span><span class="math notranslate nohighlight">\(
+Let \)</span>C=A-X\left(X’X\right)^{-1}.<span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(\begin{aligned}A'A-\left(X'X\right)^{-1} &amp; =\left(C+X\left(X'X\right)^{-1}\right)'\left(C+X\left(X'X\right)^{-1}\right)-\left(X'X\right)^{-1}\\
+ &amp; =C'C+\left(X'X\right)^{-1}X'C+C'X\left(X'X\right)^{-1}\\
+ &amp; =C'C,
+\end{aligned}\)</span><span class="math notranslate nohighlight">\( where the last equality follows as
+\)</span><span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}X'C=\left(X'X\right)^{-1}X'\left(A-X\left(X'X\right)^{-1}\right)=\left(X'X\right)^{-1}-\left(X'X\right)^{-1}=0.\)</span><span class="math notranslate nohighlight">\(
+Therefore \)</span>A’A-\left(X’X\right)^{-1}<span class="math notranslate nohighlight">\( is a positive semi-definite
+matrix. The variance of any \)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( is no smaller than the OLS
+estimator \)</span>\widehat{\beta}$. The above derivation shows OLS achieves the
+smallest variance among all linear unbiased estimators.</p>
+<p>Homoskedasticity is a restrictive assumption. Under homoskedasticity,
+<span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
+Popular estimator of <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> is the sample mean of the residuals
+<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> or the
+unbiased one <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. Under
+heteroskedasticity, Gauss-Markov theorem does not apply.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>The exact distribution under the normality assumption of the error term
+is the classical statistical results. The Gauss Markov theorem holds
+under two crucial assumptions: linear CEF and homoskedasticity.</p>
+<p><strong>Historical notes</strong>: MLE was promulgated and popularized by Ronald
+Fisher (1890–1962). He was a major contributor of the frequentist
+approach which dominates mathematical statistics today, and he sharply
+criticized the Bayesian approach. Fisher collected the iris flower
+dataset of 150 observations in his biological study in 1936, which can
+be displayed in R by typing <code class="docutils literal notranslate"><span class="pre">iris</span></code>. Fisher invented the many concepts in
+classical mathematical statistics, such as sufficient statistic,
+ancillary statistic, completeness, and exponential family, etc.</p>
+<p><strong>Further reading</strong>: &#64;phillips1983exact offered a comprehensive
+treatment of exact small sample theory in econometrics. After that,
+theoretical studies in econometrics swiftly shifted to large sample
+theory, which we will introduce in the next chapter.</p>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">#</a></h2>
+<section id="joint-normal-distribution">
+<h3>Joint Normal Distribution<a class="headerlink" href="#joint-normal-distribution" title="Permalink to this headline">#</a></h3>
+<p>It is arguable that normal distribution is the most frequently
+encountered distribution in statistical inference, as it is the
+asymptotic distribution of many popular estimators. Moreover, it boasts
+some unique features that facilitates the calculation of objects of
+interest. This note summaries a few of them.</p>
+<p>An <span class="math notranslate nohighlight">\(n\times1\)</span> random vector <span class="math notranslate nohighlight">\(Y\)</span> follows a joint normal distribution
+<span class="math notranslate nohighlight">\(N\left(\mu,\Sigma\right)\)</span>, where <span class="math notranslate nohighlight">\(\mu\)</span> is an <span class="math notranslate nohighlight">\(n\times1\)</span> vector and
+<span class="math notranslate nohighlight">\(\Sigma\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> symmetric positive definite matrix. The
+probability density function is
+$<span class="math notranslate nohighlight">\(f_{y}\left(y\right)=\left(2\pi\right)^{-n/2}\left(\mathrm{det}\left(\Sigma\right)\right)^{-1/2}\exp\left(-\frac{1}{2}\left(y-\mu\right)'\Sigma^{-1}\left(y-\mu\right)\right)\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\mathrm{det}\left(\cdot\right)<span class="math notranslate nohighlight">\( is the determinant of a matrix.
+The moment generating function is
+\)</span><span class="math notranslate nohighlight">\(M_{y}\left(t\right)=\exp\left(t'\mu+\frac{1}{2}t'\Sigma t\right).\)</span>$</p>
+<p>We will discuss the relationship between two components of a random
+vector. To fix notation, $<span class="math notranslate nohighlight">\(Y=\left(\begin{array}{c}
+Y_{1}\\
+Y_{2}
+\end{array}\right)\sim N\left(\left(\begin{array}{c}
+\mu_{1}\\
+\mu_{2}
+\end{array}\right),\left(\begin{array}{cc}
+\Sigma_{11} &amp; \Sigma_{12}\\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{array}\right)\right)\)</span><span class="math notranslate nohighlight">\( where \)</span>Y_{1}<span class="math notranslate nohighlight">\( is an \)</span>m\times1<span class="math notranslate nohighlight">\( vector, and
+\)</span>Y_{2}<span class="math notranslate nohighlight">\( is an \)</span>\left(n-m\right)\times1<span class="math notranslate nohighlight">\( vector. \)</span>\mu_{1}<span class="math notranslate nohighlight">\( and \)</span>\mu_{2}<span class="math notranslate nohighlight">\(
+are the corresponding mean vectors, and \)</span>\Sigma_{ij}<span class="math notranslate nohighlight">\(, \)</span>j=1,2<span class="math notranslate nohighlight">\( are the
+corresponding variance and covariance matrices. From now on, we always
+maintain the assumption that \)</span>Y=\left(Y_{1}’,Y_{2}’\right)’$ is jointly
+normal.</p>
+<p>Fact
+<a href="#fact31" data-reference-type="ref" data-reference="fact31">[fact31]</a>
+immediately implies a convenient feature of the normal distribution.
+Generally speaking, if we are given a joint pdf of two random variables
+and intend to find the marginal distribution of one random variables, we
+need to integrate out the other variable from the joint pdf. However, if
+the variables are jointly normal, the information of the other random
+variable is irrelevant to the marginal distribution of the random
+variable of interest. We only need to know the partial information of
+the part of interest, say the mean <span class="math notranslate nohighlight">\(\mu_{1}\)</span> and the variance
+<span class="math notranslate nohighlight">\(\Sigma_{11}\)</span> to decide the marginal distribution of <span class="math notranslate nohighlight">\(Y_{1}\)</span>.</p>
+<p><span id="fact:marginal"
+label="fact:marginal">[fact:marginal]</span>The marginal distribution
+<span class="math notranslate nohighlight">\(Y_{1}\sim N\left(\mu_{1},\Sigma_{11}\right)\)</span>.</p>
+<p>This result is very convenient if we are interested in some component if
+an estimator, but not the entire vector of the estimator. For example,
+the OLS estimator of the linear regression model
+<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span>, under the classical assumption of (i) random
+sample; (ii) independence of <span class="math notranslate nohighlight">\(z_{i}\)</span> and <span class="math notranslate nohighlight">\(e_{i}\)</span>; (iii)
+<span class="math notranslate nohighlight">\(e_{i}\sim N\left(0,\gamma\right)\)</span> is
+$<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'y,\)</span><span class="math notranslate nohighlight">\( and the finite sample
+exact distribution of \)</span>\widehat{\beta}<span class="math notranslate nohighlight">\( is
+\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}-\beta\right)|X\sim N\left(0,\gamma\left(X'X\right)^{-1}\right)\)</span><span class="math notranslate nohighlight">\(
+If we are interested in the inference of only the \)</span>j<span class="math notranslate nohighlight">\(-th component of
+\)</span>\beta_{0}^{\left(j\right)}<span class="math notranslate nohighlight">\(, then from Fact
+&lt;a href=&quot;#fact:marginal&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact:marginal&quot;&gt;[fact:marginal]&lt;/a&gt;,
+\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}_{k}-\beta_{k}\right)/\left(X'X\right)_{kk}^{-1}\sim N\left(0,\gamma\right)\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\left[\left(X’X\right)^{-1}\right]_{kk}<span class="math notranslate nohighlight">\( is the \)</span>k<span class="math notranslate nohighlight">\(-th diagonal
+element of \)</span>\left(X’X\right)^{-1}$. The marginal distribution is
+independent of the other components. This saves us from integrating out
+the other components, which could be troublesome if the dimension of the
+vector is high.</p>
+<p>Generally, zero covariance of two random variables only indicates that
+they are uncorrelated, whereas full statistical independence is a much
+stronger requirement. However, if <span class="math notranslate nohighlight">\(Y_{1}\)</span> and <span class="math notranslate nohighlight">\(Y_{2}\)</span> are jointly
+normal, then zero covariance is equivalent to full independence.</p>
+<p>If <span class="math notranslate nohighlight">\(\Sigma_{12}=0\)</span>, then <span class="math notranslate nohighlight">\(Y_{1}\)</span> and <span class="math notranslate nohighlight">\(Y_{2}\)</span> are independent.</p>
+<p>If <span class="math notranslate nohighlight">\(\Sigma\)</span> is invertible, then
+<span class="math notranslate nohighlight">\(Y'\Sigma^{-1}Y\sim\chi^{2}\left(\mathrm{rank}\left(\Sigma\right)\right)\)</span>.</p>
+<p>The last result, which is useful in linear regression, is that if
+<span class="math notranslate nohighlight">\(Y_{1}\)</span> and <span class="math notranslate nohighlight">\(Y_{2}\)</span> are jointly normal, the conditional distribution of
+<span class="math notranslate nohighlight">\(Y_{1}\)</span> on <span class="math notranslate nohighlight">\(Y_{2}\)</span> is still jointly normal, with the mean and variance
+specified as in the following fact.</p>
+<p><span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span>.</p>
+</section>
+<section id="basus-theorem-subsec-basu-s-theorem-subsec-basus-theorem-label-subsec-basus-theorem">
+<h3>Basu’s Theorem* [[subsec:Basu’s-Theorem]]{#subsec:Basu’s-Theorem label=“subsec:Basu’s-Theorem”}<a class="headerlink" href="#basus-theorem-subsec-basu-s-theorem-subsec-basus-theorem-label-subsec-basus-theorem" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Y=\left(y_{1},\ldots,y_{n}\right)\)</span> consists of <span class="math notranslate nohighlight">\(n\)</span> iid observations. We
+say <span class="math notranslate nohighlight">\(T\left(Y\right)\)</span> is a <em>sufficient statistic</em> for a parameter
+<span class="math notranslate nohighlight">\(\theta\)</span> if the conditional probability
+<span class="math notranslate nohighlight">\(f\left(Y|T\left(Y\right)\right)\)</span> does not depend on <span class="math notranslate nohighlight">\(\theta\)</span>. We say
+<span class="math notranslate nohighlight">\(S\left(Y\right)\)</span> is an <em>ancillary statistic</em> for <span class="math notranslate nohighlight">\(\theta\)</span> if its
+distribution does not depend on <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p><em>Basu’s theorem</em> says that a <em>complete</em> sufficient statistic is
+statistically independent from any ancillary statistic.</p>
+<p>Sufficient statistic is closely related to the exponential family in
+classical mathematical statistics. A parametric distribution indexed by
+<span class="math notranslate nohighlight">\(\theta\)</span> is a member of the <em>exponential family</em> is its PDF can be
+written as
+$<span class="math notranslate nohighlight">\(f\left(Y|\theta\right)=h\left(Y\right)g\left(\theta\right)\exp\left(\eta\left(\theta\right)'T\left(Y\right)\right),\)</span><span class="math notranslate nohighlight">\(
+where \)</span>g\left(\theta\right)<span class="math notranslate nohighlight">\( and \)</span>\eta\left(\theta\right)<span class="math notranslate nohighlight">\( are functions
+depend, only on \)</span>\theta<span class="math notranslate nohighlight">\( and \)</span>h\left(Y\right)<span class="math notranslate nohighlight">\( and \)</span>T\left(Y\right)<span class="math notranslate nohighlight">\( are
+functions depend only on \)</span>Y$.</p>
+<p>(Univariate Gaussian location model.) For a normal distribution
+<span class="math notranslate nohighlight">\(y_{i}\sim N\left(\mu,\gamma\right)\)</span> with known <span class="math notranslate nohighlight">\(\gamma\)</span> and unknown
+<span class="math notranslate nohighlight">\(\mu\)</span>, the sample mean <span class="math notranslate nohighlight">\(\bar{y}\)</span> is the sufficient statistic and the
+sample standard deviation <span class="math notranslate nohighlight">\(s^{2}\)</span> is an ancillary statistic.</p>
+<p>We first verify that the sample mean <span class="math notranslate nohighlight">\(\bar{y}=n^{-1}\sum_{i=1}^{n}y_{i}\)</span>
+is a sufficient statistic for <span class="math notranslate nohighlight">\(\mu\)</span>. Notice that the joint density of
+<span class="math notranslate nohighlight">\(Y\)</span> is $<span class="math notranslate nohighlight">\(\begin{aligned}
+f\left(Y\right) &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(y_{i}-\mu\right)^{2}\right)\\
+ &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(\left(y_{i}-\bar{y}\right)+\left(\bar{y}-\mu\right)\right)^{2}\right)\\
+ &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(\left(y_{i}-\bar{y}\right)^{2}+2\left(y_{i}-\bar{y}\right)\left(\bar{y}-\mu\right)+\left(\bar{y}-\mu\right)^{2}\right)\right)\\
+ &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}\right)\exp\left(-\frac{n}{2\gamma}\left(\bar{y}-\mu\right)^{2}\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Because \)</span>\bar{y}\sim N\left(\mu,\gamma/n\right),<span class="math notranslate nohighlight">\( the marginal density
+is
+\)</span><span class="math notranslate nohighlight">\(f\left(\bar{y}\right)=\left(2\pi\gamma/n\right)^{-1/2}\exp\left(-\frac{n}{2\gamma}\left(\bar{y}-\mu\right)^{2}\right).\)</span><span class="math notranslate nohighlight">\(
+For \)</span>\bar{y}<span class="math notranslate nohighlight">\( is a statistic of \)</span>Y<span class="math notranslate nohighlight">\(, we have
+\)</span>f\left(Y,\bar{y}\right)=f\left(Y\right)<span class="math notranslate nohighlight">\(. The conditional density is
+\)</span><span class="math notranslate nohighlight">\(f\left(Y|\bar{y}\right)=\frac{f\left(Y,\bar{y}\right)}{f\left(\bar{y}\right)}=\frac{f\left(Y\right)}{f\left(\bar{y}\right)}=\sqrt{n}\left(2\pi\gamma\right)^{-\frac{n-1}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}\right)\)</span><span class="math notranslate nohighlight">\(
+is independent of \)</span>\mu<span class="math notranslate nohighlight">\(, and thus \)</span>\bar{y}<span class="math notranslate nohighlight">\( is a sufficient statistic
+for \)</span>\mu<span class="math notranslate nohighlight">\(. In the meantime, the sample standard deviation
+\)</span>s^{2}=\frac{1}{n-1}\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)<span class="math notranslate nohighlight">\( is an
+*ancillary statistic* for \)</span>\mu<span class="math notranslate nohighlight">\( , because the distribution of \)</span>s^{2}<span class="math notranslate nohighlight">\(
+does not depend on \)</span>\mu.$</p>
+<p>The normal distribution with known <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> and unknown <span class="math notranslate nohighlight">\(\mu\)</span>
+belongs to the exponential family in view of the decomposition
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+f(Y) &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(y_{i}-\mu\right)^{2}\right)\\
+ &amp; =\underbrace{\exp\left(-\sum_{i=1}^{n}\frac{y_{i}^{2}}{2\gamma}\right)}_{h\left(Y\right)}\cdot\underbrace{\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{n}{2\gamma}\mu^{2}\right)}_{g\left(\theta\right)}\cdot\underbrace{\exp\left(\frac{\mu}{2\gamma}n\bar{y}\right)}_{\exp\left(\eta\left(\theta\right)'T\left(Y\right)\right)}.\end{aligned}\)</span>$
+The exponential family is a class of distributions with the special
+functional form which is convenient for deriving sufficient statistics
+as well as other desirable properties in classical mathematical
+statistics.</p>
+<p>(Conditional Gaussian location model.) If
+<span class="math notranslate nohighlight">\(y_{i}\sim N\left(x_{i}\beta,\gamma\right)\)</span> with known <span class="math notranslate nohighlight">\(\gamma\)</span> and
+unknown <span class="math notranslate nohighlight">\(\beta\)</span>, We verify that the sample mean <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> is a
+sufficient statistic for <span class="math notranslate nohighlight">\(\beta\)</span>. Notice that the joint density of <span class="math notranslate nohighlight">\(Y\)</span>
+given <span class="math notranslate nohighlight">\(X\)</span> is $<span class="math notranslate nohighlight">\(\begin{aligned}
+f\left(Y|X\right) &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\sum_{i=1}^{n}\left(y_{i}-\mu\right)^{2}\right)\\
+ &amp; =\left(2\pi\gamma\right)^{-\frac{n}{2}}\exp\left(-\frac{1}{2\gamma}\left(Y-X\widehat{\beta}\right)'\left(Y-X\widehat{\beta}\right)\right)\exp\left(-\frac{1}{2\gamma}\left(\widehat{\beta}-\beta\right)'X'X\left(\widehat{\beta}-\beta\right)\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Because
+\)</span>\widehat{\beta}\sim N\left(\beta,\gamma\left(X’X\right)^{-1}\right),<span class="math notranslate nohighlight">\(
+the marginal density is
+\)</span><span class="math notranslate nohighlight">\(f\left(\widehat{\beta}|X\right)=\left(2\pi\gamma\right)^{-\frac{K}{2}}\left(\mathrm{det}\left(\left(X'X\right)^{-1}\right)\right)^{-1/2}\exp\left(-\frac{1}{2\gamma}\left(\widehat{\beta}-\beta\right)'X'X\left(\widehat{\beta}-\beta\right)\right).\)</span><span class="math notranslate nohighlight">\(
+The conditional density is \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+f\left(Y|\widehat{\beta},X\right) &amp; =\frac{f\left(Y|X\right)}{f\left(\widehat{\beta}|X\right)}\\
+ &amp; =\left(2\pi\gamma\right)^{-\frac{n-K}{2}}\left(\mathrm{det}\left(\left(X'X\right)^{-1}\right)\right)^{-1/2}\exp\left(-\frac{1}{2\gamma}\left(Y-X\widehat{\beta}\right)'\left(Y-X\widehat{\beta}\right)\right)\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+is independent of \)</span>\beta<span class="math notranslate nohighlight">\(, and thus \)</span>\widehat{\beta}<span class="math notranslate nohighlight">\( is a sufficient
+statistic for \)</span>\beta$.</p>
+<p>In the meantime, the sample standard deviation
+<span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-1}\sum_{i=1}^{n}\left(y_{i}-x_{i}\widehat{\beta}\right)\)</span>
+is an <em>ancillary statistic</em> for <span class="math notranslate nohighlight">\(\beta\)</span> , because the distribution of
+<span class="math notranslate nohighlight">\(s^{2}\)</span> does not depend on <span class="math notranslate nohighlight">\(\beta.\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">Zhentao</span> <span class="pre">Shi.</span> <span class="pre">Oct</span> <span class="pre">10.</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Zhentao Shi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>rlang 1.0.2 &#8212; 计量经济学</title>
     
-  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,22 +20,18 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
@@ -41,12 +39,13 @@
     <script src="../../../../../_static/doctools.js"></script>
     <script src="../../../../../_static/clipboard.min.js"></script>
     <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../intro.html">
+                    介绍
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../../../intro.html">
-   介绍
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../../lecture3-CN.html">
    1. 最小二乘法：线性代数观点
@@ -107,90 +122,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/rlang/NEWS.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/rlang/NEWS.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/rlang/NEWS.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/rlang/NEWS.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    rlang 1.0.2
@@ -603,12 +708,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>rlang 1.0.2</h1>
@@ -1037,11 +1141,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="rlang-1-0-2">
-<h1>rlang 1.0.2<a class="headerlink" href="#rlang-1-0-2" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="rlang-1-0-2">
+<h1>rlang 1.0.2<a class="headerlink" href="#rlang-1-0-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Backtraces of parent errors are now reused on rethrow. This avoids
 capturing the same backtrace twice and solves consistency problems
@@ -1061,9 +1166,9 @@ compatibility.</p></li>
 installed version of cli is too old (#1367, tidyverse/dplyr#6189).</p></li>
 <li><p>Fixed an OOB subsetting error in <code class="docutils literal notranslate"><span class="pre">abort()</span></code>.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-1-0-1">
-<h1>rlang 1.0.1<a class="headerlink" href="#rlang-1-0-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-1-0-1">
+<h1>rlang 1.0.1<a class="headerlink" href="#rlang-1-0-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>New <code class="docutils literal notranslate"><span class="pre">rlang_call_format_srcrefs</span></code> global option (#1349). Similar to
 <code class="docutils literal notranslate"><span class="pre">rlang_trace_format_srcrefs</span></code>, this option allows turning off the
@@ -1087,11 +1192,11 @@ helpful default call.</p></li>
 condition fields.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">eval_tidy()</span></code> calls are no longer mentioned in error messages.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-1-0-0">
-<h1>rlang 1.0.0<a class="headerlink" href="#rlang-1-0-0" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="major-changes">
-<h2>Major changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-1-0-0">
+<h1>rlang 1.0.0<a class="headerlink" href="#rlang-1-0-0" title="Permalink to this headline">#</a></h1>
+<section id="major-changes">
+<h2>Major changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">#</a></h2>
 <p>This release focuses on the rlang errors framework and features
 extensive changes to the display of error messages.</p>
 <ul>
@@ -1130,9 +1235,9 @@ the time of writing).</p></li>
 current practices. Access it through the “Tidy evaluation” and
 “Metaprogramming” menus on <a class="reference external" href="https://rlang.r-lib.org">https://rlang.r-lib.org</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="breaking-changes">
-<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">.data</span></code> object exported by rlang now fails when subsetted
 instead of returning <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. This new error helps you detect when
@@ -1189,11 +1294,11 @@ argument which takes an error handler.</p></li>
 <li><p>Many functions deprecated deprecated in rlang 0.2.0 and 0.3.0 have
 been removed from the package.</p></li>
 </ul>
-</div>
-<div class="section" id="fixes-and-features">
-<h2>Fixes and features<a class="headerlink" href="#fixes-and-features" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="tidyeval">
-<h3>tidyeval<a class="headerlink" href="#tidyeval" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fixes-and-features">
+<h2>Fixes and features<a class="headerlink" href="#fixes-and-features" title="Permalink to this headline">#</a></h2>
+<section id="tidyeval">
+<h3>tidyeval<a class="headerlink" href="#tidyeval" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>New <code class="docutils literal notranslate"><span class="pre">englue()</span></code> operator to allow string-embracing outside of dynamic
 dots (#1172).</p></li>
@@ -1222,9 +1327,9 @@ inherit from list with <code class="docutils literal notranslate"><span class="p
 operator to unexpectedly mutate injected objects (#1103).</p></li>
 <li><p>Fixed AST rotation issue with <code class="docutils literal notranslate"><span class="pre">!!</span></code> involving binary operators (#1125).</p></li>
 </ul>
-</div>
-<div class="section" id="rlang-errors">
-<h3>rlang errors<a class="headerlink" href="#rlang-errors" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rlang-errors">
+<h3>rlang errors<a class="headerlink" href="#rlang-errors" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">try_fetch()</span></code> is a flexible alternative to both <code class="docutils literal notranslate"><span class="pre">tryCatch()</span></code> and
 <code class="docutils literal notranslate"><span class="pre">withCallingHandlers()</span></code> (#503). It is also more efficient than
@@ -1327,9 +1432,9 @@ the maximum value (8170). The default limit (1000 characters) is
 especially easy to hit when the message contains a lot of ANSI
 escapes, as created by the crayon or cli packages (#1211).</p></li>
 </ul>
-</div>
-<div class="section" id="backtraces">
-<h3>Backtraces<a class="headerlink" href="#backtraces" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="backtraces">
+<h3>Backtraces<a class="headerlink" href="#backtraces" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">entrace()</span></code> and <code class="docutils literal notranslate"><span class="pre">global_entrace()</span></code> now log warnings and messages
 with backtraces attached. Run <code class="docutils literal notranslate"><span class="pre">last_warnings()</span></code> or <code class="docutils literal notranslate"><span class="pre">last_messages()</span></code>
@@ -1379,9 +1484,9 @@ to show only three components (two levels of folder and the file).</p></li>
 <li><p>The root symbol in backtraces is now slightly different so that it
 can’t be confused with a prompt character (#1207).</p></li>
 </ul>
-</div>
-<div class="section" id="argument-intake">
-<h3>Argument intake<a class="headerlink" href="#argument-intake" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="argument-intake">
+<h3>Argument intake<a class="headerlink" href="#argument-intake" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">arg_match()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">multiple</span></code> argument for cases where zero or
 several matches are allowed (#1281).</p></li>
@@ -1417,9 +1522,9 @@ the user chooses to install and update missing and outdated packages.</p></li>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">check_exclusive()</span></code> function to check that only one argument of
 a set is supplied (#1261).</p></li>
 </ul>
-</div>
-<div class="section" id="r-apis">
-<h3>R APIs<a class="headerlink" href="#r-apis" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="r-apis">
+<h3>R APIs<a class="headerlink" href="#r-apis" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">on_load()</span></code> and <code class="docutils literal notranslate"><span class="pre">run_on_load()</span></code> lets you run <code class="docutils literal notranslate"><span class="pre">.onLoad()</span></code> expressions
 from any file of your package. <code class="docutils literal notranslate"><span class="pre">on_package_load()</span></code> runs expressions
@@ -1520,24 +1625,24 @@ with the hexadecimal prefix <code class="docutils literal notranslate"><span cla
 <li><p><code class="docutils literal notranslate"><span class="pre">XXH3_64bits()</span></code> from the XXHash library is now exposed as C callable
 under the name <code class="docutils literal notranslate"><span class="pre">rlang_xxh3_64bits()</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-12">
-<h1>rlang 0.4.12<a class="headerlink" href="#rlang-0-4-12" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-12">
+<h1>rlang 0.4.12<a class="headerlink" href="#rlang-0-4-12" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fix for CRAN checks.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-11">
-<h1>rlang 0.4.11<a class="headerlink" href="#rlang-0-4-11" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-11">
+<h1>rlang 0.4.11<a class="headerlink" href="#rlang-0-4-11" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fix for CRAN checks.</p></li>
 <li><p>Fixed a gcc11 warning related to <code class="docutils literal notranslate"><span class="pre">hash()</span></code> (#1088).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-10">
-<h1>rlang 0.4.10<a class="headerlink" href="#rlang-0-4-10" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-10">
+<h1>rlang 0.4.10<a class="headerlink" href="#rlang-0-4-10" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>New <code class="docutils literal notranslate"><span class="pre">hash()</span></code> function to generate 128-bit hashes for arbitrary R objects
 using the xxHash library. The implementation is modeled after
@@ -1555,17 +1660,17 @@ current evaluation is aborted (#1075).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">expr_deparse()</span></code> now correctly wraps code using <code class="docutils literal notranslate"><span class="pre">::</span></code> and <code class="docutils literal notranslate"><span class="pre">:::</span></code>
 (#1072, &#64;krlmlr).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-9">
-<h1>rlang 0.4.9<a class="headerlink" href="#rlang-0-4-9" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Breaking changes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-9">
+<h1>rlang 0.4.9<a class="headerlink" href="#rlang-0-4-9" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>Breaking changes<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Dropped support for the R 3.2 series.</p></li>
 </ul>
-</div>
-<div class="section" id="new-features">
-<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">inject()</span></code> evaluates its argument with <code class="docutils literal notranslate"><span class="pre">!!</span></code>, <code class="docutils literal notranslate"><span class="pre">!!!</span></code>, and <code class="docutils literal notranslate"><span class="pre">{{</span></code>
 support.</p></li>
@@ -1590,9 +1695,9 @@ more user friendly way.</p></li>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">rlang_print_backtrace</span></code> C callable for debugging from C
 interpreters (#1059).</p></li>
 </ul>
-</div>
-<div class="section" id="bugfixes-and-improvements">
-<h2>Bugfixes and improvements<a class="headerlink" href="#bugfixes-and-improvements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bugfixes-and-improvements">
+<h2>Bugfixes and improvements<a class="headerlink" href="#bugfixes-and-improvements" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">.data</span></code> pronoun no longer skips functions (#1061). This solves a
 dplyr issue involving rowwise data frames and list-columns of
@@ -1609,10 +1714,10 @@ now propagate visibility.</p></li>
 rstudio/bookdown#920).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">next</span></code> and <code class="docutils literal notranslate"><span class="pre">break</span></code> are now properly deparsed as nullary operators.</p></li>
 </ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-8">
-<h1>rlang 0.4.8<a class="headerlink" href="#rlang-0-4-8" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-8">
+<h1>rlang 0.4.8<a class="headerlink" href="#rlang-0-4-8" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Backtraces now include native stacks (e.g. from C code) when the
 <a class="reference external" href="https://r-prof.github.io/winch/">winch</a> package is installed and
@@ -1628,9 +1733,9 @@ in non-interactive sessions (#856).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">is_interactive()</span></code> no longer consults “rstudio.notebook.executing”
 option (#1031).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-7">
-<h1>rlang 0.4.7<a class="headerlink" href="#rlang-0-4-7" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-7">
+<h1>rlang 0.4.7<a class="headerlink" href="#rlang-0-4-7" title="Permalink to this headline">#</a></h1>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">cnd_muffle()</span></code> now returns <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> instead of failing if the
 condition is not mufflable (#1022).</p></li>
@@ -1677,17 +1782,17 @@ regardless of the actual length of <code class="docutils literal notranslate"><s
 <li><p><code class="docutils literal notranslate"><span class="pre">arg_match0()</span></code> is a faster version of <code class="docutils literal notranslate"><span class="pre">arg_match()</span></code> for use when performance
 is at a premium (#997, &#64;krlmlr).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-6">
-<h1>rlang 0.4.6<a class="headerlink" href="#rlang-0-4-6" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-6">
+<h1>rlang 0.4.6<a class="headerlink" href="#rlang-0-4-6" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">!!!</span></code> now uses a combination of <code class="docutils literal notranslate"><span class="pre">length()</span></code>, <code class="docutils literal notranslate"><span class="pre">names()</span></code>, and <code class="docutils literal notranslate"><span class="pre">[[</span></code> to splice
 S3 and S4 objects. This produces more consistent behaviour than <code class="docutils literal notranslate"><span class="pre">as.list()</span></code>
 on a wider variety of vector classes (#945, tidyverse/dplyr#4931).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-5">
-<h1>rlang 0.4.5<a class="headerlink" href="#rlang-0-4-5" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-5">
+<h1>rlang 0.4.5<a class="headerlink" href="#rlang-0-4-5" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">set_names()</span></code>, <code class="docutils literal notranslate"><span class="pre">is_formula()</span></code>, and <code class="docutils literal notranslate"><span class="pre">names2()</span></code> are now implemented in
 C for efficiency.</p></li>
@@ -1703,15 +1808,15 @@ arguments (&#64;jonkeane, #798).</p></li>
 than 1 and doesn’t exactly match the values input, similar to base
 <code class="docutils literal notranslate"><span class="pre">match.arg</span></code> (#914, &#64;AliciaSchep)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-4">
-<h1>rlang 0.4.4<a class="headerlink" href="#rlang-0-4-4" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-4">
+<h1>rlang 0.4.4<a class="headerlink" href="#rlang-0-4-4" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Maintenance release for CRAN.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-3">
-<h1>rlang 0.4.3<a class="headerlink" href="#rlang-0-4-3" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-3">
+<h1>rlang 0.4.3<a class="headerlink" href="#rlang-0-4-3" title="Permalink to this headline">#</a></h1>
 <ul>
 <li><p>You can now use glue syntax to unquote on the LHS of <code class="docutils literal notranslate"><span class="pre">:=</span></code>. This
 syntax is automatically available in all functions taking dots with
@@ -1770,9 +1875,9 @@ unhandled errors to <code class="docutils literal notranslate"><span class="pre"
 <li><p>Infix operators now stick to their LHS when deparsed by
 <code class="docutils literal notranslate"><span class="pre">expr_deparse()</span></code> (#890).</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-2">
-<h1>rlang 0.4.2<a class="headerlink" href="#rlang-0-4-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-2">
+<h1>rlang 0.4.2<a class="headerlink" href="#rlang-0-4-2" title="Permalink to this headline">#</a></h1>
 <ul>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">cnd_header()</span></code>, <code class="docutils literal notranslate"><span class="pre">cnd_body()</span></code> and <code class="docutils literal notranslate"><span class="pre">cnd_footer()</span></code> generics. These
 are automatically called by <code class="docutils literal notranslate"><span class="pre">conditionMessage.rlang_error()</span></code>, the
@@ -1804,9 +1909,9 @@ quosured symbol.</p></li>
 non-interactive sessions. Previously the backtraces of parent errors
 were left out.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-1">
-<h1>rlang 0.4.1<a class="headerlink" href="#rlang-0-4-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-1">
+<h1>rlang 0.4.1<a class="headerlink" href="#rlang-0-4-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>New experimental framework for creating bulleted error messages. See
 <code class="docutils literal notranslate"><span class="pre">?cnd_message</span></code> for the motivation and an overwiew of the tools we
@@ -1857,13 +1962,13 @@ condition.</p></li>
 <code class="docutils literal notranslate"><span class="pre">&quot;&lt;named</span> <span class="pre">list&gt;&quot;</span></code>.</p></li>
 <li><p>Fixed <code class="docutils literal notranslate"><span class="pre">chr()</span></code> bug causing it to return invisibly.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-4-0">
-<h1>rlang 0.4.0<a class="headerlink" href="#rlang-0-4-0" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tidy-evaluation">
-<h2>Tidy evaluation<a class="headerlink" href="#tidy-evaluation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="interpolate-function-inputs-with-the-curly-curly-operator">
-<h3>Interpolate function inputs with the curly-curly operator<a class="headerlink" href="#interpolate-function-inputs-with-the-curly-curly-operator" title="Permalink to this headline">¶</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-4-0">
+<h1>rlang 0.4.0<a class="headerlink" href="#rlang-0-4-0" title="Permalink to this headline">#</a></h1>
+<section id="tidy-evaluation">
+<h2>Tidy evaluation<a class="headerlink" href="#tidy-evaluation" title="Permalink to this headline">#</a></h2>
+<section id="interpolate-function-inputs-with-the-curly-curly-operator">
+<h3>Interpolate function inputs with the curly-curly operator<a class="headerlink" href="#interpolate-function-inputs-with-the-curly-curly-operator" title="Permalink to this headline">#</a></h3>
 <p>The main change of this release is the new tidy evaluation operator
 <code class="docutils literal notranslate"><span class="pre">{{</span></code>.  This operator abstracts the quote-and-unquote idiom into a
 single interpolation step:</p>
@@ -1887,9 +1992,9 @@ modify the inputs or their names in some way:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="more-robust-env-pronoun">
-<h3>More robust <code class="docutils literal notranslate"><span class="pre">.env</span></code> pronoun<a class="headerlink" href="#more-robust-env-pronoun" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="more-robust-env-pronoun">
+<h3>More robust <code class="docutils literal notranslate"><span class="pre">.env</span></code> pronoun<a class="headerlink" href="#more-robust-env-pronoun" title="Permalink to this headline">#</a></h3>
 <p>Another improvement to tidy evaluation should make it easier to use
 the <code class="docutils literal notranslate"><span class="pre">.env</span></code> pronoun. Starting from this release, subsetting an object
 from the <code class="docutils literal notranslate"><span class="pre">.env</span></code> pronoun now evaluates the corresponding symbol. This
@@ -1908,10 +2013,10 @@ constant objects, but with an easier syntax:</p>
 longer referring to a bare environment. Instead, it is a special
 shortcut with its own rules. Similarly, the <code class="docutils literal notranslate"><span class="pre">.data</span></code> pronoun is not
 really a data frame.</p>
-</div>
-</div>
-<div class="section" id="new-functions-and-features">
-<h2>New functions and features<a class="headerlink" href="#new-functions-and-features" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="new-functions-and-features">
+<h2>New functions and features<a class="headerlink" href="#new-functions-and-features" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">pairlist2()</span></code> function with splicing support. It preserves
 missing arguments, which makes it useful for lists of formal
@@ -1939,9 +2044,9 @@ element of the input vector (#744).</p></li>
 <li><p>New functions for weak references: <code class="docutils literal notranslate"><span class="pre">new_weakref()</span></code>, <code class="docutils literal notranslate"><span class="pre">weakref_key()</span></code>,
 <code class="docutils literal notranslate"><span class="pre">weakref_value()</span></code>, and <code class="docutils literal notranslate"><span class="pre">is_weakref()</span></code> (&#64;wch, #787).</p></li>
 </ul>
-</div>
-<div class="section" id="performance">
-<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>The performance of <code class="docutils literal notranslate"><span class="pre">exec()</span></code> has been improved. It is now on the same
 order of performance as <code class="docutils literal notranslate"><span class="pre">do.call()</span></code>, though slightly slower.</p></li>
@@ -1954,9 +2059,9 @@ preserves empty arguments:</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="section" id="bugfixes-and-small-improvements">
-<h2>Bugfixes and small improvements<a class="headerlink" href="#bugfixes-and-small-improvements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bugfixes-and-small-improvements">
+<h2>Bugfixes and small improvements<a class="headerlink" href="#bugfixes-and-small-improvements" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">with_handlers()</span></code> now installs calling handlers first on the stack,
 no matter their location in the argument list. This way they always
@@ -1980,9 +2085,9 @@ closure. Instead, they throw an error.</p></li>
 <li><p>The return object from <code class="docutils literal notranslate"><span class="pre">as_function()</span></code> now inherits from
 <code class="docutils literal notranslate"><span class="pre">&quot;function&quot;</span></code> (&#64;richierocks, #735).</p></li>
 </ul>
-</div>
-<div class="section" id="lifecycle">
-<h2>Lifecycle<a class="headerlink" href="#lifecycle" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lifecycle">
+<h2>Lifecycle<a class="headerlink" href="#lifecycle" title="Permalink to this headline">#</a></h2>
 <p>We commit to support 5 versions of R. As R 3.6 is about to be
 released, rlang now requires R 3.2 or greater. We’re also continuing
 our efforts to streamline and narrow the rlang API.</p>
@@ -2009,10 +2114,10 @@ archived. These functions were not used on CRAN or internally.</p></li>
 <li><p>All functions that were soft-deprecated, deprecated, or defunct in
 previous releases have been bumped to the next lifecycle stage.</p></li>
 </ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-3-2">
-<h1>rlang 0.3.2<a class="headerlink" href="#rlang-0-3-2" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-3-2">
+<h1>rlang 0.3.2<a class="headerlink" href="#rlang-0-3-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed protection issue reported by rchk.</p></li>
 <li><p>The experimental option <code class="docutils literal notranslate"><span class="pre">rlang__backtrace_on_error</span></code> is no longer
@@ -2023,16 +2128,16 @@ experimental and has been renamed to <code class="docutils literal notranslate">
 entraced via <code class="docutils literal notranslate"><span class="pre">withCallingHandlers()</span></code>. The issue didn’t affect
 entracing via top level <code class="docutils literal notranslate"><span class="pre">options(error</span> <span class="pre">=</span> <span class="pre">rlang::entrace)</span></code> handling.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-3-1">
-<h1>rlang 0.3.1<a class="headerlink" href="#rlang-0-3-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-3-1">
+<h1>rlang 0.3.1<a class="headerlink" href="#rlang-0-3-1" title="Permalink to this headline">#</a></h1>
 <p>This patch release polishes the new backtrace feature introduced in
 rlang 0.3.0 and solves bugs for the upcoming release of purrr
 0.3.0. It also features <code class="docutils literal notranslate"><span class="pre">as_label()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_name()</span></code> which are meant
 to replace <code class="docutils literal notranslate"><span class="pre">quo_name()</span></code> in the future. Finally, a bunch of deparsing
 issues have been fixed.</p>
-<div class="section" id="backtrace-fixes">
-<h2>Backtrace fixes<a class="headerlink" href="#backtrace-fixes" title="Permalink to this headline">¶</a></h2>
+<section id="backtrace-fixes">
+<h2>Backtrace fixes<a class="headerlink" href="#backtrace-fixes" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">entrace()</span></code> condition handler. Add this to your RProfile to
 enable rlang backtraces for all errors, including warnings promoted
@@ -2066,9 +2171,9 @@ backtraces because of omitted call frames.</p></li>
 condition to catch. It returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the expected condition
 could not be caught (#696).</p></li>
 </ul>
-</div>
-<div class="section" id="as-label-and-as-name">
-<h2><code class="docutils literal notranslate"><span class="pre">as_label()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_name()</span></code><a class="headerlink" href="#as-label-and-as-name" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="as-label-and-as-name">
+<h2><code class="docutils literal notranslate"><span class="pre">as_label()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_name()</span></code><a class="headerlink" href="#as-label-and-as-name" title="Permalink to this headline">#</a></h2>
 <p>The new <code class="docutils literal notranslate"><span class="pre">as_label()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_name()</span></code> functions should be used instead
 of <code class="docutils literal notranslate"><span class="pre">quo_name()</span></code> to transform objects and quoted expressions to a
 string. We have noticed that tidy eval users often use <code class="docutils literal notranslate"><span class="pre">quo_name()</span></code> to
@@ -2105,9 +2210,9 @@ once-per-session warnings in scripts, but not in packages. It will
 then be deprecated in yet another major version, at which point it
 will issue once-per-session warnings in packages as well. You thus
 have plenty of time to change your code.</p>
-</div>
-<div class="section" id="minor-fixes-and-features">
-<h2>Minor fixes and features<a class="headerlink" href="#minor-fixes-and-features" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="minor-fixes-and-features">
+<h2>Minor fixes and features<a class="headerlink" href="#minor-fixes-and-features" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New <code class="docutils literal notranslate"><span class="pre">is_interactive()</span></code> function. It serves the same purpose as
 <code class="docutils literal notranslate"><span class="pre">base::interactive()</span></code> but also checks if knitr is in progress and
@@ -2146,12 +2251,12 @@ consistency with other rlang functions.</p></li>
 <li><p>Base errors set as <code class="docutils literal notranslate"><span class="pre">parent</span></code> of rlang errors are now printed
 correctly.</p></li>
 </ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-3-0">
-<h1>rlang 0.3.0<a class="headerlink" href="#rlang-0-3-0" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
-<h2>Breaking changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-3-0">
+<h1>rlang 0.3.0<a class="headerlink" href="#rlang-0-3-0" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>Breaking changes<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>The rlang API is still maturing. In this section, you’ll find hard
 breaking changes. See the life cycle section below for an exhaustive
 list of API changes.</p>
@@ -2186,9 +2291,9 @@ This makes it directly equivalent to <code class="docutils literal notranslate">
 attributes for non-S4 objects (#207).</p></li>
 <li><p>Taking the <code class="docutils literal notranslate"><span class="pre">env_parent()</span></code> of the empty environment is now an error.</p></li>
 </ul>
-</div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>The changes for this version are organised around three main themes:
 error reporting, tidy eval, and tidy dots.</p>
 <ul>
@@ -2225,9 +2330,9 @@ collected. You can control the selection of arguments with the same
 name with <code class="docutils literal notranslate"><span class="pre">.homonyms</span></code> (keep first, last, all, or abort). You can
 also elect to preserve empty arguments with <code class="docutils literal notranslate"><span class="pre">.preserve_empty</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="conditions-and-errors">
-<h2>Conditions and errors<a class="headerlink" href="#conditions-and-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conditions-and-errors">
+<h2>Conditions and errors<a class="headerlink" href="#conditions-and-errors" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>New <code class="docutils literal notranslate"><span class="pre">trace_back()</span></code> captures a backtrace. Compared to the base R
 traceback, it contains additional structure about the relationship
@@ -2274,9 +2379,9 @@ handlers.</p>
 the formula shortcut for lambda functions (as in purrr).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">with_handlers()</span></code> now produces a cleaner stack trace.</p></li>
 </ul>
-</div>
-<div class="section" id="tidy-dots">
-<h2>Tidy dots<a class="headerlink" href="#tidy-dots" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tidy-dots">
+<h2>Tidy dots<a class="headerlink" href="#tidy-dots" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>The input types of <code class="docutils literal notranslate"><span class="pre">!!!</span></code> have been standardised. <code class="docutils literal notranslate"><span class="pre">!!!</span></code> is generally
 defined on vectors: it takes a vector (typically, a list) and
@@ -2320,9 +2425,9 @@ function parameter) and requires them to be explicit that they
 really want to assign to a variable by wrapping in parentheses.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lapply(list(quote(foo)),</span> <span class="pre">list2)</span></code> no longer evaluates <code class="docutils literal notranslate"><span class="pre">foo</span></code> (#580).</p></li>
 </ul>
-</div>
-<div class="section" id="tidy-eval">
-<h2>Tidy eval<a class="headerlink" href="#tidy-eval" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tidy-eval">
+<h2>Tidy eval<a class="headerlink" href="#tidy-eval" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>You can now unquote quosured symbols as LHS of <code class="docutils literal notranslate"><span class="pre">:=</span></code>. The symbol is
 automatically unwrapped from the quosure.</p></li>
@@ -2353,9 +2458,9 @@ two invariants on subsetting and concatenation: that each element is
 a quosure and that the list is always named even if only with a
 vector of empty strings.</p></li>
 </ul>
-</div>
-<div class="section" id="environments">
-<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="environments">
+<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">env()</span></code> now treats a single unnamed argument as the parent of the
 new environment. Consequently, <code class="docutils literal notranslate"><span class="pre">child_env()</span></code> is now superfluous and
@@ -2423,9 +2528,9 @@ see the environment of closures and quosures (#567).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">env_get()</span></code> now supports retrieving missing arguments when <code class="docutils literal notranslate"><span class="pre">inherit</span></code>
 is <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="calls">
-<h2>Calls<a class="headerlink" href="#calls" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calls">
+<h2>Calls<a class="headerlink" href="#calls" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">is_call()</span></code> now accepts multiple namespaces. For instance
 <code class="docutils literal notranslate"><span class="pre">is_call(x,</span> <span class="pre">&quot;list&quot;,</span> <span class="pre">ns</span> <span class="pre">=</span> <span class="pre">c(&quot;&quot;,</span> <span class="pre">&quot;base&quot;))</span></code> will match if <code class="docutils literal notranslate"><span class="pre">x</span></code> is
@@ -2447,9 +2552,9 @@ the console by R: prefix, infix, and special form.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">call_</span></code> functions such as <code class="docutils literal notranslate"><span class="pre">call_modify()</span></code> now correctly check
 that their input is the right type (#187).</p></li>
 </ul>
-</div>
-<div class="section" id="other-improvements-and-fixes">
-<h2>Other improvements and fixes<a class="headerlink" href="#other-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-improvements-and-fixes">
+<h2>Other improvements and fixes<a class="headerlink" href="#other-improvements-and-fixes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New function <code class="docutils literal notranslate"><span class="pre">zap()</span></code> returns a sentinel that instructs functions
 like <code class="docutils literal notranslate"><span class="pre">env_bind()</span></code> or <code class="docutils literal notranslate"><span class="pre">call_modify()</span></code> that objects are to be removed.</p></li>
@@ -2483,11 +2588,11 @@ Note that the output may be longer than the input as each string may
 yield multiple expressions (such as <code class="docutils literal notranslate"><span class="pre">&quot;foo;</span> <span class="pre">bar&quot;</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">parse_quos()</span></code> now adds the <code class="docutils literal notranslate"><span class="pre">quosures</span></code> class to its output.</p></li>
 </ul>
-</div>
-<div class="section" id="id3">
-<h2>Lifecycle<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="soft-deprecated-functions-and-arguments">
-<h3>Soft-deprecated functions and arguments<a class="headerlink" href="#soft-deprecated-functions-and-arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id3">
+<h2>Lifecycle<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<section id="soft-deprecated-functions-and-arguments">
+<h3>Soft-deprecated functions and arguments<a class="headerlink" href="#soft-deprecated-functions-and-arguments" title="Permalink to this headline">#</a></h3>
 <p>rlang 0.3.0 introduces a new warning mechanism for soft-deprecated
 functions and arguments. A warning is issued, but only under one of
 these circumstances:</p>
@@ -2500,8 +2605,8 @@ order to not be disruptive.</p>
 <p>Deprecation warnings shouldn’t make R CMD check fail for packages
 using testthat. However, <code class="docutils literal notranslate"><span class="pre">expect_silent()</span></code> can transform the warning
 to a hard failure.</p>
-<div class="section" id="id4">
-<h4>tidyeval<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<section id="id4">
+<h4>tidyeval<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.data[[foo]]</span></code> is now an unquote operator. This guarantees that
 <code class="docutils literal notranslate"><span class="pre">foo</span></code> is evaluated in the context rather than the data mask and
@@ -2528,9 +2633,9 @@ expression was created.</p></li>
 It is no longer valid to write <code class="docutils literal notranslate"><span class="pre">names(.data)</span></code> or <code class="docutils literal notranslate"><span class="pre">length(.data)</span></code>.</p></li>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">as.character()</span></code> on quosures is soft-deprecated (#523).</p></li>
 </ul>
-</div>
-<div class="section" id="miscellaneous">
-<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="miscellaneous">
+<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">#</a></h4>
 <ul>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">get_env()</span></code> without supplying an environment is now
 soft-deprecated. Please use <code class="docutils literal notranslate"><span class="pre">current_env()</span></code> to retrieve the current
@@ -2554,10 +2659,10 @@ environment separately before calling these functions.</p>
 non-critical conditions. Consequently the <code class="docutils literal notranslate"><span class="pre">.mufflable</span></code> argument has
 been soft-deprecated and no longer has any effect.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="deprecated-functions-and-arguments">
-<h3>Deprecated functions and arguments<a class="headerlink" href="#deprecated-functions-and-arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="deprecated-functions-and-arguments">
+<h3>Deprecated functions and arguments<a class="headerlink" href="#deprecated-functions-and-arguments" title="Permalink to this headline">#</a></h3>
 <p>Deprecated functions and arguments issue a warning inconditionally,
 but only once per session.</p>
 <ul>
@@ -2583,9 +2688,9 @@ use <code class="docutils literal notranslate"><span class="pre">call_standardis
 <li><p>The <code class="docutils literal notranslate"><span class="pre">sentinel</span></code> argument of <code class="docutils literal notranslate"><span class="pre">env_tail()</span></code> has been deprecated and
 renamed to <code class="docutils literal notranslate"><span class="pre">last</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="defunct-functions-and-arguments">
-<h3>Defunct functions and arguments<a class="headerlink" href="#defunct-functions-and-arguments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="defunct-functions-and-arguments">
+<h3>Defunct functions and arguments<a class="headerlink" href="#defunct-functions-and-arguments" title="Permalink to this headline">#</a></h3>
 <p>Defunct functions and arguments throw an error when used.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">as_dictionary()</span></code> is now defunct.</p></li>
@@ -2603,9 +2708,9 @@ use the new function [signal()] instead.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inplace()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">calling()</span></code> to follow base R
 terminology more closely.</p></li>
 </ul>
-</div>
-<div class="section" id="functions-and-arguments-in-the-questioning-stage">
-<h3>Functions and arguments in the questioning stage<a class="headerlink" href="#functions-and-arguments-in-the-questioning-stage" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="functions-and-arguments-in-the-questioning-stage">
+<h3>Functions and arguments in the questioning stage<a class="headerlink" href="#functions-and-arguments-in-the-questioning-stage" title="Permalink to this headline">#</a></h3>
 <p>We are no longer convinced these functions are the right approach but
 we do not have a precise alternative yet.</p>
 <ul class="simple">
@@ -2621,16 +2726,16 @@ than the flattening functions in purrr and we are currently
 rethinking our approach to flattening with the new typing facilities
 of the vctrs package.</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-2-2">
-<h1>rlang 0.2.2<a class="headerlink" href="#rlang-0-2-2" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-2-2">
+<h1>rlang 0.2.2<a class="headerlink" href="#rlang-0-2-2" title="Permalink to this headline">#</a></h1>
 <p>This is a maintenance release that fixes several garbage collection
 protection issues.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-2-1">
-<h1>rlang 0.2.1<a class="headerlink" href="#rlang-0-2-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-2-1">
+<h1>rlang 0.2.1<a class="headerlink" href="#rlang-0-2-1" title="Permalink to this headline">#</a></h1>
 <p>This is a maintenance release that fixes several tidy evaluation
 issues.</p>
 <ul class="simple">
@@ -2640,9 +2745,9 @@ issues.</p>
 <code class="docutils literal notranslate"><span class="pre">eval_tidy()</span></code>. This fixes issues in dplyr and other tidy-evaluation
 interfaces.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-2-0">
-<h1>rlang 0.2.0<a class="headerlink" href="#rlang-0-2-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-2-0">
+<h1>rlang 0.2.0<a class="headerlink" href="#rlang-0-2-0" title="Permalink to this headline">#</a></h1>
 <p>This release of rlang is mostly an effort at polishing the tidy
 evaluation framework. All tidy eval functions and operators have been
 rewritten in C in order to improve performance. Capture of expression,
@@ -2669,8 +2774,8 @@ sections in documentation topics. In addition we have gathered all
 lifecycle information in the <code class="docutils literal notranslate"><span class="pre">?rlang::lifecycle</span></code> help page. Please
 only use functions marked as stable in your projects unless you are
 prepared to deal with occasional backward incompatible updates.</p>
-<div class="section" id="id5">
-<h2>Tidy evaluation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h2>Tidy evaluation<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <ul>
 <li><p>The backend for <code class="docutils literal notranslate"><span class="pre">quos()</span></code>, <code class="docutils literal notranslate"><span class="pre">exprs()</span></code>, <code class="docutils literal notranslate"><span class="pre">list2()</span></code>, <code class="docutils literal notranslate"><span class="pre">dots_list()</span></code>, etc
 is now written in C. This greatly improve the performance of dots
@@ -2770,9 +2875,9 @@ arguments as <code class="docutils literal notranslate"><span class="pre">is_sym
 <li><p><code class="docutils literal notranslate"><span class="pre">enquo()</span></code> and <code class="docutils literal notranslate"><span class="pre">enexpr()</span></code> now deal with default values correctly (#201).</p></li>
 <li><p>Splicing a list no longer mutates it (#280).</p></li>
 </ul>
-</div>
-<div class="section" id="conditions">
-<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The new functions <code class="docutils literal notranslate"><span class="pre">cnd_warn()</span></code> and <code class="docutils literal notranslate"><span class="pre">cnd_inform()</span></code> transform
 conditions to warnings or messages before signalling them.</p></li>
@@ -2790,9 +2895,9 @@ returns <code class="docutils literal notranslate"><span class="pre">NULL</span>
 conditions. This fixes error catching, for instance by
 <code class="docutils literal notranslate"><span class="pre">testthat::expect_error()</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
-<h2>Environments<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id6">
+<h2>Environments<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">env_get_list()</span></code> retrieves muliple bindings from an environment into
 a named list.</p></li>
@@ -2800,9 +2905,9 @@ a named list.</p></li>
 bindings in an environment.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">is_namespace()</span></code> is a snake case wrapper around <code class="docutils literal notranslate"><span class="pre">isNamespace()</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="various-features">
-<h2>Various features<a class="headerlink" href="#various-features" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="various-features">
+<h2>Various features<a class="headerlink" href="#various-features" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New functions <code class="docutils literal notranslate"><span class="pre">inherits_any()</span></code>, <code class="docutils literal notranslate"><span class="pre">inherits_all()</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">inherits_only()</span></code>. They allow testing for inheritance from multiple
@@ -2831,9 +2936,9 @@ subclass.</p></li>
 <code class="docutils literal notranslate"><span class="pre">new_double_along()</span></code> etc gain a <code class="docutils literal notranslate"><span class="pre">names</span></code> argument. In the case of the
 <code class="docutils literal notranslate"><span class="pre">_along</span></code> family it defaults to the names of the input vector.</p></li>
 </ul>
-</div>
-<div class="section" id="bugfixes">
-<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bugfixes">
+<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>When nested quosures are evaluated with <code class="docutils literal notranslate"><span class="pre">eval_tidy()</span></code>, the <code class="docutils literal notranslate"><span class="pre">.env</span></code>
 pronoun now correctly refers to the current quosure under evaluation
@@ -2844,9 +2949,9 @@ and objects of type pairlist (#397).</p></li>
 <li><p>Fixed a performance bug in <code class="docutils literal notranslate"><span class="pre">set_names()</span></code> that caused a full copy of
 the vector names (&#64;jimhester, #366).</p></li>
 </ul>
-</div>
-<div class="section" id="api-changes">
-<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">#</a></h2>
 <p>The rlang API is maturing and still in flux. However we have made an
 effort to better communicate what parts are stable. We will not
 introduce breaking changes for stable functions unless the payoff for
@@ -2885,8 +2990,8 @@ evaluation interfaces.</p>
 cleaned up after evaluation. <code class="docutils literal notranslate"><span class="pre">overscope_clean()</span></code> is thus
 soft-deprecated without replacement.</p></li>
 </ul>
-<div class="section" id="id7">
-<h3>Breaking changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<section id="id7">
+<h3>Breaking changes<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">!!</span></code> now binds tightly in order to match intuitive parsing of tidy
 eval code, e.g. <code class="docutils literal notranslate"><span class="pre">!!</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> is now equivalent to <code class="docutils literal notranslate"><span class="pre">(!!</span> <span class="pre">x)</span> <span class="pre">&gt;</span> <span class="pre">y</span></code>.  A
@@ -2921,9 +3026,9 @@ Note that all these functions are still experimental.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">set_names()</span></code> no longer automatically splices lists of character
 vectors as we are moving away from automatic splicing semantics.</p></li>
 </ul>
-</div>
-<div class="section" id="upcoming-breaking-changes">
-<h3>Upcoming breaking changes<a class="headerlink" href="#upcoming-breaking-changes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="upcoming-breaking-changes">
+<h3>Upcoming breaking changes<a class="headerlink" href="#upcoming-breaking-changes" title="Permalink to this headline">#</a></h3>
 <ul>
 <li><p>Calling the functional forms of unquote operators with the rlang
 namespace qualifier is soft-deprecated. <code class="docutils literal notranslate"><span class="pre">UQ()</span></code> and <code class="docutils literal notranslate"><span class="pre">UQS()</span></code> are not
@@ -2977,11 +3082,11 @@ its conciseness.</p></li>
 <code class="docutils literal notranslate"><span class="pre">chr()</span></code>, etc) is now soft-deprecated. Please be explicit with the
 splicing operator <code class="docutils literal notranslate"><span class="pre">!!!</span></code>.</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-1-6">
-<h1>rlang 0.1.6<a class="headerlink" href="#rlang-0-1-6" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-1-6">
+<h1>rlang 0.1.6<a class="headerlink" href="#rlang-0-1-6" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>This is a maintenance release in anticipation of a forthcoming
 change to R’s C API (use <code class="docutils literal notranslate"><span class="pre">MARK_NOT_MUTABLE()</span></code> instead of
@@ -2989,21 +3094,21 @@ change to R’s C API (use <code class="docutils literal notranslate"><span clas
 <li><p>New function <code class="docutils literal notranslate"><span class="pre">is_reference()</span></code> to check whether two objects are one
 and the same.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-1-4">
-<h1>rlang 0.1.4<a class="headerlink" href="#rlang-0-1-4" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-1-4">
+<h1>rlang 0.1.4<a class="headerlink" href="#rlang-0-1-4" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">eval_tidy()</span></code> no longer maps over lists but returns them literally.
 This behaviour is an overlook from past refactorings and was never
 documented.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-1-2">
-<h1>rlang 0.1.2<a class="headerlink" href="#rlang-0-1-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-1-2">
+<h1>rlang 0.1.2<a class="headerlink" href="#rlang-0-1-2" title="Permalink to this headline">#</a></h1>
 <p>This hotfix release makes rlang compatible with the R 3.1 branch.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-1-1">
-<h1>rlang 0.1.1<a class="headerlink" href="#rlang-0-1-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-1-1">
+<h1>rlang 0.1.1<a class="headerlink" href="#rlang-0-1-1" title="Permalink to this headline">#</a></h1>
 <p>This release includes two important fixes for tidy evaluation:</p>
 <ul class="simple">
 <li><p>Bare formulas are now evaluated in the correct environment in
@@ -3012,8 +3117,8 @@ tidyeval functions.</p></li>
 release, constants optimised by the bytecode compiler couldn’t be
 enquoted.</p></li>
 </ul>
-<div class="section" id="new-functions">
-<h2>New functions:<a class="headerlink" href="#new-functions" title="Permalink to this headline">¶</a></h2>
+<section id="new-functions">
+<h2>New functions:<a class="headerlink" href="#new-functions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">new_environment()</span></code> constructor creates a child of the empty
 environment and takes an optional named list of data to populate it.
@@ -3025,9 +3130,9 @@ object (a function or an expression) and a pairlist of arguments. It
 is useful to avoid costly internal coercions between lists and
 pairlists of arguments.</p></li>
 </ul>
-</div>
-<div class="section" id="ui-improvements">
-<h2>UI improvements:<a class="headerlink" href="#ui-improvements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ui-improvements">
+<h2>UI improvements:<a class="headerlink" href="#ui-improvements" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">env_child()</span></code>’s first argument is now <code class="docutils literal notranslate"><span class="pre">.parent</span></code> instead of <code class="docutils literal notranslate"><span class="pre">parent</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mut_</span></code> setters like <code class="docutils literal notranslate"><span class="pre">mut_attrs()</span></code> and environment helpers like
@@ -3039,9 +3144,9 @@ invisibly.</p></li>
 to test for actual pairlist nodes. In other words, <code class="docutils literal notranslate"><span class="pre">is_pairlist()</span></code>
 tests for the data structure while <code class="docutils literal notranslate"><span class="pre">is_node()</span></code> tests for the type.</p></li>
 </ul>
-</div>
-<div class="section" id="id8">
-<h2>Bugfixes:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id8">
+<h2>Bugfixes:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">env()</span></code> and <code class="docutils literal notranslate"><span class="pre">env_child()</span></code> can now get arguments whose names start
 with <code class="docutils literal notranslate"><span class="pre">.</span></code>.  Prior to this fix, these arguments were partial-matching
@@ -3050,12 +3155,12 @@ on <code class="docutils literal notranslate"><span class="pre">env_bind()</span
 with an exported function in tidyverse. This solves an issue
 occurring in old versions of R prior to 3.3.2 (#133).</p></li>
 </ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rlang-0-1-0">
-<h1>rlang 0.1.0<a class="headerlink" href="#rlang-0-1-0" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rlang-0-1-0">
+<h1>rlang 0.1.0<a class="headerlink" href="#rlang-0-1-0" title="Permalink to this headline">#</a></h1>
 <p>Initial release.</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3079,28 +3184,34 @@ occurring in old versions of R prior to 3.3.2 (#133).</p></li>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Zhentao Shi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Zhentao Shi<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

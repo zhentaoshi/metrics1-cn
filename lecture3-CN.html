@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>1. 最小二乘法：线性代数观点 &#8212; 计量经济学</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,22 +20,18 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -41,20 +39,21 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. 基本渐近理论" href="lecture5-CN.html" />
@@ -66,7 +65,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -90,14 +104,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   介绍
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    介绍
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    1. 最小二乘法：线性代数观点
@@ -111,111 +126,225 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture3-CN.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture3-CN.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lecture3-CN.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lecture3-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flecture3-CN.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture3-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#estimator">
-   1.1. 估计量 (Estimator)
+  <a class="reference internal nav-link" href="#id2">
+   1.1. 最小二乘法
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.1. 线性代数性质
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.1.2. 几何意义
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#subvector">
@@ -224,22 +353,21 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#goodness-of-fit">
-   1.3. 适配度检验 (Goodness of Fit)
+   1.3. 适配度 (Goodness of Fit)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id5">
    1.4. 总结
   </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>最小二乘法：线性代数观点</h1>
@@ -253,9 +381,21 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#estimator">
-   1.1. 估计量 (Estimator)
+  <a class="reference internal nav-link" href="#id2">
+   1.1. 最小二乘法
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.1. 线性代数性质
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.1.2. 几何意义
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#subvector">
@@ -264,11 +404,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#goodness-of-fit">
-   1.3. 适配度检验 (Goodness of Fit)
+   1.3. 适配度 (Goodness of Fit)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#id5">
    1.4. 总结
   </a>
  </li>
@@ -278,11 +418,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">1. </span>最小二乘法：线性代数观点<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">1. </span>最小二乘法：线性代数观点<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="admonition- admonition">
 <p class="admonition-title">《九章算术》第八章：方程</p>
 <p>今有卖牛二、羊五, 以买十三豕, 有馀钱一千. 卖牛三、豕三, 以买九羊, 钱适足. 卖羊六、豕八, 以买五牛, 钱不足六百. 问牛、羊、豕价各几何?</p>
@@ -308,9 +449,9 @@ const thebe_selector_output = ".output, .cell_output"
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">600</span><span class="p">)</span>
-<span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">-5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">-9</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">-13</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">-600</span><span class="p">)</span>
+<span class="nf">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -334,46 +475,17 @@ x_{n1} &amp; x_{22} &amp; \cdots &amp; x_{nK}
 \end{array}\right]
 \end{split}\]</div>
 <p>是 <span class="math notranslate nohighlight">\(n\times K\)</span> 的矩阵. <span class="math notranslate nohighlight">\(I_{n}\)</span> 是 <span class="math notranslate nohighlight">\(n\times n\)</span> 的单位矩阵.</p>
-<div class="section" id="estimator">
-<h2><span class="section-number">1.1. </span>估计量 (Estimator)<a class="headerlink" href="#estimator" title="Permalink to this headline">¶</a></h2>
-<p>基于我们已经在前一讲中学习过的线性投影模型</p>
-<div class="math notranslate nohighlight">
-\[
-\begin{aligned}y &amp; =x'\beta+e\end{aligned}, 
-\]</div>
-<p>投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 可以写作</p>
-<div class="math notranslate nohighlight" id="equation-eqn-1">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-eqn-1" title="Permalink to this equation">¶</a></span>\[
-\beta=\left(E\left[xx'\right]\right)^{-1}E\left[xy\right]. 
-\]</div>
-<p>我们从 <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布中取出一个观测值, 记作 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>. 重复此过程 <span class="math notranslate nohighlight">\(n\)</span> 次得到 <span class="math notranslate nohighlight">\(n\)</span> 个观测值, 即 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, 那么我们随即就得到了一个样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span>.</p>
-<div class="proof remark admonition" id="remark31">
-<p class="admonition-title"><span class="caption-number">Remark 1.1 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 到底是随机的呢？还是固定的呢？</p>
-<p>——在我们观测之前, 样本是随机变量, 而随机变量的值是不确定的. 当我们谈起样本的统计学性质时, 我们必须将其视之为随机变量, 因为只有随机变量才有统计学性质, 固定值的统计学性质是无意义的. 而在我们观测之后, 样本的值就确定下来了, 成为固定值, 不能再更改.</p>
-</div>
-</div><div class="proof remark admonition" id="remark32">
-<p class="admonition-title"><span class="caption-number">Remark 1.2 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>在实际操作中, 我们手中只有一些给定的数据 (当然, 现在的大数据也可以将文本, 照片声音和图像处理成为数据, 这些数据在计算机当中用0和1来表示) . 我们把这些数据扔给计算机, 让计算机给出一个结果. 在统计学意义上, 我们认为这些数字是从一个概率分布上得出的<strong>思想实验</strong>结果. 思想实验是一个学术用语, 说白了, 它就是一个故事. 在公理体系统治的概率论当中, 这个故事在数学上是自洽的. 但是要知道，数学本身是一个套套逻辑 (tautology) , 而不是科学.</p>
-<p>而概率模型的科学价值恰恰在于, 它到底在多大程度上能够逼近事实的真相？以及, 它是不是能够帮我们预测一些真相？在这门课中, 我们假设数据来自于某种机制, 我们把这种机制当成真相. 比如, 在线性回归当中, <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布就是我们头脑中的真相. 而我们想要研究的线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 即为此真相的某个侧面表现形式.</p>
-</div>
-</div><p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量. 将式 <a class="reference internal" href="#equation-eqn-1">(1.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-\widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
- &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
-\end{split}\]</div>
-<p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点.</p>
-<p>我们也可以从最小化残差平方和 <span class="math notranslate nohighlight">\(\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}\)</span> 的角度来得到最小二乘法估计量, 这等价于最小化</p>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>最小二乘法<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>给定 <span class="math notranslate nohighlight">\(n\)</span> 个观测值 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span>, 我们想利用 <span class="math notranslate nohighlight">\(X\)</span> 的某个线性组合 <span class="math notranslate nohighlight">\(Xb\)</span> 尽量逼近 <span class="math notranslate nohighlight">\(Y\)</span>. 说到逼近，我们需要定义两个向量 <span class="math notranslate nohighlight">\(Y\)</span> 和 <span class="math notranslate nohighlight">\(Xb\)</span> 之间的距离. 欧几里得范数(Euclidean norm) <span class="math notranslate nohighlight">\(\Vert Y - Xb \Vert = \sqrt{\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}}\)</span> 是常用的测量向量长度的指标.
+定义一个目标函数</p>
 <div class="math notranslate nohighlight">
 \[
 Q\left(b\right)=\frac{1}{2n}\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}=\frac{1}{2n}\left(Y-Xb\right)'\left(Y-Xb\right)=\frac{1}{2n}\left\Vert Y-Xb\right\Vert ^{2}.
 \]</div>
-<p>其中, 系数 <span class="math notranslate nohighlight">\(\frac{1}{2n}\)</span> 与 <span class="math notranslate nohighlight">\(b\)</span> 无关, 不会影响该最小化问题的解. <span class="math notranslate nohighlight">\(\left\Vert \cdot\right\Vert\)</span> 是向量的欧几里得范数(Euclidean norm).</p>
-<p><span class="math notranslate nohighlight">\(Q\left(b\right)\)</span> 最小化的一阶条件是</p>
+<p>残差平方和 <span class="math notranslate nohighlight">\(\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}\)</span> 是 <span class="math notranslate nohighlight">\(\Vert Y - Xb \Vert\)</span> 的平方.
+因为平方 <span class="math notranslate nohighlight">\((\cdot)^2\)</span> 在 <span class="math notranslate nohighlight">\(\mathbb{R}^+\)</span>上严格单调递增，所以用 <span class="math notranslate nohighlight">\(b\)</span> 来最小化 <span class="math notranslate nohighlight">\(Q(b)\)</span> 等价于最小化欧氏距离. 系数 <span class="math notranslate nohighlight">\(\frac{1}{2n}\)</span> 与 <span class="math notranslate nohighlight">\(b\)</span> 无关, 不影响该最优化问题的解.</p>
+<p>最小化 <span class="math notranslate nohighlight">\(Q\left(b\right)\)</span> 的一阶必要条件是</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{\partial}{\partial b}Q\left(b\right)=\left[\begin{array}{c}
@@ -383,7 +495,18 @@ Q\left(b\right)=\frac{1}{2n}\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}=\frac{1
 \partial Q\left(b\right)/\partial b_{K}
 \end{array}\right]=-\frac{1}{n}X'\left(Y-Xb\right)=0.
 \end{split}\]</div>
-<p>因此, 最小化 <span class="math notranslate nohighlight">\(Q\left(b\right)\)</span> 的必要条件让我们得到了相同的估计值 <span class="math notranslate nohighlight">\(b=\widehat{\beta}=\left(X'X\right)^{-1}X'y\)</span>.</p>
+<p>对上式移项可得</p>
+<div class="math notranslate nohighlight">
+\[
+(X'X)b = X'Y.
+\]</div>
+<p>在最小二乘法的推导中, 我们假定 <span class="math notranslate nohighlight">\(X\)</span> 中的 <span class="math notranslate nohighlight">\(K\)</span> 列是<em>线性独立的</em>, 也就是说不存在 <span class="math notranslate nohighlight">\(K\times1\)</span> 的向量
+<span class="math notranslate nohighlight">\(b\ (b\neq0_{K})\)</span> 使得 <span class="math notranslate nohighlight">\(Xb=0_{n}\)</span>. 同时, 这也意味着 <span class="math notranslate nohighlight">\(n\geq K\)</span> , 并且 <span class="math notranslate nohighlight">\(X'X/n\)</span> 可逆.
+我们记该最优解</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\beta}=\left(X'X\right)^{-1}X'y.
+\]</div>
 <p>另外, 二阶条件</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -396,16 +519,13 @@ Q\left(b\right)=\frac{1}{2n}\sum_{i=1}^{n}\left(y_{i}-x_{i}'b\right)^{2}=\frac{1
 \end{split}\]</div>
 <p>表明 <span class="math notranslate nohighlight">\(Q\left(b\right)\)</span> 是关于 <span class="math notranslate nohighlight">\(b\)</span> 的凸函数, 因为 <span class="math notranslate nohighlight">\(X'X/n\)</span> 是半正定矩阵. (如果 <span class="math notranslate nohighlight">\(X'X/n\)</span> 是正定矩阵, 那么 <span class="math notranslate nohighlight">\(Q\left(b\right)\)</span> 是关于 <span class="math notranslate nohighlight">\(b\)</span> 的严格凸函数. )</p>
 <div class="proof remark admonition" id="remark3">
-<p class="admonition-title"><span class="caption-number">Remark 1.3 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>在最小二乘法的推导中, 我们假定 <span class="math notranslate nohighlight">\(X\)</span> 中的 <span class="math notranslate nohighlight">\(K\)</span> 列是<em>线性独立的</em>, 也就是说不存在 <span class="math notranslate nohighlight">\(K\times1\)</span> 的向量
-<span class="math notranslate nohighlight">\(b\ (b\neq0_{K})\)</span> 使得 <span class="math notranslate nohighlight">\(Xb=0_{n}\)</span>. 同时, 这也意味着 <span class="math notranslate nohighlight">\(n\geq K\)</span> , 并且 <span class="math notranslate nohighlight">\(X'X/n\)</span> 是可逆矩阵.</p>
-<p>然而线性独立的假设并不永远正确, 如果某些回归因子满足<em>完全共线性 (perfectly collinear)</em> , 就违反了线性独立的假设.</p>
-<p>例如, 使用虚拟变量来表示分类变量并将所有这些类别放入回归模型中时, 通常计量经济学软件会自动检测并指出完全共线性问题. 然而, 难以察觉的是<em>不完全共线性 (nearly collinear)</em>, 即 <span class="math notranslate nohighlight">\(X'X/n\)</span> 的最小特征值接近于0, 而不等于0. 我们将在渐进理论一章中讨论不完全共线性的后果.</p>
-</div>
-</div><div class="proof property admonition" id="property1">
-<p class="admonition-title"><span class="caption-number">Property 1.1 </span></p>
-<div class="property-content section" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Remark 1.1 </span></p>
+<section class="remark-content" id="proof-content">
+<p>如果某些回归因子满足<em>完全共线性 (perfectly collinear)</em> , 就违反了 <span class="math notranslate nohighlight">\(X'X/n\)</span> 可逆的线性独立的假设.
+例如, 使用虚拟变量来表示分类变量并将所有这些类别放入回归模型中时, 通常计量经济学软件会自动检测并指出完全共线性问题. 然而, 难以察觉的是<em>不完全共线性 (nearly collinear)</em>, 即 <span class="math notranslate nohighlight">\(X'X/n\)</span> 的最小特征值接近于0, 而不等于0. 我们将在渐进理论一章中讨论不完全共线性的后果.</p>
+</section>
+</div><section id="id3">
+<h3><span class="section-number">1.1.1. </span>线性代数性质<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>下面列举一些与最小二乘法估计量有关的定义与性质.</p>
 <ul class="simple">
 <li><p>拟合值 (Fitted value): <span class="math notranslate nohighlight">\(\widehat{Y}=X\widehat{\beta}\)</span>.</p></li>
@@ -453,29 +573,24 @@ matrix) : <span class="math notranslate nohighlight">\(M_{X}=I_{n}-P_{X}\)</span
   0
   \end{array}\right]\)</span> , 第一行运算说明了
 <span class="math notranslate nohighlight">\(\sum_{i=1}^{n}\widehat{e}_{i}=0\)</span>. “<span class="math notranslate nohighlight">\(\heartsuit\)</span>” 代表与我们计算无关的值. )</p>
-</div>
-</div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">will</span> <span class="n">produce</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">here</span>
+ <!-- ``` --><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">will</span> <span class="n">produce</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">here</span>
 </pre></div>
 </div>
-<p>我们还可以从几何学的角度来理解最小二乘法.</p>
-<p>注意到,
-<span class="math notranslate nohighlight">\(\mathcal{X}=\left\{ Xb:b\in\mathbb{R}^{K}\right\}\)</span> 是一个由 <span class="math notranslate nohighlight">\(X=\left[X_{\cdot1},\ldots,X_{\cdot K}\right]\)</span> 中的 <span class="math notranslate nohighlight">\(K\)</span> 列生成的线性空间; 如果这些列是线性独立的, 那么 <span class="math notranslate nohighlight">\(X\)</span> 就是 <span class="math notranslate nohighlight">\(K\)</span> 维的. 最小二乘法估计量 <span class="math notranslate nohighlight">\(\widehat \beta\)</span> 使得 <span class="math notranslate nohighlight">\(\left\Vert Y-Xb\right\Vert^2\)</span> 最小化, 也就是说使得 <span class="math notranslate nohighlight">\(\left\Vert Y-Xb\right\Vert\)</span> 最小化 (对于 <span class="math notranslate nohighlight">\(a\geq 0\)</span>, <span class="math notranslate nohighlight">\(a^2\)</span> 是一个单调变换, 不影响最小化的结果) . 换言之, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 是 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 中的一个点——与 <span class="math notranslate nohighlight">\(Y\)</span> 最接近的一个点.</p>
-<p>等式 <span class="math notranslate nohighlight">\(Y=X\widehat{\beta}+\widehat{e}\)</span> 将 <span class="math notranslate nohighlight">\(Y\)</span> 分解为两个垂直向量, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 与 <span class="math notranslate nohighlight">\(\widehat{e}\)</span>, 因为<span class="math notranslate nohighlight">\(\left\langle X\widehat{\beta},\widehat{e}\right\rangle =\widehat{\beta}'X'\widehat{e}=0_{K}^{\prime}\)</span>, 其中<span class="math notranslate nohighlight">\(\left\langle \cdot,\cdot\right\rangle\)</span> 是向量的内积运算. 那么, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 就是 <span class="math notranslate nohighlight">\(Y\)</span> 在 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 上的<em>投影 (projection)</em> , <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 则是对应的<em>投影残差 (projection
-residuals)</em>. 根据勾股定理, 自然有</p>
-<div class="math notranslate nohighlight">
-\[
-\left\Vert Y\right\Vert ^{2}=\Vert X\widehat{\beta}\Vert^{2}+\left\Vert \widehat{e}\right\Vert ^{2}.
-\]</div>
 <div class="proof example admonition" id="example1">
 <p class="admonition-title"><span class="caption-number">Example 1.1 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>下面是一个简单的数值模拟案例, 我们以此来说明最小二乘法估计量的特性. 给定
-<span class="math notranslate nohighlight">\(\left(x_{1i},x_{2i},x_{3i},e_{i}\right)^{\prime}\sim N\left(0_{4},I_{4}\right)\)</span>, 因变量 <span class="math notranslate nohighlight">\(y_{i}\)</span> 的生成式为
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(\left(x_{1i},x_{2i},x_{3i},e_{i}\right)^{\prime}\sim N\left(0_{4},I_{4}\right)\)</span>, 因变量 <span class="math notranslate nohighlight">\(y_{i}\)</span> 的生成式为</p>
+<div class="math notranslate nohighlight">
+\[
 y_{i}=0.5+2\cdot x_{1i}-1\cdot x_{2i}+e_{i}
-\)</span>$</p>
+\]</div>
 <p>在不知道 <span class="math notranslate nohighlight">\(x_{3i}\)</span> 是多余的情况下, 我们将 <span class="math notranslate nohighlight">\(y_{i}\)</span> 对
 <span class="math notranslate nohighlight">\(\left(1,x_{1i},x_{2i},x_{3i}\right)\)</span> 进行回归.</p>
+<p>最后得到的参数估计值与真实值接近. 当然, 由于样本容量较小, 答案不是十分准确.</p>
+</section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">);</span> <span class="nf">set.seed</span><span class="p">(</span><span class="m">2022-6-15</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="m">20</span> <span class="c1"># sample size </span>
 <span class="n">K</span> <span class="o">=</span> <span class="m">4</span> <span class="c1"># number of paramters</span>
@@ -486,34 +601,50 @@ y_{i}=0.5+2\cdot x_{1i}-1\cdot x_{2i}+e_{i}
 <span class="n">bhat</span> <span class="o">=</span> <span class="nf">solve</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">X</span><span class="p">,</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">Y</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">as.vector</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">print</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>最后得到的参数估计值与真实值已经很接近. 当然, 由于样本容量较小, 答案不是十分准确.</p>
+</div>
+</div>
+<p>我们继续用上面的数值例子来验证一些代数性质.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ehat</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">X</span> <span class="o">%*%</span> <span class="n">bhat</span> 
 <span class="nf">as.vector</span><span class="p">(</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">ehat</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">print</span><span class="p">()</span>
 <span class="n">MX</span> <span class="o">=</span> <span class="nf">diag</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="n">X</span> <span class="o">%*%</span> <span class="nf">solve</span><span class="p">(</span> <span class="nf">crossprod</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="p">)</span> <span class="o">%*%</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
 <span class="nf">data.frame</span><span class="p">(</span><span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">ehat</span> <span class="o">=</span> <span class="n">ehat</span><span class="p">,</span> <span class="n">MXY</span> <span class="o">=</span> <span class="n">MX</span><span class="o">%*%</span><span class="n">Y</span><span class="p">,</span> <span class="n">MXe</span> <span class="o">=</span> <span class="n">MX</span><span class="o">%*%</span><span class="n">e</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;The mean of the residual is &quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="n">ehat</span><span class="p">),</span> <span class="s">&quot;.\n&quot;</span><span class="p">)</span>
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;The mean of the true error term is&quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div></div>
-<div class="section" id="subvector">
-<h2><span class="section-number">1.2. </span>子向量 (Subvector)<a class="headerlink" href="#subvector" title="Permalink to this headline">¶</a></h2>
-<p>根据 Frish-Waugh-Lovell (FWL) 定理, 最小二乘法估计量的子向量有一个特殊的代数性质. 要得到FWL定理, 我们引入分块矩阵的逆矩阵这一概念. 对于一个实对称的正定矩阵
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">1.1.2. </span>几何意义<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\mathcal{X}=\left\{ Xb:b\in\mathbb{R}^{K}\right\}\)</span> 是一个由 <span class="math notranslate nohighlight">\(X=\left[X_{\cdot1},\ldots,X_{\cdot K}\right]\)</span> 中的 <span class="math notranslate nohighlight">\(K\)</span> 列生成的线性空间; 如果这些列是线性独立的, 那么 <span class="math notranslate nohighlight">\(X\)</span> 就是 <span class="math notranslate nohighlight">\(K\)</span> 维的. 最小二乘法估计量 <span class="math notranslate nohighlight">\(\widehat \beta\)</span> 使得 <span class="math notranslate nohighlight">\(\left\Vert Y-Xb\right\Vert\)</span> 最小化. 换言之, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 是 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 中与 <span class="math notranslate nohighlight">\(Y\)</span> 最接近的那个点.</p>
+<p>等式 <span class="math notranslate nohighlight">\(Y=X\widehat{\beta}+\widehat{e}\)</span> 将 <span class="math notranslate nohighlight">\(Y\)</span> 分解为两个垂直向量, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 与 <span class="math notranslate nohighlight">\(\widehat{e}\)</span>, 因为<span class="math notranslate nohighlight">\(\left\langle X\widehat{\beta},\widehat{e}\right\rangle =\widehat{\beta}'X'\widehat{e}=0_{K}^{\prime}\)</span>, 其中<span class="math notranslate nohighlight">\(\left\langle \cdot,\cdot\right\rangle\)</span> 是向量的内积运算. 那么, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 就是 <span class="math notranslate nohighlight">\(Y\)</span> 在 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 上的<em>投影 (projection)</em> , <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 则是对应的<em>投影残差 (projection
+residuals)</em>. 根据勾股定理, 自然有</p>
+<div class="math notranslate nohighlight">
+\[
+\left\Vert Y\right\Vert ^{2}=\Vert X\widehat{\beta}\Vert^{2}+ \Vert \widehat{e}\Vert^{2}.
+\]</div>
+</section>
+</section>
+<section id="subvector">
+<h2><span class="section-number">1.2. </span>子向量 (Subvector)<a class="headerlink" href="#subvector" title="Permalink to this headline">#</a></h2>
+<p><em>Frish-Waugh-Lovell (FWL) 定理</em>是有关最小二乘的子向量的代数性质. 要得到FWL定理, 我们需要分块矩阵求逆的知识. 对称实数正定矩阵
 <span class="math notranslate nohighlight">\(A=\begin{pmatrix}A_{11} &amp; A_{12}\\
 A_{12}' &amp; A_{22}
-\end{pmatrix},\)</span>
-它的逆矩阵可以写作</p>
+\end{pmatrix}\)</span>
+逆矩阵可以写成</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A^{-1}=\begin{pmatrix}\left(A_{11}-A_{12}A_{22}^{-1}A_{12}'\right)^{-1} &amp; -\left(A_{11}-A_{12}A_{22}^{-1}A_{12}'\right)^{-1}A_{12}A_{22}^{-1}\\
 -A_{22}^{-1}A_{12}'\left(A_{11}-A_{12}A_{22}^{-1}A_{12}'\right)^{-1} &amp; \left(A_{22}-A_{12}'A_{11}^{-1}A_{12}\right)^{-1}
 \end{pmatrix}.
 \end{split}\]</div>
-<p>将此性质运用至最小二乘法估计量. 记 <span class="math notranslate nohighlight">\(X=\left(\begin{array}{cc}
-X_{1} &amp; X_{2}\end{array}\right),\)</span> 那么</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>将此性质运用至最小二乘法估计. 记 <span class="math notranslate nohighlight">\(X=(X_1, X_2)\)</span>, 则</p>
+<div class="math notranslate nohighlight" id="equation-eqn-fwl">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eqn-fwl" title="Permalink to this equation">#</a></span>\[\begin{split}
 \begin{aligned}
 \begin{pmatrix}\widehat{\beta}_{1}\\
 \widehat{\beta}_{2}
@@ -532,9 +663,10 @@ X_{2}'Y
 \heartsuit &amp; \heartsuit
 \end{pmatrix}\begin{pmatrix}X_{1}'Y\\
 X_{2}'Y
-\end{pmatrix}.\end{aligned}
+\end{pmatrix}.
+\end{aligned}
 \end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的子向量可写作</p>
+<p><span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的子向量 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span> 可写成</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -543,7 +675,7 @@ X_{2}'Y
  &amp; =\left(X_{1}'M_{X_{2}}'X_{1}\right)^{-1}\left(X_{1}'Y-X_{1}'P_{X_{2}}Y\right)\\
  &amp; =\left(X_{1}'M_{X_{2}}'X_{1}\right)^{-1}X_{1}'M_{X_{2}}Y.\end{aligned}
 \end{split}\]</div>
-<p>注意, 我们可以用三步方法得到 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span>:</p>
+<p>以上 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span> 的表达式就是 FWL 定理。该表达式意味着我们可以用三步方法得到 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span>:</p>
 <ol class="simple">
 <li><p>将 <span class="math notranslate nohighlight">\(Y\)</span> 对 <span class="math notranslate nohighlight">\(X_{2}\)</span> 做回归, 得到残差 <span class="math notranslate nohighlight">\(\tilde{Y}\)</span>;</p></li>
 <li><p>将 <span class="math notranslate nohighlight">\(X_{1}\)</span> 对 <span class="math notranslate nohighlight">\(X_{2}\)</span> 做回归, 得到残差 <span class="math notranslate nohighlight">\(\tilde{X}_{1}\)</span>;</p></li>
@@ -553,85 +685,90 @@ X_{2}'Y
 projection) , 参考Hansen (2020) [E] Chapter 2.22-23.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span><span class="n">X2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">PX2</span> <span class="o">=</span> <span class="n">X2</span> <span class="o">%*%</span> <span class="n">solve</span><span class="p">(</span> <span class="n">t</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">X2</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">t</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span> 
-<span class="n">MX2</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">-</span> <span class="n">PX2</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># verify FWL theorem</span>
 
-<span class="n">bhat1</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span><span class="o">%*%</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">X1</span><span class="p">,</span> <span class="n">t</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">Y</span> <span class="p">))</span> <span class="o">%&gt;%</span>
- <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nb">print</span><span class="p">()</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">];</span><span class="n">X2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+<span class="n">PX2</span> <span class="o">=</span> <span class="n">X2</span> <span class="o">%*%</span> <span class="nf">solve</span><span class="p">(</span> <span class="nf">t</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">X2</span><span class="p">)</span> <span class="o">%*%</span> <span class="nf">t</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span> 
+<span class="n">MX2</span> <span class="o">=</span> <span class="nf">diag</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">n</span><span class="p">))</span> <span class="o">-</span> <span class="n">PX2</span>
+
+<span class="n">bhat1</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="nf">solve</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span><span class="o">%*%</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">X1</span><span class="p">,</span> <span class="nf">t</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">Y</span> <span class="p">))</span> <span class="o">%&gt;%</span>
+ <span class="nf">as.vector</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">print</span><span class="p">()</span>
 
 <span class="n">ehat1</span> <span class="o">=</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">MX2</span> <span class="o">%*%</span> <span class="n">X1</span> <span class="o">%*%</span> <span class="n">bhat1</span> 
-<span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">ehat</span> <span class="o">=</span> <span class="n">ehat</span><span class="p">,</span> <span class="n">ehat1</span> <span class="o">=</span> <span class="n">ehat1</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">head</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nb">print</span><span class="p">()</span>
+<span class="nf">data.frame</span><span class="p">(</span><span class="n">ehat</span> <span class="o">=</span> <span class="n">ehat</span><span class="p">,</span> <span class="n">ehat1</span> <span class="o">=</span> <span class="n">ehat1</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">print</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="goodness-of-fit">
-<h2><span class="section-number">1.3. </span>适配度检验 (Goodness of Fit)<a class="headerlink" href="#goodness-of-fit" title="Permalink to this headline">¶</a></h2>
-<p>考虑回归方程
-<span class="math notranslate nohighlight">\(Y=X_{1}\beta_{1}+\beta_{2}+e\)</span>. 代入最小二乘法估计量, 我们得到</p>
+</section>
+<section id="goodness-of-fit">
+<h2><span class="section-number">1.3. </span>适配度 (Goodness of Fit)<a class="headerlink" href="#goodness-of-fit" title="Permalink to this headline">#</a></h2>
+<p>考虑一个带截距项的最小二乘法估计</p>
 <div class="math notranslate nohighlight" id="equation-eqn-2">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eqn-2" title="Permalink to this equation">¶</a></span>\[
-Y=\widehat{Y}+\widehat{e}=\left(X_{1}\widehat{\beta}_{1}+\widehat{\beta}_{2}\right)+\widehat{e}
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eqn-2" title="Permalink to this equation">#</a></span>\[
+Y=\widehat{Y}+\widehat{e}=(X_{1}\widehat{\beta}_{1}+\widehat{\beta}_{2})+\widehat{e}
 \]</div>
 <p>应用FWL定理, 令 <span class="math notranslate nohighlight">\(X_{2}=\iota\)</span>, 其中希腊字母 <span class="math notranslate nohighlight">\(\iota\)</span> (iota)是一个所有位置都为1的 <span class="math notranslate nohighlight">\(n\times1\)</span> 向量. 那么<span class="math notranslate nohighlight">\(M_{X_{2}}=M_{\iota}=I_{n}-\frac{1}{n}\iota\iota'\)</span>. 其中, <span class="math notranslate nohighlight">\(M_{\iota}z=z-\bar{z}\)</span>. 也就是说, 我们在原本的向量 <span class="math notranslate nohighlight">\(z\)</span> 中减去其均值 <span class="math notranslate nohighlight">\(\bar{z}=\frac{1}{n}\sum_{i=1}^{n}z_{i}\)</span>.</p>
 <p>那么, 上述的三步方法变为</p>
 <ol class="simple">
 <li><p>将 <span class="math notranslate nohighlight">\(Y\)</span> 对 <span class="math notranslate nohighlight">\(\iota\)</span> 做回归, 得到残差 <span class="math notranslate nohighlight">\(M_{\iota}Y\)</span>;</p></li>
 <li><p>将 <span class="math notranslate nohighlight">\(X_{1}\)</span> 对 <span class="math notranslate nohighlight">\(\iota\)</span> 做回归, 得到残差 <span class="math notranslate nohighlight">\(M_{\iota}X_{1}\)</span>;</p></li>
-<li><p>将 <span class="math notranslate nohighlight">\(M_{\iota}Y\)</span> 对 <span class="math notranslate nohighlight">\(M_{\iota}X_{1}\)</span> 做回归, 得到最小二乘法估计值 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span> ——与 <span class="math notranslate nohighlight">\((3.2)\)</span> 中得到的结果完全一致.</p></li>
+<li><p>将 <span class="math notranslate nohighlight">\(M_{\iota}Y\)</span> 对 <span class="math notranslate nohighlight">\(M_{\iota}X_{1}\)</span> 做回归, 根据 <a class="reference internal" href="#equation-eqn-fwl">(1.1)</a> 得到最小二乘法估计值 <span class="math notranslate nohighlight">\(\widehat{\beta}_{1}\)</span>.</p></li>
 </ol>
 <p>我们将最后一步进行分解</p>
 <div class="math notranslate nohighlight" id="equation-eqn-3">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-eqn-3" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-eqn-3" title="Permalink to this equation">#</a></span>\[
 M_{\iota}Y=M_{\iota}X_{1}\widehat{\beta}_{1}+\tilde{e},
 \]</div>
 <p>应用勾股定理得到</p>
 <div class="math notranslate nohighlight">
 \[
-\left\Vert M_{\iota}Y\right\Vert ^{2}=\Vert M_{\iota}X_{1}\widehat{\beta}_{1}\Vert^{2}+\left\Vert \widehat{e}\right\Vert ^{2}.
+\left\Vert M_{\iota}Y\right\Vert ^{2}=\Vert M_{\iota}X_{1}\widehat{\beta}_{1}\Vert^{2}+ \Vert \widehat{e} \Vert^{2}.
 \]</div>
 <div class="exercise admonition" id="exercise31">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1.1 </span></p>
-<div class="section" id="exercise-content">
-<p>试说明: <a class="reference internal" href="#equation-eqn-2">(1.2)</a> 式中的 <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 与 <a class="reference internal" href="#equation-eqn-3">(1.3)</a> 式中的 <span class="math notranslate nohighlight">\(\tilde{e}\)</span> 相等.</p>
-</div>
+<section id="exercise-content">
+<p>证明：<a class="reference internal" href="#equation-eqn-2">(1.2)</a> 式中的 <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 与 <a class="reference internal" href="#equation-eqn-3">(1.3)</a> 式中的 <span class="math notranslate nohighlight">\(\tilde{e}\)</span> 相等.</p>
+</section>
 </div>
 <p>在线性回归中, <em>决定系数</em> (<span class="math notranslate nohighlight">\(R^2\)</span>) 是一个衡量适配度的指标. 样本内决定系数(in-sample <span class="math notranslate nohighlight">\(R^2\)</span>)可写作</p>
 <div class="math notranslate nohighlight">
 \[
 R^{2}=\frac{\Vert M_{\iota}X_{1}\widehat{\beta}_{1}\Vert^{2}}{\left\Vert M_{\iota}Y\right\Vert ^{2}}=1-\frac{\left\Vert \tilde{e}\right\Vert ^{2}}{\left\Vert M_{\iota}Y\right\Vert ^{2}}.
 \]</div>
-<p>仅当回归因子包含常数时, <span class="math notranslate nohighlight">\(R^2\)</span> 才有定义.</p>
+<p>当归回包含截距项时, <span class="math notranslate nohighlight">\(R^2\)</span> 才有定义.</p>
 <div class="exercise admonition" id="exercise32">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1.2 </span></p>
-<div class="section" id="exercise-content">
-<p>在 <a class="reference internal" href="#equation-eqn-2">(1.2)</a> 式的分解下, 证明</p>
+<section id="exercise-content">
+<p>在 <a class="reference internal" href="#equation-eqn-2">(1.2)</a> 式的分解下, 证明 <span class="math notranslate nohighlight">\(R^{2}\)</span> 即为 <span class="math notranslate nohighlight">\(\widehat{Y}\)</span> 的样本方差与 <span class="math notranslate nohighlight">\(Y\)</span> 的样本方差之比：</p>
 <div class="math notranslate nohighlight">
 \[
 R^{2}=\frac{\widehat{Y}'M_{\iota}\widehat{Y}}{Y'M_{\iota}Y}=\frac{\sum_{i=1}^{n}\left(\widehat{y_{i}}-\overline{y}\right)^{2}}{\sum_{i=1}^{n}\left(y_{i}-\overline{y}\right)^{2}}.
 \]</div>
-<p>注意, 上述 <span class="math notranslate nohighlight">\(R^{2}\)</span> 即为<span class="math notranslate nohighlight">\(\widehat{Y}\)</span>的样本方差与 <span class="math notranslate nohighlight">\(Y\)</span> 的样本方差之比值.</p>
+</section>
 </div>
-</div>
-<p>决定系数 <span class="math notranslate nohighlight">\(R^2\)</span> 的大小在不同的实际问题下差别很大. 在具有滞后效应的宏观模型中, 遇到 <span class="math notranslate nohighlight">\(R^2\)</span> 大于90%的情况并不罕见. 然而, 在横向研究 (cross sectional regressions) 中, <span class="math notranslate nohighlight">\(R^2\)</span> 的值经常是低于20%的.</p>
+<p>决定系数 <span class="math notranslate nohighlight">\(R^2\)</span> 的大小在不同的实际问题当中差别很大. <span class="math notranslate nohighlight">\(R^2\)</span> 大于90%的情况在带有滞后效应的宏观模型中并不罕见. 然而, 在截面数据回归 (cross sectional regressions) 中, <span class="math notranslate nohighlight">\(R^2\)</span> 的值经常是低于20%.</p>
 <div class="exercise admonition" id="exercise33">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1.3 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>考虑一个较“短”的回归 “将 <span class="math notranslate nohighlight">\(y_{i}\)</span> 对 <span class="math notranslate nohighlight">\(x_{1i}\)</span> 做回归” 与一个较“长”的回归
-“将 <span class="math notranslate nohighlight">\(y_{i}\)</span> 对 <span class="math notranslate nohighlight">\(\left(x_{1i},x_{2i}\right)\)</span> 做回归”: 给定相同的数据集 <span class="math notranslate nohighlight">\(\left(Y,X_{1},X_{2}\right)\)</span>, 试说明“短”回归的 <span class="math notranslate nohighlight">\(R^2\)</span> 不比“长”回归的 <span class="math notranslate nohighlight">\(R^2\)</span> 大. (也就是说, 通过增加更多的回归因子, 我们总能使得 <span class="math notranslate nohighlight">\(R^2\)</span> 增大或者不变. )</p>
+“将 <span class="math notranslate nohighlight">\(y_{i}\)</span> 对 <span class="math notranslate nohighlight">\(\left(x_{1i},x_{2i}\right)\)</span> 做回归”: 给定相同的数据集 <span class="math notranslate nohighlight">\(\left(Y,X_{1},X_{2}\right)\)</span>, 试说明“短”回归的 <span class="math notranslate nohighlight">\(R^2\)</span> 不比“长”回归的 <span class="math notranslate nohighlight">\(R^2\)</span> 大. 也就是说, 通过增加更多的回归变量, 我们总能使得 <span class="math notranslate nohighlight">\(R^2\)</span> 不会变小. )</p>
+</section>
 </div>
-</div>
-<p>在传统意义上, 回归因子的数量 <span class="math notranslate nohighlight">\(K\)</span> 总是远小于样本量 <span class="math notranslate nohighlight">\(n\)</span> . 然而, 在大数据时代, (潜在) 回归因子的数量 <span class="math notranslate nohighlight">\(K\)</span> 有可能大于样本量 <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>在传统意义上, 回归因子的数量 <span class="math notranslate nohighlight">\(K\)</span> 总是远小于样本量 <span class="math notranslate nohighlight">\(n\)</span> . 然而, 在大数据时代, (潜在) 回归变量的数量 <span class="math notranslate nohighlight">\(K\)</span> 有可能大于样本量 <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="exercise admonition" id="exercise34">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1.4 </span></p>
-<div class="section" id="exercise-content">
+<section id="exercise-content">
 <p>证明: 当 <span class="math notranslate nohighlight">\(K\geq n\)</span> 时, <span class="math notranslate nohighlight">\(R^{2}=1\)</span>. 注意, 若 <span class="math notranslate nohighlight">\(K&gt;n\)</span>, 则矩阵 <span class="math notranslate nohighlight">\(X'X\)</span> 是缺秩 (rank deficient) 的. 在这种情况下, 我们可以将最小二乘法的定义扩展, <span class="math notranslate nohighlight">\(\hat \beta\)</span> 仍然是使得 <span class="math notranslate nohighlight">\(\left\Vert Y-Xb\right\Vert ^{2}\)</span> 最小化的参数值, 但这个值不是唯一的.</p>
+<p>以下是本练习的数值实例。</p>
+</section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="m">5</span><span class="p">;</span> <span class="n">K</span> <span class="o">=</span> <span class="m">6</span><span class="p">;</span> 
 <span class="n">Y</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">K</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
@@ -646,16 +783,16 @@ R^{2}=\frac{\widehat{Y}'M_{\iota}\widehat{Y}}{Y'M_{\iota}Y}=\frac{\sum_{i=1}^{n}
 OOS\ R^{2}=\frac{\widehat{\beta}^{\prime}X^{\mathrm{new}\prime}M_{\iota}X^{\mathrm{new}}\widehat{\beta}}{Y^{\mathrm{new}\prime}M_{\iota}Y^{\mathrm{new}}}.
 \]</div>
 <p>从原始数据集中得到参数估计值以后, <span class="math notranslate nohighlight">\(OOS\ R^{2}\)</span> 衡量这一参数估计值在新数据集上的适配度. 在金融市场的短期预测模型中, 如果某策略能够系统性地获得2%的 <span class="math notranslate nohighlight">\(OOS\ R^{2}\)</span>, 那么这就是一个很好的赚钱策略.</p>
-</div>
-<div class="section" id="id2">
-<h2><span class="section-number">1.4. </span>总结<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>以上有关线性代数的性质, 在有限样本中是成立的, 无论数据是固定数字或是随机变量. 然而高斯马尔科夫定理 (Gauss Markov theorem) 只在两个关键假设下成立: 线性的条件期望方程 (linear CEF) 和同方差性 (homoscedasticity) .</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">1.4. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>本章完全是线性代数操作，无关数据背后的概率模型. 只要 <span class="math notranslate nohighlight">\(X'X/n\)</span> 可逆, 以上线性代数性质对任何有限样本 <span class="math notranslate nohighlight">\(n\)</span> 都成立.</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
 <p>Carl Friedrich Gauss (1777–1855) 宣称他在1795年就发明了最小二乘法, 那时他用三个数据点预测了1801年矮行星谷神星的位置. 虽然 Gauss 在1809年才发表了相关文章, 而 Adrien-Marie Legendre (1752–1833) 在1805年就公开提出了此方法, 但今天人们仍倾向于将最小二乘法的发明归功于 Gauss. 因为像 Gauss 这样的数学巨人没有必要通过撒谎来窃取 Legendre 的成果.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -666,22 +803,24 @@ OOS\ R^{2}=\frac{\widehat{\beta}^{\prime}X^{\mathrm{new}\prime}M_{\iota}X^{\math
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -697,24 +836,28 @@ OOS\ R^{2}=\frac{\widehat{\beta}^{\prime}X^{\mathrm{new}\prime}M_{\iota}X^{\math
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Zhentao Shi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Zhentao Shi<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

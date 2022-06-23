@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>renv 0.15.4 &#8212; 计量经济学</title>
     
-  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,22 +20,18 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
@@ -41,12 +39,13 @@
     <script src="../../../../../_static/doctools.js"></script>
     <script src="../../../../../_static/clipboard.min.js"></script>
     <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../../../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../intro.html">
+                    介绍
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../../../intro.html">
-   介绍
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../../lecture3-CN.html">
    1. 最小二乘法：线性代数观点
@@ -107,90 +122,180 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/renv/NEWS.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/renv/NEWS.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Frenv/library/R-4.1/x86_64-w64-mingw32/renv/NEWS.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../../_sources/renv/library/R-4.1/x86_64-w64-mingw32/renv/NEWS.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    renv 0.15.4
@@ -318,12 +423,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>renv 0.15.4</h1>
@@ -467,18 +571,19 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="renv-0-15-4">
-<h1>renv 0.15.4<a class="headerlink" href="#renv-0-15-4" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="renv-0-15-4">
+<h1>renv 0.15.4<a class="headerlink" href="#renv-0-15-4" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where package installation could fail when referencing the
 cache via a tilde-aliased path, e.g. <code class="docutils literal notranslate"><span class="pre">~/.local/share/renv</span></code>. (#953)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-15-3">
-<h1>renv 0.15.3<a class="headerlink" href="#renv-0-15-3" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-15-3">
+<h1>renv 0.15.3<a class="headerlink" href="#renv-0-15-3" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>A variety of fixes for R CMD check.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> gains an experimental function, <code class="docutils literal notranslate"><span class="pre">renv::autoload()</span></code>, to be used as a
@@ -504,15 +609,15 @@ source tarballs, or the path to the tarball itself.</p></li>
 <li><p>Fixed an issue where the R site library would not be appropriately masked
 for resumed RStudio sessions. (#936)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-15-2">
-<h1>renv 0.15.2<a class="headerlink" href="#renv-0-15-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-15-2">
+<h1>renv 0.15.2<a class="headerlink" href="#renv-0-15-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed issues encountered in R CMD check.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-15-1">
-<h1>renv 0.15.1<a class="headerlink" href="#renv-0-15-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-15-1">
+<h1>renv 0.15.1<a class="headerlink" href="#renv-0-15-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">renv</span></code> inadvertently inserted extra newlines into
 a <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> file when adding <code class="docutils literal notranslate"><span class="pre">Remotes</span></code> fields after install. (#914)</p></li>
@@ -529,9 +634,9 @@ DESCRIPTION files. (#908)</p></li>
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">config$cache.symlinks()</span></code> would report <code class="docutils literal notranslate"><span class="pre">NULL</span></code> when
 unset. (#906)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-15-0">
-<h1>renv 0.15.0<a class="headerlink" href="#renv-0-15-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-15-0">
+<h1>renv 0.15.0<a class="headerlink" href="#renv-0-15-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>The development branch for <code class="docutils literal notranslate"><span class="pre">renv</span></code> has moved from master to main.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> package records in the lockfile now include a <code class="docutils literal notranslate"><span class="pre">Requirements</span></code>
@@ -635,9 +740,9 @@ is a named vector. (#811)</p></li>
 to pass along other optional arguments to the shimmed function correctly.
 (#808)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-14-0">
-<h1>renv 0.14.0<a class="headerlink" href="#renv-0-14-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-14-0">
+<h1>renv 0.14.0<a class="headerlink" href="#renv-0-14-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now uses <code class="docutils literal notranslate"><span class="pre">tools::R_user_dir()</span></code> to resolve the default path to the
 global <code class="docutils literal notranslate"><span class="pre">renv</span></code> cache, for R installations 4.0.0 or greater. If the <code class="docutils literal notranslate"><span class="pre">renv</span></code>
@@ -721,9 +826,9 @@ not to place any functions on the search path. This helps avoid issues with,
 for example, <code class="docutils literal notranslate"><span class="pre">renv::load()</span></code> masking <code class="docutils literal notranslate"><span class="pre">base::load()</span></code>. When set, all usages
 of <code class="docutils literal notranslate"><span class="pre">renv</span></code> APIs must be explicitly qualified with the <code class="docutils literal notranslate"><span class="pre">renv::</span></code> prefix.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-13-2">
-<h1>renv 0.13.2<a class="headerlink" href="#renv-0-13-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-13-2">
+<h1>renv 0.13.2<a class="headerlink" href="#renv-0-13-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::install(&quot;user/repo/subdir</span> <span class="pre">with</span> <span class="pre">spaces&quot;)</span></code> now works as expected. (#694)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> can now parse package dependencies declared by
@@ -741,9 +846,9 @@ on CRAN were not in sync. (#695)</p></li>
 for packages which are recorded in the lockfile, but not explicitly
 required by the project. (#684)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-13-1">
-<h1>renv 0.13.1<a class="headerlink" href="#renv-0-13-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-13-1">
+<h1>renv 0.13.1<a class="headerlink" href="#renv-0-13-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::clean()</span></code> gains the <code class="docutils literal notranslate"><span class="pre">actions</span></code> argument, allowing the caller to control
 which specific actions are taken during a <code class="docutils literal notranslate"><span class="pre">clean()</span></code> operation.</p></li>
@@ -763,9 +868,9 @@ R Markdown YAML headers containing multiple output formats. (#674)</p></li>
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">renv</span></code> would fail to load if the <code class="docutils literal notranslate"><span class="pre">~/.Rprofile</span></code> existed
 but was an empty file.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-13-0">
-<h1>renv 0.13.0<a class="headerlink" href="#renv-0-13-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-13-0">
+<h1>renv 0.13.0<a class="headerlink" href="#renv-0-13-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::snapshot()</span></code> no longer creates an <code class="docutils literal notranslate"><span class="pre">renv/activate.R</span></code> file in the project
 folder if one does not already exist. (#655)</p></li>
@@ -840,15 +945,15 @@ lockfile. (#588)</p></li>
 <li><p>Fixed an issue where package installation could fail if the <code class="docutils literal notranslate"><span class="pre">configure.vars</span></code>
 option was set to be a named character, rather than a named list. (#609)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-5">
-<h1>renv 0.12.5<a class="headerlink" href="#renv-0-12-5" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-5">
+<h1>renv 0.12.5<a class="headerlink" href="#renv-0-12-5" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">renv</span></code> would fail to bootstrap. (#608)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-4">
-<h1>renv 0.12.4<a class="headerlink" href="#renv-0-12-4" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-4">
+<h1>renv 0.12.4<a class="headerlink" href="#renv-0-12-4" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now invalidates the available packages cache if the <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code>
 environment variable changes. (#579)</p></li>
@@ -886,9 +991,9 @@ use of re-used knitr chunks (those specified as <code class="docutils literal no
 <li><p>Fixed an issue where bootstrapping an older version of <code class="docutils literal notranslate"><span class="pre">renv</span></code> could
 fail if the R repositories had not been appropriately set.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-3">
-<h1>renv 0.12.3<a class="headerlink" href="#renv-0-12-3" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-3">
+<h1>renv 0.12.3<a class="headerlink" href="#renv-0-12-3" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">renv::dependencies()</span></code> could give an error if called
 with a <code class="docutils literal notranslate"><span class="pre">path</span></code> argument of length &gt; 1.</p></li>
@@ -918,15 +1023,15 @@ an R package repository was sometimes incorrect. (#402)</p></li>
 <li><p>When <code class="docutils literal notranslate"><span class="pre">RENV_PATHS_LIBRARY_ROOT</span></code> is set, <code class="docutils literal notranslate"><span class="pre">renv</span></code> will now disambiguate library
 paths based on a hash of the project’s path. (#564)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-2">
-<h1>renv 0.12.2<a class="headerlink" href="#renv-0-12-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-2">
+<h1>renv 0.12.2<a class="headerlink" href="#renv-0-12-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> no longer errs when running tests with <code class="docutils literal notranslate"><span class="pre">_R_CHECK_SUGGESTS_ONLY_=false</span></code>.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-1">
-<h1>renv 0.12.1<a class="headerlink" href="#renv-0-12-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-1">
+<h1>renv 0.12.1<a class="headerlink" href="#renv-0-12-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now ensures all of its dependencies are loaded eagerly when running
 tests, to avoid issues with missing + lazily-loaded packages.</p></li>
@@ -968,9 +1073,9 @@ same <code class="docutils literal notranslate"><span class="pre">renv</span></c
 enabled by setting <code class="docutils literal notranslate"><span class="pre">options(renv.config.locking.enabled</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> in an
 appropriate R startup file. (#525)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-12-0">
-<h1>renv 0.12.0<a class="headerlink" href="#renv-0-12-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-12-0">
+<h1>renv 0.12.0<a class="headerlink" href="#renv-0-12-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now uses R’s internal tar implementation by default on Windows. This is
 done to avoid issues that may occur when a version of <code class="docutils literal notranslate"><span class="pre">tar.exe</span></code> on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
@@ -999,9 +1104,9 @@ be installed from Bitbucket remotes. (#494)</p></li>
 <li><p>Fixed an issue where the <code class="docutils literal notranslate"><span class="pre">RENV_PATHS_PREFIX</span></code> environment variable was
 inappropriately normalized when <code class="docutils literal notranslate"><span class="pre">renv</span></code> was loaded. (#465)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-11-0">
-<h1>renv 0.11.0<a class="headerlink" href="#renv-0-11-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-11-0">
+<h1>renv 0.11.0<a class="headerlink" href="#renv-0-11-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">renv::install(...,</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">&quot;binary&quot;)</span></code> would
 still attempt to install packages from sources in some cases. (#461)</p></li>
@@ -1042,9 +1147,9 @@ Ubuntu Trusty. (#423)</p></li>
 (if any), and ignores packages incompatible with the current operating
 system during restore. (#394)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-10-0">
-<h1>renv 0.10.0<a class="headerlink" href="#renv-0-10-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-10-0">
+<h1>renv 0.10.0<a class="headerlink" href="#renv-0-10-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::install()</span></code> gains the <code class="docutils literal notranslate"><span class="pre">type</span></code> argument, used to control whether <code class="docutils literal notranslate"><span class="pre">renv</span></code>
 should attempt to install packages from sources (<code class="docutils literal notranslate"><span class="pre">&quot;source&quot;</span></code>) or using
@@ -1129,9 +1234,9 @@ use of the <code class="docutils literal notranslate"><span class="pre">ggplot2:
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now tries to place Rtools on the PATH when a package is installed
 with the <code class="docutils literal notranslate"><span class="pre">install.packages()</span></code> hook active. (#335)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-9-3">
-<h1>renv 0.9.3<a class="headerlink" href="#renv-0-9-3" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-9-3">
+<h1>renv 0.9.3<a class="headerlink" href="#renv-0-9-3" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue where attempts to specify <code class="docutils literal notranslate"><span class="pre">RENV_PATHS_RTOOLS</span></code> would
 be ignored by <code class="docutils literal notranslate"><span class="pre">renv</span></code>. (#335)</p></li>
@@ -1178,21 +1283,21 @@ infrastructure without explicitly loading the project. (#303)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> now updates its local <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file, when part of a git repository
 whose git root lives in a parent directory. (#300)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-9-2">
-<h1>renv 0.9.2<a class="headerlink" href="#renv-0-9-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-9-2">
+<h1>renv 0.9.2<a class="headerlink" href="#renv-0-9-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue in invoking <code class="docutils literal notranslate"><span class="pre">find</span></code> on Solaris.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-9-1">
-<h1>renv 0.9.1<a class="headerlink" href="#renv-0-9-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-9-1">
+<h1>renv 0.9.1<a class="headerlink" href="#renv-0-9-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixed an issue in invoking <code class="docutils literal notranslate"><span class="pre">cp</span></code> on Solaris.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-9-0">
-<h1>renv 0.9.0<a class="headerlink" href="#renv-0-9-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-9-0">
+<h1>renv 0.9.0<a class="headerlink" href="#renv-0-9-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv</span></code> gains a new function <code class="docutils literal notranslate"><span class="pre">renv::record()</span></code>, for recording new packages
 within an existing lockfile. This can be useful when one or more of the
@@ -1245,9 +1350,9 @@ usually with an error message like ‘Invalid cross-device link’. (#243)</p></
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::install()</span></code> disables staged package install when running with the
 Windows Subsystem for Linux. (#239)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-8-3">
-<h1>renv 0.8.3<a class="headerlink" href="#renv-0-8-3" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-8-3">
+<h1>renv 0.8.3<a class="headerlink" href="#renv-0-8-3" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">renv::dependencies()</span></code> gains a new argument <code class="docutils literal notranslate"><span class="pre">dev</span></code>, indicating whether
 development dependencies should also be included in the set of discovered
@@ -1279,25 +1384,25 @@ archives using <code class="docutils literal notranslate"><span class="pre">renv
 <li><p>Fixed an issue where attempts to call <code class="docutils literal notranslate"><span class="pre">renv::restore()</span></code> with the path to the
 lockfile explicitly provided would fail. (#227)</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-8-2">
-<h1>renv 0.8.2<a class="headerlink" href="#renv-0-8-2" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-8-2">
+<h1>renv 0.8.2<a class="headerlink" href="#renv-0-8-2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Further fixes for checks run on CRAN.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-8-1">
-<h1>renv 0.8.1<a class="headerlink" href="#renv-0-8-1" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-8-1">
+<h1>renv 0.8.1<a class="headerlink" href="#renv-0-8-1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Fixes for checks run on CRAN.</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="renv-0-8-0">
-<h1>renv 0.8.0<a class="headerlink" href="#renv-0-8-0" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="renv-0-8-0">
+<h1>renv 0.8.0<a class="headerlink" href="#renv-0-8-0" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Initial CRAN release.</p></li>
 </ul>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1321,28 +1426,34 @@ lockfile explicitly provided would fail. (#227)</p></li>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Zhentao Shi<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Zhentao Shi<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
