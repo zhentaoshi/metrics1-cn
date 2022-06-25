@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: 计量经济学
-author: Zhentao Shi 
+author: 史震涛 Shi Zhentao
 # logo: logo.png
 
 # Force re-execution of notebooks on each build.
