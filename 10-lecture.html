@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endogeneity &#8212; 计量经济学</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   介绍
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3-CN.html">
+   1. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-CN.html">
+   2. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/10-lecture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F10-lecture.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/10-lecture.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identification">
+   Identification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instruments">
+   Instruments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sources-of-endogeneity">
+   Sources of Endogeneity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Endogeneity</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identification">
+   Identification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instruments">
+   Instruments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sources-of-endogeneity">
+   Sources of Endogeneity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="endogeneity">
+<h1>Endogeneity<a class="headerlink" href="#endogeneity" title="Permalink to this headline">¶</a></h1>
+<p>In microeconomic analysis, exogenous variables are the factors
+determined outside of the economic system under consideration, and
+endogenous variables are those decided within the economic system.</p>
+<p>A microeconomic exercise that we encountered so many times goes as
+follows. If a person has a utility function <span class="math notranslate nohighlight">\(u\left(q_{1},q_{2}\right)\)</span>
+where <span class="math notranslate nohighlight">\(q_{1}\)</span> and <span class="math notranslate nohighlight">\(q_{2}\)</span> are the quantities of two goods. He faces a
+budget <span class="math notranslate nohighlight">\(p_{1}q_{1}+p_{2}q_{2}\leq C\)</span>, where <span class="math notranslate nohighlight">\(p_{1}\)</span> and <span class="math notranslate nohighlight">\(p_{2}\)</span> are the
+prices of the two goods, respectively. What is the optimal quantities
+<span class="math notranslate nohighlight">\(q_{1}^{*}\)</span> and <span class="math notranslate nohighlight">\(q_{2}^{*}\)</span> he will purchase? In this question the
+utility function <span class="math notranslate nohighlight">\(u\left(\cdot,\cdot\right)\)</span>, the prices <span class="math notranslate nohighlight">\(p_{1}\)</span> and
+<span class="math notranslate nohighlight">\(p_{2}\)</span>, and the budget <span class="math notranslate nohighlight">\(C\)</span> are exogenous. The optimal purchase
+<span class="math notranslate nohighlight">\(q_{1}^{*}\)</span> and <span class="math notranslate nohighlight">\(q_{2}^{*}\)</span> are endogenous.</p>
+<p>The terms “endogenous” and “exogenous” in microeconomics will be carried
+over into multiple-equation econometric models. While in a
+single-equation regression model
+$<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\label{eq:generative}\)</span><span class="math notranslate nohighlight">\( is only part of the
+equation system. To make it simple, in the single-equation model we say
+an \)</span>x_{ik}<span class="math notranslate nohighlight">\( is *endogenous,* or is an *endogenous variable*, if
+\)</span>\mathrm{cov}\left(x_{ik},e_{i}\right)\neq0<span class="math notranslate nohighlight">\(; otherwise \)</span>x_{ik}$ is an
+<em>exogenous variable</em>.</p>
+<p>Empirical works using linear regressions are routinely challenged by
+questions about endogeneity. Such questions plague economic seminars and
+referee reports. To defend empirical strategies in quantitative economic
+studies, it is important to understand the sources of potential
+endogeneity and thoroughly discuss attempts for resolving endogeneity.</p>
+<div class="section" id="identification">
+<h2>Identification<a class="headerlink" href="#identification" title="Permalink to this headline">¶</a></h2>
+<p>Endogeneity usually implies difficulty in identifying the parameter of
+interest with only <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>. Identification is
+critical for the interpretation of empirical economic research. We say a
+parameter is <em>identified</em> if the mapping between the parameter in the
+model and the distribution of the observed variable is one-to-one;
+otherwise we say the parameter is <em>under-identified</em>. This is an
+abstract definition, and let us discuss it in the family linear
+regression context.</p>
+<p>The linear projection model implies the moment equation
+$<span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}x_{i}'\right]\beta=\mathbb{E}\left[x_{i}y_{i}\right]. (citation)\)</span><span class="math notranslate nohighlight">\(
+If \)</span>E\left[x_{i}x_{i}’\right]<span class="math notranslate nohighlight">\( is of full rank, then
+\)</span>\beta=\left(\mathbb{E}\left[x_{i}x_{i}’\right]\right)^{-1}\mathbb{E}\left[x_{i}y_{i}\right]<span class="math notranslate nohighlight">\(
+is a function of the quantities of the population moment and it is
+identified. On the contrary, if some \)</span>x_{k}<span class="math notranslate nohighlight">\('s are perfect collinear so
+that \)</span>\mathbb{E}\left[x_{i}x_{i}’\right]<span class="math notranslate nohighlight">\( is rank deficient, there are
+multiple \)</span>\beta<span class="math notranslate nohighlight">\( that satisfies the \)</span>k$-equation system
+(<a class="reference external" href="#eq:k-equation-FOC">[eq:k-equation-FOC]</a>{reference-type=”ref”
+reference=”eq:k-equation-FOC”}). Identification fails.</p>
+<p>\medskip{}
+Suppose <span class="math notranslate nohighlight">\(x_{i}\)</span> is a scalar random variable, $<span class="math notranslate nohighlight">\(\begin{pmatrix}x_{i}\\
+e_{i}
+\end{pmatrix}\sim N\left(\begin{pmatrix}0\\
+0
+\end{pmatrix},\begin{pmatrix}1 &amp; \sigma_{xe}\\
+\sigma_{xe} &amp; 1
+\end{pmatrix}\right)\)</span><span class="math notranslate nohighlight">\( follows a joint normal distribution, and the
+dependent variable \)</span>y_{i}<span class="math notranslate nohighlight">\( is generated from
+([\[eq:generative\]](#eq:generative){reference-type=&quot;ref&quot;
+reference=&quot;eq:generative&quot;}). The joint normal assumption implies that
+the conditional mean
+\)</span><span class="math notranslate nohighlight">\(\mathbb{E}\left[y_{i}|x_{i}\right]=\beta x_{i}+\mathbb{E}\left[e_{i}|x_{i}\right]=\left(\beta+\sigma_{xe}\right)x_{i}\)</span><span class="math notranslate nohighlight">\(
+coincides with the linear projection model, and \)</span>\beta+\sigma_{xe}<span class="math notranslate nohighlight">\( is
+the linear projection coefficient. From the observable random variable
+\)</span>\left(y_{i},x_{i}\right)<span class="math notranslate nohighlight">\(, we can only learn \)</span>\beta+\sigma_{xe}<span class="math notranslate nohighlight">\(. As we
+cannot learn \)</span>\sigma_{xe}<span class="math notranslate nohighlight">\( from the data due to the unobservable
+\)</span>e_{i}<span class="math notranslate nohighlight">\(, there is no way to recover \)</span>\beta<span class="math notranslate nohighlight">\(. This is exactly the
+*omitted variable bias* that we have discussed earlier in this course.
+The gap lies between the available data \)</span>\left(y_{i},x_{i}\right)<span class="math notranslate nohighlight">\( and
+the identification of the model. In the special case that we assume
+\)</span>\sigma_{xe}=0<span class="math notranslate nohighlight">\(, the endogeneity vanishes and \)</span>\beta$ is identified.</p>
+<p>The linear projection model is so far the most general model in this
+course that justifies OLS. OLS is consistent for the linear projection
+coefficient. By the definition of the linear projection model,
+<span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}e_{i}\right]=0\)</span> so there is no room for
+endogeneity in the linear projection model. In other words, if we talk
+about endogeneity, we must not be working with the linear projection
+model, and the coefficients we pursue the structural parameter, rather
+than the linear projection coefficients.</p>
+<p>In econometrics we are often interested in a model with economic
+interpretation. The common practice in empirical research assumes that
+the observed data are generated from a parsimonious model, and the next
+step is to estimate the unknown parameters in the model. Since it is
+often possible to name some factors not included in the regressors but
+they are correlated with the included regressors and in the mean time
+also affects <span class="math notranslate nohighlight">\(y_{i}\)</span>, endogeneity becomes a fundamental problem.</p>
+<p>To resolve endogeneity, we seek extra variables or data structure that
+may guarantee the identification of the model. The most often used
+methods are (i) fixed effect model (ii) instrumental variables:</p>
+<ul class="simple">
+<li><p>The fixed effect model requires that multiple observations, often
+across time, are collected for each individual <span class="math notranslate nohighlight">\(i\)</span>. Moreover, the
+source of endogeneity is time invariant and enters the model
+additively in the form $<span class="math notranslate nohighlight">\(y_{it}=x_{it}'\beta+u_{it},\)</span><span class="math notranslate nohighlight">\( where
+\)</span>u_{it}=\alpha_{i}+\epsilon_{it}<span class="math notranslate nohighlight">\( is the composite error. The panel
+data approach extends \)</span>\left(y_{i},x_{i}\right)<span class="math notranslate nohighlight">\( to
+\)</span>\left(y_{it},x_{it}\right)_{i=1}^{T}$ if data are available along
+the time dimension.</p></li>
+<li><p>The instrumental variable approach extends
+<span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> to <span class="math notranslate nohighlight">\(\left(y_{i},x_{i},z_{i}\right)\)</span>,
+where the extra random variable <span class="math notranslate nohighlight">\(z_{i}\)</span> is called the <em>instrument</em>
+<em>variable</em>. It is assumed that <span class="math notranslate nohighlight">\(z_{i}\)</span> is orthogonal to the error
+<span class="math notranslate nohighlight">\(e_{i}\)</span> . Therefore, along with the model it adds an extra variable
+<span class="math notranslate nohighlight">\(z_{i}\)</span>.</p></li>
+</ul>
+<p>Either the panel data approach or the instrumental variable approach
+entails extra information beyond <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>. Without
+such extra data, there is no way to resolve the identification failure.
+Just as the linear project model is available for any joint distribution
+of <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> with existence of suitable moments, from a
+pure statistical point of view a linear IV model is an artifact depends
+only on the choice of <span class="math notranslate nohighlight">\(\left(y_{i},x_{i},z_{i}\right)\)</span> without
+referencing to any economics. In essence, the linear IV model seeks a
+linear combination <span class="math notranslate nohighlight">\(y_{i}-\beta x_{i}\)</span> that is orthogonal to the linear
+space spanned by <span class="math notranslate nohighlight">\(z_{i}\)</span>.</p>
+</div>
+<div class="section" id="instruments">
+<h2>Instruments<a class="headerlink" href="#instruments" title="Permalink to this headline">¶</a></h2>
+<p>There are two requirements for valid IVs: orthogonality and relevance.
+Orthogonality entails that the model is correctly specified. If
+relevance is violated, meaning that the IVs are not correlated with the
+endogenous variable, then multiple parameters can generate the
+observable data. Identification, as in the standard definition in
+econometrics, breaks down.</p>
+<p>A structural equation is a model of economic interest. Consider the
+following linear structural model
+$<span class="math notranslate nohighlight">\(y_{i}=x_{1i}'\beta_{1}+z_{1i}'\beta_{2}+\epsilon_{i},\label{eq:basic_1}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>x_{1i}<span class="math notranslate nohighlight">\( is a \)</span>k_{1}<span class="math notranslate nohighlight">\(-dimensional endogenous explanatory
+variables, \)</span>z_{1i}<span class="math notranslate nohighlight">\( is a \)</span>k_{2}<span class="math notranslate nohighlight">\(-dimensional exogenous explanatory
+variables with the intercept included. In addition, we have \)</span>z_{2i}<span class="math notranslate nohighlight">\(, a
+\)</span>k_{3}<span class="math notranslate nohighlight">\(-dimensional excluded exogenous variables. Let \)</span>K=k_{1}+k_{2}<span class="math notranslate nohighlight">\(
+and \)</span>L=k_{2}+k_{3}<span class="math notranslate nohighlight">\(. Denote \)</span>x_{i}=\left(x_{1i}’,z_{1i}’\right)’<span class="math notranslate nohighlight">\( as a
+\)</span>K<span class="math notranslate nohighlight">\(-dimensional explanatory variable, and
+\)</span>z_{i}=\left(z_{1i}’,z_{2i}’\right)<span class="math notranslate nohighlight">\( as an \)</span>L$-dimensional exogenous
+vector.</p>
+<p>We call the exogenous variable <em>instrument variables</em>, or simply
+<em>instruments</em>. Let <span class="math notranslate nohighlight">\(\beta=\left(\beta_{1}',\beta_{2}'\right)'\)</span> be a
+<span class="math notranslate nohighlight">\(K\)</span>-dimensional parameter of interest. From now on, we rewrite
+(<a class="reference external" href="#eq:basic_1">[eq:basic_1]</a>{reference-type=”ref”
+reference=”eq:basic_1”}) as
+$<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+\epsilon_{i},\label{eq:basic_2}\)</span><span class="math notranslate nohighlight">\( and we have a
+vector of instruments \)</span>z_{i}$.</p>
+<p>Before estimating any structural econometric model, we must check
+identification. In the context of
+(<a class="reference external" href="#eq:basic_2">[eq:basic_2]</a>{reference-type=”ref”
+reference=”eq:basic_2”}), identification requires that the true value
+<span class="math notranslate nohighlight">\(\beta_{0}\)</span> is the only value on the parameters space that satisfies the
+moment condition
+$<span class="math notranslate nohighlight">\(\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}'\beta\right)\right]=0_{L}.\label{eq:moment}\)</span>$
+The rank condition is sufficient and necessary for identification.</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{rank}\left(\mathbb{E}\left[z_{i}x_{i}'\right]\right)=K\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}'z_{i}\right]\)</span> is a <span class="math notranslate nohighlight">\(K\times L\)</span> matrix.
+The rank condition implies the <em>order condition</em> <span class="math notranslate nohighlight">\(L\geq K\)</span>, which says
+that the number of excluded instruments must be no fewer than the number
+of endogenous variables.</p>
+<p>The parameter in (<a class="reference external" href="#eq:moment">[eq:moment]</a>{reference-type=”ref”
+reference=”eq:moment”}) is identified if and only if the rank condition
+holds.</p>
+<p>(The “if” direction). For any <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span> such that
+<span class="math notranslate nohighlight">\(\tilde{\beta}\neq\beta_{0}\)</span>, $<span class="math notranslate nohighlight">\(\begin{aligned}
+\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}'\tilde{\beta}\right)\right] &amp; =\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}'\beta_{0}\right)\right]+\mathbb{E}\left[z_{i}x_{i}'\right]\left(\beta_{0}-\tilde{\beta}\right)\\
+ &amp; =0_{L}+\mathbb{E}\left[z_{i}x_{i}'\right]\left(\beta_{0}-\tilde{\beta}\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Because
+\)</span>\mathrm{rank}\left(\mathbb{E}\left[z_{i}x_{i}’\right]\right)=K<span class="math notranslate nohighlight">\(, we
+would have
+\)</span>\mathbb{E}\left[z_{i}x_{i}’\right]\left(\beta_{0}-\tilde{\beta}\right)=0_{L}<span class="math notranslate nohighlight">\(
+if and only if \)</span>\beta_{0}-\tilde{\beta}=0_{K}<span class="math notranslate nohighlight">\(, which violates
+\)</span>\tilde{\beta}\neq\beta_{0}<span class="math notranslate nohighlight">\(. Therefore \)</span>\beta_{0}$ is the unique value
+that satisfies (<a class="reference external" href="#eq:moment">[eq:moment]</a>{reference-type=”ref”
+reference=”eq:moment”}).</p>
+<p>(The “only if” direction is left as an exercise. Hint: By
+contrapositiveness, if the rank condition fails, then the model is not
+identified. We can easily prove the claim by making an example.)</p>
+</div>
+<div class="section" id="sources-of-endogeneity">
+<h2>Sources of Endogeneity<a class="headerlink" href="#sources-of-endogeneity" title="Permalink to this headline">¶</a></h2>
+<p>As econometricians mostly work with non-experimental data, we cannot
+overstate the importance of the endogeneity problem. We go over a few
+examples.</p>
+<p>We know that the first-difference (FD) estimator is consistent for
+(static) panel data model. Nevertheless, the FD estimator encounters
+difficulty in a dynamic panel model
+$<span class="math notranslate nohighlight">\(y_{it}=\beta_{1}+\beta_{2}y_{i,t-1}+\beta_{3}x_{it}+\alpha_{i}+\epsilon_{it},\label{eq:dymPanel}\)</span><span class="math notranslate nohighlight">\(
+even if we assume
+\)</span><span class="math notranslate nohighlight">\(\mathbb{E}\left[\epsilon_{is}|\alpha_{i},x_{i1},\ldots,x_{iT},y_{i,t-1},y_{i,t-2},\ldots,y_{i0}\right]=0,\ \ \forall s\geq t\label{eq:dyn_mean_0}\)</span><span class="math notranslate nohighlight">\(
+When taking difference of the above equation
+([\[eq:dymPanel\]](#eq:dymPanel){reference-type=&quot;ref&quot;
+reference=&quot;eq:dymPanel&quot;}) for periods \)</span>t<span class="math notranslate nohighlight">\( and \)</span>t-1<span class="math notranslate nohighlight">\(, we have
+\)</span><span class="math notranslate nohighlight">\(\left(y_{it}-y_{i,t-1}\right)=\beta_{2}\left(y_{it-1}-y_{i,t-2}\right)+\beta_{3}\left(x_{it}-x_{i,t-1}\right)+\left(\epsilon_{it}-\epsilon_{i,t-1}\right).\label{eq:dyn_mean_1}\)</span><span class="math notranslate nohighlight">\(
+Under ([\[eq:dyn\_mean\_0\]](#eq:dyn_mean_0){reference-type=&quot;ref&quot;
+reference=&quot;eq:dyn_mean_0&quot;}),
+\)</span>\mathbb{E}\left[\left(x_{it}-x_{i,t-1}\right)\left(\epsilon_{it}-\epsilon_{i,t-1}\right)\right]=0<span class="math notranslate nohighlight">\(,
+but
+\)</span><span class="math notranslate nohighlight">\(\mathbb{E}\left[\left(y_{i,t-1}-y_{i,t-2}\right)\left(\epsilon_{it}-\epsilon_{i,t-1}\right)\right]=-\mathbb{E}\left[y_{i,t-1}\epsilon_{i,t-1}\right]=-\mathbb{E}\left[\epsilon_{i,t-1}^{2}\right]\neq0.\)</span><span class="math notranslate nohighlight">\(
+Therefore the coefficients \)</span>\beta_{2}<span class="math notranslate nohighlight">\( and \)</span>\beta_{3}$ cannot be
+identified from the linear regression model
+(<a class="reference external" href="#eq:dyn_mean_1">[eq:dyn_mean_1]</a>{reference-type=”ref”
+reference=”eq:dyn_mean_1”}).</p>
+<p>Instruments for the above example is easy to find. Notice that the
+linear relationship
+(<a class="reference external" href="#eq:dymPanel">[eq:dymPanel]</a>{reference-type=”ref”
+reference=”eq:dymPanel”}) implies $<span class="math notranslate nohighlight">\(\begin{aligned}
+ &amp;  &amp; \mathbb{E}\left[\epsilon_{i,t}-\epsilon_{i,t-1}|\alpha_{i},x_{i1},\ldots,x_{iT},\epsilon_{i,t-2},\epsilon_{i,t-3},\ldots,\epsilon_{i1},y_{i0}\right]\\
+ &amp; = &amp; \mathbb{E}\left[\epsilon_{i,t}-\epsilon_{i,t-1}|\alpha_{i},x_{i1},\ldots,x_{iT},y_{i,t-2},y_{i,t-3},\ldots,y_{i0}\right]=0\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+according to the assumption
+([\[eq:dyn\_mean\_0\]](#eq:dyn_mean_0){reference-type=&quot;ref&quot;
+reference=&quot;eq:dyn_mean_0&quot;}). The above relationship gives orthogonal
+condition in the form
+\)</span><span class="math notranslate nohighlight">\(\mathbb{E}\left[\left(\epsilon_{i,t}-\epsilon_{i,t-1}\right)f\left(\epsilon_{i,t-2},\epsilon_{i,t-3},\ldots,\epsilon_{i1}\right)\right]=0.\)</span><span class="math notranslate nohighlight">\(
+In other words, any function of \)</span>y_{i,t-2},y_{i,t-3},\ldots,y_{i1}<span class="math notranslate nohighlight">\( is
+orthogonal to the error term
+\)</span>\left(\epsilon{}<em>{i,t-1}-\epsilon</em>{i,t-2}\right)$. Here the excluded
+IVs are naturally generated from the model itself.</p>
+<p>\medskip{}
+Another classical source of endogeneity is the measurement error.</p>
+<p>Endogeneity also emerges when an explanatory variables is not directly
+observable but is replaced by a measurement with error. Suppose the true
+linear model is
+$<span class="math notranslate nohighlight">\(y_{i}=\beta_{1}+\beta_{2}x_{i}^{*}+u_{i},\label{eq:measurement_error}\)</span><span class="math notranslate nohighlight">\(
+with \)</span>\mathbb{E}\left[u_{i}|x_{i}^{<em>}\right]=0<span class="math notranslate nohighlight">\(. We cannot observe
+\)</span>x_{i}^{</em>}<span class="math notranslate nohighlight">\( but we observe \)</span>x_{i}<span class="math notranslate nohighlight">\(, a measurement of \)</span>x_{i}^{<em>}<span class="math notranslate nohighlight">\(, and
+they are linked by \)</span><span class="math notranslate nohighlight">\(x_{i}=x_{i}^{*}+v_{i}\)</span><span class="math notranslate nohighlight">\( with
+\)</span>\mathbb{E}\left[v_{i}|x_{i}^{</em>},u_{i}\right]=0<span class="math notranslate nohighlight">\(. Such a formulation of
+the measurement error is called the *classical measurement error*.
+Substitute out the unobservable \)</span>x_{i}^{*}<span class="math notranslate nohighlight">\( in
+([\[eq:measurement\_error\]](#eq:measurement_error){reference-type=&quot;ref&quot;
+reference=&quot;eq:measurement_error&quot;}),
+\)</span><span class="math notranslate nohighlight">\(y_{i}=\beta_{1}+\beta_{2}\left(x_{i}-v_{i}\right)+u_{i}=\beta_{1}+\beta_{2}x_{i}+e_{i}\label{eq:measurement_error2}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>e_{i}=u_{i}-\beta_{2}v_{i}<span class="math notranslate nohighlight">\(. The correlation
+\)</span><span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}e_{i}\right]=\mathbb{E}\left[\left(x_{i}^{*}+v_{i}\right)\left(u_{i}-\beta_{2}v_{i}\right)\right]=-\beta_{2}\mathbb{E}\left[v_{i}^{2}\right]\neq0.\)</span>$
+OLS
+(<a class="reference external" href="#eq:measurement_error2">[eq:measurement_error2]</a>{reference-type=”ref”
+reference=”eq:measurement_error2”}) would not deliver a consistent
+estimator.</p>
+<p>Alternatively, we can look at the above problem of classical measurement
+error from the expression of the linear projection coefficient. We know
+that in
+(<a class="reference external" href="#eq:measurement_error">[eq:measurement_error]</a>{reference-type=”ref”
+reference=”eq:measurement_error”})
+<span class="math notranslate nohighlight">\(\beta_{2}^{\mathrm{infeasible}}=\mathrm{cov}\left[x_{i}^{*},y_{i}\right]/\mathrm{var}\left[x_{i}^{*}\right].\)</span>
+In contrast, when we regression <span class="math notranslate nohighlight">\(y_{i}\)</span> on the observable <span class="math notranslate nohighlight">\(x_{i}\)</span> the
+corresponding linear projection coefficient is
+$<span class="math notranslate nohighlight">\(\beta_{2}^{\mathrm{feasible}}=\frac{\mathrm{cov}\left[x_{i},y_{i}\right]}{\mathrm{var}\left[x_{i}\right]}=\frac{\mathrm{cov}\left[x_{i}^{*}+v_{i},y_{i}\right]}{\mathrm{var}\left[x_{i}^{*}+v_{i}\right]}=\frac{\mathrm{cov}\left[x_{i}^{*},y_{i}\right]}{\mathrm{var}\left[x_{i}^{*}\right]+\mathrm{var}\left[v_{i}\right]}.\)</span><span class="math notranslate nohighlight">\(
+It is clear that
+\)</span>|\beta_{2}^{\mathrm{feasible}}|\leq|\beta_{2}^{\mathrm{infeasible}}|<span class="math notranslate nohighlight">\(
+and the equality holds only if \)</span>\mathrm{var}\left[v_{i}\right]=0$ (no
+measurement error). This is called the <em>attenuation bias</em> due to the
+measurement error.</p>
+<p>\medskip{}
+Next, we give two examples of equation systems, one from microeconomics
+and the other from macroeconomics.</p>
+<p>Let <span class="math notranslate nohighlight">\(p_{i}\)</span> and <span class="math notranslate nohighlight">\(q_{i}\)</span> be a good’s log-price and log-quantity on the
+<span class="math notranslate nohighlight">\(i\)</span>-th market, and they are iid across markets. We are interested in the
+demand curve $<span class="math notranslate nohighlight">\(p_{i}=\alpha_{d}-\beta_{d}q_{i}+e_{di}\label{eq:demand}\)</span><span class="math notranslate nohighlight">\(
+for some \)</span>\beta_{d}\geq0<span class="math notranslate nohighlight">\( and the supply curve
+\)</span><span class="math notranslate nohighlight">\(p_{i}=\alpha_{s}+\beta_{s}q_{i}+e_{si}\label{eq:supply}\)</span><span class="math notranslate nohighlight">\( for some
+\)</span>\beta_{s}\geq0<span class="math notranslate nohighlight">\(. We use a simple linear specification so that the
+coefficient \)</span>\beta_{d}<span class="math notranslate nohighlight">\( can be interpreted as demand elasticity and
+\)</span>\beta_{s}<span class="math notranslate nohighlight">\( as supply elasticity. Undergraduate microeconomics teaches
+the deterministic form but we add an error term to cope with the data.
+Can we learn the elasticities by regression \)</span>p_{i}<span class="math notranslate nohighlight">\( on \)</span>q_{i}$?</p>
+<p>The two equations can be written in a matrix form
+$<span class="math notranslate nohighlight">\(\begin{pmatrix}1 &amp; \beta_{d}\\
+1 &amp; -\beta_{s}
+\end{pmatrix}\begin{pmatrix}p_{i}\\
+q_{i}
+\end{pmatrix}=\begin{pmatrix}\alpha_{d}\\
+\alpha_{s}
+\end{pmatrix}+\begin{pmatrix}e_{di}\\
+e_{si}
+\end{pmatrix}.\label{eq:structural}\)</span><span class="math notranslate nohighlight">\( Microeconomic terminology calls
+\)</span>\left(p_{i},q_{i}\right)<span class="math notranslate nohighlight">\( endogenous variables and
+\)</span>\left(e_{di},e_{si}\right)<span class="math notranslate nohighlight">\( exogenous variables.
+([\[eq:structural\]](#eq:structural){reference-type=&quot;ref&quot;
+reference=&quot;eq:structural&quot;}) is a *structural equation* because it is
+motivated from economic theory so that the coefficients bear economic
+meaning. If we rule out the trivial case \)</span>\beta_{d}=\beta_{s}=0<span class="math notranslate nohighlight">\(, we can
+solve \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\begin{pmatrix}p_{i}\\
+q_{i}
+\end{pmatrix} &amp; =\begin{pmatrix}1 &amp; \beta_{d}\\
+1 &amp; -\beta_{s}
+\end{pmatrix}^{-1}\left[\begin{pmatrix}\alpha_{d}\\
+\alpha_{s}
+\end{pmatrix}+\begin{pmatrix}e_{di}\\
+e_{si}
+\end{pmatrix}\right]\nonumber \\
+ &amp; =\frac{1}{\beta_{s}+\beta_{d}}\begin{pmatrix}\beta_{s} &amp; \beta_{d}\\
+1 &amp; -1
+\end{pmatrix}\left[\begin{pmatrix}\alpha_{d}\\
+\alpha_{s}
+\end{pmatrix}+\begin{pmatrix}e_{di}\\
+e_{si}
+\end{pmatrix}\right].\label{eq:reduced}\end{aligned}\)</span><span class="math notranslate nohighlight">\( This equation
+([\[eq:reduced\]](#eq:reduced){reference-type=&quot;ref&quot;
+reference=&quot;eq:reduced&quot;}) is called the *reduced form*---the endogenous
+variables are expressed as explicit functions of the parameters and the
+exogenous variables. In particular,
+\)</span><span class="math notranslate nohighlight">\(q_{i}=\left(\alpha_{d}+e_{di}-\alpha_{s}-e_{si}\right)/\left(\beta_{s}+\beta_{d}\right)\)</span><span class="math notranslate nohighlight">\(
+so that the log-price is correlated with both \)</span>e_{si}<span class="math notranslate nohighlight">\( and \)</span>e_{di}<span class="math notranslate nohighlight">\(. As
+\)</span>q_{i}<span class="math notranslate nohighlight">\( is endogenous (in the econometric sense) in either
+([\[eq:demand\]](#eq:demand){reference-type=&quot;ref&quot;
+reference=&quot;eq:demand&quot;}) or
+([\[eq:supply\]](#eq:supply){reference-type=&quot;ref&quot;
+reference=&quot;eq:supply&quot;}), neither the demand elasticity nor the supply
+elasticity is identified with \)</span>\left(p_{i},q_{i}\right)<span class="math notranslate nohighlight">\(. Indeed, as
+\)</span><span class="math notranslate nohighlight">\(p_{i}=\left(\beta_{s}\alpha_{d}+\beta_{d}\alpha_{s}+\beta_{s}e_{di}+\beta_{d}e_{si}\right)/\left(\beta_{s}+\beta_{d}\right)\)</span><span class="math notranslate nohighlight">\(
+from ([\[eq:reduced\]](#eq:reduced){reference-type=&quot;ref&quot;
+reference=&quot;eq:reduced&quot;}), the linear projection coefficient of \)</span>p_{i}<span class="math notranslate nohighlight">\(
+on \)</span>q_{i}<span class="math notranslate nohighlight">\( is
+\)</span><span class="math notranslate nohighlight">\(\frac{\mathrm{cov}\left[p_{i},q_{i}\right]}{\mathrm{var}\left[q_{i}\right]}=\frac{\beta_{s}\sigma_{d}^{2}-\beta_{d}\sigma_{s}^{2}+\left(\beta_{d}-\beta_{s}\right)\sigma_{sd}}{\beta_{d}^{2}\sigma_{d}^{2}+\beta_{d}\sigma_{s}^{2}+2\beta_{d}\beta_{s}\sigma_{sd}},\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\sigma_{d}^{2}=\mathrm{var}\left[e_{di}\right]<span class="math notranslate nohighlight">\(,
+\)</span>\sigma_{s}^{2}=\mathrm{var}\left[e_{si}\right]<span class="math notranslate nohighlight">\( and
+\)</span>\sigma_{sd}=\mathrm{cov}\left[e_{di},e_{si}\right]$.</p>
+<p>This is a classical example of the demand-supply system. The structural
+parameter cannot be directly identified because the observed
+<span class="math notranslate nohighlight">\(\left(p_{i},q_{i}\right)\)</span> is the outcome of an equilibrium—the
+crossing of the demand curve and the supply curve. To identify the
+demand curve, we will need an instrument that shifts the supply curve
+only; and vice versa.</p>
+<p>\medskip{}
+This is a model borrowed from Hayashi (2000, p.193) but originated from
+&#64;haavelmo1943statistical. An econometrician is interested in learning
+<span class="math notranslate nohighlight">\(\beta_{2}\)</span>, the <em>marginal propensity of consumption</em>, in the
+Keynesian-type equation
+$<span class="math notranslate nohighlight">\(C_{i}=\beta_{1}+\beta_{2}Y_{i}+u_{i}\label{eq:keynes}\)</span><span class="math notranslate nohighlight">\( where \)</span>C_{i}<span class="math notranslate nohighlight">\(
+is household consumption, \)</span>Y_{i}<span class="math notranslate nohighlight">\( is the GNP, and \)</span>u_{i}<span class="math notranslate nohighlight">\( is the
+unobservable error. However, \)</span>Y_{i}<span class="math notranslate nohighlight">\( and \)</span>C_{i}<span class="math notranslate nohighlight">\( are connected by an
+accounting equality (with no error) \)</span><span class="math notranslate nohighlight">\(Y_{i}=C_{i}+I_{i},\)</span><span class="math notranslate nohighlight">\( where \)</span>I_{i}<span class="math notranslate nohighlight">\(
+is investment. We assume \)</span>\mathbb{E}\left[u_{i}|I_{i}\right]=0<span class="math notranslate nohighlight">\( as
+investment is determined in advance. In this example,
+\)</span>\left(Y_{i}C_{i}\right)<span class="math notranslate nohighlight">\( are endogenous and \)</span>\left(I_{i},u_{i}\right)<span class="math notranslate nohighlight">\(
+are exogenous. Put the two equations together as the structural form
+\)</span><span class="math notranslate nohighlight">\(\begin{pmatrix}1 &amp; -\beta_{2}\\
+-1 &amp; 1
+\end{pmatrix}\begin{pmatrix}C_{i}\\
+Y_{i}
+\end{pmatrix}=\begin{pmatrix}\beta_{1}\\
+0
+\end{pmatrix}+\begin{pmatrix}u_{i}\\
+I_{i}
+\end{pmatrix}.\)</span><span class="math notranslate nohighlight">\( The corresponding reduced form is \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\begin{pmatrix}C_{i}\\
+Y_{i}
+\end{pmatrix} &amp; =\begin{pmatrix}1 &amp; -\beta_{2}\\
+-1 &amp; 1
+\end{pmatrix}^{-1}\left[\begin{pmatrix}\beta_{1}\\
+0
+\end{pmatrix}+\begin{pmatrix}u_{i}\\
+I_{i}
+\end{pmatrix}\right]\\
+ &amp; =\frac{1}{1-\beta_{2}}\begin{pmatrix}1 &amp; \beta_{2}\\
+1 &amp; 1
+\end{pmatrix}\left[\begin{pmatrix}\beta_{1}\\
+0
+\end{pmatrix}+\begin{pmatrix}u_{i}\\
+I_{i}
+\end{pmatrix}\right]\\
+ &amp; =\frac{1}{1-\beta_{2}}\begin{pmatrix}\beta_{1}+u_{i}+\beta_{2}I_{i}\\
+\beta_{1}+u_{i}+I_{i}
+\end{pmatrix}.\end{aligned}\)</span><span class="math notranslate nohighlight">\( OLS
+([\[eq:keynes\]](#eq:keynes){reference-type=&quot;ref&quot;
+reference=&quot;eq:keynes&quot;}) will be inconsistent because in the reduced-form
+\)</span>Y_{i}=\frac{1}{1-\beta_{2}}\left(\beta_{1}+u_{i}+I_{i}\right)<span class="math notranslate nohighlight">\( implies
+\)</span>\mathbb{E}\left[Y_{i}u_{i}\right]=\mathbb{E}\left[u_{i}^{2}\right]/\left(1-\beta_{2}\right)\neq0$.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Even though we often deal with a single equation model with potential
+endogenous variables, the underlying structural system may involve
+multiple equations. The simultaneous equation model is a classical
+econometric modeling approach, and it is still actively applied in
+structural economic studies. When our economic model is “structural”, we
+keep in mind a causal mechanism. Instead of identifying the causal
+effect by control group and treatment group as in Chapter 2, here we
+look at causality from the economic structural perspective.</p>
+<p><strong>Historical notes</strong>: Instruments originally appeared in Philip
+&#64;wright1928tariff for identifying the coefficient of an endogenous
+variables. It is believed to be a collaborative idea with Philip’s son
+Sewall Wright. The demand and supply analysis is attributed to
+&#64;working1927statistical, and the measurement error study is dated back
+to &#64;fricsh1934statistical.</p>
+<p><strong>Further reading</strong>: Causality is the holy grail of econometrics.
+&#64;pearl2018book is a popular book with philosophical depth. It is a
+delight to read. [&#64;chen2011nonlinear] is a survey for modern nonlinear
+measurement error models.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By 史震涛 Shi Zhentao<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -53,8 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. 基本渐近理论" href="lecture5-CN.html" />
@@ -425,18 +425,8 @@ matrix) : <span class="math notranslate nohighlight">\(M_{X}=I_{n}-P_{X}\)</span
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathrm{rank}\left(P_{X}\right)=K\)</span>,
 <span class="math notranslate nohighlight">\(\mathrm{rank}\left(M_{X}\right)=n-K\)</span>.</p></li>
-<li><p>残差:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-\widehat{e}&amp;=Y-\widehat{Y}=Y-X\widehat{\beta}=Y-X(X'X)^{-1}X'Y=(I_{n}-P_{X})Y=M_{X}Y\\
-&amp;=M_{X}\left(X\beta+e\right)=M_{X}e.
-\end{aligned}
-\end{split}\]</div>
-<p>注意 <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 和 <span class="math notranslate nohighlight">\(e\)</span> 是不同的.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(X'\widehat{e}=X'M_{X}e=0_{K}\)</span>.</p></li>
+<li><p>残差: <span class="math notranslate nohighlight">\(\widehat{e}=Y-\widehat{Y}=Y-X\widehat{\beta}=Y-X(X'X)^{-1}X'Y=(I_{n}-P_{X})Y=M_{X}Y.\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X'\widehat{e}=0_{K}\)</span>.</p></li>
 <li><p>若 <span class="math notranslate nohighlight">\(x_{i}\)</span>中有一个为常数, 则 <span class="math notranslate nohighlight">\(\sum_{i=1}^{n}\widehat{e}_{i}=0\)</span>.</p></li>
 </ul>
 <p>(因为 <span class="math notranslate nohighlight">\(X'\widehat{e}=\left[\begin{array}{cccc}
@@ -457,6 +447,9 @@ matrix) : <span class="math notranslate nohighlight">\(M_{X}=I_{n}-P_{X}\)</span
   \end{array}\right]\)</span> , 第一行运算说明了
 <span class="math notranslate nohighlight">\(\sum_{i=1}^{n}\widehat{e}_{i}=0\)</span>. “<span class="math notranslate nohighlight">\(\heartsuit\)</span>” 代表与我们计算无关的值. )</p>
  <!-- ``` --><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">will</span> <span class="n">produce</span> <span class="n">a</span> <span class="n">graph</span> <span class="n">here</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">consider</span> <span class="n">replace</span> <span class="n">this</span> <span class="n">simulation</span> <span class="n">example</span> <span class="k">with</span> <span class="n">a</span> <span class="n">real</span> <span class="n">data</span> <span class="n">example</span>
 </pre></div>
 </div>
 <div class="proof example admonition" id="example1">
@@ -493,18 +486,19 @@ y_{i}=0.5+2\cdot x_{1i}-1\cdot x_{2i}+e_{i}
 <span class="nf">as.vector</span><span class="p">(</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">%*%</span> <span class="n">ehat</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">print</span><span class="p">()</span>
 <span class="n">MX</span> <span class="o">=</span> <span class="nf">diag</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">-</span> <span class="n">X</span> <span class="o">%*%</span> <span class="nf">solve</span><span class="p">(</span> <span class="nf">crossprod</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="p">)</span> <span class="o">%*%</span> <span class="nf">t</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="nf">data.frame</span><span class="p">(</span><span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">ehat</span> <span class="o">=</span> <span class="n">ehat</span><span class="p">,</span> <span class="n">MXY</span> <span class="o">=</span> <span class="n">MX</span><span class="o">%*%</span><span class="n">Y</span><span class="p">,</span> <span class="n">MXe</span> <span class="o">=</span> <span class="n">MX</span><span class="o">%*%</span><span class="n">e</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
+<span class="nf">data.frame</span><span class="p">(</span><span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">ehat</span> <span class="o">=</span> <span class="n">ehat</span><span class="p">,</span> <span class="n">MXY</span> <span class="o">=</span> <span class="n">MX</span><span class="o">%*%</span><span class="n">Y</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">()</span>
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;The mean of the residual is &quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="n">ehat</span><span class="p">),</span> <span class="s">&quot;.\n&quot;</span><span class="p">)</span>
 <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;The mean of the true error term is&quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>注意到，上例中 <span class="math notranslate nohighlight">\(e_i\)</span> 是用来生成 <span class="math notranslate nohighlight">\(y_i\)</span> 的扰动项，它和 <span class="math notranslate nohighlight">\(\widehat{e}_i\)</span> 不是一回事。<span class="math notranslate nohighlight">\(e_i\)</span> 只是出现在我们的数值模拟当中, 在实际回归中我们只观测到 <span class="math notranslate nohighlight">\((y_i,x_i)\)</span>, 而 <span class="math notranslate nohighlight">\(e_i\)</span> 无从观测。</p>
 </div>
 <div class="section" id="id4">
 <h3><span class="section-number">1.1.2. </span>几何意义<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathcal{X}=\left\{ Xb:b\in\mathbb{R}^{K}\right\}\)</span> 是一个由 <span class="math notranslate nohighlight">\(X=\left[X_{\cdot1},\ldots,X_{\cdot K}\right]\)</span> 中的 <span class="math notranslate nohighlight">\(K\)</span> 列生成的线性空间; 如果这些列是线性独立的, 那么 <span class="math notranslate nohighlight">\(X\)</span> 就是 <span class="math notranslate nohighlight">\(K\)</span> 维的. 最小二乘法估计量 <span class="math notranslate nohighlight">\(\widehat \beta\)</span> 使得 <span class="math notranslate nohighlight">\(\left\Vert Y-Xb\right\Vert\)</span> 最小化. 换言之, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 是 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 中与 <span class="math notranslate nohighlight">\(Y\)</span> 最接近的那个点.</p>
-<p>等式 <span class="math notranslate nohighlight">\(Y=X\widehat{\beta}+\widehat{e}\)</span> 将 <span class="math notranslate nohighlight">\(Y\)</span> 分解为两个垂直向量, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 与 <span class="math notranslate nohighlight">\(\widehat{e}\)</span>, 因为<span class="math notranslate nohighlight">\(\left\langle X\widehat{\beta},\widehat{e}\right\rangle =\widehat{\beta}'X'\widehat{e}=0_{K}^{\prime}\)</span>, 其中<span class="math notranslate nohighlight">\(\left\langle \cdot,\cdot\right\rangle\)</span> 是向量的内积运算. 那么, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 就是 <span class="math notranslate nohighlight">\(Y\)</span> 在 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 上的<em>投影 (projection)</em> , <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 则是对应的<em>投影残差 (projection
+<p>等式 <span class="math notranslate nohighlight">\(Y=X\widehat{\beta}+\widehat{e}\)</span> 将 <span class="math notranslate nohighlight">\(Y\)</span> 分解为两个垂直的分量, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 与 <span class="math notranslate nohighlight">\(\widehat{e}\)</span>, 因为<span class="math notranslate nohighlight">\(\left\langle X\widehat{\beta},\widehat{e}\right\rangle =\widehat{\beta}'X'\widehat{e}=0_{K}^{\prime}\)</span>, 其中<span class="math notranslate nohighlight">\(\left\langle \cdot,\cdot\right\rangle\)</span> 是向量的内积运算. 那么, <span class="math notranslate nohighlight">\(X\widehat{\beta}\)</span> 就是 <span class="math notranslate nohighlight">\(Y\)</span> 在 <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> 上的<em>投影 (projection)</em> , <span class="math notranslate nohighlight">\(\widehat{e}\)</span> 则是对应的<em>投影残差 (projection
 residuals)</em>. 根据勾股定理, 自然有</p>
 <div class="math notranslate nohighlight">
 \[
@@ -514,7 +508,7 @@ residuals)</em>. 根据勾股定理, 自然有</p>
 </div>
 <div class="section" id="subvector">
 <h2><span class="section-number">1.2. </span>子向量 (Subvector)<a class="headerlink" href="#subvector" title="Permalink to this headline">¶</a></h2>
-<p><em>Frish-Waugh-Lovell (FWL) 定理</em>是有关最小二乘的子向量的代数性质. 要得到FWL定理, 我们需要分块矩阵求逆的知识. 对称实数正定矩阵
+<p>有时候，我们并不关心整个向量 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的数值，而是关心某个变量的系数，比如一个子向量 <span class="math notranslate nohighlight">\(\widehat{\beta}_1\)</span> 的数值. <em>Frish-Waugh-Lovell (FWL) 定理</em> 揭示最小二乘法子向量的代数性质. 要得到FWL定理, 我们需要分块矩阵求逆的知识. 对称实数正定矩阵
 <span class="math notranslate nohighlight">\(A=\begin{pmatrix}A_{11} &amp; A_{12}\\
 A_{12}' &amp; A_{22}
 \end{pmatrix}\)</span>
@@ -723,9 +717,9 @@ OOS\ R^{2}=\frac{\widehat{\beta}^{\prime}X^{\mathrm{new}\prime}M_{\iota}X^{\math
     <footer class="footer">
   <p>
     
-      By Zhentao Shi<br/>
+      By 史震涛 Shi Zhentao<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2022.<br/>
   </p>
 </footer>
 </main>
