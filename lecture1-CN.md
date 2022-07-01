@@ -5,68 +5,46 @@
 随着大数据时代的到来,
 计算机科学家们不断提出新的算法来解释数据背后的规律。*机器学习* 和
 *人工智能*
-早已变成了家喻户晓的热词。它们在当代的社会中扮演了各种功能，它们推动生产自动化，实现汽车的无人驾驶，精准识别人脸且在网上消费时为你提
-供个性化推荐。它们甚至战胜了人类最优秀的围棋选手。
+早已变成了家喻户晓的热词。它们在当代的社会中扮演了各种功能，它们推动生产自动化，实现汽车的无人驾驶，精准识别人脸且在网上消费时为你提供个性化推荐。它们甚至战胜了人类最优秀的围棋选手。
+事实上，许多项目的成功都应该归功于统计学理论,
+统计学又是在概率论的基础上发展起来的。
+因此，尽管概率论不是解读机器学习和人工智能唯一的视角，
+它无疑为我们理解并创造新算法提供了可靠的范式。
 
-事实上其中许多项目的成功都应该归功于统计学理论,
-统计学又是在概率论的基础上发展壮大的。因此，尽管概率论不会是了解机器学习和人工
-智能唯一的视角，但是它无疑为我们理解并创造新算法提供了可靠的范式。
-
-最早从亚当斯密（1723-1790）开始，经济学就一直是一个实证主义的社会科学。在他
-1776年的著作*国富论*中，充满着各种各样的经济轶事和数字观测。著名学者Ragnar
-Frisch (1895--1973)和 Jan Tinbergen (1903--1994), 作为经济学中的先驱者，
-在1969年首次获得了在经济学领域的诺贝尔奖。计量经济学为经济学数据和指标提供了
-定量的视角。它在现实世界的实践中熠熠生辉，从微观的家庭和企业到全球治理，无处不见它的身影。而时至今日，大数据的变革之风也为计量经济学方法的研究和探索提供了新的助力，因为计量经济学理论背后的数学逻辑也同样是基于概率论这一片土壤。
+从亚当斯密（1723-1790）开始，经济学就一直是实证主义的社会科学。他1776年发表的巨著*国富论*充满了各种的经济见闻和数字观测。计量经济学开创者Ragnar
+Frisch (1895--1973)和 Jan Tinbergen (1903--1994)的贡献，早在1969年首次颁发经济学诺贝尔奖就得到认可。计量经济学为经济学数据和指标提供了定量的视角，在现实世界的实践中熠熠生辉。从微观的家庭和企业到全球治理，无处不见它的身影。时至今日，大数据的变革之风也为计量经济学方法的研究和探索提供了新的助力，因为计量经济学理论背后的数学逻辑也同样是基于概率论这一片土壤。
 
 ## 概率论的公理
 
-对于日常生活中的不确定性，人们总会不由自主地怀起敬畏之心。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则会通过卜师来解读龟甲或者兽骨的裂纹。在现在的香港，占卜师也依然非常受到人们的欢迎。
+对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则会通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，算命先生也依然非常受到人们的欢迎。
 
 概率论就是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图抓住随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
 Kolmogorov
-(1903-1987)在他1933年发表的专题著作中为当代概率理论建起了第一座丰碑。当中使
-用的数学语言系统逻辑自洽，严丝合缝，为未来该领域的进一步探索提供了一个很好的
-支撑。目前，这些数学语言符号现在已经广泛地被学界所接受。
+(1903-1987)在他1933年发表的专题著作中为当代概率理论建起了第一座丰碑。当中使用的数学语言系统逻辑自洽，严丝合缝，为未来该领域的进一步探索提供了一个很好的支撑。目前，这一套数学语言已经广泛地被学界所接受。
 
-在这次的讲课中，我们将会简要介绍一下概率论的公理以及在本科阶段的*概率论与数理
-统计*中已经为我们所熟悉的理论。
-
-讲义可以参考
-
--   Hansen (2020): Introduction to Econometrics, or
-
--   Stachurski (2016): A Primer in Econometric Theory, or
-
--   Casella and Berger (2002): Statistical Inference (second edition)
-
-感兴趣的读者可以阅读这本教材来获得更详细的例子。
+在这次的讲课中，我们将会简要介绍一下概率论的公理以及在本科阶段的*概率论与数理统计*中已经为我们所熟悉的理论。
 
 ### 概率空间
 
-一个*样本空间* $\Omega$ 是所有可能结果的一个集合。*事件* $A$ 是$\Omega$
-的一个子集。一个用$\mathcal{F}$表示的$\sigma$-*field*
-，是满足如下条件的事件的集合：
+*样本空间* $\Omega$ 是所有可能结果的一个集合。*事件* $A$ 是$\Omega$
+的一个子集。我们常用$\mathcal{F}$表示的$\sigma$-*域* ($\sigma$ field)
+，它是满足如下条件的事件的集合：
 
-1.  $\emptyset\in\mathcal{F}$;
-
-2.  如果一个事件 $A\in\mathcal{F}$，那么也有 $A^{c}\in\mathcal{F}$;
-
-3.  如果 $A_{i}\in\mathcal{F}$ for $i\in\mathbb{N}$，那么
+1. $\emptyset\in\mathcal{F}$;
+2. 如果事件 $A\in\mathcal{F}$，则也有 $A^{c}\in\mathcal{F}$;
+3. 如果 $A_{i}\in\mathcal{F}$ for $i\in\mathbb{N}$，则
     $\bigcup_{i\in\mathbb{N}}A_{i}\in\mathcal{F}$。
 
-这意味着: (a) 既然有 $\Omega=\emptyset^{c}\in\mathcal{F}$，于是
-$\Omega\in\mathcal{F}$。 (b) 如果对于$i\in\mathbb{N}$有
-$A_{i}\in\mathcal{F}$ ，那么对于
-$i\in\mathbb{N}$，都有$A_{i}^{c}\in\mathcal{F}$。 因此，如果
+这意味着: (a) 既然 $\Omega=\emptyset^{c}\in\mathcal{F}$，则有
+$\Omega\in\mathcal{F}$。 (b) 如果对于 $i\in\mathbb{N}$ 有
+$A_{i}\in\mathcal{F}$ ，则对任意
+$i\in\mathbb{N}$ 都有 $A_{i}^{c}\in\mathcal{F}$。 因此，如果
 $\bigcup_{i\in\mathbb{N}}A_{i}^{c}\in\mathcal{F}$ ，可以得出
 $\bigcap_{i\in\mathbb{N}}A_{i}=(\bigcup_{i\in\mathbb{N}}A_{i}^{c})^{c}\in\mathcal{F}$.
 
-::: rem
--   1.1\*. 从直觉来看，$\sigma$-field
-    是一个供有限个集合进行并集、差集和交集操作的
-    封闭域。以上这些都是集合的代数计算。$\sigma$-field 同时也被称为
-    $\sigma$-algebra。
-:::
+```{prf:remark}
+从直觉来看，$\sigma$ 域允许由可数 (countable) 个集合。它是供这些集合进行并集、差集和交集操作的封闭域。以上这些都是集合的代数计算。所以 $\sigma$ 域也叫做 $\sigma$ 代数。
+```
 
 ::: Example
 \*\* 1.1\*\*. 令 $\Omega=\{1,2,3,4,5,6\}$ $\sigma$-*fields*
@@ -82,12 +60,19 @@ $\bigcap_{i\in\mathbb{N}}A_{i}=(\bigcup_{i\in\mathbb{N}}A_{i}^{c})^{c}\in\mathca
     $\mathcal{F}_{3}$。
 :::
 
-$\sigma$-field 是在样本空间的基础上建立的一个严谨的架构， 与之相对应的
+```{warning}
+please change $\sigma$-field to $\sigma$ 域.
+```
+
+$\sigma$域 是在样本空间的基础上建立的一个严谨的架构， 与之相对应的
 $\left(\Omega,\mathcal{F}\right)$ 被称之为*测度空间*。
 
-令
-$\mathcal{G}=\{B_{1},B_{2},\ldots\}$作为任意集合的一个组合，并非一定是
-$\sigma$-field。我们认为 $\mathcal{F}$ 是由$\mathcal{G}$产生的最小
+```{warning}
+need to revise the following paragraph. Unreadable.
+```
+
+令 $\mathcal{G}=\{B_{1},B_{2},\ldots\}$ 为任意集合的集合。
+$\mathcal{G}$ 不一定是 $\sigma$-field。我们称 $\mathcal{F}$ 为$\mathcal{G}$ 产生的最小
 $\sigma$-field ，如果满足条件
 $\mathcal{G}\subseteq\mathcal{F}$，而且对于任意的$\mathcal{\tilde{F}}$
 来说，由于$\mathcal{F}\subseteq\mathcal{\tilde{F}}$ ，因此我们可以得到
@@ -100,22 +85,32 @@ $\mathcal{R}$ 是在$\mathbb{R}$范围内由开放集生成的最小 $\sigma$-fi
 $$\sigma(A)=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.$$
 :::
 
-一个函数$\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]$
-如果满足如下条件 将会被视为一个*测度*
+如果函数$\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]$
+满足如下条件 
 
-1.  (非负性) $\mu\left(A\right)\geq0$ for all $A\in\mathcal{F}$;
+1. (非负性) $\mu\left(A\right)\geq0$ for all $A\in\mathcal{F}$;
 
-2.  (可列可加性) 如果 $A_{i}\in\mathcal{F}$,
-    $i\in\mathbb{N}$互不相交，那么
-    $$\mu\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\mu\left(A_{i}\right).$$
+2. (可列可加性) 如果 $A_{i}\in\mathcal{F}$,
+    $i\in\mathbb{N}$ 互不相交，则
+
+    $$
+    \mu\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\mu\left(A_{i}\right),
+    $$
+
+我们将该函数 $\mu$ 称为 *测度*
 
 测度可以类比宽度和长度来理解。通常情况下，如果满足条件$\mu\left(\Omega\right)=1$
-我们就可以称$\mu$ 为一个*概率测度*。 概率测度通常用符号$P$来指代。而
-$\left(\Omega,\mathcal{F},P\right)$ 就被称为一个 *概率空间*.
+我们就可以称$\mu$ 为*概率测度*。 概率测度通常用符号 $P$ 来指代。
+$\left(\Omega,\mathcal{F},P\right)$ 被称为一个 *概率空间*.
 
 目前为止我们已经回答了问题:
 "什么是一个数学意义上定义完备的概率?"，但我们还没有回答一个问题"怎么分布概率？"在概率分配中有两种主流的学派，一种是*频率学派*，他们把概率视作大样本实验之后出现结果的平均频率；一种是*贝叶斯学派*，他们把概率解释为对于事情发生的主观信心。两个学派的理论基本上互不兼容，他们的主张也各有优劣。
-以上这些在讨论假设检验章节时会详细提到。
+以上这些在讨论假设检验章节时会由涉猎。
+
+
+```{warning}
+ZT revised up here 7/1/2022
+```
 
 ### 随机变量
 
@@ -126,8 +121,13 @@ $\left(\Omega,\mathcal{F},P\right)$ 就被称为一个 *概率空间*.
 理论上, 公式 $X:\Omega\mapsto\mathbb{R}$ 是
 $\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)$
 *可测量的* 如果
-$$X^{-1}\left(B\right)=\left\{ \omega\in\Omega:X\left(\omega\right)\in B\right\} \in\mathcal{F}$$对于任何的
-$B\in\mathcal{R}，$ *随机变量*
+
+$$
+X^{-1}\left(B\right)=\left\{ \omega\in\Omega:X\left(\omega\right)\in B\right\} \in\mathcal{F}
+$$
+
+对于任何的
+$B\in\mathcal{R}$ *随机变量*
 是可测函数另一个带有浪漫气息的名字。*由随机变量*$X$生成的$\sigma$-field被定义为
 $\sigma\left(X\right)=\left\{ X^{-1}\left(B\right):B\in\mathcal{R}\right\}$.
 
@@ -147,7 +147,11 @@ $P$通过函数$X$所衍生推导出来的。
 
 我们回溯一下几个在本科概率论课程上曾经接触过的概念。一个*累积分布函数*
 （cumulative distribution function） $F:\mathbb{R}\mapsto[0,1]$ 被定义为
-$$F\left(x\right)=P\left(X\leq x\right)=P\left(\{X\leq x\}\right)=P\left(\left\{ \omega\in\Omega:X\left(\omega\right)\leq x\right\} \right).$$
+
+$$
+F\left(x\right)=P\left(X\leq x\right)=P\left(\{X\leq x\}\right)=P\left(\left\{ \omega\in\Omega:X\left(\omega\right)\leq x\right\} \right).
+$$
+
 它通常可以简写为 CDF，并且有如下性质：
 
 1.  $\lim_{x\to-\infty}F\left(x\right)=0$,
@@ -189,7 +193,12 @@ $\Omega$的分割。一个简单函数是 可测的。
 
 1.  令 $\left(\Omega,\mathcal{F},\mu\right)$ 为一个测度空间。 简单函数
     $X$的积分 与 $\mu$ 有关，是
-    $$\int X\mathrm{d}\mu=\sum_{i}a_{i}\mu\left(A_{i}\right).$$不同于黎曼积分，
+
+    $$
+    \int X\mathrm{d}\mu=\sum_{i}a_{i}\mu\left(A_{i}\right).
+    $$
+
+    不同于黎曼积分，
     这种积分的定义不需要等额地分割定义域。相反，它沿着函数的值域作相应的计算。
 
 2.  令 $X$ 作为一个非负的函数。$\mu$对于函数$X$的积分为：
@@ -258,7 +267,12 @@ $E\left[X\right]=\int xf\left(x\right)\mathrm{d}x$计算。这两个表达式被
 
 -   一个随机变量的分布往往可以被它的CDF和PDF清楚地表示。而矩条件同样也是分布的一个函数。为了从矩中找出暗含着的分布情况，我们需要知道矩的生成函数$M_{X}(t)=E[e^{tX}]$
     （$t\in\mathbb{R}$）。$r$阶矩可以基于mgf进行计算
-    $$E[X^{r}]=\frac{\mathrm{d}^{r}M_{X}(t)}{\mathrm{d}t^{r}}\big\vert_{t=0}.$$值得注意的是，就像矩一样，mgf也并非一定存在。
+
+    $$
+    E[X^{r}]=\frac{\mathrm{d}^{r}M_{X}(t)}{\mathrm{d}t^{r}}\big\vert_{t=0}.
+    $$
+    
+    值得注意的是，就像矩一样，mgf也并非一定存在。
 
 ## 多元随机变量
 
@@ -279,7 +293,12 @@ $f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)$
 
 在一个概率空间中 $(\Omega,\mathcal{F},P)$对于两个事件
 $A_{1},A_{2}\in\mathcal{F}$ ， *条件概率* 是
-$$P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}$$如果
+
+$$
+P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
+$$
+
+如果
 $P(A_{2})>0$的话。 在条件概率的定义中, $A_{2}$
 扮演了结果空间的角色，所以 $P(A_{1}A_{2})$ 被 $P(A_{2})$的值标准化了。
 如果 $P(A_{2})=0$，
@@ -311,8 +330,13 @@ $E[XY]=E[X]E[Y]$。即期望的积等于积的期望。
 $\mathcal{G}\subseteq\mathcal{F}$ 和一个 $\mathcal{F}$-测度函数
 $Y$满足条件$E\left|Y\right|<\infty$，*条件期望*
 $E\left[Y|\mathcal{G}\right]$ 被定义为
-$\mathcal{G}$-可测函数，使得对于所有的 $A\in\mathcal{G}$
-$$\int_{A}Y\mathrm{d}P=\int_{A}E\left[Y|\mathcal{G}\right]\mathrm{d}P$$在这里
+$\mathcal{G}$-可测函数，使得对于所有的 $A\in\mathcal{G}$:
+
+$$
+\int_{A}Y\mathrm{d}P=\int_{A}E\left[Y|\mathcal{G}\right]\mathrm{d}P
+$$
+
+在这里
 $\mathcal{G}$ 是一个粗糙的 $\sigma$-field， 而 $\mathcal{F}$
 是一个平滑的 $\sigma$-field。
 
@@ -363,5 +387,3 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
 
 **进一步了解**: @doob1996development
 总结了20世纪前半页概率论在公理上的发展。
-
-`Zhentao Shi. Sep 12, 2020.`
