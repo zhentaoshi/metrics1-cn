@@ -6,6 +6,7 @@ root: intro
 options:
   numbered: True
 chapters:
+- file: lecture2-CN
 - file: lecture3-CN
 - file: lecture5-CN
 

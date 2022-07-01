@@ -1,9 +1,9 @@
 # 前言
 
 ```{admonition} Imagine
-You may say I'm a dreamer, \
-But I'm not the only one. \
-I hope someday you'll join us, \
+You may say I'm a dreamer \
+But I'm not the only one \
+I hope someday you'll join us \
 And the world will live as one
 ```
 
