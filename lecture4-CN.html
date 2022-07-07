@@ -1,0 +1,825 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. 最小二乘: 有限样本理论 &#8212; 计量经济学讲义</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. 基本渐近理论" href="lecture5-CN.html" />
+    <link rel="prev" title="3. 最小二乘法：线性代数观点" href="lecture3-CN.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学讲义</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    前言
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-CN.html">
+   1. 概率论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-CN.html">
+   2. 投影
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3-CN.html">
+   3. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. 最小二乘: 有限样本理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-CN.html">
+   5. 基本渐近理论
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture4-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture4-CN.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture4-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.1. 有限样本分布
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+   4.2. 均值和方差
+   <span id="mean-and-variance" label="mean-and-variance">
+    [mean-and-variance]
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   4.3. 高斯-马尔可夫定理
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   4.4. 总结
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   4.5. 附录
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.5.1. 联合正态分布
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>最小二乘: 有限样本理论</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4.1. 有限样本分布
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+   4.2. 均值和方差
+   <span id="mean-and-variance" label="mean-and-variance">
+    [mean-and-variance]
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   4.3. 高斯-马尔可夫定理
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   4.4. 总结
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   4.5. 附录
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     4.5.1. 联合正态分布
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">4. </span>最小二乘: 有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>英文标点之后加一个空格</p></li>
+<li><p>英文的冠词”a”不一定要翻译出来“一个”。</p></li>
+<li><p>marginal distribution 边际分布</p></li>
+</ul>
+</div>
+<p>今天我们继续研究最小二乘法的性质. 我们选取有限样本精确分布为学习的主题.它可以很好地被用于统计推断.
+高斯-马尔可夫理论证明了满足经典假设的OLS的最优性.</p>
+<p>[Exercise. don’t need to translate yet] Two groups, control and treatment. If there are people in the control group and <span class="math notranslate nohighlight">\(n-1\)</span> people in the treatment group. What is the consequence?</p>
+<p>基于我们已经在前一讲中学习过的线性投影模型</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}y &amp; =x'\beta+e\end{aligned}, 
+\]</div>
+<p>投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 可以写作</p>
+<div class="math notranslate nohighlight" id="equation-eqn-1">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eqn-1" title="Permalink to this equation">#</a></span>\[
+\beta=\left(E\left[xx'\right]\right)^{-1}E\left[xy\right]. 
+\]</div>
+<p>我们从 <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布中取出一个观测值, 记作 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>. 重复此过程 <span class="math notranslate nohighlight">\(n\)</span> 次得到 <span class="math notranslate nohighlight">\(n\)</span> 个观测值, 即 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, 那么我们随即就得到了一个样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span>.</p>
+<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量. 将式 <a class="reference internal" href="#equation-eqn-1">(4.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
+ &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
+\end{split}\]</div>
+<p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>样本 $\left(y_{i},x_{i}\right)$ 到底是随机的呢？还是固定的呢？
+
+——在我们观测之前, 样本是随机变量, 而随机变量的值是不确定的. 当我们谈起样本的统计学性质时, 我们必须将其视之为随机变量, 因为只有随机变量才有统计学性质, 固定值的统计学性质是无意义的. 而在我们观测之后, 样本的值就确定下来了, 成为固定值, 不能再更改. 
+
+
+在实际操作中, 我们手中只有一些给定的数据 (当然, 现在的大数据也可以将文本, 照片声音和图像处理成为数据, 这些数据在计算机当中用0和1来表示) . 我们把这些数据扔给计算机, 让计算机给出一个结果. 在统计学意义上, 我们认为这些数字是从一个概率分布上得出的**思想实验**结果. 思想实验是一个学术用语, 说白了, 它就是一个故事. 在公理体系统治的概率论当中, 这个故事在数学上是自洽的. 但是要知道，数学本身是一个套套逻辑 (tautology) , 而不是科学. 
+
+而概率模型的科学价值恰恰在于, 它到底在多大程度上能够逼近事实的真相？以及, 它是不是能够帮我们预测一些真相？在这门课中, 我们假设数据来自于某种机制, 我们把这种机制当成真相. 比如, 在线性回归当中, $\left(y,x\right)$ 的联合分布就是我们头脑中的真相. 而我们想要研究的线性投影系数 $\beta$ 即为此真相的某个侧面表现形式. 
+</pre></div>
+</div>
+<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量. 将式 <a class="reference internal" href="#equation-eqn-1">(4.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
+ &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
+\end{split}\]</div>
+<p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点.</p>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>有限样本分布<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>我们可以看到有限样本精确分布 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 假设误差项满足服从分布.
+<strong>有限样本分布</strong> 意味着它适用于任何的 <span class="math notranslate nohighlight">\(n\)</span>; 与之相对的是<strong>渐近分布</strong>, 通过大样本来逼近有限样本分布.
+首先我们来复习正态随机向量的一些常见性质.</p>
+<p><span id="fact31" label="fact31">[fact31]</span> 令
+<span class="math notranslate nohighlight">\(z\sim N\left(\mu,\Omega\right)\)</span> 为 <span class="math notranslate nohighlight">\(l\times1\)</span> 的随机向量，其中 <span class="math notranslate nohighlight">\(\Omega\)</span> 为正定的方差与协方差矩阵.
+令 <span class="math notranslate nohighlight">\(A\)</span> 为
+<span class="math notranslate nohighlight">\(m\times l\)</span> 非随机矩阵，其中 <span class="math notranslate nohighlight">\(m\leq l\)</span>. 那么
+<span class="math notranslate nohighlight">\(Az\sim N\left(A\mu,A\Omega A'\right)\)</span>.</p>
+<p><span id="fact32" label="fact32">[fact32]</span>
+如果<span class="math notranslate nohighlight">\(z\sim N\left(0,1\right)\)</span>, <span class="math notranslate nohighlight">\(w\sim\chi^{2}\left(d\right)\)</span>, 且 <span class="math notranslate nohighlight">\(z\)</span> 和 <span class="math notranslate nohighlight">\(w\)</span>
+相互独立. 那么 <span class="math notranslate nohighlight">\(\frac{z}{\sqrt{w/d}}\sim t\left(d\right)\)</span>.</p>
+<p>我们使用最小二乘估计参数
+$<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'Y=\left(X'X\right)^{-1}X'\left(X'\beta+e\right)=\beta+\left(X'X\right)^{-1}X'e,\)</span><span class="math notranslate nohighlight">\(
+它的条件分布可以被写为： \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta}|X &amp; =\beta+\left(X'X\right)^{-1}X'e|X\\
+ &amp; \sim\beta+\left(X'X\right)^{-1}X'\cdot N\left(0_{n},\gamma I_{n}\right)\\
+ &amp; \sim N\left(\beta,\gamma\left(X'X\right)^{-1}X'X\left(X'X\right)^{-1}\right)\sim N\left(\beta,\gamma\left(X'X\right)^{-1}\right)\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+基于
+&lt;a href=&quot;#fact31&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact31&quot;&gt;[fact31]&lt;/a&gt;,
+\)</span>\hat{\beta}<span class="math notranslate nohighlight">\( 的第 \)</span>k<span class="math notranslate nohighlight">\( 个元素是：
+\)</span><span class="math notranslate nohighlight">\(\widehat{\beta}_{k}|X=\eta_{k}'\widehat{\beta}|X\sim N\left(\beta_{k},\gamma\eta_{k}'\left(X'X\right)^{-1}\eta_{k}\right)\sim N\left(\beta_{k},\gamma\left[\left(X'X\right)^{-1}\right]_{kk}\right),\)</span><span class="math notranslate nohighlight">\(
+其中 \)</span>\eta_{k}=\left(1\left{ l=k\right} \right)_{l=1,\ldots,K}<span class="math notranslate nohighlight">\( 用于
+选出第 \)</span>k$ 个元素.</p>
+<p>以上表达式中， <span class="math notranslate nohighlight">\(\gamma\)</span> 是一个未知参数. 我们可以用
+$<span class="math notranslate nohighlight">\(s^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)=e'M_{X}e/\left(n-K\right)\)</span><span class="math notranslate nohighlight">\(
+无偏地估计 \)</span>\gamma$, 其无偏性验证如下:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+E\left[s^{2}|X\right] &amp; =\frac{1}{n-K}E\left[e'M_{X}e|X\right]=\frac{1}{n-K}\mathrm{trace}\left(E\left[e'M_{X}e|X\right]\right)\\
+ &amp; =\frac{1}{n-K}\mathrm{trace}\left(E\left[M_{X}ee'|X\right]\right)=\frac{1}{n-K}\mathrm{trace}\left(M_{X}E\left[ee'|X\right]\right)\\
+ &amp; =\frac{1}{n-K}\mathrm{trace}\left(M_{X}\gamma I_{n}\right)=\frac{\gamma}{n-K}\mathrm{trace}\left(M_{X}\right)=\gamma\end{aligned}
+\end{split}\]</div>
+<p>其中我们使用了迹的性
+<span class="math notranslate nohighlight">\(\mathrm{trace}\left(AB\right)=\mathrm{trace}\left(BA\right)\)</span>.</p>
+<p>如果 <span class="math notranslate nohighlight">\(\beta_{k}^{*}\)</span> 是我们想要检验的值, 基于
+原假设 <span class="math notranslate nohighlight">\(H_{0}:\beta_{k}=\beta_{k}^{*}\)</span> 我们可以建立相应的 <span class="math notranslate nohighlight">\(t\)</span> 统计量
+$<span class="math notranslate nohighlight">\(T_{k}=\frac{\widehat{\beta}_{k}-\beta_{k}^{*}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}},\)</span><span class="math notranslate nohighlight">\(
+该统计量当中没有任何的未知数, 可以直接用数据计算. 当原假设成立时, \)</span>\beta_{k}=\beta_{k}^{*}$, 因此</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+T_{k} &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}} \\
+ &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\sigma^{2}}}{\sqrt{s^{2}}} \\
+ &amp; =\frac{\left(\widehat{\beta}_{k}-\beta_{0,k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}{\sqrt{\frac{e'}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}},
+\end{aligned}
+\end{split}\]</div>
+<p>此时我们引入 <span class="math notranslate nohighlight">\(\sigma^{2}=\gamma\)</span> 到第二个等式中来帮忙求出分布中最后一个表达式的分子和分母. 分子为
+$<span class="math notranslate nohighlight">\(\left(\widehat{\beta}_{k}-\beta_{k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}\sim N\left(0,1\right);\)</span><span class="math notranslate nohighlight">\(
+分母
+\)</span>\sqrt{\frac{e’}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}<span class="math notranslate nohighlight">\( 服从
+\)</span>\sqrt{\frac{1}{n-K}\chi^{2}\left(n-K\right)}$. 此外, 因为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\begin{bmatrix}\widehat{\beta}-\beta\\
+\widehat{e}
+\end{bmatrix} &amp; =\begin{bmatrix}\left(X'X\right)^{-1}X'e\\
+M_{X}e
+\end{bmatrix}=\begin{bmatrix}\left(X'X\right)^{-1}X'\\
+M_{X}
+\end{bmatrix}e\\
+ &amp; \sim\begin{bmatrix}\left(X'X\right)^{-1}X'\\
+M_{X}
+\end{bmatrix}\cdot N\left(0,\gamma I_{n}\right)\sim N\left(0,\gamma\begin{bmatrix}\left(X'X\right)^{-1} &amp; 0\\
+0 &amp; M_{X}
+\end{bmatrix}\right)\end{aligned}
+\end{split}\]</div>
+<p>符合方差为0非对角分块阵的联合正态分布, 因此 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta )\)</span> 和
+<span class="math notranslate nohighlight">\(\widehat{e}\)</span> 是相互独立的.  如果我们将 <span class="math notranslate nohighlight">\(X\)</span> 视为非随机的, 公式
+(<a href="#eq:t-stat" data-reference-type="ref" data-reference="eq:t-stat">[eq:t-stat]</a>)
+的分子和分母相互独立.
+通过
+<a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a> 我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span>.
+这使得我们可以进行统计推断.</p>
+</section>
+<section id="span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
+<h2><span class="section-number">4.2. </span>均值和方差<span id="mean-and-variance" label="mean-and-variance">[mean-and-variance]</span><a class="headerlink" href="#span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span" title="Permalink to this headline">#</a></h2>
+<p>现在我们放松正态分布假设和统计独立性.
+我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+E[e|X] &amp; =0_{n}\\
+\mathrm{var}\left[e|X\right] &amp; =E\left[ee'|X\right]=\sigma^{2}I_{n}.
+\end{aligned}
+\end{split}\]</div>
+<p>其中第一个条件被称为 <strong>均值独立</strong> 假设, 而第二个则被称为 <strong>同方差</strong> 假设.
+与正态分布假设不同, 它们对 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的分布没有限制.
+而只是限制了给定 <span class="math notranslate nohighlight">\(x_{i}\)</span> 后 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的一阶矩和二阶矩.
+这两个条件下，我们可以得到如下性质.</p>
+<ul>
+<li><p>无偏性: $<span class="math notranslate nohighlight">\(\begin{aligned}
+ E\left[\widehat{\beta}|X\right] &amp; =E\left[\left(X'X\right)^{-1}XY|X\right]=E\left[\left(X'X\right)^{-1}X\left(X'\beta+e\right)|X\right]\\
+  &amp; =\beta+\left(X'X\right)^{-1}XE\left[e|X\right]=\beta.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+ 根据期望迭代法则, 无条件期望为
+ \)</span>E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\beta.$
+无偏性不依赖同方差假设.</p></li>
+<li><p>因为 <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> 的方差是</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}\mathrm{var}\left[\widehat{\beta}|X\right] &amp; =E\left[\left(\widehat{\beta}-E\widehat{\beta}\right)\left(\widehat{\beta}-E\widehat{\beta}\right)'|X\right]\\
+     &amp; =E\left[\left(\widehat{\beta}-\beta\right)\left(\widehat{\beta}-\beta\right)'|X\right]\\
+     &amp; =E\left[\left(X'X\right)^{-1}X'ee'X\left(X'X\right)^{-1}|X\right]\\
+     &amp; =\left(X'X\right)^{-1}X'E\left[ee'|X\right]X\left(X'X\right)^{-1}.
+    \end{aligned}
+    \end{split}\]</div>
+<p>因此同方差假设可将其简化为</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}\mathrm{var}\left[\widehat{\beta}|X\right] &amp; =\left(X'X\right)^{-1}X'\left(\sigma^{2}I_{n}\right)X\left(X'X\right)^{-1}\\
+     &amp; =\sigma^{2}\left(X'X\right)^{-1}X'I_{n}X\left(X'X\right)^{-1}\\
+     &amp; =\sigma^{2}\left(X'X\right)^{-1}.
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+</ul>
+<p>···
+set an example environment
+···</p>
+<p>(异方差) 如果 <span class="math notranslate nohighlight">\(e_{i}=x_{i}u_{i}\)</span>, 其中 <span class="math notranslate nohighlight">\(x_{i}\)</span> 是一个标量的随机变量, <span class="math notranslate nohighlight">\(u_{i}\)</span> 独立于 <span class="math notranslate nohighlight">\(x_{i}\)</span>,
+<span class="math notranslate nohighlight">\(E\left[u_{i}\right]=0\)</span> 和 <span class="math notranslate nohighlight">\(E\left[u_{i}^{2}\right]=\sigma_{u}^{2}\)</span>.
+那么有
+<span class="math notranslate nohighlight">\(E\left[e_{i}|x_{i}\right]=E\left[x_{i}u_{i}|x_{i}\right]=x_{i}E\left[u_{i}|x_{i}\right]=0\)</span>
+但是
+<span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]=E\left[x_{i}^{2}u_{i}^{2}|x_{i}\right]=x_{i}^{2}E\left[u_{i}^{2}|x_{i}\right]=\sigma_{u}^{2}x_{i}^{2}\)</span>
+是 <span class="math notranslate nohighlight">\(x_{i}\)</span> 的函数, 因此 <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> 是一个异方差误差项.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="m">100</span>
+<span class="n">beta0</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nf">rpois</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">*</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># the source of heteroskedasticity</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">X</span> <span class="p">)</span> <span class="o">%*%</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">e</span>
+<span class="nf">plot</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 独立同分布 (independently and identically distributed， 简记为 iid)  并不能得出 <span class="math notranslate nohighlight">\(e_i\)</span> 同方差.
+同方差还是异方差是取决于单次观测中
+<span class="math notranslate nohighlight">\(\left(x_{i},e_{i}=y_{i}-\beta x\right)\)</span> 联合分布的内部关系,
+然而独立同分布与否取决于样本中不同次观测 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 和
+<span class="math notranslate nohighlight">\(\left(y_{j},x_{j}\right)\)</span> （<span class="math notranslate nohighlight">\(i\neq j\)</span>）之间的关系.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.3. </span>高斯-马尔可夫定理<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>高斯-马尔可夫定理（Gauss-Markov theorem）是关于OLS的有效
+的定理. 这里的 <strong>有效</strong> 指的是它在所有线性无偏估计量中方差最小.</p>
+<p>无偏线性估计量五花八门. 比如, <span class="math notranslate nohighlight">\(\left(Z'X\right)^{-1}Z'y\)</span> (
+<span class="math notranslate nohighlight">\(z_{i}=x_{i}^{2}\)</span>) 是无偏的，因为它满足
+<span class="math notranslate nohighlight">\(E\left[\left(Z'X\right)^{-1}Z'y\right]=E\left[\left(Z'X\right)^{-1}Z'\left(X\beta+e\right)\right]=\beta\)</span>.
+我们也已经通过 <span class="math notranslate nohighlight">\(E\left[\widehat{\beta}\right]=\beta\)</span> 证明了OLS是无偏的.
+从无偏性这个角度来讲，它们一样好.
+我们只能把目光转到第二个特性方差上面：如果一个估计量的方差更小，则认为这个估计量比其他的更好.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>separate it out as a remark</p>
+<p>对于两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span>， 如果其方差之差
+<span class="math notranslate nohighlight">\(\left(\Omega_{Y}-\Omega_{X}\right)\)</span> 是个半正定矩阵，则称
+<span class="math notranslate nohighlight">\(X\)</span> 的方差小于等于 <span class="math notranslate nohighlight">\(Y\)</span> 的方差.
+我们选择通过这种方式比较是因为对于任意非零常数向量 <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(X\)</span>的线性组合的方差不大于 <span class="math notranslate nohighlight">\(Y\)</span> 的相同线性组合的方差.
+$<span class="math notranslate nohighlight">\(\mathrm{var}\left(c'X\right)=c'\Omega_{X}c\leq c'\Omega_{Y}c=\mathrm{var}\left(c'Y\right)\)</span>$</p>
+</div>
+<p>令 <span class="math notranslate nohighlight">\(\tilde{\beta}=A'y\)</span> 为一个线性估计量, 其中 <span class="math notranslate nohighlight">\(n\times K\)</span> 矩阵 <span class="math notranslate nohighlight">\(A\)</span> 可以是 <span class="math notranslate nohighlight">\(X\)</span> 的某个函数.
+有
+$<span class="math notranslate nohighlight">\(E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta.\)</span><span class="math notranslate nohighlight">\(
+\)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( 的线性和无偏性要求
+\)</span>A’X=I_{n}$. 其方差满足</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}\left(A'y|X\right)=E\left[\left(A'y-\beta\right)\left(A'y-\beta\right)'|X\right]=E\left[A'ee'A|X\right]=\sigma^{2}A'A.
+\]</div>
+<p>令 <span class="math notranslate nohighlight">\(C=A-X\left(X'X\right)^{-1}.\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}A'A-\left(X'X\right)^{-1} &amp; =\left(C+X\left(X'X\right)^{-1}\right)'\left(C+X\left(X'X\right)^{-1}\right)-\left(X'X\right)^{-1}\\
+ &amp; =C'C+\left(X'X\right)^{-1}X'C+C'X\left(X'X\right)^{-1}\\
+ &amp; =C'C,
+\end{aligned}
+\end{split}\]</div>
+<p>其中最后一个等式有:
+$<span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}X'C=\left(X'X\right)^{-1}X'\left(A-X\left(X'X\right)^{-1}\right)=\left(X'X\right)^{-1}-\left(X'X\right)^{-1}=0.\)</span><span class="math notranslate nohighlight">\(
+因此得到 \)</span>A’A-\left(X’X\right)^{-1}<span class="math notranslate nohighlight">\( 是个半正定矩阵. 任意 \)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( 的方差都不可能小于 OLS
+估计量的方差 \)</span>\widehat{\beta}$. 上述推导表明了 OLS 在所有的线性无偏估计量中达到了最小方差.</p>
+<p>同方差是一个严苛的假设. 在同方差假设下,
+<span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
+常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即
+<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. 当存在异方差时, 高斯-马尔可夫定理不适用.</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.4. </span>总结<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>经典的数理统计推导基于误差项正态分布下在精确分布. 高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差.</p>
+<p><strong>This historical note comes from an earlier version</strong></p>
+<p><strong>Historical notes</strong>: 极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人.
+这些研究方法时至今日还占据着主流地位, 同时他尖锐地批评了贝叶斯学派的研究方法. Fisher 在他1936年的生物学研究中，搜集了一个150个样本
+的鸢尾花数据组，在R软件中输入指令<code class="docutils literal notranslate"><span class="pre">iris</span></code>就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
+比如充分统计量，辅助统计量，完备性和指数族等等.</p>
+<p><strong>Further reading</strong>: &#64;phillips1983exact 总结了计量经济学理论的精确小样本理论结果. 在这之后，计量经济学的理论研究转向了大样本理论.</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.5. </span>附录<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<section id="id6">
+<h3><span class="section-number">4.5.1. </span>联合正态分布<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>毫无疑问，在统计学推断中最经常遇到的分布就是正态分布，因为他是许多常见的统计量的渐进分布.
+此外，它有着许多独特的性质使得对于事物的计算大大简便了.在这里总结当中的部分性质.</p>
+<p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布.
+<span class="math notranslate nohighlight">\(N\left(\mu,\Sigma\right)\)</span>, 其中的 <span class="math notranslate nohighlight">\(\mu\)</span> 是一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 向量而
+<span class="math notranslate nohighlight">\(\Sigma\)</span> 则是一个 <span class="math notranslate nohighlight">\(n\times n\)</span> 对称正定矩阵. 概率密度函数是
+$<span class="math notranslate nohighlight">\(f_{y}\left(y\right)=\left(2\pi\right)^{-n/2}\left(\mathrm{det}\left(\Sigma\right)\right)^{-1/2}\exp\left(-\frac{1}{2}\left(y-\mu\right)'\Sigma^{-1}\left(y-\mu\right)\right)\)</span><span class="math notranslate nohighlight">\(
+其中 \)</span>\mathrm{det}\left(\cdot\right)<span class="math notranslate nohighlight">\( 是矩阵的行列式.
+矩量母函数则是：
+\)</span><span class="math notranslate nohighlight">\(M_{y}\left(t\right)=\exp\left(t'\mu+\frac{1}{2}t'\Sigma t\right).\)</span>$</p>
+<p>我们将在这里讨论一个随机变量的两个组成部分间的关系. 为了统一符号, $<span class="math notranslate nohighlight">\(Y=\left(\begin{array}{c}
+Y_{1}\\
+Y_{2}
+\end{array}\right)\sim N\left(\left(\begin{array}{c}
+\mu_{1}\\
+\mu_{2}
+\end{array}\right),\left(\begin{array}{cc}
+\Sigma_{11} &amp; \Sigma_{12}\\
+\Sigma_{21} &amp; \Sigma_{22}
+\end{array}\right)\right)\)</span><span class="math notranslate nohighlight">\( 当中 \)</span>Y_{1}<span class="math notranslate nohighlight">\( 是一个 \)</span>m\times1<span class="math notranslate nohighlight">\( 向量, 而
+\)</span>Y_{2}<span class="math notranslate nohighlight">\( 是一个 \)</span>\left(n-m\right)\times1<span class="math notranslate nohighlight">\( 向量. \)</span>\mu_{1}<span class="math notranslate nohighlight">\( 和 \)</span>\mu_{2}<span class="math notranslate nohighlight">\(
+是对应的平均向量. \)</span>\Sigma_{ij}<span class="math notranslate nohighlight">\(, \)</span>j=1,2<span class="math notranslate nohighlight">\( 则是相应的方差和协方差矩阵. 从此往后，我们一直保持假设： \)</span>Y=\left(Y_{1}’,Y_{2}’\right)’<span class="math notranslate nohighlight">\( 服从联合正态分布.
+事实
+&lt;a href=&quot;#fact31&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact31&quot;&gt;[fact31]&lt;/a&gt;
+这指出了正态分布一个非常方便的性质. 一般来说， 如果我们给定两个随机变量的联合概率密度函数，
+并且希望得到他们其中一个随机变量的边缘分布，我们需要把另一个变量从联合概率密度函数中
+积分出去. 然而，如果变量符合联合正态，那么另一个变量的信息与我们感兴趣的那个随机变量的边缘分布
+无关. 我们只需要知道我们关心的那一部分的信息，比如平均数 \)</span>\mu_{1}<span class="math notranslate nohighlight">\( 和方差
+\)</span>\Sigma_{11}<span class="math notranslate nohighlight">\( 来决定 \)</span>Y_{1}$ 的边缘分布.</p>
+<p><span id="fact:marginal"
+label="fact:marginal">[fact:marginal]</span>
+<span class="math notranslate nohighlight">\(Y_{1}\sim N\left(\mu_{1},\Sigma_{11}\right)\)</span> 的边缘分布.</p>
+<p>如果我们对于估计量的一些组成部分感兴趣的话，那么这个结论非常方便, 但它不能帮助我们搞懂估计量的完整向量. 例如,
+线性回归模型的OLS估计量
+<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span>, 如果满足以下经典假设 (i) 样本随机; (ii) <span class="math notranslate nohighlight">\(z_{i}\)</span> 和 <span class="math notranslate nohighlight">\(e_{i}\)</span> 独立; (iii)
+<span class="math notranslate nohighlight">\(e_{i}\sim N\left(0,\gamma\right)\)</span> ，那么会有
+$<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'y\)</span><span class="math notranslate nohighlight">\( 
+以及 \)</span>\widehat{\beta}<span class="math notranslate nohighlight">\( 的有限样本精确分布
+\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}-\beta\right)|X\sim N\left(0,\gamma\left(X'X\right)^{-1}\right)\)</span><span class="math notranslate nohighlight">\(
+如果我们只是对于
+\)</span>\beta_{0}^{\left(j\right)}<span class="math notranslate nohighlight">\( 的j阶组件的推断感兴趣, 那么根据
+&lt;a href=&quot;#fact:marginal&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact:marginal&quot;&gt;[fact:marginal]&lt;/a&gt;,
+\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}_{k}-\beta_{k}\right)/\left(X'X\right)_{kk}^{-1}\sim N\left(0,\gamma\right)\)</span><span class="math notranslate nohighlight">\(
+其中的 \)</span>\left[\left(X’X\right)^{-1}\right]_{kk}<span class="math notranslate nohighlight">\( 是 \)</span>\left(X’X\right)^{-1}<span class="math notranslate nohighlight">\( 的 \)</span>k$ 阶对角线元素. 边缘分布是独立于
+其他的组成部分的. 这使得我们不同将其他的组成部分积分出去. 如果向量的维度很高的话，这样的积分还会给我们带来不少的麻烦.</p>
+<p>总结来看, 两个随机变量的协方差为0只能表明他们是不相关的，然而统计上完全独立则是一个更强的要求.
+然而, 如果 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么协方差为0就可以等同于完全独立.</p>
+<p>如果 <span class="math notranslate nohighlight">\(\Sigma_{12}=0\)</span>, 那么 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 相互独立.</p>
+<p>如果 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是可逆的, 那么
+<span class="math notranslate nohighlight">\(Y'\Sigma^{-1}Y\sim\chi^{2}\left(\mathrm{rank}\left(\Sigma\right)\right)\)</span>.</p>
+<p>最后的一个结论在线性回归中十分有用. 如果
+<span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么<span class="math notranslate nohighlight">\(Y_{1}\)</span> 基于 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 的条件分布依然是联合正态分布.</p>
+<p>它们的均值和方差满足：
+<span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span>.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lecture3-CN.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>最小二乘法：线性代数观点</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lecture5-CN.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>基本渐近理论</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 史震涛 Shi Zhentao<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

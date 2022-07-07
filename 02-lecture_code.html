@@ -112,13 +112,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-CN.html">
+   1. 概率论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-CN.html">
+   2. 投影
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture3-CN.html">
-   1. 最小二乘法：线性代数观点
+   3. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4-CN.html">
+   4. 最小二乘: 有限样本理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   2. 基本渐近理论
+   5. 基本渐近理论
   </a>
  </li>
 </ul>
@@ -529,20 +544,6 @@ Number of Fisher Scoring iterations: 5
 $<span class="math notranslate nohighlight">\(E[e_i|x_i] = x_{1i} E[u_i|x_i] = 0\)</span><span class="math notranslate nohighlight">\( 
 is still satisfied, but 
 \)</span><span class="math notranslate nohighlight">\(E[e_i^2 |x_i] = x_{1i}^2 E[u_i^2 |x_i] = x_{1i}^2 \sigma^2.\)</span>$</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nf">rpois</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">*</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># the source of heteroskedasticity</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">X</span> <span class="p">)</span> <span class="o">%*%</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">e</span>
-<span class="nf">plot</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/02-lecture_code_12_0.png" src="_images/02-lecture_code_12_0.png" />
-</div>
-</div>
 <p>The OLS estimator is still consistent and asymptotically normal, but the asymptotic variance is difference from the case of homoskedasticity.</p>
 </section>
 

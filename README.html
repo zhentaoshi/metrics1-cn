@@ -112,13 +112,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-CN.html">
+   1. 概率论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-CN.html">
+   2. 投影
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture3-CN.html">
-   1. 最小二乘法：线性代数观点
+   3. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4-CN.html">
+   4. 最小二乘: 有限样本理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   2. 基本渐近理论
+   5. 基本渐近理论
   </a>
  </li>
 </ul>
@@ -308,6 +323,11 @@ title="Print to PDF"
    Jupyter-book
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#progress">
+   Progress
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -337,6 +357,11 @@ title="Print to PDF"
    Jupyter-book
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#progress">
+   Progress
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -350,8 +375,9 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="style-guideline">
 <h1>Style guideline<a class="headerlink" href="#style-guideline" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
+<li><p>When we emphasize some words, use <strong>黑体</strong>, instead of <em>斜体</em>. 后者不符合中文习惯。</p></li>
 <li><p>Foreigners’ names, unless household names like 高斯 or 欧拉, in general we don’t need to translate. (Done)</p></li>
-<li><p>Because sometime “.” also appear in math, let’s unify all 句号 into “.” in the text and math. It can be done with <em>find-and-replace</em> after we complete a chapter.</p></li>
+<li><p>还是恢复使用中文标点吧，除非句号出现在数学公式当中。It can be done with <em>find-and-replace</em> after we complete a chapter.</p></li>
 <li><p>Leave a space before and after a math symbol. 这样的 <span class="math notranslate nohighlight">\(\beta\)</span> 比<span class="math notranslate nohighlight">\(\beta\)</span>好看。 (Done)</p></li>
 </ul>
 <section id="format">
@@ -365,7 +391,7 @@ and display <a class="reference external" href="https://jupyterbook.org/en/stabl
 <ul class="simple">
 <li><p>To install Jupyter-book, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">jupyter-book</span></code> [<a class="reference external" href="https://jupyterbook.org/en/stable/start/overview.html">link</a>]</p></li>
 <li><p>To compile Jupyter-book, run in a terminal <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code> inside the folder of the ipynb book. The complied files can be find in an automatically generated folder <code class="docutils literal notranslate"><span class="pre">_build/html/</span></code></p></li>
-<li><p>To enable items such as proof, defenition, example, exercise… style formatting, run</p>
+<li><p>To enable items such as proof, definition, example, exercise… style formatting, run</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx-proof</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx-exercise</span></code></p></li>
@@ -373,6 +399,35 @@ and display <a class="reference external" href="https://jupyterbook.org/en/stabl
 </li>
 <li><p>The equations are labeled by using the <code class="docutils literal notranslate"><span class="pre">{eq}</span></code> role [<a class="reference external" href="https://jupyterbook.org/en/stable/content/math.html">link</a>]</p></li>
 </ul>
+</section>
+<section id="progress">
+<h2>Progress<a class="headerlink" href="#progress" title="Permalink to this headline">#</a></h2>
+<p><strong>Competed</strong></p>
+<ul class="simple">
+<li><p>Least squares: CX</p></li>
+<li><p>Basic asymptotics: CX</p></li>
+</ul>
+<p><strong>Just after first round</strong></p>
+<ul class="simple">
+<li><p>Probability: HY</p></li>
+<li><p>Projection:</p></li>
+</ul>
+<p><strong>Assigned</strong></p>
+<ul class="simple">
+<li><p>Hypothesis testing: CX</p></li>
+<li><p>OLS finite sample: HY</p></li>
+<li><p>Endogeneity: KY</p></li>
+</ul>
+<p><strong>Untouched</strong></p>
+<ul class="simple">
+<li><p>GMM</p></li>
+<li><p>MLE asym.</p></li>
+<li><p>OLS asym.</p></li>
+<li><p>Panel</p></li>
+</ul>
+<hr class="docutils" />
+<p>QR code for the webpage</p>
+<p><img alt="QRcode" src="_images/qrcode.png" /></p>
 </section>
 </section>
 
