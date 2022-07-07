@@ -2,7 +2,7 @@
 
 * When we emphasize some words, use **黑体**, instead of *斜体*. 后者不符合中文习惯。
 * Foreigners' names, unless household names like 高斯 or 欧拉, in general we don't need to translate. (Done)
-* Because sometime "." also appear in math, let's unify all 句号 into "." in the text and math. It can be done with *find-and-replace* after we complete a chapter.
+* 还是恢复使用中文标点吧，除非句号出现在数学公式当中。It can be done with *find-and-replace* after we complete a chapter.
 * Leave a space before and after a math symbol. 这样的 $\beta$ 比$\beta$好看。 (Done)
 
 ## Format
