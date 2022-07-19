@@ -36,16 +36,18 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 * Probability: HY
 * Projection:
 * OLS finite sample: HY
+* OLS asym: HY
+* Hypothesis testing: CX
 
 **Assigned**
-* Hypothesis testing: CX
+
 * Endogeneity: KY
-* OLS asym: HY
+* Panel: HY
 
 **Untouched**
 * GMM
 * MLE asym.
-* Panel
+
 
 ---
 
