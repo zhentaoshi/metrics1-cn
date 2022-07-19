@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>最小二乘法的渐近性质 &#8212; 计量经济学讲义</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学讲义</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    前言
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-CN.html">
+   1. 概率论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-CN.html">
+   2. 投影
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3-CN.html">
+   3. 最小二乘法：线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4-CN.html">
+   4. 最小二乘法: 有限样本理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-CN.html">
+   5. 基本渐近理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture8-CN.html">
+   6. 假设检验
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture6-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture6-CN.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture6-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   一致性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   渐近分布
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   渐近推断
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   总结
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   附录
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>最小二乘法的渐近性质</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   一致性
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   渐近分布
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   渐近推断
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   总结
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   附录
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>最小二乘法的渐近性质<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>在先前的章节中，我们已经学到了一些基本的渐近理论。我们可以应用这些结论来学习OLS统计量<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'Y\)</span>的各种性质。 这是我们课程中的核心部分。在本章节我们将会展示：（i） <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 的一致估计量；（ii）<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 满足渐近正态分布；（iii） 渐近正态性使得可以对于 <span class="math notranslate nohighlight">\(\beta\)</span> 有渐近收敛；（iiii）在什么条件假设下我们可以提出一个可行的检验过程，从而对检验统计量中的方差分量作出一致估计。</p>
+<section id="id2">
+<h2>一致性<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p><strong>一致性</strong>是大样本估计中对于估计量最基本的要求。根据我们的直觉，对于一个任意大小的样本量，一个理想的估计量应该尽可能接近（依概率收敛）至真实值。如果有一个估计量，通过无限样本得出的估计以后仍然与真实值存在偏差，那么恐怕也很难说服其他的学者使用这个估计量。</p>
+<p>不失普遍性，对于估计量 <span class="math notranslate nohighlight">\(\widehat{\theta}\)</span> ，如果满足 <span class="math notranslate nohighlight">\(\widehat{\theta}\stackrel{p}{\to}\theta\)</span> ，那么认为 <span class="math notranslate nohighlight">\(\widehat{\theta}\)</span> 是 <span class="math notranslate nohighlight">\(\theta\)</span> 的<strong>一致估计</strong>，其中 <span class="math notranslate nohighlight">\(\theta\)</span> 是非随机对象。</p>
+<p>在OLS当中，如果<span class="math notranslate nohighlight">\(n\to\infty\)</span> 时 <span class="math notranslate nohighlight">\(\widehat{\beta}\stackrel{p}{\to}\beta\)</span> ，那么我们认为 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是<strong>一致的</strong>。其中的 <span class="math notranslate nohighlight">\(\beta\)</span> 是模型 <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span> with <span class="math notranslate nohighlight">\(E\left[x_{i}e_{i}\right]=0\)</span> 的线性映射系数。</p>
+<p>为了验证存在的<strong>一致性</strong>，我们参考公式</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\beta}-\beta=\left(X'X\right)^{-1}X'e=\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}e_{i}.\label{eq:ols_d}
+\]</div>
+<p>为了简化理解，在本章节中我们只考虑独立同分布（iid）的情况。<br />
+通过大数定律（LLN）我们可以得到：</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{Q}:=\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\stackrel{p}{\to}Q:=E\left[x_{i}x_{i}'\right].
+\]</div>
+<p>这里的 <span class="math notranslate nohighlight">\(\widehat{Q}\)</span> 是 <span class="math notranslate nohighlight">\(x_{i}x_{i}'\)</span> , <span class="math notranslate nohighlight">\(Q\)</span> 则是 <span class="math notranslate nohighlight">\(x_{i}x_{i}'\)</span> 的总体均值。</p>
+<p>同样根据LLN，我们可以得到第二个式子：</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{n}\sum_{i=1}^{n}x_{i}e_{i}\stackrel{p}{\to}0.
+\]</div>
+<p>基于连续映射定理有：</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\beta}-\beta\stackrel{p}{\to}Q^{-1}\times0=0.
+\]</div>
+<p>里面的 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是 <span class="math notranslate nohighlight">\(\beta\)</span> 的 一致估计量。</p>
+<div class="admonition-remark admonition">
+<p class="admonition-title">Remark</p>
+<p>无论 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> 是否满足独立同分布，或者相依样本，或独立但不同分布。
+只要上述的两个表达式满足依概率收敛，同时 <span class="math notranslate nohighlight">\(Q\)</span> 是可逆矩阵。</p>
+</div>
+</section>
+<section id="id3">
+<h2>渐近分布<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>在有限样本中，<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是随机变量。先前我们已经展示过正态分布的下的 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 。没有了正态分布假设的约束，我们将如何描述OLS估计量的随机性呢？</p>
+<p>从前面的部分我们已经学到了，<span class="math notranslate nohighlight">\(\hat{\beta}-\beta\stackrel{p}{\to}0\)</span> 会归于一个常数。为了研究它们的分布，我们需要用一个合适的乘数把它放大，使得它即不会收敛也不会发散。这个合适的参数就是 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> 。<br />
+在中心极限定理（CLT）中：</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{n}\left(\widehat{\beta}-\beta\right)=\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}e_{i}.
+\]</div>
+<p>既然 <span class="math notranslate nohighlight">\(E\left[x_{i}e_{i}\right]=0\)</span> ，我们应用中心极限定理得到：</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{\sqrt{n}}\sum_{i=1}^{n}x_{i}e_{i}\stackrel{d}{\to}N\left(0,\Sigma\right)
+\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\Sigma=E\left[x_{i}x_{i}'e_{i}^{2}\right]\)</span> 。
+根据连续映射定理有：</p>
+<div class="math notranslate nohighlight" id="equation-eq-asym-norm">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-asym-norm" title="Permalink to this equation">#</a></span>\[
+\sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}Q^{-1}\times N\left(0,\Sigma\right)\sim N\left(0,\Omega\right)\label{eq:asym_norm}
+\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}\)</span> 被称为<strong>渐进方差</strong>。
+得到的结果是OLS估计量的<strong>渐近正态性</strong>。</p>
+<p><span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}\)</span> 被称之为<strong>三明治形式</strong>。在条件同方差的情况下，可以将其简化为：</p>
+<div class="math notranslate nohighlight">
+\[
+E\left[e_{i}^{2}|x_{i}\right]=\sigma^{2}
+\]</div>
+<p>（对于所有的 <span class="math notranslate nohighlight">\(i\)</span> 来说）<br />
+从而得到</p>
+<div class="math notranslate nohighlight">
+\[
+\Sigma=E\left[x_{i}x_{i}'e_{i}^{2}\right]=E\left[x_{i}x_{i}'E\left[e_{i}^{2}|X\right]\right]=\sigma^{2}E\left[x_{i}x_{i}'\right]=\sigma^{2}Q.
+\]</div>
+<p>在这个例子里，<span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}=\sigma^{2}Q^{-1}\)</span> ，可以因此推出：</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}N\left(0,\sigma^{2}Q^{-1}\right).\label{eq:asym_norm_homo}
+\]</div>
+<p>如果对于 <span class="math notranslate nohighlight">\(k\)</span> 阶参数 <span class="math notranslate nohighlight">\(\beta_{k}\)</span> 感兴趣，那么<a class="reference internal" href="#equation-eq-asym-norm">()</a>中的联合分布能够体现</p>
+<div class="math notranslate nohighlight" id="equation-eq-asym-norm-homok-pivot">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-asym-norm-homok-pivot" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{aligned}
+\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right) &amp; =\sqrt{n}\eta_{k}'\left(\widehat{\beta}-\beta\right)\nonumber \\
+ &amp; \stackrel{d}{\to}N\left(0,\sigma^{2}\eta_{k}'Q^{-1}\eta_{k}\right)\sim N\left(0,\sigma^{2}[Q^{-1}]_{kk}\right),\label{eq:asym_norm_homok}\end{aligned}
+\end{split}\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\eta_{k}=\left(0,\ldots,0,1,0\ldots,0\right)'\)</span>是 <span class="math notranslate nohighlight">\(k\)</span> 阶元素的选择器。
+<a class="reference internal" href="#equation-eq-asym-norm">()</a>的两边乘上 <span class="math notranslate nohighlight">\(\Omega^{-1/2}\)</span> ，我们就能得到</p>
+<div class="math notranslate nohighlight" id="equation-eq-asym-norm-pivot">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-asym-norm-pivot" title="Permalink to this equation">#</a></span>\[
+\Omega^{-1/2}\sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}N\left(0,I_{K}\right).\label{eq:asym_norm-pivot}
+\]</div>
+<p>我们说<a class="reference internal" href="#equation-eq-asym-norm-pivot">()</a>中的渐近分布 <span class="math notranslate nohighlight">\(N\left(0,I_{K}\right)\)</span> 是<strong>枢轴量</strong>。因为它并不涉及任何的未知参数。<br />
+相反，<a class="reference internal" href="#equation-eq-asym-norm">()</a>中的渐近分布不是枢轴量，因为 <span class="math notranslate nohighlight">\(\Omega\)</span> 在 <span class="math notranslate nohighlight">\(N\left(0,\Omega\right)\)</span> 中是未知的。</p>
+<p>如果我们想要了解 <span class="math notranslate nohighlight">\(\beta_{k}\)</span> 我们可以将<a class="reference internal" href="#equation-eq-asym-norm-pivot">()</a>以枢轴量的形式写到如下公式中：</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}\stackrel{d}{\to}N\left(0,1\right).\label{eq:asym_norm_homok_pivot}
+\]</div>
+</section>
+<section id="id4">
+<h2>渐近推断<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>目前为止，我们已经得到了 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近分布。然后，只有 <span class="math notranslate nohighlight">\(\Omega\)</span> 已知的时候，<a class="reference internal" href="#equation-eq-asym-norm">()</a>or <a class="reference internal" href="#equation-eq-asym-norm-pivot">()</a> 才能在统计推断中派上用场。在现实情况中，通常 <span class="math notranslate nohighlight">\(\Omega\)</span> 是未知的，因此需要先估计再做出统计推断。</p>
+<p>假设 <span class="math notranslate nohighlight">\(\tilde{\Omega}\)</span> 是 <span class="math notranslate nohighlight">\(\Omega\)</span> 的任意是任意的一致估计量。依据 <span class="math notranslate nohighlight">\(\tilde{\Omega}\stackrel{p}{\to}\Omega\)</span> ，我们用 <span class="math notranslate nohighlight">\(\Omega\)</span> 替代<a class="reference internal" href="#equation-eq-asym-norm-pivot">()</a>中的 <span class="math notranslate nohighlight">\(\tilde{\Omega}\)</span> ，我们就能得到：</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\tilde{\Omega}^{-1/2}\sqrt{n}\left(\widehat{\beta}-\beta\right) &amp; =\tilde{\Omega}^{-1/2}\Omega^{1/2}\times\Omega^{-1/2}\sqrt{n}\left(\widehat{\beta}-\beta\right).\end{aligned}
+\]</div>
+<p>因为 <span class="math notranslate nohighlight">\(\Omega\)</span> 是正定的，根据连续映射定理我们就会得到 <span class="math notranslate nohighlight">\(\tilde{\Omega}^{-1/2}\Omega^{1/2}\stackrel{p}{\to}I_{K}\)</span> 。第二是通过<a class="reference internal" href="#equation-eq-asym-norm-pivot">()</a>得到的渐近正态。因此<strong>Slutsky’s theorem</strong>表示了</p>
+<div class="math notranslate nohighlight" id="equation-eq-asym-norm-feasible">
+<span class="eqno">()<a class="headerlink" href="#equation-eq-asym-norm-feasible" title="Permalink to this equation">#</a></span>\[
+\tilde{\Omega}^{-1/2}\sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}N\left(0,I_{K}\right)\label{eq:asym_norm_feasible}
+\]</div>
+<p>而<a class="reference internal" href="#equation-eq-asym-norm-feasible">()</a>是一个用于统计推断的可靠统计量。</p>
+<p>我们遇到的下一个问题是如何一致估计 <span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}\)</span> ，或者说我们如何想出合适的 <span class="math notranslate nohighlight">\(\tilde{\Omega}\)</span> 。我们之前已经有了  <span class="math notranslate nohighlight">\(\widehat{Q}\stackrel{p}{\to}Q\)</span> 。如果我们 <span class="math notranslate nohighlight">\(\Sigma\)</span> 的一致估计量 <span class="math notranslate nohighlight">\(\tilde{\Sigma}\)</span> ，我们可以将一致估计量插入，形成 <span class="math notranslate nohighlight">\(\tilde{\Omega}=\widehat{Q}^{-1}\tilde{\Sigma}\widehat{Q}^{-1}\)</span> 。现在我们遇到了一个棘手的问题——如何一致估计<span class="math notranslate nohighlight">\(\Sigma=E\left[x_{i}x_{i}'e_{i}^{2}\right]\)</span> 。实际上，我们不能用样本均值 <span class="math notranslate nohighlight">\(x_{i}x_{i}'e_{i}^{2}\)</span> 来估计，因为 <span class="math notranslate nohighlight">\(e_{i}\)</span> 无法观测。</p>
+<p>基于同方差有：<span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}=\sigma^{2}Q^{-1}\)</span>，相似地我们不能用 <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> 来估计 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 。</p>
+<p>异方差在计量经济学中无处不见。一个能够自然产生条件异方差的例子是 <strong>线性概率模型</strong> <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span> 。<span class="math notranslate nohighlight">\(y_{i}\in\left\{ 0,1\right\}\)</span> 是一个二元因变量。 把CEF假设为 <span class="math notranslate nohighlight">\(E\left[y_{i}|x_{i}\right]=x_{i}'\beta\)</span> ，那么我们可以使用OLS的来估计 <span class="math notranslate nohighlight">\(\beta\)</span> 。<br />
+条件方差为:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}\left[e_{i}|x_{i}\right]=\mathrm{var}\left[y_{i}|x_{i}\right]=E\left[y_{i}|x_{i}\right]\left(1-E\left[y_{i}|x_{i}\right]\right)=x_{i}'\beta\left(1-x_{i}'\beta\right)
+\]</div>
+<p>这里的条件方差随着 <span class="math notranslate nohighlight">\(x_{i}\)</span> 而发生改变。</p>
+<p>如果用OLS的残差 <span class="math notranslate nohighlight">\(\widehat{e}_{i}=\widehat{y}_{i}-x_{i}'\widehat{\beta}\)</span> 代替回归误差 <span class="math notranslate nohighlight">\(e_{i}\)</span>，那么我们就可以得到同方差的估计量 <span class="math notranslate nohighlight">\(\widehat{\Omega}=\widehat{\sigma}^{2}\widehat{Q}^{-1}\)</span> <br />
+当中满足<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)\)</span> 或
+<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/n\)</span></p>
+<p>如果是异方差，得到的估计量为：<span class="math notranslate nohighlight">\(\widehat{\Omega}=\widehat{Q}^{-1}\widehat{\Sigma}\widehat{Q}^{-1}\)</span><br />
+相应地：<span class="math notranslate nohighlight">\(\widehat{\Sigma}=n^{-1}\sum_{i}x_{i}x_{i}'\widehat{e}_{i}^{2}\)</span></p>
+<p>如果我们选用 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)\)</span> 然后替换<a class="reference internal" href="#equation-eq-asym-norm-homok-pivot">()</a>中的 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> ，那么 <span class="math notranslate nohighlight">\(T_{k}=\frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\widehat{\sigma}^{2}[\widehat{Q}^{-1}]_{kk}}}\)</span> 的结果就等于有限样本估计中的 <span class="math notranslate nohighlight">\(t\)</span> 统计量。</p>
+<p>之前我们学过，在经典的误差项正态分布的假设中， <span class="math notranslate nohighlight">\(t\)</span> 统计量遵循精确有限样本 <span class="math notranslate nohighlight">\(t\)</span> 分布，自由度为 <span class="math notranslate nohighlight">\(n-K\)</span> 。在渐近分析中，如果满足公式<span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]&lt;\infty\)</span> ，我们允许 <span class="math notranslate nohighlight">\(e_{i}\)</span> 遵循任何的分布。（这个假设是为了简化，在后续<strong>inid</strong>的案例中可以进一步放松）渐近的正态性允许我们进行渐近的统计推断。对于 <span class="math notranslate nohighlight">\(t\)</span> 统计量，我们需要从正态分布中得出临界值。<br />
+因为如果 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> 成立，相应有：</p>
+<div class="math notranslate nohighlight">
+\[
+T_{k}=\frac{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}{\sqrt{\widehat{\sigma}^{2}[\widehat{Q}^{-1}]_{kk}}}\cdot\frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}\stackrel{d}{\to}1\times N\left(0,1\right)\sim N\left(0,1\right)
+\]</div>
+<p>（<strong>By Slutsky’s theorem</strong>）</p>
+<p>下一部分将会涉及到：
+<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> 和
+<span class="math notranslate nohighlight">\(\widehat{\Sigma}\stackrel{p}{\to}\Sigma\)</span>.</p>
+</section>
+<section id="id5">
+<h2>总结<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>渐近理论中最重要的技巧之一就是不等式。这些方差的推导一开始看起来很复杂，实际上在各种的证明推导中都会遇见。之后的学习中再被慢慢“折磨”几年，也就逐渐习惯了这些常规的计算了。</p>
+<div class="admonition- admonition">
+<p class="admonition-title">历史趣闻</p>
+<p>&#64;white1980heteroskedasticity
+他主要关注违反经典统计假设的经济背景非线性回归。这些从而引起了计量经济学家们对统计推断中方差估计的关注或痴迷，在接下来的几十年里，出现了大量不遵循经典假设的方差估计理论。</p>
+</div>
+<div class="admonition- admonition">
+<p class="admonition-title">拓展阅读</p>
+<p>在本章中，所有的向量的维度都是有限的，如果 <span class="math notranslate nohighlight">\(K\to\infty\)</span> 的速率比 <span class="math notranslate nohighlight">\(n\)</span> 小得多，其中的结论可以被推广到 <span class="math notranslate nohighlight">\(K\)</span> 无限的情况。这样的渐近将需要多个指数，并且它超出了我们在这里学到的最简单的 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 的情况。大数据伴随着复杂的模型，模型往往随着 <span class="math notranslate nohighlight">\(n\)</span> 的增加而变得更加复杂。在我最新的论文 &#64;shi2020high 的证明中，你会发现大量与本章节类似的不等式运算。</p>
+</div>
+</section>
+<section id="id6">
+<h2>附录<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>我们在这里介绍确定性情况的符号 <em>big Op and small op</em> ，与之相对的是随机情况的 <em>big O and small o</em> 符号。</p>
+<ul>
+<li><p>Small op: <span class="math notranslate nohighlight">\(x_{n}=o_{p}\left(r_{n}\right)\)</span> if
+<span class="math notranslate nohighlight">\(x_{n}/r_{n}\stackrel{p}{\to}0\)</span>.</p></li>
+<li><p>Big Op: <span class="math notranslate nohighlight">\(x_{n}=O_{p}\left(r_{n}\right)\)</span> if for any <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>,
+there exists a <span class="math notranslate nohighlight">\(c&gt;0\)</span> such that
+<span class="math notranslate nohighlight">\(P\left(\left|x_{n}\right|/r_{n}&gt;c\right)&lt;\varepsilon\)</span>.</p>
+<p>一些推导:</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(o_{p}\left(1\right)+o_{p}\left(1\right)=o_{p}\left(1\right)\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(o_{p}\left(1\right)+O_{p}\left(1\right)=O_{p}\left(1\right)\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(o_{p}\left(1\right)O_{p}\left(1\right)=o_{p}\left(1\right)\)</span>.</p></li>
+</ul>
+<p><em>big Op and small op</em> 使得我们可以在表示随机对象的随机顺序时依然可以继续使用等式计算。</p>
+<p><code class="docutils literal notranslate"> <span class="pre">Zhentao</span> <span class="pre">Shi.</span> <span class="pre">Oct</span> <span class="pre">21,</span> <span class="pre">2020.</span></code></p>
+<p>\bibliographystyle{chicagoa}</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 史震涛 Shi Zhentao<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

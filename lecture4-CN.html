@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>4. 最小二乘: 有限样本理论 &#8212; 计量经济学讲义</title>
+    <title>4. 最小二乘法: 有限样本理论 &#8212; 计量经济学讲义</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -130,12 +130,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. 最小二乘: 有限样本理论
+   4. 最小二乘法: 有限样本理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
    5. 基本渐近理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture8-CN.html">
+   6. 假设检验
   </a>
  </li>
 </ul>
@@ -388,7 +393,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>最小二乘: 有限样本理论</h1>
+                <h1>最小二乘法: 有限样本理论</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -444,7 +449,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">4. </span>最小二乘: 有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">4. </span>最小二乘法: 有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>今天我们继续研究最小二乘法的性质. 我们选取有限样本精确分布为学习的主题.它可以很好地被用于统计推断.
 高斯-马尔可夫理论证明了满足经典假设的OLS的最优性.</p>
 <div class="admonition-exercise admonition">
@@ -469,7 +474,7 @@ title="Print to PDF"
 \widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
  &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
 \end{split}\]</div>
-<p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点。</p>
+<p>上式假设中 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的。 这是一种理解最小二乘法的观点。</p>
 <div class="admonition-remark admonition">
 <p class="admonition-title">Remark</p>
 <p>样本<span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 到底是随机的呢？还是固定的呢？</p>
@@ -477,7 +482,7 @@ title="Print to PDF"
 <p>在实际操作中, 我们手中只有一些给定的数据 (当然, 现在的大数据也可以将文本, 照片声音和图像处理成为数据, 这些数据在计算机当中用0和1来表示)。 我们把这些数据扔给计算机, 让计算机给出一个结果. 在统计学意义上, 我们认为这些数字是从一个概率分布上得出的<strong>思想实验</strong>结果. 思想实验是一个学术用语, 说白了, 它就是一个故事. 在公理体系统治的概率论当中, 这个故事在数学上是自洽的。 但是要知道，数学本身是一个套套逻辑 (tautology) , 而不是科学。</p>
 <p>而概率模型的科学价值恰恰在于, 它到底在多大程度上能够逼近事实的真相？以及, 它是不是能够帮我们预测一些真相？在这门课中, 我们假设数据来自于某种机制, 我们把这种机制当成真相. 比如, 在线性回归当中, <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布就是我们头脑中的真相. 而我们想要研究的线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 即为此真相的某个侧面表现形式.</p>
 </div>
-<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量。 将式 <code class="xref eq docutils literal notranslate"><span class="pre">eqn:1</span></code> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作：</p>
+<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量。 将式 <a class="reference internal" href="#equation-eqn-label1">(4.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -549,8 +554,8 @@ T_{k}=\frac{\widehat{\beta}_{k}-\beta_{k}^{*}}{\sqrt{s^{2}\left[\left(X'X\right)
 \]</div>
 <p>该统计量当中没有任何的未知数, 可以直接用数据计算.
 当原假设成立时, <span class="math notranslate nohighlight">\(\beta_{k}=\beta_{k}^{*}\)</span> , 因此</p>
-<div class="math notranslate nohighlight" id="equation-eq-t-stat">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-t-stat" title="Permalink to this equation">#</a></span>\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eqn-t-stat">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eqn-t-stat" title="Permalink to this equation">#</a></span>\[\begin{split}
 \begin{aligned}
 T_{k} &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}} \\
  &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\sigma^{2}}}{\sqrt{s^{2}}} \\
@@ -583,17 +588,15 @@ M_{X}
 \end{bmatrix}\right)\end{aligned}
 \end{split}\]</div>
 <p>符合方差为0非对角分块阵的联合正态分布, 因此 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta )\)</span> 和
-<span class="math notranslate nohighlight">\(\widehat{e}\)</span> 是相互独立的.  如果我们将 <span class="math notranslate nohighlight">\(X\)</span> 视为非随机的, 公式
-(<a href="#eq:t-stat" data-reference-type="ref" data-reference="eq:t-stat">[eq:t-stat]</a>)
-的分子和分母相互独立.
+<span class="math notranslate nohighlight">\(\widehat{e}\)</span> 是相互独立的.  如果我们将 <span class="math notranslate nohighlight">\(X\)</span> 视为非随机的, 公式<a class="reference internal" href="#equation-eqn-t-stat">(4.2)</a> 的分子和分母相互独立.
 通过
 <a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a> 我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span>.
 这使得我们可以进行统计推断。</p>
 </section>
 <section id="span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span">
 <h2><span class="section-number">4.2. </span>均值和方差<span id="mean-and-variance" label="mean-and-variance">[mean-and-variance]</span><a class="headerlink" href="#span-id-mean-and-variance-label-mean-and-variance-mean-and-variance-span" title="Permalink to this headline">#</a></h2>
-<p>现在我们放松正态分布假设和统计独立性.
-我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设</p>
+<p>现在我们放松正态分布假设和统计独立性。
+我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -602,16 +605,25 @@ E[e|X] &amp; =0_{n}\\
 \end{aligned}
 \end{split}\]</div>
 <p>其中第一个条件被称为 <strong>均值独立</strong> 假设, 而第二个则被称为 <strong>同方差</strong> 假设.
-与正态分布假设不同, 它们对 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的分布没有限制.
-而只是限制了给定 <span class="math notranslate nohighlight">\(x_{i}\)</span> 后 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的一阶矩和二阶矩.
+与正态分布假设不同, 它们对 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的分布没有限制；
+而只是限制了给定 <span class="math notranslate nohighlight">\(x_{i}\)</span> 后 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的一阶矩和二阶矩。
 这两个条件下，我们可以得到如下性质。</p>
+<ul class="simple">
+<li><p>无偏性:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    E\left[\widehat{\beta}|X\right] &amp; =E\left[\left(X'X\right)^{-1}XY|X\right]=E\left[\left(X'X\right)^{-1}X\left(X'\beta+e\right)|X\right]\\
+     &amp; =\beta+\left(X'X\right)^{-1}XE\left[e|X\right]=\beta.\end{aligned}
+\end{split}\]</div>
+<p>根据期望迭代法则, 无条件期望为</p>
+<div class="math notranslate nohighlight">
+\[
+E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\beta.
+\]</div>
+<p>无偏性不依赖同方差假设.</p>
 <ul>
-<li><p>无偏性:
-$<span class="math notranslate nohighlight">\(\begin{aligned}
- E\left[\widehat{\beta}|X\right] &amp; =E\left[\left(X'X\right)^{-1}XY|X\right]=E\left[\left(X'X\right)^{-1}X\left(X'\beta+e\right)|X\right]\\
-  &amp; =\beta+\left(X'X\right)^{-1}XE\left[e|X\right]=\beta.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
- 根据期望迭代法则, 无条件期望为\)</span><span class="math notranslate nohighlight">\(E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\beta\)</span>$.
-无偏性不依赖同方差假设.</p></li>
 <li><p>因为 <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> 的方差是</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -668,15 +680,23 @@ plot( y = e, x = X[,1])</p>
 <p>对于两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span>， 如果其方差之差
 <span class="math notranslate nohighlight">\(\left(\Omega_{Y}-\Omega_{X}\right)\)</span> 是个半正定矩阵，则称
 <span class="math notranslate nohighlight">\(X\)</span> 的方差小于等于 <span class="math notranslate nohighlight">\(Y\)</span> 的方差。
-我们选择通过这种方式比较是因为对于任意非零常数向量 <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(X\)</span>的线性组合的方差不大于 <span class="math notranslate nohighlight">\(Y\)</span> 的相同线性组合的方差。
-$<span class="math notranslate nohighlight">\(\mathrm{var}\left(c'X\right)=c'\Omega_{X}c\leq c'\Omega_{Y}c=\mathrm{var}\left(c'Y\right)\)</span>$</p>
+我们选择通过这种方式比较是因为对于任意非零常数向量 <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(X\)</span>的线性组合的方差不大于 <span class="math notranslate nohighlight">\(Y\)</span> 的相同线性组合的方差。</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}\left(c'X\right)=c'\Omega_{X}c\leq c'\Omega_{Y}c=\mathrm{var}\left(c'Y\right)
+\]</div>
 </div>
 <p>令 <span class="math notranslate nohighlight">\(\tilde{\beta}=A'y\)</span> 为一个线性估计量, 其中 <span class="math notranslate nohighlight">\(n\times K\)</span> 矩阵 <span class="math notranslate nohighlight">\(A\)</span> 可以是 <span class="math notranslate nohighlight">\(X\)</span> 的某个函数。
-有 $<span class="math notranslate nohighlight">\(E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta\)</span><span class="math notranslate nohighlight">\( , \)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( 的线性和无偏性要求 \)</span>A’X=I_{n}<span class="math notranslate nohighlight">\( . 
-其方差满足
-\)</span><span class="math notranslate nohighlight">\(
+有</p>
+<div class="math notranslate nohighlight">
+\[
+E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
+\]</div>
+<p><span class="math notranslate nohighlight">\(\tilde{\beta}\)</span> 的线性和无偏性要求 <span class="math notranslate nohighlight">\(A'X=I_{n}\)</span> 的方差满足</p>
+<div class="math notranslate nohighlight">
+\[
 \mathrm{var}\left(A'y|X\right)=E\left[\left(A'y-\beta\right)\left(A'y-\beta\right)'|X\right]=E\left[A'ee'A|X\right]=\sigma^{2}A'A.
-\)</span>$</p>
+\]</div>
 <p>令 <span class="math notranslate nohighlight">\(C=A-X\left(X'X\right)^{-1}.\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -685,9 +705,12 @@ $<span class="math notranslate nohighlight">\(\mathrm{var}\left(c'X\right)=c'\Om
  &amp; =C'C,
 \end{aligned}
 \end{split}\]</div>
-<p>其中最后一个等式有:
-$<span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}X'C=\left(X'X\right)^{-1}X'\left(A-X\left(X'X\right)^{-1}\right)=\left(X'X\right)^{-1}-\left(X'X\right)^{-1}=0.\)</span><span class="math notranslate nohighlight">\(
-因此得到 \)</span>A’A-\left(X’X\right)^{-1}<span class="math notranslate nohighlight">\( 是个半正定矩阵. 任意 \)</span>\tilde{\beta}<span class="math notranslate nohighlight">\( 的方差都不可能小于 OLS估计量的方差 \)</span>\widehat{\beta}$. 上述推导表明了 OLS 在所有的线性无偏估计量中达到了最小方差。</p>
+<p>其中最后一个等式有:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(X'X\right)^{-1}X'C=\left(X'X\right)^{-1}X'\left(A-X\left(X'X\right)^{-1}\right)=\left(X'X\right)^{-1}-\left(X'X\right)^{-1}=0.
+\]</div>
+<p>因此得到 <span class="math notranslate nohighlight">\(A'A-\left(X'X\right)^{-1}\)</span> 是个半正定矩阵. 任意 <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span> 的方差都不可能小于OLS估计量的方差 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span>. 上述推导表明了 OLS在所有的线性无偏估计量中达到了最小方差。</p>
 <p>同方差是一个严苛的假设。 在同方差假设下,
 <span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
 常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. 当存在异方差时, 高斯-马尔可夫定理不适用。</p>
@@ -696,11 +719,17 @@ $<span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}X'C=\left(X'X
 <h2><span class="section-number">4.4. </span>总结<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>经典的数理统计推导基于误差项正态分布下在精确分布。 高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差。</p>
 <p><strong>This historical note comes from an earlier version</strong></p>
-<p><strong>Historical notes</strong>: 极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
+<div class="highlight-{admonition}历史趣闻 notranslate"><div class="highlight"><pre><span></span>极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
 这些研究方法时至今日还占据着主流地位, 同时他尖锐地批评了贝叶斯学派的研究方法. Fisher 在他1936年的生物学研究中，搜集了一个150个样本
-的鸢尾花数据组，在R软件中输入指令<code class="docutils literal notranslate"><span class="pre">iris</span></code>就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
-比如充分统计量，辅助统计量，完备性和指数族等等。</p>
-<p><strong>Further reading</strong>: &#64;phillips1983exact 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
+的鸢尾花数据组，在R软件中输入指令`iris`就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
+比如充分统计量，辅助统计量，完备性和指数族等等。
+</pre></div>
+</div>
+<p>``{admonition}拓展阅读
+&#64;phillips1983exact 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="id5">
 <h2><span class="section-number">4.5. </span>附录<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
@@ -710,13 +739,17 @@ $<span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}X'C=\left(X'X
 此外，它有着许多独特的性质使得对于事物的计算大大简便了。在这里总结当中的部分性质。</p>
 <p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布。
 <span class="math notranslate nohighlight">\(N\left(\mu,\Sigma\right)\)</span>, 其中的 <span class="math notranslate nohighlight">\( \mu \)</span> 是一个 <span class="math notranslate nohighlight">\(n\times 1\)</span> 向量而
-<span class="math notranslate nohighlight">\(\Sigma\)</span> 则是一个 <span class="math notranslate nohighlight">\(n\times n\)</span> 对称正定矩阵。 概率密度函数是
-$<span class="math notranslate nohighlight">\(f_{y}\left(y\right)=\left(2\pi\right)^{-n/2}\left(\mathrm{det}\left(\Sigma\right)\right)^{-1/2}\exp\left(-\frac{1}{2}\left(y-\mu\right)'\Sigma^{-1}\left(y-\mu\right)\right)\)</span><span class="math notranslate nohighlight">\(
-其中 \)</span> \mathrm{det}\left(\cdot\right) <span class="math notranslate nohighlight">\( 是矩阵的行列式。
+<span class="math notranslate nohighlight">\(\Sigma\)</span> 则是一个 <span class="math notranslate nohighlight">\(n\times n\)</span> 对称正定矩阵。 概率密度函数是</p>
+<div class="math notranslate nohighlight">
+\[
+f_{y}\left(y\right)=\left(2\pi\right)^{-n/2}\left(\mathrm{det}\left(\Sigma\right)\right)^{-1/2}\exp\left(-\frac{1}{2}\left(y-\mu\right)'\Sigma^{-1}\left(y-\mu\right)\right)
+\]</div>
+<p>其中 <span class="math notranslate nohighlight">\( \mathrm{det}\left(\cdot\right) \)</span> 是矩阵的行列式。
 矩量母函数则是：
-\)</span>M_{y}\left(t\right)=\exp\left(t’\mu+\frac{1}{2}t’\Sigma t\right)$.</p>
-<p>我们将在这里讨论一个随机变量的两个组成部分间的关系， 为了统一符号,
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(M_{y}\left(t\right)=\exp\left(t'\mu+\frac{1}{2}t'\Sigma t\right)\)</span>.</p>
+<p>我们将在这里讨论一个随机变量的两个组成部分间的关系，为了统一符号:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 Y=\left(\begin{array}{c}
 Y_{1}\\
 Y_{2}
@@ -726,33 +759,43 @@ Y_{2}
 \end{array}\right),\left(\begin{array}{cc}
 \Sigma_{11} &amp; \Sigma_{12}\\
 \Sigma_{21} &amp; \Sigma_{22}
-\end{array}\right)\right)\)</span><span class="math notranslate nohighlight">\( 当中 \)</span>Y_{1}<span class="math notranslate nohighlight">\( 是一个 \)</span>m\times 1<span class="math notranslate nohighlight">\( 向量, 而
-\)</span>Y_{2}<span class="math notranslate nohighlight">\( 是一个 \)</span>\left(n-m\right)\times1<span class="math notranslate nohighlight">\( 向量. \)</span>\mu_{1}<span class="math notranslate nohighlight">\( 和 \)</span>\mu_{2}<span class="math notranslate nohighlight">\(
-是对应的平均向量。 \)</span>\Sigma_{ij}<span class="math notranslate nohighlight">\(, \)</span>j=1,2<span class="math notranslate nohighlight">\( 则是相应的方差和协方差矩阵。 从此往后，我们一直保持假设： \)</span>Y=\left(Y_{1},Y_{2}\right)<span class="math notranslate nohighlight">\( 服从联合正态分布。
-事实
-&lt;a href=&quot;#fact31&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact31&quot;&gt;[fact31]&lt;/a&gt;
-这指出了正态分布一个非常方便的性质. 一般来说， 如果我们给定两个随机变量的联合概率密度函数，
+\end{array}\right)\right)
+\end{split}\]</div>
+<p>当中 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 是一个 <span class="math notranslate nohighlight">\(m\times 1\)</span> 向量, 而
+<span class="math notranslate nohighlight">\(Y_{2}\)</span> 是一个 <span class="math notranslate nohighlight">\(\left(n-m\right)\times1\)</span> 向量. <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和 <span class="math notranslate nohighlight">\(\mu_{2}\)</span>
+是对应的平均向量。 <span class="math notranslate nohighlight">\(\Sigma_{ij}\)</span>, <span class="math notranslate nohighlight">\(j=1,2\)</span> 则是相应的方差和协方差矩阵。 从此往下，我们仍然假设： <span class="math notranslate nohighlight">\(Y=\left(Y_{1},Y_{2}\right)\)</span> 服从联合正态分布。</p>
+<p><a href="#fact31" data-reference-type="ref" data-reference="fact31">[fact31]</a>
+指出了正态分布一个非常方便的性质。 一般来说， 如果我们给定两个随机变量的联合概率密度函数，
 并且希望得到他们其中一个随机变量的边际分布，我们需要把另一个变量从联合概率密度函数中
-积分出去. 然而，如果变量符合联合正态，那么另一个变量的信息与我们感兴趣的那个随机变量的边际分布无关. 我们只需要知道我们关心的那一部分的信息，比如平均数 \)</span>\mu_{1}<span class="math notranslate nohighlight">\( 和方差
-\)</span>\Sigma_{11}<span class="math notranslate nohighlight">\( 来决定 \)</span>Y_{1}$ 的边际分布。</p>
+积分出去. 然而，如果变量符合联合正态，那么另一个变量的信息与我们感兴趣的那个随机变量的边际分布无关. 我们只需要知道我们关心的那一部分的信息，比如平均数 <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和方差
+<span class="math notranslate nohighlight">\(\Sigma_{11}\)</span> 来决定 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 的边际分布。</p>
 <p><span id="fact:marginal"
 label="fact:marginal">[fact:marginal]</span>
 <span class="math notranslate nohighlight">\(Y_{1}\sim N\left(\mu_{1},\Sigma_{11}\right)\)</span> 的边际分布。</p>
 <p>如果我们对于估计量的一些组成部分感兴趣的话，那么这个结论非常方便, 但它不能帮助我们搞懂估计量的完整向量。 例如,
 线性回归模型的OLS估计量
 <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span>, 如果满足以下经典假设 (i) 样本随机; (ii) <span class="math notranslate nohighlight">\(z_{i}\)</span> 和 <span class="math notranslate nohighlight">\(e_{i}\)</span> 独立; (iii)
-<span class="math notranslate nohighlight">\(e_{i}\sim N\left(0,\gamma\right)\)</span> ，那么会有
-$<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'y\)</span><span class="math notranslate nohighlight">\( 
-以及 \)</span>\widehat{\beta}<span class="math notranslate nohighlight">\( 的有限样本精确分布
-\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}-\beta\right)|X\sim N\left(0,\gamma\left(X'X\right)^{-1}\right)\)</span><span class="math notranslate nohighlight">\(
-如果我们只是对于
-\)</span>\beta_{0}^{\left(j\right)}<span class="math notranslate nohighlight">\( 的j阶组件的推断感兴趣, 那么根据
-&lt;a href=&quot;#fact:marginal&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;fact:marginal&quot;&gt;[fact:marginal]&lt;/a&gt;,
-\)</span><span class="math notranslate nohighlight">\(\left(\widehat{\beta}_{k}-\beta_{k}\right)/\left(X'X\right)_{kk}^{-1}\sim N\left(0,\gamma\right)\)</span><span class="math notranslate nohighlight">\(
-其中的 \)</span>\left[\left(X’X\right)^{-1}\right]_{kk}<span class="math notranslate nohighlight">\( 是 \)</span>\left(X’X\right)^{-1}<span class="math notranslate nohighlight">\( 的 \)</span>k$ 阶对角线元素. 边际分布是独立于
-其他的组成部分的. 这使得我们不同将其他的组成部分积分出去. 如果向量的维度很高的话，这样的积分还会给我们带来不少的麻烦.</p>
-<p>总结来看, 两个随机变量的协方差为0只能表明他们是不相关的，然而统计上完全独立则是一个更强的要求。
-然而, 如果 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么协方差为0就可以等同于完全独立。</p>
+<span class="math notranslate nohighlight">\(e_{i}\sim N\left(0,\gamma\right)\)</span> ，那么会有</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat{\beta}=\left(X'X\right)^{-1}X'y
+\]</div>
+<p>以及 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的有限样本精确分布</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\widehat{\beta}-\beta\right)|X\sim N\left(0,\gamma\left(X'X\right)^{-1}\right)
+\]</div>
+<p>如果我们只是对于
+<span class="math notranslate nohighlight">\(\beta_{0}^{\left(j\right)}\)</span> 的j阶组件的推断感兴趣, 那么根据
+<a href="#fact:marginal" data-reference-type="ref" data-reference="fact:marginal">[fact:marginal]</a>,</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\widehat{\beta}_{k}-\beta_{k}\right)/\left(X'X\right)_{kk}^{-1}\sim N\left(0,\gamma\right)
+\]</div>
+<p>其中的 <span class="math notranslate nohighlight">\(\left[\left(X'X\right)^{-1}\right]_{kk}\)</span> 是 <span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}\)</span> 的 <span class="math notranslate nohighlight">\(k\)</span> 阶对角线元素。边际分布是独立于
+其他的组成部分的。这使得我们不同将其他的组成部分积分出去. 如果向量的维度很高的话，这样的积分还会给我们带来不少的麻烦。</p>
+<p>总结来看, 两个随机变量的协方差为0只能表明他们是不相关的，然而统计上完全独立则要求更高。
+但是, 如果 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 在这种情况下协方差为0就可以等同于完全独立。</p>
 <p>如果 <span class="math notranslate nohighlight">\(\Sigma_{12}=0\)</span>, 那么 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 相互独立。</p>
 <p>如果 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是可逆的, 那么
 <span class="math notranslate nohighlight">\(Y'\Sigma^{-1}Y\sim\chi^{2}\left(\mathrm{rank}\left(\Sigma\right)\right)\)</span>.</p>
@@ -773,16 +816,16 @@ $<span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "ir",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
