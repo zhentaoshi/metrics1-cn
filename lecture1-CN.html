@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1. 概率论 &#8212; 计量经济学讲义</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,18 +18,22 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +41,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -65,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -88,10 +75,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -104,15 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    前言
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   前言
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    1. 概率论
@@ -139,24 +124,24 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lecture6-CN.html">
+   6. 最小二乘法的渐近性质
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture8-CN.html">
-   6. 假设检验
+   7. 假设检验
   </a>
  </li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -164,162 +149,77 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture1-CN.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/lecture1-CN.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture1-CN.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture1-CN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    1.1. 引言
@@ -393,11 +293,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>概率论</h1>
@@ -487,14 +388,13 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1. </span>概率论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<section id="id2">
-<h2><span class="section-number">1.1. </span>引言<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">1. </span>概率论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>引言<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>随着大数据时代的到来,
 计算机科学家们不断提出新的算法来解释数据背后的规律。<strong>机器学习</strong> 和 <strong>人工智能</strong>
 早已变成了家喻户晓的热词。它们在当代的社会中扮演了各种功能，它们推动生产自动化，实现汽车的无人驾驶，精准识别人脸且在网上消费时为你提供个性化推荐。它们甚至战胜了人类最优秀的围棋选手。
@@ -504,16 +404,16 @@ title="Print to PDF"
 它无疑为我们理解并创造新算法提供了可靠的范式。</p>
 <p>从亚当斯密（1723-1790）开始，经济学就一直是实证主义的社会科学。他1776年发表的巨著<strong>国富论</strong>充满了各种的经济见闻和数字观测。计量经济学开创者Ragnar
 Frisch (1895–1973)和 Jan Tinbergen (1903–1994)的贡献，早在1969年首次颁发经济学诺贝尔奖就得到认可。计量经济学为经济学数据和指标提供了定量的视角，在现实世界的实践中熠熠生辉。从微观的家庭和企业到全球治理，无处不见它的身影。时至今日，大数据的变革之风也为计量经济学方法的研究和探索提供了新的助力，因为计量经济学理论背后的数学逻辑也同样是基于概率论这一片土壤。</p>
-</section>
-<section id="id3">
-<h2><span class="section-number">1.2. </span>概率论的公理<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.2. </span>概率论的公理<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则会通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，算命先生也依然非常受到人们的欢迎。</p>
 <p>概率论就是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图抓住随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
 Kolmogorov
 (1903-1987)在他1933年发表的专题著作中为当代概率理论建起了第一座丰碑。当中使用的数学语言系统逻辑自洽，严丝合缝，为未来该领域的进一步探索提供了一个很好的支撑。目前，这一套数学语言已经广泛地被学界所接受。</p>
 <p>在这次的讲课中，我们将会简要介绍一下概率论的公理以及在本科阶段的<em>概率论与数理统计</em>中已经为我们所熟悉的理论。</p>
-<section id="id4">
-<h3><span class="section-number">1.2.1. </span>概率空间<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">1.2.1. </span>概率空间<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p><strong>样本空间</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> 是所有可能结果的一个集合。<strong>事件</strong> <span class="math notranslate nohighlight">\(A\)</span> 是<span class="math notranslate nohighlight">\(\Omega\)</span>
 的一个子集。我们常用<span class="math notranslate nohighlight">\(\mathcal{F}\)</span>表示的<span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>域</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span> field)
 ，它是满足如下条件的事件的集合：</p>
@@ -574,9 +474,9 @@ $<span class="math notranslate nohighlight">\(\sigma(A)=\{\emptyset,\{1\},\{1,3\
 <p>目前为止我们已经回答了问题:
 “什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题”怎么分布概率？”在概率分配中有两种主流的学派，一种是<strong>频率学派</strong>，他们把概率视作大样本实验之后出现结果的平均频率；一种是<strong>贝叶斯学派</strong>，他们把概率解释为对于事情发生的主观信心。两个学派的理论基本上互不兼容，他们的主张也各有优劣。
 以上这些在讨论假设检验章节时会由涉及到。</p>
-</section>
-<section id="id5">
-<h3><span class="section-number">1.2.2. </span>随机变量<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">1.2.2. </span>随机变量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>术语 <strong>随机变量</strong></p>
 <p>是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点”名不副实”。
 它链接了两个测度空间，也就意味着置于值域中的任意事件都能追溯到定义域中的一个对应的事件。</p>
@@ -603,9 +503,9 @@ P_{X}\left(B\right)=P\left(X^{-1}\left(B\right)\right)
 也是一个概率测度。 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>的条件下，这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为函数
 <span class="math notranslate nohighlight">\(X\)</span> <strong>诱导</strong>概率测度。诱导概率测度 <span class="math notranslate nohighlight">\(P_{X}\)</span> 是
 <span class="math notranslate nohighlight">\(P\)</span> 通过函数 <span class="math notranslate nohighlight">\(X\)</span> 所衍生推导出来的。</p>
-</section>
-<section id="id6">
-<h3><span class="section-number">1.2.3. </span>分布函数<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">1.2.3. </span>分布函数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。一个<strong>累积分布函数</strong>
 （cumulative distribution function） <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
 <div class="math notranslate nohighlight">
@@ -639,12 +539,12 @@ function），通常会缩写为PDF。容易看出它由以下性质： <span cl
 <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>,
 <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
 </div>
-</section>
-</section>
-<section id="id7">
-<h2><span class="section-number">1.3. </span>数学期望<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
-<section id="id8">
-<h3><span class="section-number">1.3.1. </span>积分<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">1.3. </span>数学期望<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3><span class="section-number">1.3.1. </span>积分<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过黎曼积分，黎曼积分是符合数学直觉的。但是勒贝格积分才是更加泛用的积分定义。勒贝格积分的建立依靠以下几个步骤。<span class="math notranslate nohighlight">\(X\)</span> 被认为是一个在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
 中的<strong>简单函数</strong>。如果 <span class="math notranslate nohighlight">\(X=\sum_{i}a_{i}\cdot1\left\{ A_{i}\right\}\)</span>
 而且它的加总是有限的。同时其中 <span class="math notranslate nohighlight">\(a_{i}\in\mathbb{R}\)</span> 和 <span class="math notranslate nohighlight">\(\{A_{i}\in\mathcal{F}\}_{i\in\mathbb{N}}\)</span> 是
@@ -693,9 +593,9 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
 <span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。这两个表达式被勒贝格
 积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span> 。</p>
-</section>
-<section id="id9">
-<h3><span class="section-number">1.3.2. </span>期望的性质<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id9">
+<h3><span class="section-number">1.3.2. </span>期望的性质<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>这里是一些数学期望的性质：</p>
 <ul>
 <li><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 的概率是指示函数的期望：
@@ -729,10 +629,10 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 <p>值得注意的是，就像矩一样，mgf也并非一定存在。</p>
 </li>
 </ul>
-</section>
-</section>
-<section id="id10">
-<h2><span class="section-number">1.4. </span>多元随机变量<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">1.4. </span>多元随机变量<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <p>一个二元随机变量是一个可测函数
 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span>，我们可以由此推广到多元的随机变量也是可测的。
 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span>. 我们可以定义 <em>联合 CDF</em> 为
@@ -744,8 +644,8 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 <span class="math notranslate nohighlight">\(f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)\)</span>
 。二元变量中<strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
 则是把我们不感兴趣的那一个变量通过积分使它不再成为函数中的一个变量。</p>
-<section id="id11">
-<h3><span class="section-number">1.4.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id11">
+<h3><span class="section-number">1.4.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>在一个概率空间中 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span>对于两个事件
 <span class="math notranslate nohighlight">\(A_{1},A_{2}\in\mathcal{F}\)</span> ，<strong>条件概率</strong>是</p>
 <div class="math notranslate nohighlight">
@@ -762,9 +662,9 @@ P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span>。它表明了
 $<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\right)}\)</span>$
 这个公式就是贝叶斯公式 <strong>Bayes’ Theorem</strong></p>
-</section>
-<section id="id12">
-<h3><span class="section-number">1.4.2. </span>独立性<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id12">
+<h3><span class="section-number">1.4.2. </span>独立性<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>如果满足条件 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{1})P(A_{2})\)</span>，我们就会认为 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和
 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是<em>独立</em>的 . 如果 <span class="math notranslate nohighlight">\(P(A_{2})\neq0\)</span> , 就相当于
 <span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=P(A_{1})\)</span> 。换言之 已知了 <span class="math notranslate nohighlight">\(A_{2}\)</span> 将不会改变
@@ -774,9 +674,9 @@ $<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|
 <span class="math notranslate nohighlight">\(P\left(X\in B_{1},Y\in B_{2}\right)=P\left(X\in B_{1}\right)P\left(Y\in B_{2}\right)\)</span></p>
 <p>若 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么二者的期望有公式
 <span class="math notranslate nohighlight">\(E[XY]=E[X]E[Y]\)</span> 。即期望的积等于积的期望。</p>
-</section>
-<section id="id13">
-<h3><span class="section-number">1.4.3. </span>期望迭代法则<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id13">
+<h3><span class="section-number">1.4.3. </span>期望迭代法则<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>给定一个 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ， <em>sub</em> <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra
 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
 <span class="math notranslate nohighlight">\(Y\)</span>满足条件 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> ，<strong>条件期望</strong>
@@ -808,10 +708,10 @@ E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
 <li><p><span class="math notranslate nohighlight">\(E\left[E\left[Y|X_{1}\right]|X_{1},X_{2}\right]=E\left[Y|X_{1}\right];\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(E\left[h\left(X\right)Y|X\right]=h\left(X\right)E\left[Y|X\right].\)</span></p></li>
 </ol>
-</section>
-</section>
-<section id="id14">
-<h2><span class="section-number">1.5. </span>总结<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="id14">
+<h2><span class="section-number">1.5. </span>总结<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
 <p>如果这是你第一次接触测度理论，这里的一些全新概念可能会让你觉得有些晦涩难懂。一个自然而然的问题是：”我在我本科的概率论与数理统计课程中取得了很高的成绩，我还需要这些’花里胡哨’的数学才能做好计量经济学吗？”</p>
 <p>真正的答案——是也不是，<strong>不是</strong>
 是因为如果你想要用好计量经济方法，了解背后的潜藏的逻辑和概念并不能让你马上多几件”趁手的武器”。假设你完全不知道测度和概率理论，你也依然可以成为一个优秀的经济学家或者应用经济学者。
@@ -837,8 +737,8 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
 <p>&#64;doob1996development
 总结了20世纪前半页概率论在公理上的发展。</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -862,11 +762,9 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -882,28 +780,24 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By 史震涛 Shi Zhentao<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By 史震涛 Shi Zhentao<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

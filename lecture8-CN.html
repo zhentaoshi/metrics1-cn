@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>6. 假设检验 &#8212; 计量经济学讲义</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. 假设检验 &#8212; 计量经济学讲义</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,18 +18,22 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +41,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -56,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="5. 基本渐近理论" href="lecture5-CN.html" />
+    <link rel="prev" title="6. 最小二乘法的渐近性质" href="lecture6-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -64,21 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,10 +74,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -103,15 +89,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    前言
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   前言
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
    1. 概率论
@@ -137,25 +122,25 @@ const thebe_selector_output = ".output, .cell_output"
    5. 基本渐近理论
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture6-CN.html">
+   6. 最小二乘法的渐近性质
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. 假设检验
+   7. 假设检验
   </a>
  </li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -163,264 +148,168 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture8-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture8-CN.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/lecture8-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture8-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture8-CN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture8-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   6.1. 检验
+   7.1. 检验
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     6.1.1. 决策规则与误差
+     7.1.1. 决策规则与误差
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   6.2. 最优性
+   7.2. 最优性
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wilks">
-   6.3. 似然比检验与Wilks’定理
+   7.3. 似然比检验与Wilks’定理
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#score-test">
-     6.3.1. Score Test
+     7.3.1. Score Test
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   6.4. 置信区间
+   7.4. 置信区间
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   6.5. 贝叶斯可信集
+   7.5. 贝叶斯可信集
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   6.6. 线性回归中的应用
+   7.6. 线性回归中的应用
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#wald">
-     6.6.1. Wald检验
+     7.6.1. Wald检验
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     6.6.2. 拉格朗日乘数检验
+     7.6.2. 拉格朗日乘数检验
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id9">
-     6.6.3. 似然比检验
+     7.6.3. 似然比检验
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id10">
-   6.7. 总结
+   7.7. 总结
   </a>
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>假设检验</h1>
@@ -435,68 +324,68 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   6.1. 检验
+   7.1. 检验
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     6.1.1. 决策规则与误差
+     7.1.1. 决策规则与误差
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   6.2. 最优性
+   7.2. 最优性
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wilks">
-   6.3. 似然比检验与Wilks’定理
+   7.3. 似然比检验与Wilks’定理
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#score-test">
-     6.3.1. Score Test
+     7.3.1. Score Test
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   6.4. 置信区间
+   7.4. 置信区间
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id6">
-   6.5. 贝叶斯可信集
+   7.5. 贝叶斯可信集
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   6.6. 线性回归中的应用
+   7.6. 线性回归中的应用
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#wald">
-     6.6.1. Wald检验
+     7.6.1. Wald检验
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     6.6.2. 拉格朗日乘数检验
+     7.6.2. 拉格朗日乘数检验
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id9">
-     6.6.3. 似然比检验
+     7.6.3. 似然比检验
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id10">
-   6.7. 总结
+   7.7. 总结
   </a>
  </li>
 </ul>
@@ -505,42 +394,39 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">6. </span>假设检验<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>数学标记: <span class="math notranslate nohighlight">\( \mathbf{X} \)</span> 是一个随机变量, 或随机向量； <span class="math notranslate nohighlight">\( \mathbf{x} \)</span> 是其实际数值。</p>
-<p>一个**假设 (hypothesis)**是关于参数空间 <span class="math notranslate nohighlight">\( \Theta \)</span> 的论断。</p>
-<p>假设检验检查数据是否满足一个<strong>零假设 (null hypothesis)</strong><span class="math notranslate nohighlight">\( \Theta_{0} \)</span> , 也即是我们研究的 <span class="math notranslate nohighlight">\( \Theta \)</span> 之子集。理想情况下, 这一零假设应该是由科学理论提出的。<strong>备择假设 (alternative hypothesis)</strong><span class="math notranslate nohighlight">\( \Theta_{1}=\Theta\backslash\Theta_{0} \)</span> 是 $ \Theta_{0}的补集。
-基于观察到的数据, 我们选择接受或者拒绝零假设。如果零假设被拒绝, 则意味着从统计学角度来看, 数据与所提出的科学理论不相容。
-理论。</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">7. </span>假设检验<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>数学标记: <span class="math notranslate nohighlight">\( \mathbf{X} \)</span> 是一个随机变量, 或随机向量； <span class="math notranslate nohighlight">\( \mathbf{x} \)</span> 是其实现数。</p>
+<p>一个**假设 (hypothesis)**是关于参数空间 <span class="math notranslate nohighlight">\( \Theta \)</span> 的陈述。</p>
+<p>假设检验检查数据是否满足一个<strong>原假设 (null hypothesis)</strong><span class="math notranslate nohighlight">\( \Theta_{0} \)</span> , 也即是我们研究的 <span class="math notranslate nohighlight">\( \Theta \)</span> 之子集。理想情况下, 这一原假设应该是由科学理论提出的。<strong>备择假设 (alternative hypothesis)</strong><span class="math notranslate nohighlight">\( \Theta_{1}=\Theta\backslash\Theta_{0} \)</span> 是 $ \Theta_{0}的补集。
+基于观察到的数据, 我们选择接受或者拒绝原假设。如果原假设被拒绝, 则意味着从统计学角度来看, 数据不支持该科学理论。</p>
 <p>在本章中, 我们将首先介绍假设检验的思想与实践, 以及与之相关的置信区间。虽然我们主要以频率学派的观点理解假设检验, 但我们也简要地讨论贝叶斯学派的统计决策方法。另外, 我们也引入假设检验在线性回归中的应用——如何在有限制与无限制的情况下, 对 (非) 线性回归中的参数值进行假设检验。</p>
-<section id="id2">
-<h2><span class="section-number">6.1. </span>检验<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<section id="id3">
-<h3><span class="section-number">6.1.1. </span>决策规则与误差<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<p>如果 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 是单元集, 我们称之为<strong>简单假设</strong>; 否则, 我们称其为<strong>复合假设</strong>。例如, 若参数空间 <span class="math notranslate nohighlight">\( \Theta=\mathbb{R} \)</span> , 则 <span class="math notranslate nohighlight">\( \Theta_{0}=\left\{ 0\right\} \)</span> (或等价于 <span class="math notranslate nohighlight">\( \Theta_{0}=0 \)</span> ) 是一个简单的假设, 而 <span class="math notranslate nohighlight">\( \Theta_{0}= (-\infty, 0] \)</span> (或者等价于 <span class="math notranslate nohighlight">\( \theta_{0}\leq0 \)</span> ) 是一个复合假设。</p>
-<p>**检验函数 (test function)**是一个映射</p>
+<div class="section" id="id2">
+<h2><span class="section-number">7.1. </span>检验<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">7.1.1. </span>决策规则与误差<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>如果 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 只有一个单点, 我们称之为<strong>简单假设</strong>; 否则, 我们称其为<strong>复合假设</strong>。例如, 若参数空间 <span class="math notranslate nohighlight">\( \Theta=\mathbb{R} \)</span> , 则 <span class="math notranslate nohighlight">\( \Theta_{0}=\left\{ 0\right\} \)</span> (或等价于 <span class="math notranslate nohighlight">\( \Theta_{0}=0 \)</span> ) 是一个简单假设, 而 <span class="math notranslate nohighlight">\( \Theta_{0}= (-\infty, 0] \)</span> (或者等价于 <span class="math notranslate nohighlight">\( \theta_{0}\leq0 \)</span> ) 是一个复合假设。</p>
+<p>记样本空间为 <span class="math notranslate nohighlight">\( \mathcal{X} \)</span>，则有 <span class="math notranslate nohighlight">\(n\)</span> 个观测值的样本的所有可能取值落在 <span class="math notranslate nohighlight">\(\mathcal{X}^{n}\)</span> 之内。
+<strong>检验函数 (test function)</strong></p>
 <div class="math notranslate nohighlight">
 \[ 
 \phi: \mathcal{X}^{n}\mapsto\left\{ 0, 1\right\} , 
 \]</div>
-<p>其中, <span class="math notranslate nohighlight">\( \mathcal{X} \)</span> 是样本空间。</p>
-<p>若 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) =0 \)</span> , 则接受零假设；若 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) =1 \)</span> , 则拒绝零假设。</p>
+<p>将样本和决策对应起来，其中 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) =0 \)</span> 表示接受原假设；<span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) =1 \)</span> 表示拒绝原假设。</p>
 <p>我们定义**接受域 (acceptance region)<strong>为 <span class="math notranslate nohighlight">\( A_{\phi}=\left\{ \mathbf{x}\in\mathcal{X}^{n}: \phi_{\theta}\left (\mathbf{x}\right) =0\right\} \)</span> , 其补集</strong>拒绝域 (rejection region)**为 <span class="math notranslate nohighlight">\( R_{\phi}=\left\{ \mathbf{x}\in\mathcal{X}^{n}: \phi\left (\mathbf{x}\right) =1\right\} \)</span> 。</p>
 <p>检验 <span class="math notranslate nohighlight">\( \phi \)</span>**的功效函数 (power function)**被定义为</p>
 <div class="math notranslate nohighlight">
 \[ 
 \beta\left (\theta\right) =P_{\theta}\left\{ \phi\left (\mathbf{X}\right) =1\right\} =E_{\theta}\left[\phi\left (\mathbf{X}\right) \right].
- \]</div>
-<p>功效函数衡量的是, 当数据由真实参数 <span class="math notranslate nohighlight">\( \theta \)</span> 产生时, 检验函数拒绝零假设的概率, 从 <span class="math notranslate nohighlight">\( P_{\theta} \)</span> 与 <span class="math notranslate nohighlight">\( E_{\theta} \)</span> 中体现。</p>
-<p>对于某参数值 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 检验的**功效 (power)<strong>被定义为 <span class="math notranslate nohighlight">\( \beta\left (\theta\right) \)</span> ；检验的</strong>大小 (size)**被定义为 <span class="math notranslate nohighlight">\( \sup_{\theta\in\Theta_{0}}\beta\left (\theta\right) . \)</span></p>
-<p>注意, 检验功效的定义取决于备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 中的 <span class="math notranslate nohighlight">\( \theta \)</span> ；而检验大小的定义与具体的 <span class="math notranslate nohighlight">\( \theta \)</span> 值无关, 因为它是零假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 的上确界。当难以推导出具体的上确界时, 我们也常用<strong>水平 (level)</strong><span class="math notranslate nohighlight">\( \alpha \)</span> 这一概念来衡量检验, 水平 <span class="math notranslate nohighlight">\( \alpha\in\left (0, 1\right) \)</span> 是任意使得 <span class="math notranslate nohighlight">\( \alpha\geq\sup_{\theta\in\Theta_{0}}\beta\left (\theta\right) \)</span> 成立的值。</p>
-<p>一个大小为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验, 其水平一定大于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> ；一个水平为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验, 其大小一定小于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> 。</p>
-<p>如果我们没有足够的信息来推导出一个测试确切的大小, 那么<strong>水平</strong>的概念是有用的。
-信息来推导出测试的确切规模。</p>
+\]</div>
+<p>功效函数衡量是数值, 就是当 <span class="math notranslate nohighlight">\( \theta \)</span> 为真实参数时该检验函数拒绝原假设的概率。</p>
+<p>对于某参数值 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 检验的<strong>功效 (power)<strong>被定义为 <span class="math notranslate nohighlight">\( \beta\left (\theta\right) \)</span> ；检验的</strong>尺度 (size)<strong>被定义为 <span class="math notranslate nohighlight">\( \sup_{\theta\in\Theta_{0}}\beta\left (\theta\right). \)</span>
+检验功效的定义取决于备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 中的 <span class="math notranslate nohighlight">\( \theta \)</span> ；而检验大小的定义与具体的 <span class="math notranslate nohighlight">\( \theta \)</span> 值无关, 因为它是原假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 的上确界。当难以推导出具体的上确界时, 我们也常用</strong>水平 (level)</strong><span class="math notranslate nohighlight">\( \alpha \)</span> 这一概念来衡量检验, 水平 <span class="math notranslate nohighlight">\( \alpha\in\left (0, 1\right) \)</span> 是任意使得 <span class="math notranslate nohighlight">\( \alpha\geq\sup_{\theta\in\Theta_{0}}\beta\left (\theta\right) \)</span> 成立的值。</p>
+<p>一个尺度为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验, 其水平一定大于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> ；一个水平为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验, 其尺度一定小于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> 。</p>
+<p>如果我们没有足够的信息来推导出一个测试确切的尺度, 我们可以退而求其次，采用 <strong>水平</strong>这个概念。</p>
 <div class="highlight-{prf: notranslate"><div class="highlight"><pre><span></span>: label: example1
 例如, 我们从某未知联合分布中随机抽取 $ \left (X_{1i}, X_{2i}\right) _{i=1}^{n} $ 。对于 $ j=1, 2 $ , 已知边际分布 $ X_{ji}\sim N\left (\theta_{j}, 1\right) $ 。为了检验联合假设 $ \theta_{1}=\theta_{2}=0 $ , 我们可以构造一个检验函数
 
@@ -572,7 +458,7 @@ P\left (A\cup B\right) \leq P\left (A\right) +P\left (B\right)
 </pre></div>
 </div>
 <table class="colwidths-auto table" id="table81">
-<caption><span class="caption-number">Table 6.1 </span><span class="caption-text">Table 8.1</span><a class="headerlink" href="#table81" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 7.1 </span><span class="caption-text">Table 8.1</span><a class="headerlink" href="#table81" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>accept <span class="math notranslate nohighlight">\( H_{0} \)</span></p></th>
@@ -596,9 +482,9 @@ P\left (A\cup B\right) \leq P\left (A\right) +P\left (B\right)
 <li><p>犯<strong>第二类错误 (Type II error)<strong>的</strong>概率</strong>为
 <span class="math notranslate nohighlight">\( 1-\beta\left (\theta\right) \)</span> , 其中 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> .</p></li>
 </ul>
-<p>假设检验的哲学理念是一个争论不休的话题。目前, 统计学教科书中普遍采用的框架是<strong>频率学派的观点</strong>。频率学派认为参数是一个固定的常数。他们对第一类错误秉持着非常保守的态度: 只有在有充足证据的情况下, 才可以拒绝零假设。在“保护零假设”的原则下, 一个理想的检验应该有一个极小的水平。传统上我们采用 <span class="math notranslate nohighlight">\( \alpha=0.01, 0.05或0.1 \)</span> 。如果
+<p>假设检验的哲学理念是一个争论不休的话题。目前, 统计学教科书中普遍采用的框架是<strong>频率学派的观点</strong>。频率学派认为参数是一个固定的常数。他们对第一类错误秉持着非常保守的态度: 只有在有充足证据的情况下, 才可以拒绝原假设。在“保护原假设”的原则下, 一个理想的检验应该有一个极小的水平。传统上我们采用 <span class="math notranslate nohighlight">\( \alpha=0.01, 0.05或0.1 \)</span> 。如果
 <span class="math notranslate nohighlight">\( \beta\left (\theta\right) &gt;\sup_{\theta\in\Theta_{0}}\beta\left (\theta\right) \)</span> , 我们说一个测试是<strong>无偏的</strong>。
-对于所有 <span class="math notranslate nohighlight">\( \Theta\in Theta_{1} \)</span> 来说, 可以有很多正确大小的检验。</p>
+对于所有 <span class="math notranslate nohighlight">\( \Theta\in Theta_{1} \)</span> 来说, 可以有很多正确尺度的检验。</p>
 <div class="highlight-{prf: notranslate"><div class="highlight"><pre><span></span>: label: example2
 对于任意 $ \theta\in\Theta $ , 我们构造一个很简单的检验函数 $ \phi (\mathbf{x}) =1\left\{ 0\leq U\leq\alpha\right\} $ , 其中 $ U $ 是取自连续均匀分布 $ \left[0, 1\right] $ 的随机变量。该检验有着正确大小 $ \alpha $ , 但功效未知。在另一极端情况下, 检验函数 $ \phi\left (\mathbf{x}\right) =1 $ 拥有最大的功效, 但大小是错误的。
 </pre></div>
@@ -608,26 +494,26 @@ P\left (A\cup B\right) \leq P\left (A\right) +P\left (B\right)
 \[ 
 \phi\left (\mathbf{X}\right) =1\left\{ T_{n}\left (\mathbf{X}\right) &gt;c_{1-\alpha}\right\} .
  \]</div>
-<p>为了保证该检验 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) \)</span> 有着正确的大小, 我们需要找到 <span class="math notranslate nohighlight">\( T_{n} \)</span> 在零假设下的分布 (零分布) , 然后通过零假设与理想的检验大小/水平, 找到一个临界值 <span class="math notranslate nohighlight">\( c_{1-\alpha} \)</span> 。</p>
+<p>为了保证该检验 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) \)</span> 有着正确的尺度, 我们需要找到 <span class="math notranslate nohighlight">\( T_{n} \)</span> 在原假设下的分布 (零分布) , 然后通过原假设与理想的检验尺度/水平, 找到一个临界值 <span class="math notranslate nohighlight">\( c_{1-\alpha} \)</span> 。</p>
 <p>另一个常用的检验方法是使用 <span class="math notranslate nohighlight">\( p \)</span> -值:</p>
 <div class="math notranslate nohighlight">
 \[ 
 \sup_{\theta\in\Theta_{0}}P_{\theta}\left\{ T_{n}\left (\mathbf{x}\right) \leq T_{n}\left (\mathbf{X}\right) \right\} .
  \]</div>
-<p>在上述表达式中, <span class="math notranslate nohighlight">\( T_{n}\left (\mathbf{x}\right) \)</span> 是检验统计量 <span class="math notranslate nohighlight">\( T_{n} \)</span> 的实际数值, 而 <span class="math notranslate nohighlight">\( T_{n}\left (\mathbf{X}\right) \)</span> 是由零分布 <span class="math notranslate nohighlight">\( \theta\in\Theta_{0} \)</span> 产生的随机变量。 <span class="math notranslate nohighlight">\( p \)</span> -值的意义则是, 在零假设成立的情况下, 我们观测到 <span class="math notranslate nohighlight">\( T_{n} (\mathbf{X}) \)</span> 大于等于实际数值 <span class="math notranslate nohighlight">\( T_{n} (\mathbf{x}) \)</span> 的概率。</p>
-<p>注意, <span class="math notranslate nohighlight">\( p \)</span> -值<strong>不是</strong>零假设为真的概率。在频率学派的观点下, 零假设要么是真的, 要么是假的, 这是一个肯定的命题, 不具有随机性。检验的随机性只来自抽样, 不来自假设。 <span class="math notranslate nohighlight">\( p \)</span> -值衡量数据集是否与零假设相符, 因此只与它相应的检验密切相关。当 <span class="math notranslate nohighlight">\( p \)</span> 值小于指定的检验大小 <span class="math notranslate nohighlight">\( alpha \)</span> 时, 我们拒绝零假设。</p>
+<p>在上述表达式中, <span class="math notranslate nohighlight">\( T_{n}\left (\mathbf{x}\right) \)</span> 是检验统计量 <span class="math notranslate nohighlight">\( T_{n} \)</span> 的实际数值, 而 <span class="math notranslate nohighlight">\( T_{n}\left (\mathbf{X}\right) \)</span> 是由零分布 <span class="math notranslate nohighlight">\( \theta\in\Theta_{0} \)</span> 产生的随机变量。 <span class="math notranslate nohighlight">\( p \)</span> -值的意义则是, 在原假设成立的情况下, 我们观测到 <span class="math notranslate nohighlight">\( T_{n} (\mathbf{X}) \)</span> 大于等于实际数值 <span class="math notranslate nohighlight">\( T_{n} (\mathbf{x}) \)</span> 的概率。</p>
+<p>注意, <span class="math notranslate nohighlight">\( p \)</span> -值<strong>不是</strong>原假设为真的概率。在频率学派的观点下, 原假设要么是真的, 要么是假的, 这是一个肯定的命题, 不具有随机性。检验的随机性只来自抽样, 不来自假设。 <span class="math notranslate nohighlight">\( p \)</span> -值衡量数据集是否与原假设相符, 因此只与它相应的检验密切相关。当 <span class="math notranslate nohighlight">\( p \)</span> 值小于指定的检验大小 <span class="math notranslate nohighlight">\( alpha \)</span> 时, 我们拒绝原假设。</p>
 <p>到目前为止, 我们讨论了有限样本的假设检验。当 <span class="math notranslate nohighlight">\( n\to\infty \)</span> 时, 这些讨论和术语可以延续到渐进分布的世界。如果我们把功效函数表示为 <span class="math notranslate nohighlight">\( \beta_{n}\left (\theta\right) \)</span> , 也就是将样本量 <span class="math notranslate nohighlight">\( n \)</span> 也作为一个明确的自变量, 若对于 <span class="math notranslate nohighlight">\( \theta\in\Theta_{0} \)</span> , 有 <span class="math notranslate nohighlight">\( \limsup_{n\to\infty}\beta_{n}\left (\theta\right) \leq\alpha \)</span> , 那么这个检验的渐进大小 (asymptotic size) 为 <span class="math notranslate nohighlight">\( \alpha \)</span> 。</p>
-<p>如果对于任意 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 都有 <span class="math notranslate nohighlight">\( \beta_{n}\left (\theta\right) \to1 \)</span> , 那么该检验是<strong>一致的 (consistent)</strong>。</p>
-</section>
-</section>
-<section id="id4">
-<h2><span class="section-number">6.2. </span>最优性<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<p>统计理论中, 同一个的参数估计可以产生多个有效的估计值, 同一个假设检验也可以有多个有效的检验。在零假设 <span class="math notranslate nohighlight">\( \Psi_{\alpha}=\left\{ \phi: \sup_{\theta\in\Theta_{0}}\beta_{\phi}\left (\theta\right) \leq\alpha\right\} \)</span> 下 ( <span class="math notranslate nohighlight">\( \beta_{\phi}\left (\theta\right) \)</span> 中的下标 <span class="math notranslate nohighlight">\( \phi \)</span> 代表不同检验的功效) , 对于有着相同水平 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验来说, 我们自然偏爱在备择假设的每个点都有着最高功效的 <span class="math notranslate nohighlight">\( \phi^{*} \)</span> , 也就是对于每个 <span class="math notranslate nohighlight">\( \phi\in\Psi_{\alpha} \)</span> 来说, 都有</p>
+<p>如果对于任意 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 都有 <span class="math notranslate nohighlight">\( \beta_{n}\left (\theta\right) \to1 \)</span> , 那么该检验是<strong>相合的 (consistent)</strong>。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">7.2. </span>最优性<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>统计理论中, 同一个的参数估计可以产生多个有效的估计值, 同一个假设检验也可以有多个有效的检验。在原假设 <span class="math notranslate nohighlight">\( \Psi_{\alpha}=\left\{ \phi: \sup_{\theta\in\Theta_{0}}\beta_{\phi}\left (\theta\right) \leq\alpha\right\} \)</span> 下 ( <span class="math notranslate nohighlight">\( \beta_{\phi}\left (\theta\right) \)</span> 中的下标 <span class="math notranslate nohighlight">\( \phi \)</span> 代表不同检验的功效) , 对于有着相同水平 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验来说, 我们自然偏爱在备择假设的每个点都有着最高功效的 <span class="math notranslate nohighlight">\( \phi^{*} \)</span> , 也就是对于每个 <span class="math notranslate nohighlight">\( \phi\in\Psi_{\alpha} \)</span> 来说, 都有</p>
 <div class="math notranslate nohighlight">
 \[ 
 \beta_{\phi^{*}}\left (\theta\right) \geq\beta_{\phi}\left (\theta\right) .
  \]</div>
-<p>如果这样的检验 <span class="math notranslate nohighlight">\( \phi^{*}\in\Psi_{\alpha} \)</span> 成立, 我们称之为<strong>一致最大功效检验 (uniformly
+<p>如果这样的检验 <span class="math notranslate nohighlight">\( \phi^{*}\in\Psi_{\alpha} \)</span> 成立, 我们称之为<strong>相合最大功效检验 (uniformly
 most powerful test)</strong>, 简称UMP检验。</p>
 <div class="highlight-{prf: notranslate"><div class="highlight"><pre><span></span>: label: example3
 假设一个大小为6的随机样本产生于
@@ -636,7 +522,7 @@ most powerful test)</strong>, 简称UMP检验。</p>
 \left (X_{1}, \ldots, X_{6}\right) \sim\text{iid.}N\left (\theta, 1\right) , 
  $$ 
 
-其中 $ \theta $ 是未知的。我们想要推断该正态分布的均值。零假设为 $ H_{0} $ : $ \theta\leq0 $ , 备择假设为 $ H_{1} $ : $ \theta&gt;0 $ 。所有满足
+其中 $ \theta $ 是未知的。我们想要推断该正态分布的均值。原假设为 $ H_{0} $ : $ \theta\leq0 $ , 备择假设为 $ H_{1} $ : $ \theta&gt;0 $ 。所有满足
 
  $$ 
 \Psi=\left\{ 1\left\{ \bar{X}\geq c/\sqrt{6}\right\} : c\geq1.64\right\}
@@ -663,9 +549,9 @@ most powerful test)</strong>, 简称UMP检验。</p>
 在 $ \Psi $ 中功效最大, 因为 $ c=1.64 $ 是在保证水平 $ \alpha $ 不变的基础上, $ c $ 所能取的最下界。
 </pre></div>
 </div>
-</section>
-<section id="wilks">
-<h2><span class="section-number">6.3. </span>似然比检验与Wilks’定理<a class="headerlink" href="#wilks" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="wilks">
+<h2><span class="section-number">7.3. </span>似然比检验与Wilks’定理<a class="headerlink" href="#wilks" title="Permalink to this headline">¶</a></h2>
 <p>当估计值不能写作闭合形式时, 似然比检验 (Likeelihood-ratio test, LRT) 就起到重要作用。令样本的平均对数似然函数为 <span class="math notranslate nohighlight">\( \ell_{n}\left (\theta\right) =n^{-1}\sum_{i}\log f\left (x_{i};\theta\right) \)</span> , 那么 <span class="math notranslate nohighlight">\( \widehat{\theta}=\arg\max_{\theta\in\Theta}\ell_{n}\left (\theta\right) \)</span> 是最大似然估计值 (maximum likelihood estimator, MLE) 。在 <span class="math notranslate nohighlight">\( \ell_{n}\left (\widehat{\theta}\right) \)</span> 处对 <span class="math notranslate nohighlight">\( \ell_{n}\left (\theta_{0}\right) \)</span> 取泰勒展开:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -706,21 +592,21 @@ most powerful test)</strong>, 简称UMP检验。</p>
 当参数模型正确时, $ \mathcal{LR}\stackrel{d}{\to}\chi^{2}\left (K\right) $ 。
 </pre></div>
 </div>
-<section id="score-test">
-<h3><span class="section-number">6.3.1. </span>Score Test<a class="headerlink" href="#score-test" title="Permalink to this headline">#</a></h3>
-</section>
-</section>
-<section id="id5">
-<h2><span class="section-number">6.4. </span>置信区间<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<div class="section" id="score-test">
+<h3><span class="section-number">7.3.1. </span>Score Test<a class="headerlink" href="#score-test" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">7.4. </span>置信区间<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>**区间估计 (interval estimate)**是一个函数 <span class="math notranslate nohighlight">\( C: \mathcal{X}^{n}\mapsto\left\{ \Theta_{1}: \Theta_{1}\subseteq\Theta\right\} \)</span> , 它将样本空间中的点映射到参数空间。</p>
 <p>区间估计量的<strong>覆盖概率 (coverage probability)</strong><span class="math notranslate nohighlight">\( C\left (\mathbf{X}\right) \)</span> 被定义为 <span class="math notranslate nohighlight">\( P_{\theta}\left (\theta\in C\left (\mathbf{X}\right) \right) \)</span> 。如果 <span class="math notranslate nohighlight">\( \theta \)</span> 是一维的, 我们将区间估计量叫做<strong>置信区间 (confidence interval)</strong>。如果 <span class="math notranslate nohighlight">\( \theta \)</span> 是多维的, 我们将区间估计量叫做<strong>置信区域 (confidence region)</strong>, 当然这包括了一维置信区间的情况。覆盖概率是指区间估计量捕捉到生成样本的真实参数的频率。从频率学派的观点来看, 参数是固定的, 而置信区域是随机的。覆盖概率<strong>不是</strong><span class="math notranslate nohighlight">\( \theta \)</span> 在给定的置信区间内的概率。</p>
 <div class="exercise admonition" id="exercise81">
 
-<p class="admonition-title"><span class="caption-number">Exercise 6.1 </span></p>
-<section id="exercise-content">
+<p class="admonition-title"><span class="caption-number">Exercise 7.1 </span></p>
+<div class="section" id="exercise-content">
 <p>假设一个大小为6的随机样本产生于 <span class="math notranslate nohighlight">\( left (X_{1}, \ldots, X_{6}\right) \sim\text{iid }N\left (\theta, 1\right) . \)</span>
 求随机区间 <span class="math notranslate nohighlight">\( \left[\bar{X}-1.96/\sqrt{6}, \ \bar{X}+1.96/\sqrt{6}\right] \)</span> 的覆盖概率。</p>
-</section>
+</div>
 </div>
 <p>假设检验和置信区域是密切相关的两个概念。有时, 直接构建置信区域是很困难的, 但检验假设却很容易。构建置信区域的一种方法是通过<strong>颠倒</strong>检验。假设 <span class="math notranslate nohighlight">\( \phi_{\theta} \)</span> 是大小为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验。如果 <span class="math notranslate nohighlight">\( C\left (\mathbf{X}\right) \)</span> 被构造为</p>
 <div class="math notranslate nohighlight">
@@ -734,9 +620,9 @@ P_{\theta}\left\{ \theta\in C\left (\mathbf{X}\right) \right\} =P_{\theta}\left\
  \]</div>
 <p>其中最后一个不等式是因为, 对于 <span class="math notranslate nohighlight">\( \theta\in\Theta_{0} \)</span> , 有 <span class="math notranslate nohighlight">\( \beta\left (\theta\right) \leq\alpha \)</span> 。如果 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 是单元集, 那么等式成立。</p>
 <p><strong>knitr</strong></p>
-</section>
-<section id="id6">
-<h2><span class="section-number">6.5. </span>贝叶斯可信集<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">7.5. </span>贝叶斯可信集<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>贝叶斯框架为统计决策提供了另一套连贯而自然的语言。然而, 对贝叶斯统计学的主要批评是先验分布选择的任意性。</p>
 <p>贝叶斯方法将数据 <span class="math notranslate nohighlight">\( \mathbf{X}_{n} \)</span> 和参数 <span class="math notranslate nohighlight">\( \theta \)</span> 都视为随机变量。在观察数据之前, 我们持有一个关于 <span class="math notranslate nohighlight">\( \theta \)</span> 的<strong>先验分布</strong><span class="math notranslate nohighlight">\( pi \)</span> 。在观察数据之后, 我们将先验分布更新为<strong>后验分布</strong><span class="math notranslate nohighlight">\( p (\theta|\mathbf{X}_{n}) \)</span> 。<strong>贝叶斯定理</strong>连接了
 先验分布和后验分布:</p>
@@ -764,12 +650,12 @@ p (\theta|\mathbf{x}_{n}) \sim N\left (\tilde{\theta}, \tilde{\sigma}^{2}\right)
 \left (\bar{x}-z_{1-\alpha/2}\cdot\sigma/\sqrt{n}, \ \bar{x}-z_{1-\alpha/2}\cdot\sigma/\sqrt{n}\right) .
  \]</div>
 <p>对于有限的 <span class="math notranslate nohighlight">\( n \)</span> , 贝叶斯可信集与频率学派的置信区间是不同的；而当 <span class="math notranslate nohighlight">\( n\to\infty \)</span> 时, 二者等同。</p>
-</section>
-<section id="id7">
-<h2><span class="section-number">6.6. </span>线性回归中的应用<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">7.6. </span>线性回归中的应用<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>我们将介绍三种对线性回归系数假设的检验方法——Wald检验, 拉格朗日乘数 (LM) 检验, 似然比检验 (LRT) 。Wald检验是基于不受限制的OLS估计值 <span class="math notranslate nohighlight">\( widehat{\beta} \)</span> ；LM检验是基于限制性的OLS估计值 <span class="math notranslate nohighlight">\( \tilde{beta} \)</span> ；而LRT, 我们已经讨论过了, 是基于对数似然函数在不受限制的OLS估计值与受限制的OLS估计值之间的差值。</p>
 <p>记 <span class="math notranslate nohighlight">\( R \)</span> 为一个 <span class="math notranslate nohighlight">\( q/times K \)</span> 的常数矩阵, 其中 <span class="math notranslate nohighlight">\( q/leq K \)</span> , <span class="math notranslate nohighlight">\( mbox{rank}\left (R\right) =q \)</span> 。所有关于 <span class="math notranslate nohighlight">\( \beta \)</span> 的线性限制都可以写成 <span class="math notranslate nohighlight">\( R\beta=r \)</span> 的形式, 其中 <span class="math notranslate nohighlight">\( r \)</span> 是一个 <span class="math notranslate nohighlight">\( q/times1 \)</span> 的常量向量。</p>
-<p>在上面的例子中, 我们想同时检验 <span class="math notranslate nohighlight">\( \beta{1}=1 \)</span> 和 <span class="math notranslate nohighlight">\( \beta{3}+\beta{4}=2 \)</span> 。零假设可以表达为 <span class="math notranslate nohighlight">\( R\beta=r \)</span> , 其中限制矩阵 <span class="math notranslate nohighlight">\( R \)</span> 可写作</p>
+<p>在上面的例子中, 我们想同时检验 <span class="math notranslate nohighlight">\( \beta{1}=1 \)</span> 和 <span class="math notranslate nohighlight">\( \beta{3}+\beta{4}=2 \)</span> 。原假设可以表达为 <span class="math notranslate nohighlight">\( R\beta=r \)</span> , 其中限制矩阵 <span class="math notranslate nohighlight">\( R \)</span> 可写作</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 R=\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
@@ -777,8 +663,8 @@ R=\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
 \end{pmatrix}.
  \end{split}\]</div>
 <p>另外, <span class="math notranslate nohighlight">\( r=\left (1, 2\right) ' \)</span> 。</p>
-<section id="wald">
-<h3><span class="section-number">6.6.1. </span>Wald检验<a class="headerlink" href="#wald" title="Permalink to this headline">#</a></h3>
+<div class="section" id="wald">
+<h3><span class="section-number">7.6.1. </span>Wald检验<a class="headerlink" href="#wald" title="Permalink to this headline">¶</a></h3>
 <p>假设OLS估计量 <span class="math notranslate nohighlight">\( \widehat{\beta} \)</span> 是渐进正态的, 也就是说</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -789,12 +675,12 @@ R=\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
 \[ 
 n\left (\widehat{\beta}-\beta\right) 'R'\left (R\Omega R'\right) ^{-1}R\left (\widehat{\beta}-\beta\right) \stackrel{d}{\to}\chi_{q}^{2}.
  \]</div>
-<p>现在我们想要检验线性的零假设 <span class="math notranslate nohighlight">\( R\beta=r \)</span> 。在零假设下, Wald统计量被定义为</p>
+<p>现在我们想要检验线性的原假设 <span class="math notranslate nohighlight">\( R\beta=r \)</span> 。在原假设下, Wald统计量被定义为</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{W}=n\left (R\widehat{\beta}-r\right) '\left (R\widehat{\Omega}R'\right) ^{-1}\left (R\widehat{\beta}-r\right) \stackrel{d}{\to}\chi_{q}^{2}, 
  \]</div>
-<p>其中 <span class="math notranslate nohighlight">\( \widehat{\Omega} \)</span> 是 <span class="math notranslate nohighlight">\( \Omega \)</span> 的一致估计量。</p>
+<p>其中 <span class="math notranslate nohighlight">\( \widehat{\Omega} \)</span> 是 <span class="math notranslate nohighlight">\( \Omega \)</span> 的相合估计量。</p>
 <div class="highlight-{prf: notranslate"><div class="highlight"><pre><span></span>: label: example85
 
 
@@ -811,7 +697,7 @@ E\left[e_{i}x_{i}\right] &amp; =\mathbf{0}_{5}.
 \end{aligned}
  $$ 
 
-为了测试**教育**是否影响工资, 我们将零假设写作 $ \beta_{1}=0 $ 。令 $ R=\left (1, 0, 0, 0, 0\right) $ , $ r=0 $ .
+为了测试**教育**是否影响工资, 我们将原假设写作 $ \beta_{1}=0 $ 。令 $ R=\left (1, 0, 0, 0, 0\right) $ , $ r=0 $ .
 
  $$
  \sqrt{n}\widehat{\beta}_{1}=\sqrt{n}\left (\widehat{\beta}_{1}-\beta_{1}\right) =\sqrt{n}R\left (\widehat{\beta}-\beta\right) \stackrel{d}{\to}N\left (0, R\Omega R&#39;\right) \sim N\left (0, \Omega_{11}\right) , \label{eq: R11} 
@@ -819,7 +705,7 @@ E\left[e_{i}x_{i}\right] &amp; =\mathbf{0}_{5}.
 
 上式 $ \Omega{}_{11} $ 是 $ \Omega $ 的 $ \left (1, 1\right) $ 成分。
 
-在零假设下
+在原假设下
 
  $$
 H_{0}: R\beta=\left (1, 0, 0, 0, 0\right) \left (\beta_{1}, \ldots, \beta_{5}\right) &#39;=\beta_{1}=0, 
@@ -876,15 +762,15 @@ n\left (f\left (\widehat{\theta}\right) -f\left (\theta_{0}\right) \right) &#39;
 \mathcal{W}=n\left (f\left (\widehat{\beta}\right) -20\right) &#39;\left (\frac{\partial f}{\partial\beta&#39;}\left (\widehat{\beta}\right) \widehat{\Omega}\frac{\partial f}{\partial\beta&#39;}\left (\widehat{\beta}\right) \right) ^{-1}\left (f\left (\widehat{\beta}\right) -20\right) \stackrel{d}{\to}\chi_{1}^{2}.
  $$ 
 
-这是一个渐进大小正确的检验。
+这是一个渐进尺度正确的检验。
 
 
 </pre></div>
 </div>
-<p>但注意, 这并不是一个非常好的例子, 因为这一非线性假设可以写作线性假设。零假设也可以写作 <span class="math notranslate nohighlight">\( \beta_{3}+40\beta_{4}=0 \)</span> , 我们也可以因之构造出Wald统计量。一般来说, 在渐进等价的情况下, 线性假设比非线性假设更好, 因为在零假设下delta方法的近似值误差；也因为在备择假设下, 泰勒展开无效。它还突出了Wald检验对<strong>重新参数化</strong>是敏感的这一问题。</p>
-</section>
-<section id="id8">
-<h3><span class="section-number">6.6.2. </span>拉格朗日乘数检验<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>但注意, 这并不是一个非常好的例子, 因为这一非线性假设可以写作线性假设。原假设也可以写作 <span class="math notranslate nohighlight">\( \beta_{3}+40\beta_{4}=0 \)</span> , 我们也可以因之构造出Wald统计量。一般来说, 在渐进等价的情况下, 线性假设比非线性假设更好, 因为在原假设下delta方法的近似值误差；也因为在备择假设下, 泰勒展开无效。它还突出了Wald检验对<strong>重新参数化</strong>是敏感的这一问题。</p>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">7.6.2. </span>拉格朗日乘数检验<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>Wald检验和LM检验的关键区别在于, 前者是非限制性的OLS估计, 而后者是限制性的OLS估计。估计限制性的OLS估计量</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -892,11 +778,11 @@ n\left (f\left (\widehat{\theta}\right) -f\left (\theta_{0}\right) \right) &#39;
  \]</div>
 <p>我们知道, 有限制的最优化问题可以转化为无限制的问题</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagran">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-lagran" title="Permalink to this equation">#</a></span>\[$ 
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-eq-lagran" title="Permalink to this equation">¶</a></span>\[$ 
 L\left (\beta, \lambda\right) =\frac{1}{2n}\left (y-X\beta\right) '\left (y-X\beta\right) +\lambda'\left (R\beta-r\right) .
  \]</div>
 <p>上式中 <span class="math notranslate nohighlight">\( L\left (\beta, \lambda\right) \)</span> 是拉格朗日函数, <span class="math notranslate nohighlight">\( \lambda \)</span> 是拉格朗日乘数。</p>
-<p>LM检验又被叫做<strong>score检验</strong>, 因为它依赖于受限OLS估计量的score函数。令<a class="reference internal" href="#equation-eq-lagran">(6.1)</a>中一阶条件为0:</p>
+<p>LM检验又被叫做<strong>score检验</strong>, 因为它依赖于受限OLS估计量的score函数。令<a class="reference internal" href="#equation-eq-lagran">(7.1)</a>中一阶条件为0:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{aligned}
@@ -917,14 +803,14 @@ R &amp; 0
 <p>其中 <span class="math notranslate nohighlight">\( \hat{Q}=X'X/n \)</span> .</p>
 <p>注意到</p>
 <div class="math notranslate nohighlight" id="equation-eq-8-1">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq-8-1" title="Permalink to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(7.2)<a class="headerlink" href="#equation-eq-8-1" title="Permalink to this equation">¶</a></span>\[\begin{split} 
 \begin{pmatrix}\widehat{Q}^{-1}-\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1} &amp; \widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}\\
 \left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1} &amp; - (R'Q^{-1}R) ^{-1}
 \end{pmatrix}\begin{pmatrix}\widehat{Q} &amp; R'\\
 R &amp; 0
 \end{pmatrix}=I_{K+q}.
  \end{split}\]</div>
-<p>基于<a class="reference internal" href="#equation-eq-8-1">(6.2)</a>, 我们可以写出表达式</p>
+<p>基于<a class="reference internal" href="#equation-eq-8-1">(7.2)</a>, 我们可以写出表达式</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{aligned}
@@ -977,9 +863,9 @@ n\tilde{\lambda}'\Sigma^{-1}\tilde{\lambda}\stackrel{d}{\to}\chi_{q}^{2}.
 将 $ \beta_{3} $ 替换为 $ -40\beta_{4} $ , 就只用再检验三个斜率参数。另外, LM检验不受重新参数化的影响。
 </pre></div>
 </div>
-</section>
-<section id="id9">
-<h3><span class="section-number">6.6.3. </span>似然比检验<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id9">
+<h3><span class="section-number">7.6.3. </span>似然比检验<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>在上一节中, 我们已经讨论了LRT。这里我们把它放到具有高斯误差的线性回归背景下。令 <span class="math notranslate nohighlight">\( \gamma=\sigma_{e}^{2} \)</span> 。在回归模型的经典假设下,</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -1005,14 +891,14 @@ L_{n}\left (\beta, \gamma\right) =-\frac{n}{2}\log\left (2\pi\right) -\frac{n}{2
 <p>现在, 我们抛弃误差呈正态分布这一假设, 但仍然保留条件同方差性。在这种情况下, 上面的结果并不适用, 因为 <span class="math notranslate nohighlight">\( L_{n}\left (\beta, \gamma\right) \)</span> 不再是对数似然函数, 我们在这里叫它<strong>拟对数似然函数</strong>。</p>
 <p>根据 <span class="math notranslate nohighlight">\( \log\left (1+\frac{\tilde{\gamma}-\widehat{\gamma}}{\widehat{\gamma}}\right) \)</span> 在 <span class="math notranslate nohighlight">\( \log1=0 \)</span> 处的泰勒展开,</p>
 <div class="math notranslate nohighlight" id="equation-eq-lrt1">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-eq-lrt1" title="Permalink to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-eq-lrt1" title="Permalink to this equation">¶</a></span>\[\begin{split} 
 \begin{aligned}
 \mathcal{LR} &amp; =n\log\left (1+\frac{\tilde{\gamma}-\widehat{\gamma}}{\widehat{\gamma}}\right) =n\left (\log1+\frac{\tilde{\gamma}-\widehat{\gamma}}{\widehat{\gamma}}+O\left (\frac{\left|\tilde{\gamma}-\widehat{\gamma}\right|^{2}}{\widehat{\gamma}^{2}}\right) \right) \nonumber \\
  &amp; =n\frac{\tilde{\gamma}-\widehat{\gamma}}{\widehat{\gamma}}+o_{p}\left (1\right) .\end{aligned}
  \end{split}\]</div>
 <p>我们关注到</p>
 <div class="math notranslate nohighlight" id="equation-eq-lrt2">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-eq-lrt2" title="Permalink to this equation">#</a></span>\[\begin{split} \begin{aligned}
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-eq-lrt2" title="Permalink to this equation">¶</a></span>\[\begin{split} \begin{aligned}
 n\left (\tilde{\gamma}-\widehat{\gamma}\right) &amp; =n\left (\gamma\left (\tilde{\beta}\right) -\gamma\left (\widehat{\beta}\right) \right) \nonumber \\
  &amp; =n\left (\frac{\partial\gamma\left (\widehat{\beta}\right) }{\partial\beta}\left (\tilde{\beta}-\widehat{\beta}\right) +\frac{1}{2}\left (\tilde{\beta}-\widehat{\beta}\right) '\frac{\partial^{2}\gamma\left (\widehat{\beta}\right) }{\partial\beta\partial\beta'}\left (\tilde{\beta}-\widehat{\beta}\right) +O\left (\left\Vert \tilde{\beta}-\widehat{\beta}\right\Vert _{2}^{3}\right) \right) \nonumber \\
  &amp; =\sqrt{n}\left (\tilde{\beta}-\widehat{\beta}\right) '\widehat{Q}\sqrt{n}\left (\tilde{\beta}-\widehat{\beta}\right) +o_{p}\left (1\right) , \end{aligned}
@@ -1033,14 +919,14 @@ n\left (\tilde{\gamma}-\widehat{\gamma}\right) &amp; =n\left (\gamma\left (\tild
  \]</div>
 <p>因此, 二次型可写作</p>
 <div class="math notranslate nohighlight" id="equation-eq-lrt3">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-lrt3" title="Permalink to this equation">#</a></span>\[\begin{split} 
+<span class="eqno">(7.5)<a class="headerlink" href="#equation-eq-lrt3" title="Permalink to this equation">¶</a></span>\[\begin{split} 
 \begin{aligned}
  &amp;  &amp; \sqrt{n}\left (\tilde{\beta}-\widehat{\beta}\right) '\widehat{Q}\sqrt{n}\left (\tilde{\beta}-\widehat{\beta}\right) \nonumber \\
  &amp; = &amp; \frac{1}{\sqrt{n}}e'X\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1}\widehat{Q}\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'e\nonumber \\
  &amp; = &amp; \frac{1}{\sqrt{n}}e'X\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'e\nonumber \\
  &amp; = &amp; \frac{1}{\sqrt{n}}e'X\widehat{Q}^{-1}R'\left (R\widehat{Q}^{-1}R'\right) ^{-1}R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'e.\end{aligned}
  \end{split}\]</div>
-<p>结合<a class="reference internal" href="#equation-eq-lrt1">(6.3)</a>, <a class="reference internal" href="#equation-eq-lrt2">(6.4)</a>, <a class="reference internal" href="#equation-eq-lrt3">(6.5)</a>, 有</p>
+<p>结合<a class="reference internal" href="#equation-eq-lrt1">(7.3)</a>, <a class="reference internal" href="#equation-eq-lrt2">(7.4)</a>, <a class="reference internal" href="#equation-eq-lrt3">(7.5)</a>, 有</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \begin{aligned}
@@ -1064,14 +950,14 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
 \[ 
 \mathcal{LR}\stackrel{d}{\to}\chi_{q}^{2}.
  \]</div>
-</section>
-</section>
-<section id="id10">
-<h2><span class="section-number">6.7. </span>总结<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">7.7. </span>总结<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <p>应用计量经济学家是一个痴迷于假设检验, 他们希望在变量间建立统计学上的关联关系, 最好是建立因果关系。假设检验是统计学中的重要领域。
 统计学的一个基本重要课题。表格<span class="xref std std-ref">my-table-ref</span>中的状态和决策提醒了我们它和博弈论的关系。我, 是一个玩家, 正在与自然界进行一个序列博弈。</p>
 <ul class="simple">
-<li><p>Step 0:  根据某个科学理论, 参数空间 <span class="math notranslate nohighlight">\( \Theta \)</span> 被划分为零假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 和备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 。</p></li>
+<li><p>Step 0:  根据某个科学理论, 参数空间 <span class="math notranslate nohighlight">\( \Theta \)</span> 被划分为原假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 和备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 。</p></li>
 <li><p>Step 1:  在我观察数据之前, 我根据 <span class="math notranslate nohighlight">\( \Theta_{0}\)</span> 和 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 设计了一个检验函数 <span class="math notranslate nohighlight">\( \phi \)</span> 。用博弈论的术语来说, <span class="math notranslate nohighlight">\( \phi \)</span> 就是我的<strong>策略</strong>。</p></li>
 <li><p>Step 2: 一旦我观察到数据 <span class="math notranslate nohighlight">\( \mathbf{x} \)</span> , 我就按照 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) \)</span> 的指令行事–要么接受 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> , 要么拒绝 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 。</p></li>
 <li><p>Step 3: 自然界揭示了 <span class="math notranslate nohighlight">\( \mathbf{x} \)</span> 背后的真实参数 <span class="math notranslate nohighlight">\( \theta^{*} \)</span> , 而我可以评估我的决定的收益/损失 <span class="math notranslate nohighlight">\( \phi\left (\mathbf{x}\right) \)</span> 。</p></li>
@@ -1087,7 +973,7 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
 \mathscr{R}\left (\theta, \phi\right) =E\left[\mathscr{L}\left (\theta, \phi\left (\mathbf{x}\right) \right) \right]=\beta_{\phi}\left (\theta\right) \cdot1\left\{ \theta\in\Theta_{0}\right\} +\left (1-\beta_{\phi}\left (\theta\right) \right) \cdot1\left\{ \theta\in\Theta_{1}\right\} .
  \]</div>
 <p>我是一个理性的人。我了解游戏的结构, 我想在Step 1中好好设计我的策略。我希望尽量降低我的风险。</p>
-<p>如果我是一个频率学家, 要么 <span class="math notranslate nohighlight">\( 1\left\{ \theta\in\Theta_{0}\right\} \)</span> 发生, 要么 <span class="math notranslate nohighlight">\( 1\left\{ \theta\in\Theta_{1}\right\} \)</span> 发生。一个无偏的检验保证了 <span class="math notranslate nohighlight">\( \sup_{\theta\in\Theta_{0}}\beta_{\phi}\left (\theta\right) \leq\alpha \)</span> .在许多无偏的检验中, 我要选择最好的那个。如果它存在, 在一系列大小为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的无偏检验 <span class="math notranslate nohighlight">\( \Psi_{\alpha} \)</span> 中, 一致功效最大的检验 <span class="math notranslate nohighlight">\( \phi^{*} \)</span> 满足, 对于任意 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 都有 <span class="math notranslate nohighlight">\( \mathscr{R}\left (\theta, \phi^{*}\right) \geq\sup_{\phi\in\Psi_{\alpha}}\mathscr{R}\left (\theta, \phi\right) \)</span> 。当零假设与备择假设都是简单假设时, 根据Neyman-Pearson Lemma, 似然比检验是一致功效最大的检验。</p>
+<p>如果我是一个频率学家, 要么 <span class="math notranslate nohighlight">\( 1\left\{ \theta\in\Theta_{0}\right\} \)</span> 发生, 要么 <span class="math notranslate nohighlight">\( 1\left\{ \theta\in\Theta_{1}\right\} \)</span> 发生。一个无偏的检验保证了 <span class="math notranslate nohighlight">\( \sup_{\theta\in\Theta_{0}}\beta_{\phi}\left (\theta\right) \leq\alpha \)</span> .在许多无偏的检验中, 我要选择最好的那个。如果它存在, 在一系列大小为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的无偏检验 <span class="math notranslate nohighlight">\( \Psi_{\alpha} \)</span> 中, 相合功效最大的检验 <span class="math notranslate nohighlight">\( \phi^{*} \)</span> 满足, 对于任意 <span class="math notranslate nohighlight">\( \theta\in\Theta_{1} \)</span> , 都有 <span class="math notranslate nohighlight">\( \mathscr{R}\left (\theta, \phi^{*}\right) \geq\sup_{\phi\in\Psi_{\alpha}}\mathscr{R}\left (\theta, \phi\right) \)</span> 。当原假设与备择假设都是简单假设时, 根据Neyman-Pearson Lemma, 似然比检验是相合功效最大的检验。</p>
 <p>如果我是一个贝叶斯学家, 我不介意将概率 (权重) 加于参数空间, 这是我的先验信念 <span class="math notranslate nohighlight">\( \pi\left (\theta\right) \)</span> 。那么我的贝叶斯风险为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -1095,7 +981,7 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
 \mathscr{BR}\left (\pi, \phi\right) &amp; =E_{\pi\left (\theta\right) }\left[\mathscr{R}\left (\theta, \phi\right) \right]=\int\left[\beta_{\phi}\left (\theta\right) \cdot1\left\{ \theta\in\Theta_{0}\right\} +\left (1-\beta_{\phi}\left (\theta\right) \right) \cdot1\left\{ \theta\in\Theta_{1}\right\} \right]\pi\left (\theta\right) d\theta\\
  &amp; =\int_{\left\{ \theta\in\Theta_{0}\right\} }\beta_{\phi}\left (\theta\right) \pi\left (\theta\right) d\theta+\int_{\left\{ \theta\in\Theta_{1}\right\} } (1-\beta_{\phi}\left (\theta\right) ) \pi\left (\theta\right) d\theta.\end{aligned}
  \end{split}\]</div>
-<p>这是一个在 <span class="math notranslate nohighlight">\( \pi\left (\theta\right) \)</span> 下平均零假设与备择假设过后的风险。</p>
+<p>这是一个在 <span class="math notranslate nohighlight">\( \pi\left (\theta\right) \)</span> 下平均原假设与备择假设过后的风险。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
 <p>假设检验形成于20世纪初。Karl Pearson (1957–1936) 奠定了假设检验的基础, 并引入了 <span class="math notranslate nohighlight">\( \chi/^{2} \)</span> 检验、 <span class="math notranslate nohighlight">\( p \)</span> 值, 以及我们今天一直在使用的许多其他概念。Neyman-Pearson Lemma 是由 Jerzy Neyman (1894–1981) 与 Egon Pearson (1895–1980) 命名的, 后者是 Karl Pearson 的儿子。</p>
@@ -1104,8 +990,8 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
 <p class="admonition-title">拓展阅读</p>
 <p>Young and Smith (2005) [&#64;young2005essentials]是一本简明而深入的统计推断参考书。</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1116,54 +1002,48 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lecture5-CN.html" title="previous page">
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="lecture6-CN.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">5. </span>基本渐近理论</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>最小二乘法的渐近性质</p>
         </div>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By 史震涛 Shi Zhentao<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By 史震涛 Shi Zhentao<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
