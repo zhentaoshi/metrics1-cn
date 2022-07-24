@@ -54,3 +54,23 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 QR code for the webpage
 
 ![QRcode](qrcode.png)
+
+
+## Contents
+
+Consider a rearrangment:
+
+* Prob
+* Stat
+* Asym
+
+* OLS linear algebra
+* OLS finite sample (MLE)
+* OLS asymp
+* OLS population model
+* OLS inference
+* Linear panel data
+* Endogeneity
+* GMM
+* MLE
+* Identification. Causality
