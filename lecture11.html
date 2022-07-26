@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>\setcounter{chapter}{10} Generalized Method of Moments &#8212; 计量经济学讲义</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">计量经济学讲义</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    前言
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1-CN.html">
+   1. 概率论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2-CN.html">
+   2. 投影
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3-CN.html">
+   3. 最小二乘法:线性代数观点
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture4-CN.html">
+   4. 最小二乘法:有限样本理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture5-CN.html">
+   5. 基本渐近理论
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture6-CN.html">
+   6. 最小二乘法:渐近性质
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture8-CN.html">
+   7. 假设检验
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture9-CN.html">
+   8. 面板数据
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture11.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture11.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrumental-regression">
+   Instrumental Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#just-identification">
+     Just-identification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#over-identification">
+     Over-identification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gmm-estimator">
+   GMM Estimator
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#efficient-gmm">
+     Efficient GMM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-step-gmm">
+     Two-Step GMM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-stage-least-squares">
+     Two Stage Least Squares
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gmm-in-nonlinear-model">
+   GMM in Nonlinear Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>\setcounter{chapter}{10}
+Generalized Method of Moments</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrumental-regression">
+   Instrumental Regression
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#just-identification">
+     Just-identification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#over-identification">
+     Over-identification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gmm-estimator">
+   GMM Estimator
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#efficient-gmm">
+     Efficient GMM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-step-gmm">
+     Two-Step GMM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-stage-least-squares">
+     Two Stage Least Squares
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gmm-in-nonlinear-model">
+   GMM in Nonlinear Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="setcounter-chapter-10-generalized-method-of-moments">
+<h1>\setcounter{chapter}{10}
+Generalized Method of Moments<a class="headerlink" href="#setcounter-chapter-10-generalized-method-of-moments" title="Permalink to this headline">#</a></h1>
+<p><em>Generalized method of moments</em> (GMM) [&#64;hansen1982large] is an
+estimation principle that extends <em>method of moments</em>. It seeks the
+parameter value that minimizes a quadratic form of the moments. It is
+particularly useful in estimating structural economic models in which
+moment conditions can be derived from underlying economic theory. GMM
+emerges as one of the most popular estimators in modern econometrics. It
+includes conventional methods like the two-stage least squares (2SLS)
+and the three-stage least square as special cases.</p>
+<section id="instrumental-regression">
+<h2>Instrumental Regression<a class="headerlink" href="#instrumental-regression" title="Permalink to this headline">#</a></h2>
+<p>We first discuss estimation in a linear single structural equation
+$<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+\epsilon_{i}\)</span><span class="math notranslate nohighlight">\( with \)</span>K<span class="math notranslate nohighlight">\( regressors. Identification
+is a prerequisite for structural estimation. From now on we always
+assume that the model is identified: there is an \)</span>L\times1<span class="math notranslate nohighlight">\( vector of
+instruments \)</span>z_{i}<span class="math notranslate nohighlight">\( such that
+\)</span>\mathbb{E}\left[z_{i}\epsilon_{i}\right]=0_{L}<span class="math notranslate nohighlight">\( and
+\)</span>\Sigma:=\mathbb{E}\left[z_{i}x_{i}’\right]<span class="math notranslate nohighlight">\( is of full column rank.
+Denote \)</span>\beta_{0}<span class="math notranslate nohighlight">\( as the root of the equation
+\)</span>E\left[z_{i}\left(y_{i}-x_{i}’\beta\right)\right]=0_{L}$, which is
+uniquely identified.</p>
+<section id="just-identification">
+<h3>Just-identification<a class="headerlink" href="#just-identification" title="Permalink to this headline">#</a></h3>
+<p>When <span class="math notranslate nohighlight">\(L=K\)</span>, the instrumental regression model is <em>just-identified</em>, or
+<em>exactly identified</em>. The orthogonality condition implies
+$<span class="math notranslate nohighlight">\(\Sigma\beta_{0}=\mathbb{E}\left[z_{i}y_{i}\right],\)</span><span class="math notranslate nohighlight">\( and we can solve
+express \)</span>\beta_{0}<span class="math notranslate nohighlight">\( as
+\)</span><span class="math notranslate nohighlight">\(\beta_{0}=\Sigma^{-1}\mathbb{E}\left[z_{i}y_{i}\right]\label{eq:just_beta}\)</span>$
+in closed form.</p>
+<p>The closed-form solution naturally motivates an estimator in which we
+replace the population methods by the sample moments and this is a
+method-of-moments estimator. Nevertheless, we postpone the discussion of
+this estimator to the next section.</p>
+</section>
+<section id="over-identification">
+<h3>Over-identification<a class="headerlink" href="#over-identification" title="Permalink to this headline">#</a></h3>
+<p>When <span class="math notranslate nohighlight">\(L&gt;K\)</span>, the model is <em>over-identified</em>. The orthogonality condition
+still implies
+$<span class="math notranslate nohighlight">\(\Sigma\beta_{0}=\mathbb{E}\left[z_{i}y_{i}\right],\label{eq:moment2}\)</span><span class="math notranslate nohighlight">\(
+but \)</span>\Sigma<span class="math notranslate nohighlight">\( is not a square matrix so we cannot write \)</span>\beta_{0}<span class="math notranslate nohighlight">\( as
+that in ([\[eq:just\_beta\]](#eq:just_beta){reference-type=&quot;ref&quot;
+reference=&quot;eq:just_beta&quot;}). In order to express \)</span>\beta_{0}<span class="math notranslate nohighlight">\( explicitly,
+we define a criterion function
+\)</span><span class="math notranslate nohighlight">\(Q\left(\beta\right)=\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right],\)</span><span class="math notranslate nohighlight">\(
+where \)</span>W<span class="math notranslate nohighlight">\( is an \)</span>L\times L<span class="math notranslate nohighlight">\( positive-definite non-random symmetric
+matrix. (The choice of \)</span>W<span class="math notranslate nohighlight">\( will be discussed soon.) Because of the
+quadratic form, \)</span>Q\left(\beta\right)\geq0<span class="math notranslate nohighlight">\( for all \)</span>\beta<span class="math notranslate nohighlight">\(.
+Identification indicates that \)</span>Q\left(\beta\right)=0<span class="math notranslate nohighlight">\( if and only if
+\)</span>\beta=\beta_{0}<span class="math notranslate nohighlight">\(. Therefore we conclude
+\)</span><span class="math notranslate nohighlight">\(\beta_{0}=\arg\min_{\beta}Q\left(\beta\right)\)</span><span class="math notranslate nohighlight">\( is the unique
+minimizer. Since \)</span>Q\left(\beta\right)<span class="math notranslate nohighlight">\( is a smooth function of \)</span>\beta<span class="math notranslate nohighlight">\(,
+the minimizer \)</span>\beta_{0}<span class="math notranslate nohighlight">\( can be characterized by the first-order
+condition
+\)</span><span class="math notranslate nohighlight">\(0_{K}=\frac{\partial}{\partial\beta}Q\left(\beta_{0}\right)=-2\Sigma'W\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta_{0}\right)\right]\)</span><span class="math notranslate nohighlight">\(
+Rearranging the above equation, we have
+\)</span><span class="math notranslate nohighlight">\(\Sigma'W\Sigma\beta_{0}=\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right].\)</span><span class="math notranslate nohighlight">\(
+Under the rank condition \)</span>\Sigma’W\Sigma<span class="math notranslate nohighlight">\( is invertible so that we can
+solve
+\)</span><span class="math notranslate nohighlight">\(\beta_{0}=\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right].\label{eq:over_beta}\)</span><span class="math notranslate nohighlight">\(
+Because we have more moments (\)</span>L<span class="math notranslate nohighlight">\() than the number of unknown parameters
+(\)</span>K$), we call it the <em>generalized</em> method of moments.</p>
+<p>The above equation can be derived by pre-multiplying <span class="math notranslate nohighlight">\(\Sigma'W\)</span> on the
+both sides of (<a class="reference external" href="#eq:moment2">[eq:moment2]</a>{reference-type=”ref”
+reference=”eq:moment2”}) without referring to the minimization problem.</p>
+<p>Although we separate the discussion of the just-identified case and the
+over-identified case, the latter
+(<a class="reference external" href="#eq:over_beta">[eq:over_beta]</a>{reference-type=”ref”
+reference=”eq:over_beta”}) actually takes
+(<a class="reference external" href="#eq:just_beta">[eq:just_beta]</a>{reference-type=”ref”
+reference=”eq:just_beta”}) as a special case. In this sense, GMM is
+genuine generalization of the method of moments. to see this point,
+notice that when <span class="math notranslate nohighlight">\(L=K\)</span>, given any <span class="math notranslate nohighlight">\(W\)</span> we have $<span class="math notranslate nohighlight">\(\begin{aligned}
+\beta_{0} &amp; =\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right]=\Sigma^{-1}W^{-1}(\Sigma')^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right]\\
+ &amp; =\Sigma^{-1}W^{-1}W\mathbb{E}\left[z_{i}y_{i}\right]=\Sigma^{-1}\mathbb{E}\left[z_{i}y_{i}\right],\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+as \)</span>\Sigma<span class="math notranslate nohighlight">\( is a square matrix. That is to say, in the just-identified
+case \)</span>W<span class="math notranslate nohighlight">\( plays no role because any choices of \)</span>W<span class="math notranslate nohighlight">\( lead to the same
+explicit solution of \)</span>\beta_{0}$.</p>
+</section>
+</section>
+<section id="gmm-estimator">
+<h2>GMM Estimator<a class="headerlink" href="#gmm-estimator" title="Permalink to this headline">#</a></h2>
+<p>In practice, we use the sample moments to replace the corresponding
+population moments. The GMM estimator mimics its population formula.
+$<span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta} &amp; = &amp; \left(\frac{1}{n}\sum x_{i}z_{i}'W\frac{1}{n}\sum z_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum x_{i}z_{i}'W\frac{1}{n}\sum z_{i}y_{i}\\
+ &amp; = &amp; \left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{Z'y}{n}\\
+ &amp; = &amp; \left(X'ZWZ'X\right)^{-1}X'ZWZ'y.\end{aligned}\)</span><span class="math notranslate nohighlight">\( Under
+just-identification, this expression includes the 2SLS estimator
+\)</span><span class="math notranslate nohighlight">\(\hat{\beta}=\left(\frac{Z'X}{n}\right)^{-1}\frac{Z'y}{n}=\left(Z'X\right)^{-1}Z'y\)</span>$
+as a special case.</p>
+<p>\medskip{}
+The same GMM estimator <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> can be obtained by minimizing
+$<span class="math notranslate nohighlight">\(Q_{n}\left(\beta\right)=\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\beta\right)\right]=\frac{\left(y-X\beta\right)'Z}{n}W\frac{Z'\left(y-X\beta\right)}{n},\)</span><span class="math notranslate nohighlight">\(
+or more concisely
+\)</span>\hat{\beta}=\arg\min_{\beta}\left(y-X\beta\right)’ZWZ’\left(y-X\beta\right).$</p>
+<p>\medskip{}
+Now we check the asymptotic properties of <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span>. A few
+assumptions are in order.</p>
+<p><span class="math notranslate nohighlight">\(Z'X/n\stackrel{\mathrm{p}}{\to}\Sigma\)</span> and
+<span class="math notranslate nohighlight">\(Z'\epsilon/n\stackrel{\mathrm{p}}{\to}0_{L}\)</span>.</p>
+<p>A.1 assumes that we can apply a law of large numbers, so that that the
+sample moments <span class="math notranslate nohighlight">\(Z'X/n\)</span> and <span class="math notranslate nohighlight">\(Z'\epsilon/n\)</span> converge in probability to
+their population counterparts.</p>
+<p>Under Assumption A.1, <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> is consistent.</p>
+<p>The step is similar to the consistency proof of OLS. $<span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta} &amp; =\left(X'ZWZ'X\right)^{-1}X'ZWZ'\left(X'\beta_{0}+\epsilon\right)\\
+ &amp; =\beta_{0}+\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{Z'\epsilon}{n}\\
+ &amp; \stackrel{\mathrm{p}}{\to}\beta_{0}+\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W0=\beta_{0}.\qedhere\end{aligned}\)</span>$</p>
+<p>To check asymptotic normality, we assume that a central limit theorem
+can be applied.</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}\epsilon_{i}\stackrel{d}{\to}N\left(0_{L},\Omega\right)\)</span>,
+where <span class="math notranslate nohighlight">\(\Omega=\mathbb{E}\left[z_{i}z_{i}'\epsilon_{i}^{2}\right].\)</span></p>
+<p>Under Assumptions A.1 and A.2,
+$<span class="math notranslate nohighlight">\(\sqrt{n}\left(\widehat{\beta}-\beta_{0}\right)\stackrel{d}{\to}N\left(0_{K},\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}\right).\label{eq:normality}\)</span>$</p>
+<p>Multiply <span class="math notranslate nohighlight">\(\widehat{\beta}-\beta_{0}\)</span> by the scaling factor <span class="math notranslate nohighlight">\(\sqrt{n}\)</span>,
+$<span class="math notranslate nohighlight">\(\sqrt{n}\left(\widehat{\beta}-\beta_{0}\right)=\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{Z'\epsilon}{\sqrt{n}}=\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}'\epsilon_{i}.\)</span><span class="math notranslate nohighlight">\(
+The conclusion follows by the Slutsky's theorem as
+\)</span><span class="math notranslate nohighlight">\(\frac{X'Z}{n}W\frac{Z'X}{n}\stackrel{\mathrm{p}}{\to}\Sigma'W\Sigma\)</span><span class="math notranslate nohighlight">\(
+and
+\)</span><span class="math notranslate nohighlight">\(\frac{X'Z}{n}W\frac{1}{\sqrt{n}}\sum z_{i}'\epsilon_{i}\stackrel{d}{\to}\Sigma'W\times N\left(0,\Omega\right)\sim N\left(0,\Sigma'W\Omega W\Sigma\right).\qedhere\)</span>$</p>
+<section id="efficient-gmm">
+<h3>Efficient GMM<a class="headerlink" href="#efficient-gmm" title="Permalink to this headline">#</a></h3>
+<p>It is clear from (<a class="reference external" href="#eq:normality">[eq:normality]</a>{reference-type=”ref”
+reference=”eq:normality”}) that the GMM estimator’s asymptotic variance
+depends on the choice of <span class="math notranslate nohighlight">\(W\)</span>. Which <span class="math notranslate nohighlight">\(W\)</span> makes the asymptotic variance as
+small as possible? The answer is <span class="math notranslate nohighlight">\(W=\Omega^{-1}\)</span>, under which the
+efficient asymptotic variance is
+$<span class="math notranslate nohighlight">\(\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'\Omega^{-1}\Omega\Omega^{-1}\Sigma\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}.\)</span>$</p>
+<p>For any positive definite symmetric matrix <span class="math notranslate nohighlight">\(W\)</span>, the difference
+$<span class="math notranslate nohighlight">\(\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}-\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\)</span>$
+is positive semi-definite.</p>
+<p>To simplify notation, denote
+<span class="math notranslate nohighlight">\(A:=W\Sigma\left(\Sigma'W\Sigma\right)^{-1}\)</span> and
+<span class="math notranslate nohighlight">\(B:=\Omega^{-1}\Sigma\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\)</span> and
+then the difference of the two matrices becomes $<span class="math notranslate nohighlight">\(\begin{aligned}
+ &amp;  &amp; \left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}-\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\\
+ &amp; = &amp; A'\Omega A-B'\Omega B\\
+ &amp; = &amp; \left(A-B+B\right)'\Omega\left(A-B+B\right)-B'\Omega B\\
+ &amp; = &amp; \left(A-B\right)'\Omega\left(A-B\right)+\left(A-B\right)'\Omega B+B'\Omega\left(A-B\right).\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+Notice that \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+B'\Omega A &amp; =\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'\Omega^{-1}\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}\\
+ &amp; =\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'W\Sigma\left(\Sigma'W\Sigma\right)^{-1}=\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=B'\Omega B,\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+which implies \)</span>B’\Omega\left(A-B\right)=0<span class="math notranslate nohighlight">\( and
+\)</span>\left(A-B\right)’\Omega B=0<span class="math notranslate nohighlight">\(. We thus conclude that
+\)</span><span class="math notranslate nohighlight">\(\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}-\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=\left(A-B\right)'\Omega\left(A-B\right)\)</span>$
+is positive semi-definite.</p>
+</section>
+<section id="two-step-gmm">
+<h3>Two-Step GMM<a class="headerlink" href="#two-step-gmm" title="Permalink to this headline">#</a></h3>
+<p>The <em>two-step GMM</em> is one way to construct a feasible efficient GMM
+estimator.</p>
+<ol class="simple">
+<li><p>Choose any valid <span class="math notranslate nohighlight">\(W\)</span>, say <span class="math notranslate nohighlight">\(W=I_{L}\)</span>, to get a consistent (but
+inefficient in general) estimator
+<span class="math notranslate nohighlight">\(\hat{\beta}^{\sharp}=\hat{\beta}^{\sharp}\left(W\right)\)</span>. Save the
+residual <span class="math notranslate nohighlight">\(\widehat{\epsilon}_{i}=y_{i}-x_{i}'\hat{\beta}^{\sharp}\)</span>
+and estimate the variance matrix
+<span class="math notranslate nohighlight">\(\widehat{\Omega}=\frac{1}{n}\sum z_{i}z_{i}'\widehat{\epsilon}_{i}^{2}.\)</span>
+Notice that this <span class="math notranslate nohighlight">\(\widehat{\Omega}\)</span> is a consistent for <span class="math notranslate nohighlight">\(\Omega\)</span>.</p></li>
+<li><p>Set <span class="math notranslate nohighlight">\(W=\widehat{\Omega}^{-1}\)</span> and obtain the second estimator
+$<span class="math notranslate nohighlight">\(\widehat{\beta}^{\natural}=\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})=\left(X'Z\widehat{\Omega}^{-1}Z'X\right)^{-1}X'Z\widehat{\Omega}^{-1}Z'y.\)</span>$
+This second estimator is asymptotic efficient.</p></li>
+</ol>
+<p>Show that if <span class="math notranslate nohighlight">\(\widehat{\Omega}\stackrel{p}{\to}\Omega\)</span>, then
+<span class="math notranslate nohighlight">\(\sqrt{n}\left(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})-\widehat{\beta}\left(\Omega^{-1}\right)\right)\stackrel{p}{\to}0\)</span>.
+In other words, the feasible estimator
+<span class="math notranslate nohighlight">\(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})\)</span> is asymptotically
+equivalent to the infeasible efficient estimator
+<span class="math notranslate nohighlight">\(\widehat{\beta}\left(\Omega^{-1}\right)\)</span>.</p>
+</section>
+<section id="two-stage-least-squares">
+<h3>Two Stage Least Squares<a class="headerlink" href="#two-stage-least-squares" title="Permalink to this headline">#</a></h3>
+<p>If we further assume conditional homoskedasticity
+<span class="math notranslate nohighlight">\(\mathbb{E}\left[\epsilon_{i}^{2}|z_{i}\right]=\sigma^{2}\)</span>, then
+$<span class="math notranslate nohighlight">\(\Omega=\mathbb{E}\left[z_{i}z_{i}'\epsilon_{i}^{2}\right]=\mathbb{E}\left[z_{i}z_{i}'\mathbb{E}\left[\epsilon_{i}^{2}|z_{i}\right]\right]=\sigma^{2}\mathbb{E}\left[z_{i}z_{i}'\right].\)</span><span class="math notranslate nohighlight">\(
+In the first-step of the two-step GMM we can estimate the variance of
+the error term by
+\)</span>\widehat{\sigma}^{2}=\frac{1}{n}\sum_{i=1}^{n}\widehat{\epsilon}<em>{i}^{2}<span class="math notranslate nohighlight">\(
+and the variance matrix by
+\)</span>\widehat{\Omega}=\widehat{\sigma}^{2}\frac{1}{n}\sum</em>{i=1}^{n}z_{i}z_{i}’=\widehat{\sigma}^{2}Z’Z/n<span class="math notranslate nohighlight">\(.
+When we plug this \)</span>W=\widehat{\Omega}^{-1}<span class="math notranslate nohighlight">\( into the GMM estimator,
+\)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+\widehat{\beta} &amp; = &amp; \left(X'Z\left(\widehat{\sigma}^{2}\frac{Z'Z}{n}\right)^{-1}Z'X\right)^{-1}X'Z\left(\widehat{\sigma}^{2}\frac{Z'Z}{n}\right)^{-1}Z'y\\
+ &amp; = &amp; \left(X'Z\left(Z'Z\right)^{-1}Z'X\right)^{-1}X'Z\left(Z'Z\right)^{-1}Z'y.\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+This is exactly the same expression of 2SLS for \)</span>L&gt;K<span class="math notranslate nohighlight">\(. Therefore, 2SLS
+can be viewed as a special case of GMM with the weighting matrix
+\)</span>\left(Z’Z/n\right)^{-1}$. Under conditional homoskedasticity, 2SLS is
+the efficient estimator. 2SLS is inefficient in general cases of
+heteroskedasticity, despite its popularity.</p>
+<p>2SLS gets its name because it can be obtained using two steps: first
+regress <span class="math notranslate nohighlight">\(X\)</span> on all instruments <span class="math notranslate nohighlight">\(Z\)</span>, and then regress <span class="math notranslate nohighlight">\(y\)</span> on the fitted
+value along with the included exogenous variables. However, 2SLS can
+actually be obtained by one step using the above equation. It is a
+special case of GMM.</p>
+<p>If an efficient estimator is not too difficult to implement, an
+econometric theorist would prefer the efficient estimator to an
+inefficient estimator. The benefits of using the efficient estimator is
+not limited to more accurate coefficient estimation. Many specification
+tests, for example the <span class="math notranslate nohighlight">\(J\)</span>-statistic we will introduce soon, count on
+the efficient estimator to lead to a familiar <span class="math notranslate nohighlight">\(\chi^{2}\)</span> distribution
+under null hypotheses. Otherwise their null asymptotic distributions
+will be non-standard and thereby critical values must be found by Monte
+Carlo simulations.</p>
+</section>
+</section>
+<section id="gmm-in-nonlinear-model">
+<h2>GMM in Nonlinear Model<a class="headerlink" href="#gmm-in-nonlinear-model" title="Permalink to this headline">#</a></h2>
+<p>The principle of GMM can be used in models where the parameter enters
+the moment conditions nonlinearly. Let
+<span class="math notranslate nohighlight">\(g_{i}\left(\beta\right)=g\left(w_{i},\beta\right)\mapsto\mathbb{R}^{L}\)</span>
+be a function of the data <span class="math notranslate nohighlight">\(w_{i}\)</span> and the parameter <span class="math notranslate nohighlight">\(\beta\)</span>. If economic
+theory implies <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0\)</span>, which
+the statisticians call the <em>estimating equations</em>, we can write the GMM
+population criterion function as
+$<span class="math notranslate nohighlight">\(Q\left(\beta\right)=\mathbb{E}\left[g_{i}\left(\beta\right)\right]'W\mathbb{E}\left[g_{i}\left(\beta\right)\right]\)</span>$</p>
+<p>Nonlinear models nest the linear model as a special case. For the linear
+IV model in the previous section, the data is
+<span class="math notranslate nohighlight">\(w_{i}=\left(y_{i},x_{i},z_{i}\right)\)</span>, and the moment function is
+<span class="math notranslate nohighlight">\(g\left(w_{i},\beta\right)=z_{i}'\left(y_{i}-x_{i}\beta\right)\)</span>.</p>
+<p>In practice we use the sample moments to mimic the population moments in
+the criterion function
+$<span class="math notranslate nohighlight">\(Q_{n}\left(\beta\right)=\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)\right)'W\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)\right).\)</span><span class="math notranslate nohighlight">\(
+The GMM estimator is defined as
+\)</span><span class="math notranslate nohighlight">\(\hat{\beta}=\arg\min_{\beta}Q_{n}\left(\beta\right).\)</span>$ In these
+nonlinear models, a closed-form solution is in general unavailable,
+while the asymptotic properties can still be established. We state these
+asymptotic properties without proofs.</p>
+<p>(a) If the model is identified, and
+$<span class="math notranslate nohighlight">\(\mathbb{P}\left\{ \sup_{\beta\in\mathcal{B}}\big|\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)-\mathbb{E}\left[g_{i}\left(\beta\right)\right]\big|&gt;\varepsilon\right\} \to0\)</span><span class="math notranslate nohighlight">\(
+for any constant \)</span>\varepsilon&gt;0<span class="math notranslate nohighlight">\( where the parametric space
+\)</span>\mathcal{B}<span class="math notranslate nohighlight">\( is a closed set, then
+\)</span>\hat{\beta}\stackrel{\mathrm{p}}{\to}\beta.<span class="math notranslate nohighlight">\(\
+(b) If in addition
+\)</span>\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\left(\beta_{0}\right)\stackrel{d}{\to}N\left(0,\Omega\right)<span class="math notranslate nohighlight">\(
+and
+\)</span>\Sigma=\mathbb{E}\left[\frac{\partial}{\partial\beta’}g_{i}\left(\beta_{0}\right)\right]<span class="math notranslate nohighlight">\(
+is of full column rank, then
+\)</span><span class="math notranslate nohighlight">\(\sqrt{n}\left(\hat{\beta}-\beta_{0}\right)\stackrel{d}{\to}N\left(0,\left(\Sigma'W\Sigma\right)^{-1}\left(\Sigma'W\Omega W\Sigma\right)\left(\Sigma'W\Sigma\right)^{-1}\right)\)</span><span class="math notranslate nohighlight">\(
+where
+\)</span>\Omega=\mathbb{E}\left[g_{i}\left(\beta_{0}\right)g_{i}\left(\beta_{0}\right)’\right]<span class="math notranslate nohighlight">\(.\
+(c) If we choose \)</span>W=\Omega^{-1}<span class="math notranslate nohighlight">\(, then the GMM estimator is efficient,
+and the asymptotic variance becomes
+\)</span>\left(\Sigma’\Omega^{-1}\Sigma\right)^{-1}$.</p>
+<p>The list of assumptions in the above statement is incomplete. We only
+lay out the key conditions but neglect some technical details.</p>
+<p><span class="math notranslate nohighlight">\(Q_{n}\left(\beta\right)\)</span> measures how close are the moments to zeros.
+It can serve as a test statistic with proper scaling. Under the null
+hypothesis <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0_{L}\)</span>, this
+Sargan-Hansen <span class="math notranslate nohighlight">\(J\)</span>-test checks whether a moment condition is violated.
+The test statistic is $<span class="math notranslate nohighlight">\(\begin{aligned}
+J\left(\widehat{\beta}\right) &amp; =nQ_{n}\left(\widehat{\beta}\right)=n\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)'\widehat{\Omega}^{-1}\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)\\
+ &amp; =\left(\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)'\widehat{\Omega}^{-1}\left(\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)\end{aligned}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\widehat{\Omega}<span class="math notranslate nohighlight">\( is a consistent estimator of \)</span>\Omega<span class="math notranslate nohighlight">\(, and
+\)</span>\widehat{\beta}<span class="math notranslate nohighlight">\( is an efficient estimator, for example, the two-step
+GMM estimator \)</span>\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})<span class="math notranslate nohighlight">\(. This
+statistic converges in distribution to a \)</span>\chi^{2}<span class="math notranslate nohighlight">\( random variable with
+degree of freedom \)</span>L-K<span class="math notranslate nohighlight">\(. That is, under the null,
+\)</span><span class="math notranslate nohighlight">\(J\left(\widehat{\beta}\right)\stackrel{d}{\to}\chi^{2}\left(L-K\right).\)</span>$
+If the null hypothesis is false, then the test statistic tends to be
+large and it is more likely to reject the null.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>The popularity of GMM in econometrics comes from the fact that economic
+theory is often not informative enough about the underlying parametric
+relationship amongst the variables. Instead, many economic assumptions
+suggest moment restrictions. From example, the <em>efficient market
+hypothesis</em> postulates that the future price movement <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span>
+cannot be predicted by available past information set <span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span>
+so that <span class="math notranslate nohighlight">\(\mathbb{E}\left[\Delta p_{t+1}|\mathscr{I}_{t}\right]=0\)</span>. It
+implies that any functions of the variables in the information set
+<span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span> are orthogonal to <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span>. A plethora of
+moment conditions can be constructed in order to test the efficient
+market hypothesis.</p>
+<p>Conceptually simple though, GMM has many practical issues in reality.
+There has been vast econometric literature about issues of GMM and their
+remedies.</p>
+<p><strong>Historical notes</strong>: 2SLS was attributed to &#64;theil1953repeated. In the
+linear IV model, the <span class="math notranslate nohighlight">\(J\)</span>-statistic was proposed by
+&#64;sargan1958estimation, and &#64;hansen1982large extended it to nonlinear
+models.</p>
+<p><strong>Further reading</strong>: The quadratic form of GMM makes it difficult to
+accommodate many moments in the big data problems. <em>Empirical
+likelihood</em> is an alternative estimator to GMM to estimate models
+defined by moment restrictions. &#64;shi2016econometric solves the
+estimation problem of high-dimensional moments under the framework of
+empirical likelihood.</p>
+<p>\bigskip
+<code class="docutils literal notranslate"> <span class="pre">Zhentao</span> <span class="pre">Shi.</span> <span class="pre">Dec</span> <span class="pre">3,</span> <span class="pre">2020.</span></code></p>
+<p>\bibliographystyle{chicagoa}</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 史震涛 Shi Zhentao<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
