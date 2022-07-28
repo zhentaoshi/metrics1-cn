@@ -40,10 +40,11 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 * Hypothesis testing: CX
 * Endogeneity: KY
 * Panel: HY
+* GMM: HY
 
 **Assigned**
 
-* GMM: HY
+
 
 **Untouched**
 
