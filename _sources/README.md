@@ -38,14 +38,16 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 * OLS finite sample: HY
 * OLS asym: HY
 * Hypothesis testing: CX
+* Endogeneity: KY
+* Panel: HY
+* GMM: HY
 
 **Assigned**
 
-* Endogeneity: KY
-* Panel: HY
+
 
 **Untouched**
-* GMM
+
 * MLE asym.
 
 
