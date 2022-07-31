@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. 投影 &#8212; 计量经济学讲义</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,18 +18,22 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +41,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -65,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -88,10 +75,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -104,15 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    前言
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   前言
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
    1. 概率论
@@ -166,17 +151,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -184,162 +164,77 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture2-CN.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/lecture2-CN.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture2-CN.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture2-CN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    2.1. 条件期望
@@ -391,11 +286,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>投影</h1>
@@ -463,12 +359,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">2. </span>投影<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">2. </span>投影<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="admonition- admonition">
 <p class="admonition-title">涅槃经（卷三十二）</p>
 <p>有王告大臣，汝牵一象来示盲者时，众盲各以手触。大王唤众盲问之：“汝见象类何物？触其牙者言：象形如萝菔根；触其耳者言如萁；触其脚者言如臼；触其脊者言如床；触其腹者言如瓮；触其尾者言如绳。</p>
@@ -478,8 +373,8 @@ title="Print to PDF"
 <p>We need to format this file to be consistent with other chapters.</p>
 </div>
 <p><strong>数学符号</strong>：在本讲义中, <span class="math notranslate nohighlight">\(y\)</span>为一元随机变量, <span class="math notranslate nohighlight">\(x=(x_1,...,x_K)^{\prime}\)</span>为<span class="math notranslate nohighlight">\(K\times1\)</span>的随机向量. 另外，在本课程中提到的向量均为<strong>列向量</strong>，即只有一列的矩阵.</p>
-<section id="id2">
-<h2><span class="section-number">2.1. </span>条件期望<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1. </span>条件期望<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>条件期望在数据预测理论中由重要的地位。
 机器学习是一揽子处理数据的算法, 回归分析也包含于其中. 回归是一种<strong>监督式学习</strong> (<em>supervised leaning</em>). 监督式学习用<span class="math notranslate nohighlight">\(x\)</span>的函数<span class="math notranslate nohighlight">\(g(x)\)</span>来预测<span class="math notranslate nohighlight">\(y\)</span>, 但除非二者之间的关系是非随机的, 否则 <span class="math notranslate nohighlight">\(x\)</span> 并不能完美地预测 <span class="math notranslate nohighlight">\(y\)</span>, 而期预测误差 <span class="math notranslate nohighlight">\(y-g(x)\)</span> 依赖于函数 <span class="math notranslate nohighlight">\(g\)</span> 的选择. 函数 <span class="math notranslate nohighlight">\(g\)</span> 的可选范围实在太广了, 如何才能找到最优的 <span class="math notranslate nohighlight">\(g\)</span> 来帮助我们做预测呢? 因为我们的目标是做预测，我们并不关心相应联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 的数据生成过程 (<em>data generating process</em>, 简记 DGP). 不管 <span class="math notranslate nohighlight">\((x,y)\)</span> 随机变量是如何生成的, 我们期望有一种通用的规则来找到一个合适的函数 <span class="math notranslate nohighlight">\(g\)</span>, 在给定 <span class="math notranslate nohighlight">\(x\)</span> 的情况下能够尽可能精确地预测 <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>我们来看决策理论如何处理这个问题。回答这一问题的关键在于, 我们需要给一个用于比较不同 <span class="math notranslate nohighlight">\(g\)</span> 的标准, 这种标准被称为<strong>损失函数</strong>, 常记为<span class="math notranslate nohighlight">\(L(y,g(x))\)</span>. <strong>平方损失</strong> (<em>quadratic loss</em>)</p>
@@ -531,9 +426,9 @@ y=m(x)+(y-m(x))=m(x)+\varepsilon,
 \]</div>
 <p>因此第二项也与<span class="math notranslate nohighlight">\(g(x)\)</span>无关. 第三项非负且在<span class="math notranslate nohighlight">\(g(x)=m(x)\)</span>是取得最小值. 证毕！</p>
 <p>讨论至此, 可以发现我们的观点与大多数计量经济学教科书有一些区别. 传统的计量经济学教科书中大多假设因变量<span class="math notranslate nohighlight">\(y\)</span>是由一个未知的函数<span class="math notranslate nohighlight">\(g(\cdot)\)</span>和满足<span class="math notranslate nohighlight">\(E[\varepsilon|x]=0\)</span>的误差项<span class="math notranslate nohighlight">\(\varepsilon\)</span>, 通过<span class="math notranslate nohighlight">\(y=g(x)+\varepsilon\)</span>的形式生成的. 而我们采用了一种与DGP无关的观点: 在观察到<span class="math notranslate nohighlight">\(y\)</span>和<span class="math notranslate nohighlight">\(x\)</span>的情况下, 我们关心的仅仅是寻找到最优的预测函数<span class="math notranslate nohighlight">\(g(x)\)</span>, 使得它能够在均方误差准则下对<span class="math notranslate nohighlight">\(y\)</span>做出最好的预测.</p>
-</section>
-<section id="id3">
-<h2><span class="section-number">2.2. </span>线性投影<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">2.2. </span>线性投影<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>上一节中我们证明了条件均值函数<span class="math notranslate nohighlight">\(m(x)\)</span>能够最小化均方误差MSE, 但<span class="math notranslate nohighlight">\(m(x)=E[y|x]\)</span>依赖于<span class="math notranslate nohighlight">\((y,x)\)</span>的联合分布, 而在实际中联合分布通常是未知的, 因此条件期望通常是一个比较复杂的函数, 使用起来比较复杂. 那么如何简化我们的预测函数呢? 一个自然的想法就是将我们的目标缩小为线性函数<span class="math notranslate nohighlight">\(h(x)=h(x;b)=x^{\prime}b, \ b\in\mathbb{R}^{K}\)</span>, 然后在所有线性函数中寻找一个使MSE最小的函数. 于是我们的问题简化为:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -618,8 +513,8 @@ $<span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(
 也称为**线性投影模型** (*linear projection model*), 其中\)</span>e=y-x^{\prime}\beta<span class="math notranslate nohighlight">\(称为**线性投影误差** (*linear projection error*). 这里我们使用符号\)</span>e<span class="math notranslate nohighlight">\(以区别于\)</span>\varepsilon=y-m(x)$.</p>
 <p><strong>练习2.1.</strong>  证明: (a) <span class="math notranslate nohighlight">\(E[xe]=0\)</span>. (b) 若<span class="math notranslate nohighlight">\(x\)</span>中包含常数项, 则<span class="math notranslate nohighlight">\(E[e]=0\)</span>.</p>
-<section id="id4">
-<h3><span class="section-number">2.2.1. </span>遗漏变量偏误<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">2.2.1. </span>遗漏变量偏误<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>考虑如下的<strong>长回归</strong> (<em>long regression</em>)</p>
 <div class="math notranslate nohighlight">
 \[
@@ -659,21 +554,21 @@ y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 <p><strong>练习2.2.</strong>  证明: <span class="math notranslate nohighlight">\(E\left[(y-x^{\prime}_1\beta_1-x^{\prime}_2\beta_2-\beta_3)^2\right]\leq E\left[(y-x^{\prime}_1\gamma_1-\gamma_2)^2\right]\)</span>.</p>
 <p>显然, 如果可能的话, 我们更愿意使用长回归模型来得到相应的系数<span class="math notranslate nohighlight">\(\beta_1\)</span>, 因为相比于短回归模型, 长回归模型是一个更加广义的模型, 并且达到了最优的投影误差. 然而在实际中, <span class="math notranslate nohighlight">\(x_2\)</span>有时候无法观测, 这使得我们无法使用长回归模型, 这种类型的遗漏变量偏误在应用计量经济学中非常普遍. 当然, 最理想的情况下我们希望能够直接观测到需要的回归量, 但现实可能并不会如此完美, 我们也许并不能直接得到这些数据. 相应地, 当数据不够理想时, 我们应该对于潜在的后果有相应的认识.</p>
 <p>由于种种限制, 有时长回归是无法实现的, 此时只能退而求其次使用短回归模型. 但在有些情况下, 我们能够识别出遗漏变量偏差的符号, 这就意味着此时我们能够基于已有的知识对<span class="math notranslate nohighlight">\(\gamma_1\)</span>和<span class="math notranslate nohighlight">\(\beta_1\)</span>的大小关系进行判断, 这对于我们的推断也是十分有用的.</p>
-</section>
-</section>
-<section id="id5">
-<h2><span class="section-number">2.3. </span>因果关系<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-<section id="id6">
-<h3><span class="section-number">2.3.1. </span>结构与识别<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">2.3. </span>因果关系<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3><span class="section-number">2.3.1. </span>结构与识别<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>经济学被称为社会科学皇冠上的明珠, 常常被拿来与物理学这颗自然科学皇冠上的明珠进行对比. 在开始本节内容之前, 我们对经济学与物理学进行一些对比, 以明确我们引入本节问题的必要性. 回想一下那些耳熟能详的物理定律, 比如爱因斯坦的质能方程<span class="math notranslate nohighlight">\(E=mc^{2}\)</span>, 比如牛顿的万有引力公式<span class="math notranslate nohighlight">\(F=Gm_1 m_2/r^2\)</span>. 这些物理学定律非常简洁明确, 体现着事物的一般规律. 经济学中是否也有这样的规律呢? 遗憾的是, 与物理学定律不同, 经济现象很少能够像这样被简洁地描述.</p>
 <p>在物理学中, 实验是验证物理定律的重要方式. 在进行实验时, 科学家们常常会通过一些精巧的设计来控制可能影响实验结果的其他因素, 将噪声控制在可以忽略不计的水平上, 使得实验的信噪比尽可能高. 与之相反, 经济学规律并不适合在实验室里进行实验. 最糟糕的是, 经济学研究的对象, 人类, 具有很强的异质性, 有许许多多难以控制的特征. 对于同样的事件, 来自不同文化和家庭背景的人可能会做出不同的反应, 研究者很难对人们进行同质化的处理. 总结来说, 由于实验设置的缺陷与研究主体的异质性, 经济学规律中的信噪比要显著低于物理学定律.</p>
 <p>我们再来回顾经济学中的两个经典课题: 教育回报与供求系统. 要研究教育回报问题, 我们需要控制其他因素对个人收入的影响, 但一个人的收入由其学术与职业道路中无数的随机因素决定, 经济学院不可能完美地观察并控制这些变量. 在供求问题中, 我们观察到的价格与市场总量是均衡的结果, 因此需求和供给二者是互相影响的. 如何在复杂的经济学问题中识别出因果关系?</p>
 <p>但在讨论这个问题之前, 有一个重要的问题: 何为因果关系? 实际上, 因果关系本身的定义, 也经过了许多代思想家的争论. 在经济学中, <strong>结构因果关系</strong> (<em>structural causality</em>) 是一种可接受的定义. 结构因果关系是一种思想实验, 假设观察到的数据是由某一DGP生成的. 如果我们能够用数据还原出DGP或者其某些特征, 那么我们就能得到因果关系或者对因果关系的暗示.</p>
 <p>在观察实现的样本之前, 还有一个重要的问题需要解决, 这就是<strong>识别</strong> (<em>identification</em>) 问题. 考察一个模型 (或者DGP)中我们关注的每一个参数, 如果参数的取值不同, 相应观测到数据特征也所有不同, 我们就称模型是<strong>可识别的</strong> (<em>identified</em>). 相反, 如果一个模型中, 不同的参数可能会产生具有相同特征的数据, 我们就称这个模型是<strong>不可识别的</strong> (<em>under-identified</em>). 换言之, 如果对于给定的数据, 我们无法得到模型中唯一的参数, 那么模型就是不可识别的.</p>
 <p>当然, 模型正确设定是讨论一切识别问题的先决条件. 但实际上, “所有的模型都是错误的”, 因此在讨论识别问题时, 我们实际上是在一个想象的世界中进行. 如果在这样一个思想实验中, 我们仍然不能唯一确定DGP中的参数, 那么识别就失败了, 无论我们有多么大的样本量, 我们都无法确定正确的模型.</p>
-</section>
-<section id="id7">
-<h3><span class="section-number">2.3.2. </span>处置效应<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">2.3.2. </span>处置效应<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>因果关系与识别问题是非常大的课题, 我们这里缩小我们的讨论范围, 将研究框架限定在<span class="math notranslate nohighlight">\(y\)</span>和<span class="math notranslate nohighlight">\(x\)</span>的关系上. <strong>处置效应</strong> (<em>treatment effect</em>) 是一个我们特别感兴趣的问题. 假设我们关心的变量是<span class="math notranslate nohighlight">\(d\)</span>, 在保持其他所有变量不变 (包括不可观测的变量)的条件下改变一单位的<span class="math notranslate nohighlight">\(d\)</span>, 相应的<span class="math notranslate nohighlight">\(y\)</span>产生的改变就是处置效应. 拉丁语中<em>ceteris paribus</em>意为”其他条件不变”, 就是这个意思.</p>
 <p><strong>例2.1.</strong>  在2020年新冠肺炎疫情期间, 香港地区的失业率升至高位, 消费也经历了较大的衰退. 为了提振经济,  政府向一些香港居民发放了1万港元的现金津贴. 我们感兴趣的问题是: 1万港元的津贴能增加多少消费? 对于每个个体, 我们想象有两个平行世界, 其中一个世界里这个个体获得了现金津贴, 记相应的消费为<span class="math notranslate nohighlight">\(Y(1)\)</span>; 而另一个世界中没有获得现金津贴, 相应的消费为<span class="math notranslate nohighlight">\(Y(0)\)</span>, 二者的差值就是该个体的处置效应. 这样的思想实验称为<strong>潜在结果框架</strong> (<em>potential outcome framework</em>).</p>
 <p>然而, 在现实中, 有且仅有一种情况发生, 正如古希腊哲学家Heraclitus (553 BC–475 BC)所说, “人不能两次踏入同一条河流”. 每个个体身上有且仅有一种结果得到实现, 因此个体的处置效应不具有<strong>可操作性</strong> (<em>operational</em>), 即无法从总体水平的数据计算出来. 但我们有很多个体的数据, 于是我们可以定义<strong>平均处置效应</strong> (<em>average treatment effect</em>, 即ATE)</p>
@@ -705,9 +600,9 @@ ATE(x)=E[Y(1)|D=1,x]-E[Y(0)|D=0,x]
 \]</div>
 <p>注意, 该式成立需要满足一个重要的条件, 即<span class="math notranslate nohighlight">\(((Y(1),Y(0))\perp D)|x\)</span>, 这个条件也被称为<strong>条件独立假设</strong> (<em>conditional independence assumption</em>, 即CIA).</p>
 <p><strong>例2.2.</strong>  条件独立假设CIA比完全的独立性更易满足. 考虑<span class="math notranslate nohighlight">\(Y(1)=x+u(1),\ Y(0)=x+u(0)\)</span>以及<span class="math notranslate nohighlight">\(D=1\{x+u_d\geq 0\}\)</span>. 如果有<span class="math notranslate nohighlight">\(((u(0),u(1))\perp u_d)|x\)</span>成立, 则条件独立假设CIA成立. 然而, <span class="math notranslate nohighlight">\(x\)</span>同时出现在这几个随机变量中, 因此<span class="math notranslate nohighlight">\((Y(1),Y(0))\)</span>和<span class="math notranslate nohighlight">\(D\)</span>在统计学上是独立的.</p>
-</section>
-<section id="atecef">
-<h3><span class="section-number">2.3.3. </span>ATE与CEF<a class="headerlink" href="#atecef" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="atecef">
+<h3><span class="section-number">2.3.3. </span>ATE与CEF<a class="headerlink" href="#atecef" title="Permalink to this headline">¶</a></h3>
 <p>在前面一节, 我们讨论了<span class="math notranslate nohighlight">\(D\)</span>为二值变量时的情况. 现在我们来考虑连续的处置变量<span class="math notranslate nohighlight">\(D\)</span>. 假设数据生成过程DGP (或结构式模型)为<span class="math notranslate nohighlight">\(Y=h(D,x,u)\)</span>, 其中<span class="math notranslate nohighlight">\(D\)</span>和<span class="math notranslate nohighlight">\(x\)</span>是可观测的, 而<span class="math notranslate nohighlight">\(u\)</span>不可观测. 自然地, 我们在连续的处置变量<span class="math notranslate nohighlight">\(D\)</span>下定义ATE (在Hansen书的Chapter2.30中将其称为<strong>平均因果效应</strong>, <em>average causal effect</em>)</p>
 <div class="math notranslate nohighlight">
 \[
@@ -777,22 +672,22 @@ ATE(d,x)=E\left[\frac{\partial}{\partial d}(m(d,x)+u)|d,x\right]=\frac{\partial 
 \]</div>
 <p>其中第二个等式在<span class="math notranslate nohighlight">\(\frac{\partial}{\partial d}E[u|d,x]=E\left[\frac{\partial}{\partial d}u|d,x\right]\)</span>满足时成立. 乍一看, 这里只需要满足均值独立假设<span class="math notranslate nohighlight">\(E[u|d,x]=0\)</span>就能建立起<span class="math notranslate nohighlight">\(ATE(d,x)\)</span>和<span class="math notranslate nohighlight">\(\partial m(d,x)/\partial d\)</span>之间的等价关系, 并且这一条件弱于条件独立假设CIA, 似乎是一个非常好的结果. 然而, 我们为这个条件的轻微弱化付出了严重的代价: 我们假设<span class="math notranslate nohighlight">\(h(d,x,u)\)</span>服从<span class="math notranslate nohighlight">\(m(d,x)+u\)</span>这样一个可以用加法分离的形式, 而这是一个非常强的假设. 我们对DGP作出的这一假设并没有得到经济理论的支撑, 这至多算是<strong>简约形式</strong> (<em>reduced-form</em>) 下的最优选择.</p>
 <p>这里我们作进一步的说明. <strong>结构式方法</strong> (<em>structural approach</em>) 由经济理论指导, 对经济机制建模. <strong>简约式方法</strong> (<em>reduced-form approach</em>) 则非常简便, 在无法便捷地建立合适的经济模型时可以用于一些典型事实. 这两种方法的优缺点, 是一个长久的论题, 参见 <em>Jorimal of Economic Perspectives</em> Vol. 24, No. 2 Spring 2010. 考虑一个经典的例子, 在宏观经济学中, 所谓的菲利普斯曲线由A.W. Phillips提出, 它揭示了通胀与失业之间的负相关关系, 是一个典型事实, 它就是通过简约式方法得到的. 卢卡斯批判 (Lucas, 1976) 揭示了它在微观基础方面的缺失, 提倡进行深度的建模, 对那些不随政策改变的参数进行建模, 这就是一种结构式方法. 但具有讽刺意味的是, 距离卢卡斯批判的提出已有40余年, 这类几乎没有微观基础的方程仍然在央行官员的分析工具中占据着主导地位. 那么, 看似精美但无法普及的深度建模就一定是更优点方法吗?</p>
-</section>
-</section>
-<section id="id8">
-<h2><span class="section-number">2.4. </span>总结<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">2.4. </span>总结<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>在本章中, 我们讨论了条件均值函数与因果关系. 对于从联合分布中抽样的一对随机变量<span class="math notranslate nohighlight">\((y,x)\)</span>, 条件期望函数CEF为最优预测. 进一步我们讨论了处置变量<span class="math notranslate nohighlight">\(d\)</span>与被解释变量<span class="math notranslate nohighlight">\(y\)</span>之间的结构因果关系, 证明了在条件独立条件CIA下ATE与CEF的偏导数之间的等价性. 当然, 我们目前的讨论都是总体下的结论, 还没有涉及到样本的结论.</p>
 <p><strong>历史记录:</strong> 回归与条件期望是统计学中的重要概念, 这两个概念很早就被引入了计量经济学中. Cowles委员会 (现Cowles经济学研究基金会) 的研究者们, 包括Jacob Marschak (1898-1977), Tjalling Koopmans (1910-1985, 获1975年诺贝尔经济学奖), Trygve Haavelmo (1977-1999, 获1989年诺贝尔经济学奖), 都是计量经济学中结构式方法的开拓者.</p>
 <p>潜在结果框架 (potential outcome framework) 并非经济学独有的, 它同时也被广泛用于生物统计学和医药研究等领域. 它最初由Jerzy Neyman (1894-1981) 提出, 并且由清华大学统计学教授Donald B. Rubin (1943-) 进一步发展.</p>
 <p><strong>进一步阅读:</strong> Lewbel (2019) 给出了一份计量经济学中识别问题的全面总结. 会计学是一个重要的应用领域, 其中许多声明的因果推断都是由简单的回归得到. 很高兴听到Gow et al. (2016) 在他们的实践中反映因果关系.</p>
-</section>
-<section id="id9">
-<h2><span class="section-number">2.5. </span>参考文献<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">2.5. </span>参考文献<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p>Gow, I. D., D. F. Larcker, and P.C. Reiss (2016). Causal inference in accounting research. <em>Journal of Accounting Research 54</em>(2), 477-523. 2.4</p>
 <p>Lewbel, A. (2019). The identification zoo: Meanings of identification in econometrics. Journal of Economic Literature 57(4), 835-903. 2.4</p>
 <p>Lucas, R. E. (1976). Econometric policy evaluation: A critique. In <em>Carnegie-Rochester conference series on public policy</em>, Volume 1, pp. 19-46. 2.3</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -816,11 +711,9 @@ ATE(d,x)=E\left[\frac{\partial}{\partial d}(m(d,x)+u)|d,x\right]=\frac{\partial 
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="lecture1-CN.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -836,28 +729,24 @@ ATE(d,x)=E\left[\frac{\partial}{\partial d}(m(d,x)+u)|d,x\right]=\frac{\partial 
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By 史震涛 Shi Zhentao<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By 史震涛 Shi Zhentao<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

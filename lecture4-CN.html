@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>4. 最小二乘法:有限样本理论 &#8212; 计量经济学讲义</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,18 +18,22 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,13 +41,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -65,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -88,10 +75,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -104,15 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    前言
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   前言
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
    1. 概率论
@@ -166,17 +151,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -184,191 +164,94 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture4-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture4-CN.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/lecture4-CN.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lecture4-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture4-CN.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
     </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture4-CN.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    4.1. 有限样本分布
@@ -408,11 +291,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>最小二乘法:有限样本理论</h1>
@@ -468,12 +352,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">4. </span>最小二乘法:有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">4. </span>最小二乘法:有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>今天我们继续研究最小二乘法的性质. 我们选取有限样本精确分布为学习的主题.它可以很好地被用于统计推断.
 高斯-马尔可夫理论证明了满足经典假设的OLS的最优性.</p>
 <div class="admonition-exercise admonition">
@@ -487,7 +370,7 @@ title="Print to PDF"
 \]</div>
 <p>投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 可以写作:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-label1">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-eqn-label1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eqn-label1" title="Permalink to this equation">¶</a></span>\[
 \beta=\left(E\left[xx'\right]\right)^{-1}E\left[xy\right]. 
 \]</div>
 <p>我们从 <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布中取出一个观测值, 记作 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>。 重复此过程 <span class="math notranslate nohighlight">\(n\)</span> 次得到 <span class="math notranslate nohighlight">\(n\)</span> 个观测值, 即 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, 那么我们随即就得到了一个样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> .</p>
@@ -523,8 +406,8 @@ title="Print to PDF"
  &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
 \end{split}\]</div>
 <p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点。</p>
-<section id="id2">
-<h2><span class="section-number">4.1. </span>有限样本分布<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id2">
+<h2><span class="section-number">4.1. </span>有限样本分布<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>我们可以看到有限样本精确分布 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 假设误差项满足服从分布。
 <strong>有限样本分布</strong> 意味着它适用于任何的 <span class="math notranslate nohighlight">\(n\)</span>; 与之相对的是<strong>渐近分布</strong>, 通过大样本来逼近有限样本分布。
 首先我们来复习正态随机向量的一些常见性质。</p>
@@ -588,7 +471,7 @@ T_{k}=\frac{\widehat{\beta}_{k}-\beta_{k}^{*}}{\sqrt{s^{2}\left[\left(X'X\right)
 <p>该统计量当中没有任何的未知数, 可以直接用数据计算.
 当原假设成立时, <span class="math notranslate nohighlight">\(\beta_{k}=\beta_{k}^{*}\)</span> , 因此</p>
 <div class="math notranslate nohighlight" id="equation-eqn-t-stat">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-eqn-t-stat" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eqn-t-stat" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{aligned}
 T_{k} &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}} \\
  &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\sigma^{2}}}{\sqrt{s^{2}}} \\
@@ -625,9 +508,9 @@ M_{X}
 通过
 <a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a> 我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span>.
 这使得我们可以进行统计推断。</p>
-</section>
-<section id="id3">
-<h2><span class="section-number">4.2. </span>均值和方差<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">4.2. </span>均值和方差<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>现在我们放松正态分布假设和统计独立性。
 我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设：</p>
 <div class="math notranslate nohighlight">
@@ -776,17 +659,17 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 </div>
 </div>
 </div>
-</section>
-<section id="heteroskedasticity">
-<h2><span class="section-number">4.3. </span>Heteroskedasticity<a class="headerlink" href="#heteroskedasticity" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="heteroskedasticity">
+<h2><span class="section-number">4.3. </span>Heteroskedasticity<a class="headerlink" href="#heteroskedasticity" title="Permalink to this headline">¶</a></h2>
 <p>Heteroskedasticity can happen even if the observations are iid across <span class="math notranslate nohighlight">\(i\)</span>. In the following example, <span class="math notranslate nohighlight">\(e_i = x_{1i} u_i \)</span> and <span class="math notranslate nohighlight">\(x_{1i}\)</span> and <span class="math notranslate nohighlight">\(u_i \sim (0, \sigma^2 ) \)</span> are independent. The mean independence
 $<span class="math notranslate nohighlight">\(E[e_i|x_i] = x_{1i} E[u_i|x_i] = 0\)</span><span class="math notranslate nohighlight">\( 
 is still satisfied, but 
 \)</span><span class="math notranslate nohighlight">\(E[e_i^2 |x_i] = x_{1i}^2 E[u_i^2 |x_i] = x_{1i}^2 \sigma^2.\)</span>$</p>
 <p>The OLS estimator is still consistent and asymptotically normal, but the asymptotic variance is difference from the case of homoskedasticity.</p>
-</section>
-<section id="id4">
-<h2><span class="section-number">4.4. </span>高斯-马尔可夫定理<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">4.4. </span>高斯-马尔可夫定理<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>高斯-马尔可夫定理（Gauss-Markov theorem）是关于OLS的有效
 的定理。 这里的 <strong>有效</strong> 指的是它在所有线性无偏估计量中方差最小。</p>
 <p>无偏线性估计量五花八门。 比如, <span class="math notranslate nohighlight">\(\left(Z'X\right)^{-1}Z'y\)</span> (
@@ -834,9 +717,9 @@ E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
 <p>同方差是一个严苛的假设。 在同方差假设下,
 <span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
 常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. 当存在异方差时, 高斯-马尔可夫定理不适用。</p>
-</section>
-<section id="id5">
-<h2><span class="section-number">4.5. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">4.5. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>经典的数理统计推导基于误差项正态分布下在精确分布。 高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差。</p>
 <p><strong>This historical note comes from an earlier version</strong></p>
 <div class="highlight-{admonition}历史趣闻 notranslate"><div class="highlight"><pre><span></span>极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
@@ -850,11 +733,11 @@ E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</section>
-<section id="id6">
-<h2><span class="section-number">4.6. </span>附录<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
-<section id="id7">
-<h3><span class="section-number">4.6.1. </span>联合正态分布<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">4.6. </span>附录<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3><span class="section-number">4.6.1. </span>联合正态分布<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>毫无疑问，在统计学推断中最经常遇到的分布就是正态分布，因为他是许多常见的统计量的渐进分布。
 此外，它有着许多独特的性质使得对于事物的计算大大简便了。在这里总结当中的部分性质。</p>
 <p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布。
@@ -923,9 +806,9 @@ label="fact:marginal">[fact:marginal]</span>
 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么<span class="math notranslate nohighlight">\(Y_{1}\)</span> 基于 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 的条件分布依然是联合正态分布。</p>
 <p>它们的均值和方差满足：
 <span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span>.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -949,11 +832,9 @@ label="fact:marginal">[fact:marginal]</span>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="lecture3-CN.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -969,28 +850,24 @@ label="fact:marginal">[fact:marginal]</span>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By 史震涛 Shi Zhentao<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By 史震涛 Shi Zhentao<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
