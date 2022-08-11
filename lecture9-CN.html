@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. 面板数据 &#8212; 计量经济学讲义</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>9. 面板数据 &#8212; 计量经济学讲义</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="9. 内生性" href="lecture10-CN.html" />
-    <link rel="prev" title="7. 假设检验" href="lecture8-CN.html" />
+    <link rel="next" title="10. 内生性" href="lecture10-CN.html" />
+    <link rel="prev" title="8. 假设检验" href="lecture8-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
-   1. 概率论
+   1. 概率
   </a>
  </li>
  <li class="toctree-l1">
@@ -119,33 +120,43 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data.html">
+   5. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   5. 基本渐近理论
+   6. 基本渐近理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture6-CN.html">
-   6. 最小二乘法:渐近性质
+   7. 最小二乘法:渐近性质
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture8-CN.html">
-   7. 假设检验
+   8. 假设检验
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. 面板数据
+   9. 面板数据
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   9. 内生性
+   10. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   10. 广义矩估计
+   11. 广义矩估计
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibfile_place.html">
+   12. 参考文献
   </a>
  </li>
 </ul>
@@ -254,17 +265,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   8.1. 固定效应
+   9.1. 固定效应
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   8.2. 随机效应
+   9.2. 随机效应
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   8.3. 总结
+   9.3. 总结
   </a>
  </li>
 </ul>
@@ -289,17 +300,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   8.1. 固定效应
+   9.1. 固定效应
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   8.2. 随机效应
+   9.2. 随机效应
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   8.3. 总结
+   9.3. 总结
   </a>
  </li>
 </ul>
@@ -311,8 +322,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">8. </span>面板数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">9. </span>面板数据<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>经济学家们通常与可观测的数据打交道。但是数据生成的过程往往不受研究人员的控制。
 如果我们的手上只有横截面数据，那么处理个体间的异质性问题将会变得非常棘手。因此从另一角度来说，
 面板数据为我们处理在某些情况下的异质性问题提供了机会。</p>
@@ -321,24 +332,24 @@ const thebe_selector_output = ".output, .cell_output"
 但是我们允许对于同一个 <span class="math notranslate nohighlight">\(i\)</span> ，沿着 <span class="math notranslate nohighlight">\(t=1,\ldots,T\)</span> 得到的组内数据存在一定程度上相互依赖。
 我们有线性回归方程：</p>
 <div class="math notranslate nohighlight" id="equation-eq-basic-eq">
-<span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-basic-eq" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-eq-basic-eq" title="Permalink to this equation">¶</a></span>\[
 y_{it}=\beta_{1}+x_{it}'\beta_{2}+u_{it},\ i=1,\ldots,n;t=1,\ldots,T
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 被称之为<strong>复合误差</strong> (composite error)。
 需要注意的是： <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 是不随时间变化的不可观测的异质性。而 <span class="math notranslate nohighlight">\(\epsilon_{it}\)</span> 则是在不同个体和时期间都不相同。</p>
 <p>面板数据回归中，最重要的方法就是固定效应回归和随机效应回归。两种估计的渐近分布都可以从OLS回归的知识中衍生出来。因此，面板数据估计是我们这门课程中学到的知识的一个很好的应用。它是计量经济学中基础线性回归部分的最重要的一块。</p>
-<div class="section" id="id2">
-<h2><span class="section-number">8.1. </span>固定效应<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>无法观测的个体异质性 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 被复合误差 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 包含在内。如果 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，OLS估计是相合的，否则就不符合相合性。固定效应模型允许 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 之间存在任意的相关性。让我们把<a class="reference internal" href="#equation-eq-basic-eq">(8.1)</a>重新写为</p>
+<section id="id2">
+<h2><span class="section-number">9.1. </span>固定效应<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>无法观测的个体异质性 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 被复合误差 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 包含在内。如果 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，OLS估计是相合的，否则就不符合相合性。固定效应模型允许 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 之间存在任意的相关性。让我们把<a class="reference internal" href="#equation-eq-basic-eq">(9.1)</a>重新写为</p>
 <div class="math notranslate nohighlight" id="equation-eq-basic-eq2">
-<span class="eqno">(8.2)<a class="headerlink" href="#equation-eq-basic-eq2" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-eq-basic-eq2" title="Permalink to this equation">¶</a></span>\[
 y_{it}=w_{it}'\boldsymbol{\beta}+u_{it}
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\boldsymbol{\beta}=\left(\beta_{1},\beta_{2}'\right)'\)</span> 而且
 <span class="math notranslate nohighlight">\(w_{it}=\left(1,x_{it}'\right)'\)</span> 是 <span class="math notranslate nohighlight">\(K+1\)</span> 的向量。<br />
 <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> 是包括截距的参数, 而
 <span class="math notranslate nohighlight">\(w_{it}\)</span> 是包括常数项的解释变量。</p>
-<p>如果有 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)\neq0\)</span>，那么在<a class="reference internal" href="#equation-eq-basic-eq2">(8.2)</a>里进行OLS估计时会得到不一致的估计结果。</p>
+<p>如果有 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)\neq0\)</span>，那么在<a class="reference internal" href="#equation-eq-basic-eq2">(9.2)</a>里进行OLS估计时会得到不一致的估计结果。</p>
 <p>简单地在固定效应模型中应用OLS估计是不能实现相合性的。为了获得相合性，我们需要消去 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 。在这一部分，我们研究组内估计量（默认的固定效应估计量）的渐近分布和相合性。组内估计用对应的每组均值提取出所有可观测的变量，对于原回归中所有的 <span class="math notranslate nohighlight">\(i\)</span> ,计算所有 <span class="math notranslate nohighlight">\(T\)</span> 等式的均值，我们就能得到：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -375,7 +386,7 @@ y_{it}=w_{it}'\boldsymbol{\beta}+u_{it}
 \[
 \left(\widehat{\sigma}_{\epsilon}^{2}\left(\tilde{X}'\tilde{X}\right)^{-1}\right)^{-1/2}\left(\widehat{\beta}_{2}^{FE}-\beta_{2}^{0}\right)\stackrel{d}{\to}N\left(0,I_{K}\right).
 \]</div>
-<p>用 <span class="math notranslate nohighlight">\(M_{\iota}=I_{T}-\frac{1}{T}\iota_{T}\iota_{T}'\)</span> 去除组内均值，而且 <span class="math notranslate nohighlight">\(M=I_{n}\otimes M_{\iota}\)</span> 。(“<span class="math notranslate nohighlight">\(\otimes\)</span>” 是克罗内克积 <em>Kronecker product</em> 的表示符号)。FE估计量可以被直接写作为：</p>
+<p>用 <span class="math notranslate nohighlight">\(M_{\iota}=I_{T}-\frac{1}{T}\iota_{T}\iota_{T}'\)</span> 去除组内均值，而且 <span class="math notranslate nohighlight">\(M=I_{n}\otimes M_{\iota}\)</span> 。(”<span class="math notranslate nohighlight">\(\otimes\)</span>” 是克罗内克积 <em>Kronecker product</em> 的表示符号)。FE估计量可以被直接写作为：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}_{2}^{FE}=\left(\tilde{X}'\tilde{X}\right)^{-1}\tilde{X}'\tilde{Y}=\left(X'MX\right)^{-1}X'MY.
@@ -410,9 +421,9 @@ y_{it}=w_{it}'\boldsymbol{\beta}+u_{it}
 \widehat{\sigma}_{\epsilon}^{2}=\frac{1}{n\left(T-1\right)}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{\tilde{\epsilon}}_{it}^{2}\stackrel{d}{\to}\frac{1}{n\left(T-1\right)}E\left[\sum_{i=1}^{n}\sum_{t=1}^{T}\tilde{\epsilon}_{it}^{2}\right]=\sigma_{\epsilon}^{2}
 \]</div>
 <p>我们隐含了可以使用大数定律和中心极限定理的正则条件，在此我们忽略这些技术细节。值得注意的是，在FE中减去组间均值会使得模型消去所有不随时间变化的解释变量，包括截距项。因此，我们不能从固定效应模型中得到这些不随时间变化的变量的系数的估计值。</p>
-</div>
-<div class="section" id="id3">
-<h2><span class="section-number">8.2. </span>随机效应<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">9.2. </span>随机效应<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>随机效应模型追求特殊情况 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> 的有效性。正如之前提到的，如果 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 不相关，那么固定效应模型是相合的。然而，协方差表明OLS不满足 <strong>有效性</strong> 。我们依然从最初的模型开始，并提出假设;</p>
 <p><strong>假设 RE.1</strong>
 <span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},\mathbf{x}_{i}\right]=0\)</span> 以及
@@ -458,17 +469,17 @@ S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T
 \left(\widehat{\sigma}_{u}^{2}\left(W'\widehat{\mathbf{S}}^{-1}W\right)^{-1}\right)^{-1/2}\left(\widehat{\boldsymbol{\beta}}^{RE}-\boldsymbol{\beta}_{0}\right)\stackrel{d}{\to}N\left(0,I_{K+1}\right).
 \]</div>
 <p>在计量经济学的实践中，固定效应估计比随机效应估计更常见，因为固定效应在更加普遍情况中具有相合性。</p>
-</div>
-<div class="section" id="id4">
-<h2><span class="section-number">8.3. </span>总结<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2><span class="section-number">9.3. </span>总结<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>固定效应或者随机效应回归的公式并不重要，因为计量经济学软件包就可以自动处理它们的估计和推断。真正重要的是他们在不可观测的个体异质性上概念性的区别。面板数据是经济学里的第一代 <strong>大数据</strong> 。因为面板数据观测值的数量等于横截面数据的数量再乘上时间的数量。它们反映了计量经济学家在控制异质性上的追求，以使得OLS在因果关系的解释中更加可信。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">扩展阅读</p>
 <p>&#64;hsiao2014analysis 是一本关于面板数据的综合性专著。&#64;su2016identifying延伸了固定效应模型，使得它能够包含群体异质性。</p>
 </div>
 <p><code class="docutils literal notranslate"> <span class="pre">Zhentao</span> <span class="pre">Shi.</span> <span class="pre">Nov</span> <span class="pre">8,</span> <span class="pre">2020.</span></code></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -499,13 +510,13 @@ S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>假设检验</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>假设检验</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="lecture10-CN.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>内生性</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>内生性</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

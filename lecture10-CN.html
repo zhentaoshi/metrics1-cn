@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. 内生性 &#8212; 计量经济学讲义</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10. 内生性 &#8212; 计量经济学讲义</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. 广义矩估计" href="lecture11-CN.html" />
-    <link rel="prev" title="8. 面板数据" href="lecture9-CN.html" />
+    <link rel="next" title="11. 广义矩估计" href="lecture11-CN.html" />
+    <link rel="prev" title="9. 面板数据" href="lecture9-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
-   1. 概率论
+   1. 概率
   </a>
  </li>
  <li class="toctree-l1">
@@ -119,33 +120,43 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data.html">
+   5. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   5. 基本渐近理论
+   6. 基本渐近理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture6-CN.html">
-   6. 最小二乘法:渐近性质
+   7. 最小二乘法:渐近性质
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture8-CN.html">
-   7. 假设检验
+   8. 假设检验
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture9-CN.html">
-   8. 面板数据
+   9. 面板数据
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   9. 内生性
+   10. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   10. 广义矩估计
+   11. 广义矩估计
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibfile_place.html">
+   12. 参考文献
   </a>
  </li>
 </ul>
@@ -254,22 +265,22 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   9.1. 识别
+   10.1. 识别
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   9.2. 工具变量
+   10.2. 工具变量
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   9.3. 内生性的来源
+   10.3. 内生性的来源
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   9.4. 总结
+   10.4. 总结
   </a>
  </li>
 </ul>
@@ -294,22 +305,22 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   9.1. 识别
+   10.1. 识别
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id3">
-   9.2. 工具变量
+   10.2. 工具变量
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id4">
-   9.3. 内生性的来源
+   10.3. 内生性的来源
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id5">
-   9.4. 总结
+   10.4. 总结
   </a>
  </li>
 </ul>
@@ -321,8 +332,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">9. </span>内生性<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">10. </span>内生性<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>在微观经济分析中， 外生变量指的是那些不由被考虑的经济体系所决定的因素，
 而内生变量则是在经济体系内被决定的因素。</p>
 <p>如下是我们碰到过多次的一个微观经济习题。如果一个人的效用函数是
@@ -346,8 +357,8 @@ y_{i}=x_{i}'\beta+e_{i}
 反之 <span class="math notranslate nohighlight">\(x_{ik}\)</span> 就是一个 <strong>外生性变量</strong> 。</p>
 <p>使用线性回归方法的实证工作常常受到有关内生性问题的挑战。这些问题困扰着经济研讨会和审稿人报告。
 为了捍卫定量经济研究中的实证分析策略，了解潜在内生性的来源和全面地讨论如何解决内生性是非常重要的。</p>
-<div class="section" id="id2">
-<h2><span class="section-number">9.1. </span>识别<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h2><span class="section-number">10.1. </span>识别<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>内生性通常意味着难以仅用 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 识别我们感兴趣的参数。内生性的鉴别
 对于理解实证经济研究是至关重要的. 如果模型中的参数与被观测变量的分布之间的映射是一一对应的，
 那我们就认为这个参数是被<em>识别</em>的。反之我们就称这个参数为<em>识别不足</em>。 这是一个抽象的定义，
@@ -418,9 +429,9 @@ OLS对于线性投影系数来说是一致的。根据线性投影模型的定�
 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 的任何联合分布一样，从纯统计学角度来看一个线性IV（工具变量）模型是一种伪影(ZT doesn’t know what it means)，仅取决于 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i},z_{i}\right)\)</span> 的选择，
 而无需参考任何经济学知识。本质上，线性IV模型求的是与 <span class="math notranslate nohighlight">\(z_{i}\)</span> 跨越的线性空间正交
 的线性组合 <span class="math notranslate nohighlight">\(y_{i}-\beta x_{i}\)</span>。</p>
-</div>
-<div class="section" id="id3">
-<h2><span class="section-number">9.2. </span>工具变量<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.2. </span>工具变量<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>有效的 IV 有两个要求：正交性和相关性。正交性需要正确指定模型。如果
 违反了相关性，即 IV 与内生变量不相关，则多个参数可以生成可观察数据。
 识别，按照计量经济学中的标准定义，在这种情况下被打破了。</p>
@@ -472,9 +483,9 @@ reference=”eq:moment”})中的参数当且仅当秩条件成立时才被识�
 reference=”eq:moment”})的值。</p>
 <p>（“反”方向的证明留作练习。 提示：通过对立性，如果秩条件不成立，则模型无法被识别。
 我们可以通过举例子轻松地证明这个定理。）</p>
-</div>
-<div class="section" id="id4">
-<h2><span class="section-number">9.3. </span>内生性的来源<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2><span class="section-number">10.3. </span>内生性的来源<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>由于计量经济学家主要使用非实验数据，我们内生性问题非常重要性。下面我们来看几个例子。</p>
 <p>我们知道一阶差分 (FD) 估计值对于（静态）面板数据模型来说是一致的。但FD估计值
 在动态面板模型中将会遇到困难：</p>
@@ -708,9 +719,9 @@ I_{i}
 reference=”eq:keynes”}) 将不一致，因为在简化形式中，
 <span class="math notranslate nohighlight">\(Y_{i}=\frac{1}{1-\beta_{2}}\left(\beta_{1}+u_{i}+I_{i}\right)\)</span> 意味着
 <span class="math notranslate nohighlight">\(\mathbb{E}\left[Y_{i}u_{i}\right]=\mathbb{E}\left[u_{i}^{2}\right]/\left(1-\beta_{2}\right)\neq0\)</span>.</p>
-</div>
-<div class="section" id="id5">
-<h2><span class="section-number">9.4. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id5">
+<h2><span class="section-number">10.4. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>尽管我们经常处理具有潜在内生变量的单方程模型，但基础的结构系统可能涉及多个方程。
 联立方程模型是一种经典的计量经济学建模方法，它在结构经济研究中仍然得到积极应用。
 当我们的经济模型是“结构性”时，我们需要牢记一个因果机制。在这里我们不会像在第2章中
@@ -720,8 +731,8 @@ reference=”eq:keynes”}) 将不一致，因为在简化形式中，
 供需分析归因于 &#64;working1927statistical，而测量误差研究来源于 &#64;fricsh1934statistical。</p>
 <p><strong>拓展阅读</strong>: 因果关系是计量经济学的圣杯。&#64;pearl2018book 是一本颇具哲理的畅销书。
 阅读它是一种享受。 [&#64;chen2011nonlinear] 是对现代非线性测量误差模型的一个文献综述。</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -752,13 +763,13 @@ reference=”eq:keynes”}) 将不一致，因为在简化形式中，
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>面板数据</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>面板数据</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="lecture11-CN.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>广义矩估计</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>广义矩估计</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

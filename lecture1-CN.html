@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. 概率论 &#8212; 计量经济学讲义</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. 概率 &#8212; 计量经济学讲义</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -100,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. 概率论
+   1. 概率
   </a>
  </li>
  <li class="toctree-l1">
@@ -119,33 +120,43 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data.html">
+   5. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   5. 基本渐近理论
+   6. 基本渐近理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture6-CN.html">
-   6. 最小二乘法:渐近性质
+   7. 最小二乘法:渐近性质
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture8-CN.html">
-   7. 假设检验
+   8. 假设检验
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture9-CN.html">
-   8. 面板数据
+   9. 面板数据
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   9. 内生性
+   10. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   10. 广义矩估计
+   11. 广义矩估计
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibfile_place.html">
+   12. 参考文献
   </a>
  </li>
 </ul>
@@ -311,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>概率论</h1>
+                <h1>概率</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -396,16 +407,16 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">1. </span>概率论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id2">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">1. </span>概率<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
 <h2><span class="section-number">1.1. </span>概率论的公理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则会通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，算命先生还是个职业，受到人们的欢迎。</p>
 <p>概率论就是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图抓住随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
 Kolmogorov
-(1903-1987)在他1933年发表的专题著作中为当代概率理论建起了第一座丰碑。当中使用的数学语言系统逻辑自洽，严丝合缝，为未来该领域的进一步探索提供了一个很好的支撑。目前，这一套数学语言已经广泛地被学界所接受。</p>
+(1903-1987) 在他1933年发表的专著是当代概率论的里程碑。当中使用的数学语言系统逻辑严谨、自洽，为未来该领域的进一步探索提供了起点。目前，这一套数学语言已经广泛地被学界所接受。</p>
 <p>在这次的讲课中，我们将会简要介绍一下概率论的公理以及在本科阶段的<em>概率论与数理统计</em>中已经为我们所熟悉的理论。</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3><span class="section-number">1.1.1. </span>概率空间<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p><strong>样本空间</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> 是所有可能结果的一个集合。<strong>事件</strong> <span class="math notranslate nohighlight">\(A\)</span> 是<span class="math notranslate nohighlight">\(\Omega\)</span>
 的一个子集。我们常用<span class="math notranslate nohighlight">\(\mathcal{F}\)</span>表示的<span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>域</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span> field)
@@ -439,19 +450,22 @@ Kolmogorov
 <span class="math notranslate nohighlight">\(\mathcal{F}_{3}\)</span>。</p></li>
 </ul>
 </div>
-<p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间的基础上建立的一个严谨的架构， 与之相对应的
-<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 被称之为<em>测度空间</em>。</p>
-<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，而且对于任意的 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span> 来说，从而 <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span> ，我们称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 为 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域。一个 <strong>波莱尔</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> 域是在实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 范围内生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 上建立的严谨架构。两者放在一起，
+<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 称为<em>可测空间</em> (measurable space)。</p>
+<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，而且对于任意的 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span> 来说，从而 <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span> ，我们称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 为 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域。一个 <strong>波莱尔</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> 域是由实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 上的所有开集生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> 且 <span class="math notranslate nohighlight">\(A=\{\{1\},\{1,3\}\}\)</span>.
-然后由<span class="math notranslate nohighlight">\(A\)</span>生成的 最小<span class="math notranslate nohighlight">\(\sigma\)</span>-field 是
-$<span class="math notranslate nohighlight">\(\sigma(A)=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.\)</span>$</p>
+<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span>， 令 <span class="math notranslate nohighlight">\(A=\{\{1\},\{1,3\}\}\)</span>。
+由 <span class="math notranslate nohighlight">\(A\)</span> 生成的 最小 <span class="math notranslate nohighlight">\(\sigma\)</span>-field 是</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma(A)=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.
+\]</div>
 </div>
 <p>如果函数 <span class="math notranslate nohighlight">\(\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]\)</span>
 满足如下条件</p>
 <ol>
-<li><p>(非负性) <span class="math notranslate nohighlight">\(\mu\left(A\right)\geq0\)</span> for all <span class="math notranslate nohighlight">\(A\in\mathcal{F}\)</span>;</p></li>
+<li><p>(非负性) 对任意 <span class="math notranslate nohighlight">\(A\in\mathcal{F}\)</span>，都有 <span class="math notranslate nohighlight">\(\mu\left(A\right)\geq0\)</span>;</p></li>
 <li><p>(可列可加性) 如果 <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span>,
 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> 互不相交，则</p>
 <div class="math notranslate nohighlight">
@@ -461,17 +475,23 @@ $<span class="math notranslate nohighlight">\(\sigma(A)=\{\emptyset,\{1\},\{1,3\
 </li>
 </ol>
 <p>我们将该函数 <span class="math notranslate nohighlight">\(\mu\)</span> 称为 <strong>测度</strong></p>
-<p>测度可以类比宽度和长度来理解。通常情况下，如果满足条件<span class="math notranslate nohighlight">\(\mu\left(\Omega\right)=1\)</span>
-我们就可以称<span class="math notranslate nohighlight">\(\mu\)</span> 为<strong>概率测度</strong>。 概率测度通常用符号 <span class="math notranslate nohighlight">\(P\)</span> 来指代。
-<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> 被称为一个 <strong>概率空间</strong>。</p>
+<p>测度可以类比日常生活中的宽度或重量来理解。
+通常情况下，如果满足 <span class="math notranslate nohighlight">\(\mu\left(\Omega\right)=1\)</span>，
+我们就可以称 <span class="math notranslate nohighlight">\(\mu\)</span> 为<strong>概率测度</strong>。 概率测度通常用符号 <span class="math notranslate nohighlight">\(P\)</span> 来指代。
+在可测空间之上赋予一个概率测度，这三者
+<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> 称 <strong>概率空间</strong> (probability space)。</p>
 <p>目前为止我们已经回答了问题:
-“什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题”怎么分布概率？”在概率分配中有两种主流的学派，一种是<strong>频率学派</strong>，他们把概率视作大样本实验之后出现结果的平均频率；一种是<strong>贝叶斯学派</strong>，他们把概率解释为对于事情发生的主观信心。两个学派的理论基本上互不兼容，他们的主张也各有优劣。
-以上这些在讨论假设检验章节时会由涉及到。</p>
-</div>
-<div class="section" id="id4">
+“什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题”怎么分配概率？”
+在概率分配中有两个主流的学派，一个是<strong>频率学派</strong>，他们把概率视作大样本实验之后出现结果的平均频率；
+一个是<strong>贝叶斯学派</strong>，他们把概率解释为对于事情发生的主观信念。
+两个学派的理论基本上互不兼容，他们的主张也各有优劣。
+有关这两个学派观点会在有关假设检验的章节涉及。</p>
+<!-- ZT revised up here 7/31/2022-->
+</section>
+<section id="id4">
 <h3><span class="section-number">1.1.2. </span>随机变量<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>术语 <strong>随机变量</strong></p>
-<p>是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点”名不副实”。
+<p>术语 <strong>随机变量</strong>
+是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点”名不副实”。
 它链接了两个测度空间，也就意味着置于值域中的任意事件都能追溯到定义域中的一个对应的事件。</p>
 <p>理论上, 公式 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span> (<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>)
 <strong>可测量的</strong> 如果</p>
@@ -496,8 +516,8 @@ P_{X}\left(B\right)=P\left(X^{-1}\left(B\right)\right)
 也是一个概率测度。 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>的条件下，这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为函数
 <span class="math notranslate nohighlight">\(X\)</span> <strong>诱导</strong>概率测度。诱导概率测度 <span class="math notranslate nohighlight">\(P_{X}\)</span> 是
 <span class="math notranslate nohighlight">\(P\)</span> 通过函数 <span class="math notranslate nohighlight">\(X\)</span> 所衍生推导出来的。</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3><span class="section-number">1.1.3. </span>分布函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。一个<strong>累积分布函数</strong>
 （cumulative distribution function） <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
@@ -532,11 +552,11 @@ function），通常会缩写为PDF。容易看出它由以下性质： <span cl
 <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>,
 <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
 </div>
-</div>
-</div>
-<div class="section" id="id6">
+</section>
+</section>
+<section id="id6">
 <h2><span class="section-number">1.2. </span>数学期望<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
+<section id="id7">
 <h3><span class="section-number">1.2.1. </span>积分<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过黎曼积分，黎曼积分是符合数学直觉的。但是勒贝格积分才是更加泛用的积分定义。勒贝格积分的建立依靠以下几个步骤。<span class="math notranslate nohighlight">\(X\)</span> 被认为是一个在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
 中的<strong>简单函数</strong>。如果 <span class="math notranslate nohighlight">\(X=\sum_{i}a_{i}\cdot1\left\{ A_{i}\right\}\)</span>
@@ -586,8 +606,8 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
 <span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。这两个表达式被勒贝格
 积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span> 。</p>
-</div>
-<div class="section" id="id8">
+</section>
+<section id="id8">
 <h3><span class="section-number">1.2.2. </span>期望的性质<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>这里是一些数学期望的性质：</p>
 <ul>
@@ -622,9 +642,9 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 <p>值得注意的是，就像矩一样，mgf也并非一定存在。</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="id9">
+</section>
+</section>
+<section id="id9">
 <h2><span class="section-number">1.3. </span>多元随机变量<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <p>一个二元随机变量是一个可测函数
 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span>，我们可以由此推广到多元的随机变量也是可测的。
@@ -637,7 +657,7 @@ function）。它是黎曼不可积分的，但是可以使用勒贝格积分计
 <span class="math notranslate nohighlight">\(f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)\)</span>
 。二元变量中<strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
 则是把我们不感兴趣的那一个变量通过积分使它不再成为函数中的一个变量。</p>
-<div class="section" id="id10">
+<section id="id10">
 <h3><span class="section-number">1.3.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>在一个概率空间中 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span>对于两个事件
 <span class="math notranslate nohighlight">\(A_{1},A_{2}\in\mathcal{F}\)</span> ，<strong>条件概率</strong>是</p>
@@ -655,8 +675,8 @@ P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span>。它表明了
 $<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\right)}\)</span>$
 这个公式就是贝叶斯公式 <strong>Bayes’ Theorem</strong></p>
-</div>
-<div class="section" id="id11">
+</section>
+<section id="id11">
 <h3><span class="section-number">1.3.2. </span>独立性<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>如果满足条件 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{1})P(A_{2})\)</span>，我们就会认为 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和
 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是<em>独立</em>的 . 如果 <span class="math notranslate nohighlight">\(P(A_{2})\neq0\)</span> , 就相当于
@@ -667,8 +687,8 @@ $<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|
 <span class="math notranslate nohighlight">\(P\left(X\in B_{1},Y\in B_{2}\right)=P\left(X\in B_{1}\right)P\left(Y\in B_{2}\right)\)</span></p>
 <p>若 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么二者的期望有公式
 <span class="math notranslate nohighlight">\(E[XY]=E[X]E[Y]\)</span> 。即期望的积等于积的期望。</p>
-</div>
-<div class="section" id="id12">
+</section>
+<section id="id12">
 <h3><span class="section-number">1.3.3. </span>期望迭代法则<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>给定一个 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ， <em>sub</em> <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra
 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
@@ -701,9 +721,9 @@ E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
 <li><p><span class="math notranslate nohighlight">\(E\left[E\left[Y|X_{1}\right]|X_{1},X_{2}\right]=E\left[Y|X_{1}\right];\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(E\left[h\left(X\right)Y|X\right]=h\left(X\right)E\left[Y|X\right].\)</span></p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="id13">
+</section>
+</section>
+<section id="id13">
 <h2><span class="section-number">1.4. </span>总结<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
@@ -723,8 +743,8 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
 <p>&#64;doob1996development
 总结了20世纪前半页概率论在公理上的发展。</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

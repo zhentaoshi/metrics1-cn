@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>4. 最小二乘法:有限样本理论 &#8212; 计量经济学讲义</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. 基本渐近理论" href="lecture5-CN.html" />
+    <link rel="next" title="5. 数据实例" href="real-data.html" />
     <link rel="prev" title="3. 最小二乘法:线性代数观点" href="lecture3-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -100,7 +101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
-   1. 概率论
+   1. 概率
   </a>
  </li>
  <li class="toctree-l1">
@@ -119,33 +120,43 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data.html">
+   5. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture5-CN.html">
-   5. 基本渐近理论
+   6. 基本渐近理论
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture6-CN.html">
-   6. 最小二乘法:渐近性质
+   7. 最小二乘法:渐近性质
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture8-CN.html">
-   7. 假设检验
+   8. 假设检验
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture9-CN.html">
-   8. 面板数据
+   9. 面板数据
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   9. 内生性
+   10. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   10. 广义矩估计
+   11. 广义矩估计
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibfile_place.html">
+   12. 参考文献
   </a>
  </li>
 </ul>
@@ -278,12 +289,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    4.6. 附录
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      4.6.1. 联合正态分布
     </a>
    </li>
@@ -335,12 +346,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    4.6. 附录
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
+    <a class="reference internal nav-link" href="#id8">
      4.6.1. 联合正态分布
     </a>
    </li>
@@ -355,7 +366,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">4. </span>最小二乘法:有限样本理论<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>今天我们继续研究最小二乘法的性质. 我们选取有限样本精确分布为学习的主题.它可以很好地被用于统计推断.
 高斯-马尔可夫理论证明了满足经典假设的OLS的最优性.</p>
@@ -406,7 +417,7 @@ const thebe_selector_output = ".output, .cell_output"
  &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
 \end{split}\]</div>
 <p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点。</p>
-<div class="section" id="id2">
+<section id="id2">
 <h2><span class="section-number">4.1. </span>有限样本分布<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>我们可以看到有限样本精确分布 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 假设误差项满足服从分布。
 <strong>有限样本分布</strong> 意味着它适用于任何的 <span class="math notranslate nohighlight">\(n\)</span>; 与之相对的是<strong>渐近分布</strong>, 通过大样本来逼近有限样本分布。
@@ -508,8 +519,8 @@ M_{X}
 通过
 <a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a> 我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span>.
 这使得我们可以进行统计推断。</p>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h2><span class="section-number">4.2. </span>均值和方差<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>现在我们放松正态分布假设和统计独立性。
 我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设：</p>
@@ -659,16 +670,16 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="heteroskedasticity">
+</section>
+<section id="heteroskedasticity">
 <h2><span class="section-number">4.3. </span>Heteroskedasticity<a class="headerlink" href="#heteroskedasticity" title="Permalink to this headline">¶</a></h2>
 <p>Heteroskedasticity can happen even if the observations are iid across <span class="math notranslate nohighlight">\(i\)</span>. In the following example, <span class="math notranslate nohighlight">\(e_i = x_{1i} u_i \)</span> and <span class="math notranslate nohighlight">\(x_{1i}\)</span> and <span class="math notranslate nohighlight">\(u_i \sim (0, \sigma^2 ) \)</span> are independent. The mean independence
 $<span class="math notranslate nohighlight">\(E[e_i|x_i] = x_{1i} E[u_i|x_i] = 0\)</span><span class="math notranslate nohighlight">\( 
 is still satisfied, but 
 \)</span><span class="math notranslate nohighlight">\(E[e_i^2 |x_i] = x_{1i}^2 E[u_i^2 |x_i] = x_{1i}^2 \sigma^2.\)</span>$</p>
 <p>The OLS estimator is still consistent and asymptotically normal, but the asymptotic variance is difference from the case of homoskedasticity.</p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2><span class="section-number">4.4. </span>高斯-马尔可夫定理<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>高斯-马尔可夫定理（Gauss-Markov theorem）是关于OLS的有效
 的定理。 这里的 <strong>有效</strong> 指的是它在所有线性无偏估计量中方差最小。</p>
@@ -717,27 +728,28 @@ E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
 <p>同方差是一个严苛的假设。 在同方差假设下,
 <span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
 常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. 当存在异方差时, 高斯-马尔可夫定理不适用。</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h2><span class="section-number">4.5. </span>总结<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>经典的数理统计推导基于误差项正态分布下在精确分布。 高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差。</p>
 <p><strong>This historical note comes from an earlier version</strong></p>
-<div class="highlight-{admonition}历史趣闻 notranslate"><div class="highlight"><pre><span></span>极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
+<div class="admonition- admonition">
+<p class="admonition-title">历史趣闻</p>
+<p>极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
 这些研究方法时至今日还占据着主流地位, 同时他尖锐地批评了贝叶斯学派的研究方法. Fisher 在他1936年的生物学研究中，搜集了一个150个样本
-的鸢尾花数据组，在R软件中输入指令`iris`就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
-比如充分统计量，辅助统计量，完备性和指数族等等。
-</pre></div>
+的鸢尾花数据组，在R软件中输入指令<code class="docutils literal notranslate"><span class="pre">iris</span></code>就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
+比如充分统计量，辅助统计量，完备性和指数族等等。</p>
 </div>
-<p>``{admonition}拓展阅读
-&#64;phillips1983exact 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
+<p>``{admonition} 拓展阅读
+<span id="id6">[<a class="reference internal" href="bibfile_place.html#id23" title="Peter CB Phillips. Exact small sample theory in the simultaneous equations model. Handbook of Econometrics, 1:449–516, 1983.">Phillips, 1983</a>]</span> 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2><span class="section-number">4.6. </span>附录<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id7">
-<h3><span class="section-number">4.6.1. </span>联合正态分布<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id7">
+<h2><span class="section-number">4.6. </span>附录<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<section id="id8">
+<h3><span class="section-number">4.6.1. </span>联合正态分布<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>毫无疑问，在统计学推断中最经常遇到的分布就是正态分布，因为他是许多常见的统计量的渐进分布。
 此外，它有着许多独特的性质使得对于事物的计算大大简便了。在这里总结当中的部分性质。</p>
 <p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布。
@@ -806,9 +818,9 @@ label="fact:marginal">[fact:marginal]</span>
 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么<span class="math notranslate nohighlight">\(Y_{1}\)</span> 基于 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 的条件分布依然是联合正态分布。</p>
 <p>它们的均值和方差满足：
 <span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -842,10 +854,10 @@ label="fact:marginal">[fact:marginal]</span>
             <p class="prev-next-title"><span class="section-number">3. </span>最小二乘法:线性代数观点</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="lecture5-CN.html" title="next page">
+    <a class='right-next' id="next-link" href="real-data.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>基本渐近理论</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>数据实例</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
