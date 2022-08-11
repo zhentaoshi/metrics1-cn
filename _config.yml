@@ -37,6 +37,9 @@ html:
 
 # Add sphinx_proof extension
 sphinx:
+  config:
+    bibtex_reference_style: author_year
+    
   extra_extensions:
     - sphinx_proof
     - sphinx_exercise
