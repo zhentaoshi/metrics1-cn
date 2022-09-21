@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>1. 概率 &#8212; 计量经济学讲义</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,22 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -42,12 +38,14 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -56,18 +54,32 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. 投影" href="lecture2-CN.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. 回归、投影和因果关系" href="lecture2-CN.html" />
     <link rel="prev" title="前言" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="zh_CN">
     
 
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -91,14 +104,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   前言
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    前言
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    1. 概率
@@ -106,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture2-CN.html">
-   2. 投影
+   2. 回归、投影和因果关系
   </a>
  </li>
  <li class="toctree-l1">
@@ -162,90 +176,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture1-CN.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture1-CN.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture1-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture1-CN.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture1-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    1.1. 概率论的公理
@@ -314,12 +447,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>概率</h1>
@@ -404,182 +536,181 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">1. </span>概率<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>概率<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，还有不少人光顾在庙街一带摆摊设点的算命先生。</p>
+<p>概率论是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图理解随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
+Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑。当中使用的数学语言系统逻辑严谨、自洽，为未来该领域的进一步探索提供了起点。目前，这一套数学语言已经广泛地被学界所接受。</p>
+<p>本讲将会简要介绍概率论的公理以及在本科阶段的 <strong>概率论与数理统计</strong> 中已经为我们所熟悉的理论。</p>
 <section id="id2">
-<h2><span class="section-number">1.1. </span>概率论的公理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则会通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，算命先生还是个职业，受到人们的欢迎。</p>
-<p>概率论就是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图抓住随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
-Kolmogorov
-(1903-1987) 在他1933年发表的专著是当代概率论的里程碑。当中使用的数学语言系统逻辑严谨、自洽，为未来该领域的进一步探索提供了起点。目前，这一套数学语言已经广泛地被学界所接受。</p>
-<p>在这次的讲课中，我们将会简要介绍一下概率论的公理以及在本科阶段的<em>概率论与数理统计</em>中已经为我们所熟悉的理论。</p>
+<h2><span class="section-number">1.1. </span>概率论的公理<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <section id="id3">
-<h3><span class="section-number">1.1.1. </span>概率空间<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>概率空间<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
 <p><strong>样本空间</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> 是所有可能结果的一个集合。<strong>事件</strong> <span class="math notranslate nohighlight">\(A\)</span> 是<span class="math notranslate nohighlight">\(\Omega\)</span>
 的一个子集。我们常用<span class="math notranslate nohighlight">\(\mathcal{F}\)</span>表示的<span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>域</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span> field)
 ，它是满足如下条件的事件的集合：</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\emptyset\in\mathcal{F}\)</span>;</p></li>
 <li><p>如果事件 <span class="math notranslate nohighlight">\(A\in\mathcal{F}\)</span>，则也有 <span class="math notranslate nohighlight">\(A^{c}\in\mathcal{F}\)</span>;</p></li>
-<li><p>如果 <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> for <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span>，则
-<span class="math notranslate nohighlight">\(\bigcup_{i\in\mathbb{N}}A_{i}\in\mathcal{F}\)</span>。</p></li>
+<li><p>如果对于所有的 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> 有 <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> ，则
+<span class="math notranslate nohighlight">\(\bigcup_{i\in\mathbb{N}}A_{i}\in\mathcal{F}\)</span> 。</p></li>
 </ol>
-<p>这意味着: (a) 既然 <span class="math notranslate nohighlight">\(\Omega=\emptyset^{c}\in\mathcal{F}\)</span>，则有
+<p>以上条件意味着: (a) 既然 <span class="math notranslate nohighlight">\(\Omega=\emptyset^{c}\in\mathcal{F}\)</span>，则有
 <span class="math notranslate nohighlight">\(\Omega\in\mathcal{F}\)</span>。 (b) 如果对于 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> 有
 <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> ，则对任意
 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> 都有 <span class="math notranslate nohighlight">\(A_{i}^{c}\in\mathcal{F}\)</span>。 因此，如果
 <span class="math notranslate nohighlight">\(\bigcup_{i\in\mathbb{N}}A_{i}^{c}\in\mathcal{F}\)</span> ，可以得出
 <span class="math notranslate nohighlight">\(\bigcap_{i\in\mathbb{N}}A_{i}=(\bigcup_{i\in\mathbb{N}}A_{i}^{c})^{c}\in\mathcal{F}\)</span>.</p>
-<div class="admonition-remark admonition">
-<p class="admonition-title">Remark</p>
-<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域允许由可数 (countable) 个集合。它是供这些集合进行并集、差集和交集操作的封闭域。以上这些都是集合的代数计算。所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> 代数。</p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> <span class="math notranslate nohighlight">\(\sigma\)</span> <strong>域</strong>(<span class="math notranslate nohighlight">\(\sigma\)</span> field)
-的一些例子包括：</p>
+<div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">评注 1.1 </span></p>
+<section class="remark-content" id="proof-content">
+<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域是允许可数 (countable) 个集合进行并集、差集和交集操作的封闭域。因为以上这些都是集合的代数计算，所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> 代数。</p>
+</section>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">例子 1.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> 。
+以下是一些 <span class="math notranslate nohighlight">\(\sigma\)</span> <strong>域</strong>(<span class="math notranslate nohighlight">\(\sigma\)</span> field)的例子：</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{F}_{1}=\{\emptyset,\{1,2,3\},\{4,5,6\},\Omega\}\)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{F}_{2}=\{\emptyset,\{1,3\},\{2,4,5,6\},\Omega\}\)</span>；</p></li>
-<li><p>Counterexample:
+<li><p>反例:
 <span class="math notranslate nohighlight">\(\mathcal{F}_{3}=\{\emptyset,\{1,2\},\{4,6\},\Omega\}\)</span> 不是一个
-<span class="math notranslate nohighlight">\(\sigma\)</span>-<em>field</em> 因为 <span class="math notranslate nohighlight">\(\{1,2,4,6\}=\{1,2\}\bigcup\{4,6\}\)</span> 并不属于
+<span class="math notranslate nohighlight">\(\sigma\)</span> 域，因为 <span class="math notranslate nohighlight">\(\{1,2,4,6\}=\{1,2\}\bigcup\{4,6\}\)</span> 并不属于
 <span class="math notranslate nohighlight">\(\mathcal{F}_{3}\)</span>。</p></li>
 </ul>
-</div>
-<p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 上建立的严谨架构。两者放在一起，
-<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 称为<em>可测空间</em> (measurable space)。</p>
-<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，而且对于任意的 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span> 来说，从而 <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span> ，我们称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 为 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域。一个 <strong>波莱尔</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> 域是由实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 上的所有开集生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span>， 令 <span class="math notranslate nohighlight">\(A=\{\{1\},\{1,3\}\}\)</span>。
-由 <span class="math notranslate nohighlight">\(A\)</span> 生成的 最小 <span class="math notranslate nohighlight">\(\sigma\)</span>-field 是</p>
+</section>
+</div><p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 上建立的严谨架构。两者放在一起，
+<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 称为 <strong>可测空间</strong> (measurable space)。</p>
+<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，而且对于任意的 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span> ， <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span> ，则称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 为 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的 <strong>最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 。一个 <strong>波莱尔</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> 域是由实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 上的所有开集生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">例子 1.2 </span></p>
+<section class="example-content" id="proof-content">
+<p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> ,且令 <span class="math notranslate nohighlight">\(\mathcal{A}=\{\{1\},\{1,3\}\}\)</span>。
+由 <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> 生成的 最小 <span class="math notranslate nohighlight">\(\sigma\)</span>-field 是</p>
 <div class="math notranslate nohighlight">
 \[
-\sigma(A)=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.
+\sigma(\mathcal{A})=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.
 \]</div>
-</div>
-<p>如果函数 <span class="math notranslate nohighlight">\(\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]\)</span>
+</section>
+</div><p>如果函数 <span class="math notranslate nohighlight">\(\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]\)</span>
 满足如下条件</p>
 <ol>
 <li><p>(非负性) 对任意 <span class="math notranslate nohighlight">\(A\in\mathcal{F}\)</span>，都有 <span class="math notranslate nohighlight">\(\mu\left(A\right)\geq0\)</span>;</p></li>
-<li><p>(可列可加性) 如果 <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span>,
-<span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> 互不相交，则</p>
+<li><p>(可列可加性) 如果对于任意的 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> , <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> 互不相交,则</p>
 <div class="math notranslate nohighlight">
 \[
     \mu\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\mu\left(A_{i}\right),
     \]</div>
 </li>
 </ol>
-<p>我们将该函数 <span class="math notranslate nohighlight">\(\mu\)</span> 称为 <strong>测度</strong></p>
-<p>测度可以类比日常生活中的宽度或重量来理解。
-通常情况下，如果满足 <span class="math notranslate nohighlight">\(\mu\left(\Omega\right)=1\)</span>，
-我们就可以称 <span class="math notranslate nohighlight">\(\mu\)</span> 为<strong>概率测度</strong>。 概率测度通常用符号 <span class="math notranslate nohighlight">\(P\)</span> 来指代。
+<p>我们将该函数 <span class="math notranslate nohighlight">\(\mu\)</span> 称为 <strong>测度</strong> 。</p>
+<p>测度可以类比于日常生活中的宽度或重量来理解。
+特别是，当 <span class="math notranslate nohighlight">\(\mu\left(\Omega\right)=1\)</span>，
+我们就称 <span class="math notranslate nohighlight">\(\mu\)</span> 为<strong>概率测度</strong>。 概率测度通常用符号 <span class="math notranslate nohighlight">\(P\)</span> 来指代。
 在可测空间之上赋予一个概率测度，这三者
 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> 称 <strong>概率空间</strong> (probability space)。</p>
 <p>目前为止我们已经回答了问题:
-“什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题”怎么分配概率？”
-在概率分配中有两个主流的学派，一个是<strong>频率学派</strong>，他们把概率视作大样本实验之后出现结果的平均频率；
-一个是<strong>贝叶斯学派</strong>，他们把概率解释为对于事情发生的主观信念。
-两个学派的理论基本上互不兼容，他们的主张也各有优劣。
+“什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题“怎么分配概率？”
+在概率分配中有两个主流的学派：<strong>频率学派</strong> 把概率视作大样本实验之后出现结果的平均频率；
+而 <strong>贝叶斯学派</strong> 把概率解释为对于事情发生可能性的主观信念。
+两个学派的理论基本上互不兼容，他们的主张根据实际应用场景各有优缺点。
 有关这两个学派观点会在有关假设检验的章节涉及。</p>
-<!-- ZT revised up here 7/31/2022-->
 </section>
 <section id="id4">
-<h3><span class="section-number">1.1.2. </span>随机变量<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.2. </span>随机变量<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
 <p>术语 <strong>随机变量</strong>
-是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点”名不副实”。
-它链接了两个测度空间，也就意味着置于值域中的任意事件都能追溯到定义域中的一个对应的事件。</p>
-<p>理论上, 公式 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span> (<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>)
-<strong>可测量的</strong> 如果</p>
+是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点“名不副实”。
+随机变量是连接两个测度空间的一种特定的映射，也就意味着置于值域中的任意事件都能追溯到定义域中的一个对应的事件。</p>
+<p>理论上, 如果对于任何的 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 X^{-1}\left(B\right)=\left\{ \omega\in\Omega:X\left(\omega\right)\in B\right\} \in\mathcal{F}
 \]</div>
-<p>对于任何的 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span> <strong>随机变量</strong>
-是可测函数另一个带有浪漫气息的名字。由<strong>随机变量</strong> <span class="math notranslate nohighlight">\(X\)</span> 生成的<span class="math notranslate nohighlight">\(\sigma\)</span> 域被定义为
-<span class="math notranslate nohighlight">\(\sigma\left(X\right)=\left\{ X^{-1}\left(B\right):B\in\mathcal{R}\right\}\)</span>.</p>
+<p>公式 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span> (<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>)
+是 <strong>可测函数</strong> (<em>measurable function</em>)。 <strong>随机变量</strong> 是可测函数带有浪漫气息的别名。由 <strong>随机变量 <span class="math notranslate nohighlight">\(X\)</span> 生成的<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 被定义为
+<span class="math notranslate nohighlight">\(\sigma\left(X\right)=\left\{ X^{-1}\left(B\right):B\in\mathcal{R}\right\}\)</span> 。</p>
 <p>如果<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>是有限的或者可数的，
 我们将这样的可测函数称为<strong>离散性随机变量</strong>。如果集合<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>
 是不可数的，我们称之为<strong>连续型随机变量</strong> 。</p>
-<p>可测函数连接了两个测度空间。目前在它的定义中还没有涉及到任何概率相关的概念。但如果一个概率测度
-<span class="math notranslate nohighlight">\(P\)</span> 位于 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F})\)</span> 中，可测函数 <span class="math notranslate nohighlight">\(X\)</span> 将在
-<span class="math notranslate nohighlight">\((\mathbb{R},\mathcal{R})\)</span>上导出概率测度。不难证明，如果满足定义</p>
+<p>可测函数的定义中还没有涉及到任何概率相关的概念。但如果一个概率测度
+<span class="math notranslate nohighlight">\(P\)</span> 位于 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F})\)</span> 中，可测函数 <span class="math notranslate nohighlight">\(X\)</span> 可以在
+<span class="math notranslate nohighlight">\((\mathbb{R},\mathcal{R})\)</span> 上导出一个概率测度。不难证明，如果满足定义</p>
 <div class="math notranslate nohighlight">
 \[
 P_{X}\left(B\right)=P\left(X^{-1}\left(B\right)\right)
 \]</div>
 <p>那么<span class="math notranslate nohighlight">\(P_{X}:(\mathbb{R},\mathcal{R})\mapsto\left[0,1\right]\)</span>
-也是一个概率测度。 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>的条件下，这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为函数
-<span class="math notranslate nohighlight">\(X\)</span> <strong>诱导</strong>概率测度。诱导概率测度 <span class="math notranslate nohighlight">\(P_{X}\)</span> 是
-<span class="math notranslate nohighlight">\(P\)</span> 通过函数 <span class="math notranslate nohighlight">\(X\)</span> 所衍生推导出来的。</p>
+也是一个概率测度。 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>的条件下，这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为由
+<span class="math notranslate nohighlight">\(X\)</span> <strong>诱导</strong>的概率测度。诱导概率测度 <span class="math notranslate nohighlight">\(P_{X}\)</span> 是
+<span class="math notranslate nohighlight">\(P\)</span> 通过由 <span class="math notranslate nohighlight">\(X\)</span> 所衍生导出的。</p>
 </section>
 <section id="id5">
-<h3><span class="section-number">1.1.3. </span>分布函数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。一个<strong>累积分布函数</strong>
-（cumulative distribution function） <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
+<h3><span class="section-number">1.1.3. </span>分布函数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
+<p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。<strong>累积分布函数</strong>
+（cumulative distribution function，简记CDF） <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
 <div class="math notranslate nohighlight">
 \[
 F\left(x\right)=P\left(X\leq x\right)=P\left(\{X\leq x\}\right)=P\left(\left\{ \omega\in\Omega:X\left(\omega\right)\leq x\right\} \right).
 \]</div>
-<p>它通常可以简写为 CDF，并且有如下性质：</p>
+<p>它有如下性质：</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\lim_{x\to-\infty}F\left(x\right)=0\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lim_{x\to\infty}F\left(x\right)=1\)</span>,</p></li>
-<li><p>单调不递减,</p></li>
+<li><p>(弱)单调递增,</p></li>
 <li><p>右连续 <span class="math notranslate nohighlight">\(\lim_{y\to x^{+}}F\left(y\right)=F\left(x\right).\)</span></p></li>
 </ol>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
+<div class="proof exercise admonition" id="exercise-3">
+<p class="admonition-title"><span class="caption-number">练习 1.1 </span></p>
+<section class="exercise-content" id="proof-content">
 <p>画出一个0-1分布的累积分布函数; <span class="math notranslate nohighlight">\(X=1\)</span>对应的概率为
-<span class="math notranslate nohighlight">\(p\in\left(0,1\right)\)</span> 而 <span class="math notranslate nohighlight">\(X=0\)</span> 对应概率 <span class="math notranslate nohighlight">\(1-p\)</span></p>
-</div>
-<p>对于连续型分布来说, 如果存在一个函数 <span class="math notranslate nohighlight">\(f\)</span> 使得对于所有的 <span class="math notranslate nohighlight">\(x\)</span> 满足</p>
+<span class="math notranslate nohighlight">\(p\in\left(0,1\right)\)</span> 而 <span class="math notranslate nohighlight">\(X=0\)</span> 对应概率 <span class="math notranslate nohighlight">\(1-p\)</span> 。</p>
+</section>
+</div><p>对于连续型分布来说, 如果存在一个函数 <span class="math notranslate nohighlight">\(f\)</span> 使得对于所有的 <span class="math notranslate nohighlight">\(x\)</span> 满足</p>
 <div class="math notranslate nohighlight">
 \[
 F\left(x\right)=\int_{-\infty}^{x}f\left(y\right)\mathrm{d}y
 \]</div>
-<p>那么
-<span class="math notranslate nohighlight">\(f\)</span> 就是 <span class="math notranslate nohighlight">\(X\)</span> 的<strong>概率密度函数</strong>（probability distribution
-function），通常会缩写为PDF。容易看出它由以下性质： <span class="math notranslate nohighlight">\(f\left(x\right)\geq0\)</span> 且
-<span class="math notranslate nohighlight">\(\int_{a}^{b}f\left(x\right)dx=F\left(b\right)-F\left(a\right)\)</span>。</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>我们已经学过了许多的参数分布，比如二元分布、泊松分布、均匀分布、指数分布和正态分布，
-<span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>,
-<span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
-</div>
+<p>那么 <span class="math notranslate nohighlight">\(f\)</span> 就是 <span class="math notranslate nohighlight">\(X\)</span> 的<strong>概率密度函数</strong>（probability distribution
+function，简记PDF）。容易看出它有以下性质：(i) <span class="math notranslate nohighlight">\(f\left(x\right)\geq0\)</span> ;
+(ii) <span class="math notranslate nohighlight">\(\int_{a}^{b}f\left(x\right)dx=F\left(b\right)-F\left(a\right)\)</span> 。</p>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">例子 1.3 </span></p>
+<section class="example-content" id="proof-content">
+<p>我们已经学过了许多的参数分布,比如二元分布、泊松分布、均匀分布、指数分布和正态分布, <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
 </section>
+</div></section>
 </section>
 <section id="id6">
-<h2><span class="section-number">1.2. </span>数学期望<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>数学期望<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <section id="id7">
-<h3><span class="section-number">1.2.1. </span>积分<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过黎曼积分，黎曼积分是符合数学直觉的。但是勒贝格积分才是更加泛用的积分定义。勒贝格积分的建立依靠以下几个步骤。<span class="math notranslate nohighlight">\(X\)</span> 被认为是一个在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
+<h3><span class="section-number">1.2.1. </span>积分<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
+<p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过直观的黎曼积分。但是勒贝格积分才是更加泛用的积分定义。本讲简要介绍更加通用的勒贝格积分。<span class="math notranslate nohighlight">\(X\)</span> 被认为是一个在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
 中的<strong>简单函数</strong>。如果 <span class="math notranslate nohighlight">\(X=\sum_{i}a_{i}\cdot1\left\{ A_{i}\right\}\)</span>
 而且它的加总是有限的。同时其中 <span class="math notranslate nohighlight">\(a_{i}\in\mathbb{R}\)</span> 和 <span class="math notranslate nohighlight">\(\{A_{i}\in\mathcal{F}\}_{i\in\mathbb{N}}\)</span> 是
 <span class="math notranslate nohighlight">\(\Omega\)</span>的一部分。我们就可以认为一个简单函数是可测的。</p>
 <ol>
 <li><p>令 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},\mu\right)\)</span> 为一个测度空间。 简单函数
-<span class="math notranslate nohighlight">\(X\)</span>的积分 与 <span class="math notranslate nohighlight">\(\mu\)</span> 有关，是</p>
+<span class="math notranslate nohighlight">\(X\)</span> 相对于 <span class="math notranslate nohighlight">\(\mu\)</span> 的积分定义为</p>
 <div class="math notranslate nohighlight">
 \[
     \int X\mathrm{d}\mu=\sum_{i}a_{i}\mu\left(A_{i}\right).
     \]</div>
 <p>不同于黎曼积分，
-这种积分的定义不需要等额地分割定义域。相反，它沿着函数的值域作相应的计算。</p>
+这种积分的定义不需要等额地分割定义域。相反，它依据函数的值域作相应的计算。</p>
 </li>
-<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 作为一个非负的函数。<span class="math notranslate nohighlight">\(\mu\)</span>对于函数<span class="math notranslate nohighlight">\(X\)</span>的积分为：</p>
+<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 作为一个非负的函数。函数 <span class="math notranslate nohighlight">\(X\)</span> 对于 <span class="math notranslate nohighlight">\(\mu\)</span> 的积分为：</p>
 <div class="math notranslate nohighlight">
 \[
     \int X\mathrm{d}\mu=\sup\left\{ \int Y\mathrm{d}\mu:0\leq Y\leq X,\text{ }Y\text{ is simple}\right\} .
     \]</div>
 </li>
-<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 为可测函数. 定义 <span class="math notranslate nohighlight">\(X^{+}=\max\left\{ X,0\right\}\)</span> 和
-<span class="math notranslate nohighlight">\(X^{-}=-\min\left\{ X,0\right\}\)</span>. <span class="math notranslate nohighlight">\(X^{+}\)</span> 与 <span class="math notranslate nohighlight">\(X^{-}\)</span> 都是非负函数。
+<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 为可测函数。 定义 <span class="math notranslate nohighlight">\(X^{+}=\max\left\{ X,0\right\}\)</span> 和
+<span class="math notranslate nohighlight">\(X^{-}=-\min\left\{ X,0\right\}\)</span> 。 <span class="math notranslate nohighlight">\(X^{+}\)</span> 与 <span class="math notranslate nohighlight">\(X^{-}\)</span> 都是非负函数。
 <span class="math notranslate nohighlight">\(\mu\)</span>对于<span class="math notranslate nohighlight">\(X\)</span>的积分为：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -588,112 +719,112 @@ function），通常会缩写为PDF。容易看出它由以下性质： <span cl
 </li>
 </ol>
 <p>上述的第一步定义了简单函数的积分；第二步定义了用下方的阶梯函数测算非负函积分的方法；第三部把一个任意函数视为两个非负部分的差值。</p>
-<div class="admonition-remark admonition">
-<p class="admonition-title">Remark</p>
+<div class="proof remark admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">评注 1.2 </span></p>
+<section class="remark-content" id="proof-content">
 <ul class="simple">
-<li><p>勒贝格积分和黎曼积分之间在被积函数上的核心区别体现在单位区间 <span class="math notranslate nohighlight">\(1\left\{ x\in\mathbb{Q}\cap[0,1]\right\}\)</span> 上的狄利克雷函数（Dirichelet
-function）。它是黎曼不可积分的，但是可以使用勒贝格积分计算。
+<li><p>勒贝格积分和黎曼积分之间在被积函数上的核心区别体现在单位区间 <span class="math notranslate nohighlight">\(1\left\{ x\in\mathbb{Q}\cap[0,1]\right\}\)</span> 上的狄利克雷函数（Dirichelet function）。它是黎曼不可积分的，但是可以使用勒贝格积分计算。
 它有明确的定义且满足
 <span class="math notranslate nohighlight">\(\int1\left\{ x\in\mathbb{Q}\cap[0,1]\right\} dx=0\)</span>.</p></li>
 </ul>
-</div>
-<p>如果测度 <span class="math notranslate nohighlight">\(\mu\)</span> 是一个概率测度 <span class="math notranslate nohighlight">\(P\)</span>, 那么积分 <span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span>
-就会变成为<span class="math notranslate nohighlight">\(X\)</span>的<strong>数学期望</strong>。 我们通常会使用符号 <span class="math notranslate nohighlight">\(E\left[X\right]\)</span>来代替
-<span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span> 使得整个数学语言更简洁方便。</p>
-<p>尽管我们不能预测在给定情况下一个随机变量的实际值(不然一切对于不确定性的研究
+</section>
+</div><p>如果测度 <span class="math notranslate nohighlight">\(\mu\)</span> 是一个概率测度 <span class="math notranslate nohighlight">\(P\)</span>, 那么积分 <span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span>
+就称为 <span class="math notranslate nohighlight">\(X\)</span> 的<strong>数学期望</strong>。我们通常会使用符号 <span class="math notranslate nohighlight">\(E\left[X\right]\)</span>来代替
+<span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span> ，使得整个数学表达式更简洁方便。</p>
+<p>尽管我们不能预测在给定情况下一个随机变量的实际值(否则一切对于不确定性的研究
 都是徒劳了)，但是期望能够告诉我们随机变量的均值。在频率论者的视角里，期望等于我们进行了大样本的实验后得出结果的均值。</p>
-<p>如果我们知道了一个离散型随机变量的概率质量函数,它的期望就是 <span class="math notranslate nohighlight">\(E\left[X\right]=\sum_{x}xP\left(X=x\right)\)</span> ，也就是一个简单函数的积分。
-如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
+<p>如果我们知道了一个离散型随机变量的概率质量函数(probability mass function),它的期望就是 <span class="math notranslate nohighlight">\(E\left[X\right]=\sum_{x}xP\left(X=x\right)\)</span> ，也就是一个简单函数的积分。如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
 <span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。这两个表达式被勒贝格
 积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span> 。</p>
 </section>
 <section id="id8">
-<h3><span class="section-number">1.2.2. </span>期望的性质<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>这里是一些数学期望的性质：</p>
+<h3><span class="section-number">1.2.2. </span>期望的性质<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
+<p>以下列举一些数学期望的重要性质：</p>
 <ul>
 <li><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 的概率是指示函数的期望：
 <span class="math notranslate nohighlight">\(E\left[1\left\{ A\right\} \right]=1\times P(A)+0\times P(A^{c})=P\left(A\right)\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为<span class="math notranslate nohighlight">\(X\)</span>的 <span class="math notranslate nohighlight">\(r\)</span>阶矩。一个随机变量的<strong>均值</strong>
-是一阶矩，<span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span>；而二阶<strong>中心</strong>矩叫做方差
-<span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span>。
-三阶中心矩 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{3}\right]\)</span> 称为<strong>偏度</strong>,
-用来衡量一个随机变量的对称性，四阶矩则是<strong>峰度</strong>
-<span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{4}\right]\)</span>，是用来体现尾部厚度的参数。</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为 <span class="math notranslate nohighlight">\(X\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩。一个随机变量的<strong>均值</strong>
+是其一阶矩 <span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span> ；而二阶 <strong>中心</strong> 矩叫做 <span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span>
+方差。</p>
+<p>三阶中心矩 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{3}\right]\)</span> 称为<strong>偏度</strong>,
+用于衡量随机变量的对称性；四阶矩 <strong>峰度</strong>
+<span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{4}\right]\)</span> 则用来体现尾部厚度。</p>
+</li>
 <li><p>矩条件不一定存在。例如，柯西分布就不存在均值；<span class="math notranslate nohighlight">\(t(2)\)</span> 分布不存在方差。</p></li>
-<li><p><span class="math notranslate nohighlight">\(E[\cdot]\)</span> 是一个线性的计算。如果 <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> 是一个线性的函数,
-那么有 <span class="math notranslate nohighlight">\(E[\phi(X)]=\phi(E[X])\)</span></p></li>
-<li><p><strong>詹森不等式</strong>是一个重要的结论。一个函数 <span class="math notranslate nohighlight">\(\varphi(\cdot)\)</span> 是凸函数
-如果对定义域内的所有<span class="math notranslate nohighlight">\(x_{1},x_{2}\)</span>和<span class="math notranslate nohighlight">\(a\in[0,1]\)</span> 都使得
-<span class="math notranslate nohighlight">\(\varphi(ax_{1}+(1-a)x_{2})\leq a\varphi(x_{1})+(1-a)\varphi(x_{2})\)</span>。
+<li><p><span class="math notranslate nohighlight">\(E[\cdot]\)</span> 是线性算子。如果 <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> 是一个线性函数,
+那么有 <span class="math notranslate nohighlight">\(E[\phi(X)]=\phi(E[X])\)</span> 。</p></li>
+<li><p><strong>詹森不等式</strong>是一个重要的结论。
+如果定义域内的所有<span class="math notranslate nohighlight">\(x_{1},x_{2}\)</span>和<span class="math notranslate nohighlight">\(a\in[0,1]\)</span> 都有
+<span class="math notranslate nohighlight">\(\varphi(ax_{1}+(1-a)x_{2})\leq a\varphi(x_{1})+(1-a)\varphi(x_{2})\)</span> ，函数 <span class="math notranslate nohighlight">\(\varphi(\cdot)\)</span> 是凸函数
 例如， <span class="math notranslate nohighlight">\(x^{2}\)</span> 是一个凸函数。詹森不等式说明如果
 <span class="math notranslate nohighlight">\(\varphi\left(\cdot\right)\)</span> 是一个凸函数，那么
 <span class="math notranslate nohighlight">\(\varphi\left(E\left[X\right]\right)\leq E\left[\varphi\left(X\right)\right]。\)</span></p></li>
-<li><p><em>马尔克夫不等式</em> 是另一个简单但是重要的事实。如果
+<li><p><strong>Markov不等式</strong> 是另一个简单但是重要的事实。如果
 <span class="math notranslate nohighlight">\(E\left[\left|X\right|^{r}\right]\)</span> 存在，那么对于所有的<span class="math notranslate nohighlight">\(r\geq1\)</span>都有
 <span class="math notranslate nohighlight">\(P\left(\left|X\right|&gt;\epsilon\right)\leq E\left[\left|X\right|^{r}\right]/\epsilon^{r}\)</span>。
-<em>切比雪夫不等式</em>
+<strong>Chebyshev不等式</strong>
 <span class="math notranslate nohighlight">\(P\left(\left|X\right|&gt;\epsilon\right)\leq E\left[X^{2}\right]/\epsilon^{2}\)</span>
-是马尔克夫不等式在 <span class="math notranslate nohighlight">\(r=2\)</span>的时候的一个特例。</p></li>
-<li><p>一个随机变量的分布往往可以被它的CDF和PDF清楚地表示。而矩条件同样也是分布的一个函数。为了从矩中找出暗含着的分布情况，我们需要知道矩的生成函数（mgf） <span class="math notranslate nohighlight">\(M_{X}(t)=E[e^{tX}]\)</span>（<span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span>）。<span class="math notranslate nohighlight">\(r\)</span> 阶矩可以基于mgf进行计算</p>
+是Markov不等式在 <span class="math notranslate nohighlight">\(r=2\)</span>的时候的一个特例。</p></li>
+<li><p>一个随机变量的分布可以被它的CDF或PDF完整刻画。而矩条件同样也是分布的一个函数。为了从矩中找出对应的分布，我们可以使用矩母函数（mgf） <span class="math notranslate nohighlight">\(M_{X}(t)=E[e^{tX}]\)</span>（<span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span>）。基于mgf进行计算可以计算 <span class="math notranslate nohighlight">\(r\)</span> 阶矩</p>
 <div class="math notranslate nohighlight">
 \[
     E[X^{r}]=\frac{\mathrm{d}^{r}M_{X}(t)}{\mathrm{d}t^{r}}\big\vert_{t=0}.
     \]</div>
-<p>值得注意的是，就像矩一样，mgf也并非一定存在。</p>
+<p>值得注意的是，就像矩一样，有些分布的mgf不存在。</p>
 </li>
 </ul>
 </section>
 </section>
 <section id="id9">
-<h2><span class="section-number">1.3. </span>多元随机变量<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
-<p>一个二元随机变量是一个可测函数
-<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span>，我们可以由此推广到多元的随机变量也是可测的。
-<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span>. 我们可以定义 <em>联合 CDF</em> 为
-<span class="math notranslate nohighlight">\(F\left(x_{1},\ldots,x_{n}\right)=P\left(X_{1}\leq x_{1},\ldots,X_{n}\leq x_{n}\right)\)</span>.
+<h2><span class="section-number">1.3. </span>多元随机变量<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
+<p>二元随机变量是
+<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span> 上的映射。我们可以由此推广到多元的随机变量。
+<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span> 。 我们可以定义 <strong>联合CDF</strong> 为
+<span class="math notranslate nohighlight">\(F\left(x_{1},\ldots,x_{n}\right)=P\left(X_{1}\leq x_{1},\ldots,X_{n}\leq x_{n}\right)\)</span> 。
 联合PDF的定义与之类似。</p>
-<p>我们有必要了解一下二元变量的联合分布、条件分布和边际分布，然后我们就可以将二元的情况推广到多元分布。假设有一对二元随机变量
-<span class="math notranslate nohighlight">\((X,Y)\)</span> 有一个联合密度函数 <span class="math notranslate nohighlight">\(f(\cdot,\cdot)\)</span>。如果我们暂时忽略一下
-<span class="math notranslate nohighlight">\(f(x)=0\)</span> 的特殊情况，那么我们可以将它的<strong>条件密度</strong>简略地写成
+<p>我们有必要了解一下二元变量的联合分布、条件分布和边际分布，然后我们就可以将二元的情况推广到多元分布。假设二元随机变量
+<span class="math notranslate nohighlight">\((X,Y)\)</span> 有一个联合密度函数 <span class="math notranslate nohighlight">\(f(\cdot,\cdot)\)</span>。如果我们暂时忽略
+<span class="math notranslate nohighlight">\(f(x)=0\)</span> 的特殊情况，那么我们可以将它的 <strong>条件密度</strong> 简略地写成
 <span class="math notranslate nohighlight">\(f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)\)</span>
-。二元变量中<strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
+。二元变量的 <strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
 则是把我们不感兴趣的那一个变量通过积分使它不再成为函数中的一个变量。</p>
 <section id="id10">
-<h3><span class="section-number">1.3.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>在一个概率空间中 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span>对于两个事件
-<span class="math notranslate nohighlight">\(A_{1},A_{2}\in\mathcal{F}\)</span> ，<strong>条件概率</strong>是</p>
+<h3><span class="section-number">1.3.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h3>
+<p>对于概率空间中 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span> 的两个事件
+<span class="math notranslate nohighlight">\(A_{1},A_{2}\in\mathcal{F}\)</span> ，如果
+<span class="math notranslate nohighlight">\(P(A_{2})&gt;0\)</span> ，其<strong>条件概率</strong>是</p>
 <div class="math notranslate nohighlight">
 \[
 P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
 \]</div>
-<p>如果
-<span class="math notranslate nohighlight">\(P(A_{2})&gt;0\)</span>的话。 在条件概率的定义中, <span class="math notranslate nohighlight">\(A_{2}\)</span>
+<p>在条件概率的定义中, <span class="math notranslate nohighlight">\(A_{2}\)</span>
 扮演了结果空间的角色，所以 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})\)</span> 被 <span class="math notranslate nohighlight">\(P(A_{2})\)</span>的值标准化了。
 如果 <span class="math notranslate nohighlight">\(P(A_{2})=0\)</span>，
 在部分的案例中，条件概率公式依然使用，但是在这种情况下，我们需要介绍两个测度之间的
-<strong>支配度</strong>，我们在此不打算细谈。</p>
+<strong>支配与被支配关系</strong> (dominating and dominated)，我们在此不打算细谈。</p>
 <p>既然 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是对称的,我们还能得出
-<span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span>。它表明了
-$<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\right)}\)</span>$
-这个公式就是贝叶斯公式 <strong>Bayes’ Theorem</strong></p>
+<span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span> ,它表明了</p>
+<div class="math notranslate nohighlight">
+\[
+P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\right)}
+\]</div>
+<p>这个公式就是贝叶斯定理 <strong>Bayes’ Theorem</strong></p>
 </section>
 <section id="id11">
-<h3><span class="section-number">1.3.2. </span>独立性<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<p>如果满足条件 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{1})P(A_{2})\)</span>，我们就会认为 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和
-<span class="math notranslate nohighlight">\(A_{2}\)</span> 是<em>独立</em>的 . 如果 <span class="math notranslate nohighlight">\(P(A_{2})\neq0\)</span> , 就相当于
-<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=P(A_{1})\)</span> 。换言之 已知了 <span class="math notranslate nohighlight">\(A_{2}\)</span> 将不会改变
+<h3><span class="section-number">1.3.2. </span>独立性<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h3>
+<p>如果 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{1})P(A_{2})\)</span>，我们称 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和
+<span class="math notranslate nohighlight">\(A_{2}\)</span> 是<strong>独立</strong>的。 如果 <span class="math notranslate nohighlight">\(P(A_{2})\neq0\)</span> , 就相当于
+<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=P(A_{1})\)</span> 。换言之，如果 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和 <span class="math notranslate nohighlight">\(A_{2}\)</span> 独立，已知 <span class="math notranslate nohighlight">\(A_{2}\)</span> 的信息，将不会改变
 <span class="math notranslate nohighlight">\(A_{1}\)</span> 的概率。</p>
-<p>关于两个随机变量的独立性，已知 <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>
-是独立的，那么对于任意两个波莱尔集 <span class="math notranslate nohighlight">\(B_{1}\)</span> and <span class="math notranslate nohighlight">\(B_{2}\)</span>，会有
+<p>如果两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么对于任意两个波莱尔集 <span class="math notranslate nohighlight">\(B_{1}\)</span> and <span class="math notranslate nohighlight">\(B_{2}\)</span>，会有
 <span class="math notranslate nohighlight">\(P\left(X\in B_{1},Y\in B_{2}\right)=P\left(X\in B_{1}\right)P\left(Y\in B_{2}\right)\)</span></p>
-<p>若 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么二者的期望有公式
-<span class="math notranslate nohighlight">\(E[XY]=E[X]E[Y]\)</span> 。即期望的积等于积的期望。</p>
+<p>若 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立，则二者的期望有 <span class="math notranslate nohighlight">\(E[XY]=E[X]E[Y]\)</span> 。即期望的积等于积的期望。</p>
 </section>
 <section id="id12">
-<h3><span class="section-number">1.3.3. </span>期望迭代法则<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<p>给定一个 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ， <em>sub</em> <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra
-<span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
-<span class="math notranslate nohighlight">\(Y\)</span>满足条件 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> ，<strong>条件期望</strong>
-<span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span> 被定义为
+<h3><span class="section-number">1.3.3. </span>期望迭代法则<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
+<p>给定 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ，<strong>子 <span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong>
+<span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 满足条件 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> 的 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
+<span class="math notranslate nohighlight">\(Y\)</span> 。<strong>条件期望</strong> <span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span> 被定义为
 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>-可测函数，使得对于所有的 <span class="math notranslate nohighlight">\(A\in\mathcal{G}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -703,18 +834,18 @@ $<span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=\frac{P\left(A_{2}|
 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 是一个粗糙的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域， 而 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>
 是一个平滑的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
 <p>使 <span class="math notranslate nohighlight">\(A=\Omega\)</span>，我们能够得到
-<span class="math notranslate nohighlight">\(E\left[Y\right]=\int Y\mathrm{d}P=\int E\left[Y|\mathcal{G}\right]\mathrm{d}P=E\left[E\left[Y|\mathcal{G}\right]\right]\)</span>。</p>
-<p><strong>期望迭代法则</strong></p>
+<span class="math notranslate nohighlight">\(E\left[Y\right]=\int Y\mathrm{d}P=\int E\left[Y|\mathcal{G}\right]\mathrm{d}P=E\left[E\left[Y|\mathcal{G}\right]\right]\)</span> 。这就是著名的</p>
+<p><strong>重复期望定律</strong></p>
 <div class="math notranslate nohighlight">
 \[
 E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
 \]</div>
-<p>这个公式如果按照条件期望的定义来看也并不难理解。在二元变量的案例中，如果条件密度函数存在，那么条件期望可以
+<p>按照条件期望的定义来看，这个公式不难理解。在二元变量的案例中，如果条件密度函数存在，那么条件期望可以
 这样计算
 <span class="math notranslate nohighlight">\(E\left[Y|X\right]=\int yf\left(y|X\right)\mathrm{d}y\)</span>，其中条件变量
 <span class="math notranslate nohighlight">\(E\left[\cdot|X\right]=E\left[\cdot|\sigma\left(X\right)\right]\)</span> 是 <span class="math notranslate nohighlight">\(X\)</span>
 生成的最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域
-的简化表达。期望迭代法则表明了：<span class="math notranslate nohighlight">\(E\left[E\left[Y|X\right]\right]=E\left[Y\right]\)</span>.</p>
+的简化表达。重复期望定律表明：<span class="math notranslate nohighlight">\(E\left[E\left[Y|X\right]\right]=E\left[Y\right]\)</span>.</p>
 <p>下方是条件期望的一些性质：</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(E\left[E\left[Y|X_{1},X_{2}\right]|X_{1}\right]=E\left[Y|X_{1}\right];\)</span></p></li>
@@ -724,23 +855,23 @@ E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
 </section>
 </section>
 <section id="id13">
-<h2><span class="section-number">1.4. </span>总结<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>总结<a class="headerlink" href="#id13" title="永久链接至标题">#</a></h2>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
-<p>测度理论在20世纪的早期被一群富有才华的法国和德国学者建立。
+<p>测度理论在20世纪的早期由一群富有才华的法国和德国学者建立。
 其中代表人物有Émile Borel, Henri Lebesgue, Johann
-Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
-为数学化和符号化”不确定性”和”随机性”这些似乎有点抽象的概念夯实了基础。这些贡献者们的名字在波莱尔集、勒贝格积分、马克洛夫链、柯尔莫哥洛夫零——一个法则和许多的术语中被牢牢铭记。</p>
-<p>关于概率的各种各样的有趣的问题吸引了一批又一批学者，Francis Edgeworth
+Radon等等。几代俄罗斯学者如 Andrey Markov 和 Andrey Kolmogorov
+为数学化和符号化“不确定性”和“随机性”这些抽象的概念奠定了基础。这些贡献者们的名字被镌刻在在波莱尔集、勒贝格积分、马克洛夫链、柯尔莫哥洛夫零一法则和许多的术语中被牢牢铭记。</p>
+<p>关于概率的各种各样的有趣的问题吸引了一批又一批学者。Francis Edgeworth
 (1845–1926) 在概率和统计方面写出了许多的著作； John Maynard Keynes
-(1883–1946)在1921年发表了 <em>概率论</em>
+(1883–1946)在1921年发表了 <strong>《概率论》</strong>
 将概率和哲学融合到一起，尽管这本书的流传度不如他后来1936年革命性的著作
-<em>就业、利息和货币通论</em></p>
+<strong>《就业、利息和货币通论》</strong></p>
 <p>如今，搜集和处理信息的效率和成本相较于一百年前已经发生了翻天覆地的变化。然而可惜的是，学习和发展数学的投入成本与百年前相差无多。只有一小部分有才华的人才能聆听和体会这些伟大的数学思想。</p>
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
-<p>&#64;doob1996development
+<p><span id="id14">[<a class="reference internal" href="bibfile_place.html#id28" title="Joseph L Doob. The development of rigor in mathematical probability (1900–1950). The American mathematical monthly, 103(7):586–595, 1996.">Doob, 1996</a>]</span>
 总结了20世纪前半页概率论在公理上的发展。</p>
 </div>
 </section>
@@ -768,42 +899,48 @@ Radon等等。几代俄罗斯学者如 Andrey Markov and Andrey Kolmogorov
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">上一页</p>
             <p class="prev-next-title">前言</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="lecture2-CN.html" title="next page">
+    <a class='right-next' id="next-link" href="lecture2-CN.html" title="下一页 页">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>投影</p>
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>回归、投影和因果关系</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 史震涛 Shi Zhentao<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By 史震涛 Shi Zhentao<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

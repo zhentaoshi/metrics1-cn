@@ -1,15 +1,16 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>11. 广义矩估计 &#8212; 计量经济学讲义</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,22 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -42,12 +38,14 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -56,18 +54,32 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="12. 参考文献" href="bibfile_place.html" />
     <link rel="prev" title="10. 内生性" href="lecture10-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="zh_CN">
     
 
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +88,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -91,14 +104,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   前言
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    前言
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
    1. 概率
@@ -106,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture2-CN.html">
-   2. 投影
+   2. 回归、投影和因果关系
   </a>
  </li>
  <li class="toctree-l1">
@@ -162,107 +176,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture11-CN.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/zhentaoshi/metrics1-cn"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture11-CN.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture11-CN.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/lecture11-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Flecture11-CN.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture11-CN.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
    11.1. 工具变量回归
@@ -270,12 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     11.1.1. 恰好识别
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     11.1.2. 过度识别
+     11.1.1. 过度识别
     </a>
    </li>
   </ul>
@@ -286,12 +397,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      11.2.1. 有效GMM
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id5">
      11.2.2. 两阶段GMM
     </a>
    </li>
@@ -303,23 +414,22 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id6">
    11.3. 非线性GMM模型
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
+  <a class="reference internal nav-link" href="#id7">
    11.4. 总结
   </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>广义矩估计</h1>
@@ -339,12 +449,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     11.1.1. 恰好识别
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     11.1.2. 过度识别
+     11.1.1. 过度识别
     </a>
    </li>
   </ul>
@@ -355,12 +460,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id4">
      11.2.1. 有效GMM
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id5">
      11.2.2. 两阶段GMM
     </a>
    </li>
@@ -372,12 +477,12 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id6">
    11.3. 非线性GMM模型
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
+  <a class="reference internal nav-link" href="#id7">
    11.4. 总结
   </a>
  </li>
@@ -387,55 +492,65 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">11. </span>广义矩估计<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p><strong>广义矩估计</strong>(<em>Generalized method of moments</em>  GMM )是矩估计的延伸，它寻找矩二次型最小的参数值。它特别适用于那些可以从经济学理论中提取出矩条件的模型。GMM是当代计量经济学最受欢迎的方法之一，两阶段最小二乘法(2SLS)是该方法的特例。</p>
+<h1><span class="section-number">11. </span>广义矩估计<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p><strong>广义矩估计</strong>(<em>Generalized method of moments</em>  GMM )是基于矩估计思想延申出来的一种估计方法。它的主要思路是，在矩条件的个数大于参数的个数的情况下，求解距离函数(矩二次型)的最小值。由此得到的估计量就是广义矩估计量。因此，对于那些本身就蕴含着矩条件的经济学模型来说，GMM无疑是一种方便又有效的方法。自诞生以来，GMM就一直是当代计量经济学理论的宠儿。它是一个极具综合性的计量方法，在它之前的2SLS、GLS、SUR和Pooled OLS等一系列传统计量模型都是它的特殊情况。</p>
 <section id="id2">
-<h2><span class="section-number">11.1. </span>工具变量回归<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>我们先前讨论了有 <span class="math notranslate nohighlight">\(K\)</span> 个回归量的一元线性回归方程</p>
+<h2><span class="section-number">11.1. </span>工具变量回归<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
+<p>我们先来讨论有 <span class="math notranslate nohighlight">\(K\)</span> 个回归量的线性回归方程</p>
 <div class="math notranslate nohighlight">
 \[
-y_{i}=x_{i}'\beta+\epsilon_{i}
+y_{i}='\beta+\epsilon_{i}.
 \]</div>
-<p>识别(identification)是结构性估计的前提条件。首先，我们假设模型是可识别的：存在 <span class="math notranslate nohighlight">\(L\times1\)</span> 工具向量 <span class="math notranslate nohighlight">\(z_{i}\)</span>，使得 <span class="math notranslate nohighlight">\(\mathbb{E}\left[z_{i}\epsilon_{i}\right]=0_{L}\)</span> ，且<span class="math notranslate nohighlight">\(\Sigma:=\mathbb{E}\left[z_{i}x_{i}'\right]\)</span> 是列满秩的。将 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 记为方程 <span class="math notranslate nohighlight">\(E\left[z_{i}\left(y_{i}-x_{i}'\beta\right)\right]=0_{L}\)</span> 的根，其具有唯一识别性。</p>
+<p>在统计学视角中，只有可识别(identification)的结构方程才能够进行估计。
+从计量的角度来说，可识别指的是对于联立方程模型中的每一个结构方程，都能够得到确定的参数估计值。如果一个方程系统中存在一个不可识别的随机方程，那么我们认为该联立方程模型是不可识别的。</p>
+<p>从数学推导的角度则可以这样理解：如果把所有工具变量所构成的向量记为 <span class="math notranslate nohighlight">\(L\times1\)</span> 的向量 <span class="math notranslate nohighlight">\(z_{i}\)</span> (可以包含 <span class="math notranslate nohighlight">\(x_{i}\)</span> ，即外生变量也能作为工具变量)， <span class="math notranslate nohighlight">\(z_{i}\)</span> 满足 <span class="math notranslate nohighlight">\(\mathbb{E}\left[z_{i}\epsilon_{i}\right]=0_{L}\)</span> 且<span class="math notranslate nohighlight">\(\Sigma:=\mathbb{E}\left[z_{i}x_{i}'\right]\)</span> 列满秩；记 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 记为方程 <span class="math notranslate nohighlight">\(E\left[z_{i}\left(y_{i}-x_{i}'\beta\right)\right]=0_{L}\)</span> 的根，由于矩阵列满秩， <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 为该线性方程组的唯一解。这种方程只有唯一解的情况就是我们所认为的成功识别。一般情况下，我们默认回归模型是可识别的。</p>
 <section id="id3">
-<h3><span class="section-number">11.1.1. </span>恰好识别<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>当 <span class="math notranslate nohighlight">\(L=K\)</span> ，工具变量回归 <strong>恰好识别</strong> (just-identified 或 exactly identified)。
+<h3><span class="section-number">11.1.1. </span>过度识别<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
+<p>当 <span class="math notranslate nohighlight">\(L=K\)</span> ，我们称之为 <strong>恰好识别</strong> (just-identified 或 exactly identified)。
 通过正交条件能够得到：</p>
 <div class="math notranslate nohighlight">
 \[
 \Sigma\beta_{0}=\mathbb{E}\left[z_{i}y_{i}\right]
 \]</div>
-<p>于是我们可以用封闭形式来表示 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> ：</p>
+<p>于是我们可以得到封闭形式的 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> ：</p>
 <div class="math notranslate nohighlight" id="equation-eqn-just-beta">
-<span class="eqno">(11.1)<a class="headerlink" href="#equation-eqn-just-beta" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(11.1)<a class="headerlink" href="#equation-eqn-just-beta" title="公式的永久链接">#</a></span>\[
 \beta_{0}=\Sigma^{-1}\mathbb{E}\left[z_{i}y_{i}\right]
 \]</div>
-<p>封闭形式的解使得我们能用样本矩来代替总体估计，这也属于一种矩估计。不过，我们将会把这种估计方法放到下一章节介绍。</p>
+<p>求得 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 的封闭解后，我们就可以用样本矩来代替总体矩。这种方法也是一种矩估计。</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">定义 11.1 </span> (封闭解)</p>
+<section class="definition-content" id="proof-content">
+<p><strong>封闭解</strong>：封闭解(Closed-form solution)，也叫作解析解(Analytic solution)。就是根据严格的推导和计算能够得出解的具体函数，这样在得知任意的自变量的值，就能够根据表达式计算出具体的解。与之相对的是数值解(numerical solution)，指的是不能通过计算得出具体的函数形式的解，只能够通过逼近或者插值等方法求解出特定问题对应的近似解的数值。</p>
 </section>
-<section id="id4">
-<h3><span class="section-number">11.1.2. </span>过度识别<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>当 <span class="math notranslate nohighlight">\(L&gt;K\)</span> ，模型过度识别(over identification)。根据正交条件依然能够得到：</p>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">定义 11.2 </span> (正交条件)</p>
+<section class="definition-content" id="proof-content">
+<p><strong>正交条件</strong>：前面提到，<span class="math notranslate nohighlight">\(\mathbb{E}\left[z_{i}\epsilon_{i}\right]=0_{L}\)</span> 。这是由工具变量所提供的总体矩条件。而在统计学中，如果两个随机变量乘积的期望为0，则称这两个随机变量正交。因此，通常总体矩条件也会被称之为正交条件(orthogonality conditions)</p>
+</section>
+</div><p>而当 <span class="math notranslate nohighlight">\(L&gt;K\)</span> ，模型过度识别(over identification)。同样可以根据正交条件得到：</p>
 <div class="math notranslate nohighlight" id="equation-eq-moment2">
-<span class="eqno">(11.2)<a class="headerlink" href="#equation-eq-moment2" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(11.2)<a class="headerlink" href="#equation-eq-moment2" title="公式的永久链接">#</a></span>\[
 \Sigma\beta_{0}=\mathbb{E}\left[z_{i}y_{i}\right],
 \]</div>
-<p>但由于 <span class="math notranslate nohighlight">\(\Sigma\)</span> 不是一个方阵，因此不能像 <a class="reference internal" href="#equation-eqn-just-beta">(11.1)</a> 一样直接对 <span class="math notranslate nohighlight">\(\Sigma\)</span> 求逆来写出 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 。
-为了找到 <span class="math notranslate nohighlight">\(\beta\)</span> 的封闭形式，我们可以定义目标函数：</p>
+<p>但由于 <span class="math notranslate nohighlight">\(\Sigma\)</span> 不是一个方阵，因此不能像 <a class="reference internal" href="#equation-eqn-just-beta">(11.1)</a> 一样直接对 <span class="math notranslate nohighlight">\(\Sigma\)</span> 求逆矩阵来计算 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 。
+为了求解 <span class="math notranslate nohighlight">\(\beta\)</span> ，我们可以定义目标函数</p>
 <div class="math notranslate nohighlight">
 \[
-Q\left(\beta\right)=\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]
+Q\left(\beta\right)=\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right].
 \]</div>
-<p>其中 <span class="math notranslate nohighlight">\(W\)</span> 是一个 <span class="math notranslate nohighlight">\(L\times L\)</span> 的非随机正定对称矩阵(我们将在后面讨论如何选择 <span class="math notranslate nohighlight">\(W\)</span>)。由于它是二次型，所有的 <span class="math notranslate nohighlight">\(\beta\)</span> 都满足 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\geq 0\)</span> 。<strong>识别</strong> 意味着 <span class="math notranslate nohighlight">\(Q\left(\beta\right)=0\)</span>，该等式当且仅当 <span class="math notranslate nohighlight">\(\beta=\beta_{0}\)</span> 成立。从而我们可以得到结论：</p>
+<p>其中 <span class="math notranslate nohighlight">\(W\)</span> 是一个 <span class="math notranslate nohighlight">\(L\times L\)</span> 的非随机正定对称矩阵(如何选择 <span class="math notranslate nohighlight">\(W\)</span> 的问题我们也将在后面讨论到)。由于 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\)</span> 为二次型，依据正定矩阵的定义，无论 <span class="math notranslate nohighlight">\(\beta\)</span> 为何值都满足 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\geq 0\)</span> 。同时 <strong>识别</strong> 又意味着等式 <span class="math notranslate nohighlight">\(Q\left(\beta\right)=0\)</span> 当且仅当 <span class="math notranslate nohighlight">\(\beta=\beta_{0}\)</span> 时成立。于是结合上述两个式子可以得到：</p>
 <div class="math notranslate nohighlight">
 \[
 \beta_{0}=\arg\min_{\beta}Q\left(\beta\right)
 \]</div>
-<p>是唯一的极小值。
-因为 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\)</span> 是一个 <span class="math notranslate nohighlight">\(\beta\)</span> 的光滑函数， 其极小值可以用一阶条件来求得：</p>
+<p>即 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 是目标函数 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\)</span> 取到最小值时对应的唯一变量值。
+又因为 <span class="math notranslate nohighlight">\(Q\left(\beta\right)\)</span> 是一个 <span class="math notranslate nohighlight">\(\beta\)</span> 的光滑函数， <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 可以用一阶条件来计算：</p>
 <div class="math notranslate nohighlight">
 \[
 0_{K}=\frac{\partial}{\partial\beta}Q\left(\beta_{0}\right)=-2\Sigma'W\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta_{0}\right)\right].
@@ -447,30 +562,24 @@ Q\left(\beta\right)=\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\
 \]</div>
 <p>在 <span class="math notranslate nohighlight">\(\Sigma\)</span> 满秩的条件下， <span class="math notranslate nohighlight">\(\Sigma'W\Sigma\)</span> 可逆， 因此我们可以解得：</p>
 <div class="math notranslate nohighlight" id="equation-eq-over-beta">
-<span class="eqno">(11.3)<a class="headerlink" href="#equation-eq-over-beta" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(11.3)<a class="headerlink" href="#equation-eq-over-beta" title="公式的永久链接">#</a></span>\[
 \beta_{0}=\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right].
 \]</div>
-<p>由于模型中矩(<span class="math notranslate nohighlight">\(L\)</span>)的数量比未知参数(<span class="math notranslate nohighlight">\(K\)</span>)更多，我们称之为<strong>广义矩估计</strong> 。</p>
-<div class="admonition- admonition">
-<p class="admonition-title">评注 11.1</p>
-<p>上述等式可以通过在 <a class="reference internal" href="#equation-eq-moment2">(11.2)</a> 两边同时乘上 <span class="math notranslate nohighlight">\(\Sigma'W\)</span> 得到，从而避免了求解最小值的问题。</p>
-</div>
-<div class="admonition- admonition">
-<p class="admonition-title">评注 11.2</p>
-<p>尽管我们把恰好识别和过度识别分开讨论，实际上前者 <a class="reference internal" href="#equation-eqn-just-beta">(11.1)</a> 是后者 <a class="reference internal" href="#equation-eq-over-beta">(11.3)</a> 的一种特殊情况。从这个角度上说，GMM是真正意义上的“广义”的矩估计。要理解这个概念，需要注意到当 <span class="math notranslate nohighlight">\(L=K\)</span> 时， 由于 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是一个方阵，给定任意的 <span class="math notranslate nohighlight">\(W\)</span> 我们能够得到：</p>
+<p>由于模型中矩的数量 <span class="math notranslate nohighlight">\(L\)</span> 比未知参数 <span class="math notranslate nohighlight">\(K\)</span> 更多，我们称之为<strong>广义矩估计</strong> 。</p>
+<p>上述等式也可以通过在 <a class="reference internal" href="#equation-eq-moment2">(11.2)</a> 两边同时乘上 <span class="math notranslate nohighlight">\(\Sigma'W\)</span> 得到，从而避免了求解最小值的问题。</p>
+<p>尽管我们把恰好识别和过度识别分开讨论，实际上前者 <a class="reference internal" href="#equation-eqn-just-beta">(11.1)</a> 是后者 <a class="reference internal" href="#equation-eq-over-beta">(11.3)</a> 的一种特殊情况。从这个角度上说，GMM是真正意义上的“广义”的矩估计。要理解这个概念，需要注意到当 <span class="math notranslate nohighlight">\(L=K\)</span> 时， 由于 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是方阵，给定任意的 <span class="math notranslate nohighlight">\(W\)</span> 都能得到：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 \beta_{0} &amp; =\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right]=\Sigma^{-1}W^{-1}(\Sigma')^{-1}\Sigma'W\mathbb{E}\left[z_{i}y_{i}\right]\\
  &amp; =\Sigma^{-1}W^{-1}W\mathbb{E}\left[z_{i}y_{i}\right]=\Sigma^{-1}\mathbb{E}\left[z_{i}y_{i}\right],\end{aligned}
 \end{split}\]</div>
-<p>也就是说，在恰好识别的情况下， <span class="math notranslate nohighlight">\(W\)</span> 没有起到作用，因为任何的 <span class="math notranslate nohighlight">\(W\)</span> 都会得到相同的 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 。</p>
-</div>
+<p>也就是说，在恰好识别的情况下 <span class="math notranslate nohighlight">\(W\)</span> 不会对结果产生任何的影响，任何的 <span class="math notranslate nohighlight">\(W\)</span> 都会得到相同的 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 。</p>
 </section>
 </section>
 <section id="gmm">
-<h2><span class="section-number">11.2. </span>GMM估计量<a class="headerlink" href="#gmm" title="Permalink to this headline">¶</a></h2>
-<p>在现实中，我们使用样本矩来代替对应的总体矩。GMM估计量模仿它的总体公式：</p>
+<h2><span class="section-number">11.2. </span>GMM估计量<a class="headerlink" href="#gmm" title="永久链接至标题">#</a></h2>
+<p>在现实中，我们使用样本矩来代替对应的总体矩。依照它的总体公式写出GMM估计量表达式：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -485,8 +594,9 @@ Q\left(\beta\right)=\mathbb{E}\left[z_{i}\left(y_{i}-x_{i}\beta\right)\right]'W\
 \hat{\beta}=\left(\frac{Z'X}{n}\right)^{-1}\frac{Z'y}{n}=\left(Z'X\right)^{-1}Z'y
 \]</div>
 <p>是该表达式的一种特例。</p>
-<div class="admonition- admonition">
-<p class="admonition-title">练习 11.1</p>
+<div class="proof exercise admonition" id="exercise-2">
+<p class="admonition-title"><span class="caption-number">练习 11.1 </span></p>
+<section class="exercise-content" id="proof-content">
 <p>同样的GMM估计量 <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> 可以通过最小化如下函数得到：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -494,18 +604,19 @@ Q_{n}\left(\beta\right)=\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\be
 \]</div>
 <p>或者简化为：
 <span class="math notranslate nohighlight">\(\hat{\beta}=\arg\min_{\beta}\left(y-X\beta\right)'ZWZ'\left(y-X\beta\right).\)</span></p>
-</div>
-<p>现在我们来验证 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近性质。以下是一系列的假设：</p>
-<div class="admonition-a-1 admonition">
-<p class="admonition-title">假设 11.1(A.1)</p>
+</section>
+</div><p>现在我们来验证 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近性质。以下是一系列的假设：</p>
+<div class="proof assumption admonition" id="A.1">
+<p class="admonition-title"><span class="caption-number">假设 11.1 </span> (假设 11.1)</p>
+<section class="assumption-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(Z'X/n\stackrel{\mathrm{p}}{\to}\Sigma\)</span> 和 <span class="math notranslate nohighlight">\(Z'\epsilon/n\stackrel{\mathrm{p}}{\to}0_{L}\)</span></p>
-</div>
-<p>A.1 假设我们可以使用大数定律，以至于 <span class="math notranslate nohighlight">\(Z'X/n\)</span> 和 <span class="math notranslate nohighlight">\(Z'\epsilon/n\)</span> 依概率收敛于总体的真实值。</p>
+</section>
+</div><p>A.1 假设我们可以使用大数定律，以至于 <span class="math notranslate nohighlight">\(Z'X/n\)</span> 和 <span class="math notranslate nohighlight">\(Z'\epsilon/n\)</span> 依概率收敛于总体的真实值。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">定理 11.1 </p>
-<p>基于假设 A.1 ， <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是相合的。</p>
+<p>基于假设<a class="reference internal" href="#A.1">Assumption 11.1</a>， <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是相合的。</p>
 </div>
-<p><strong>证明</strong> ：这里的证明步骤于证明OLS估计量的相合性类似：</p>
+<p><strong>证明</strong> ：这里的证明步骤与证明OLS估计量的相合性类似</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -513,29 +624,31 @@ Q_{n}\left(\beta\right)=\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\be
  &amp; =\beta_{0}+\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{Z'\epsilon}{n}\\
  &amp; \stackrel{\mathrm{p}}{\to}\beta_{0}+\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W0=\beta_{0}.\end{aligned}
 \end{split}\]</div>
-<p>为了验证渐近的正态性，我们假设中心极限定理可以适用。</p>
-<div class="admonition-a-2 admonition">
-<p class="admonition-title">假设 11.2(A.2) </p>
+<p>为了验证渐近的正态性，我们假设中心极限定理成立。</p>
+<div class="proof assumption admonition" id="A.2">
+<p class="admonition-title"><span class="caption-number">假设 11.2 </span></p>
+<section class="assumption-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}\epsilon_{i}\stackrel{d}{\to}N\left(0_{L},\Omega\right)
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\Omega=\mathbb{E}\left[z_{i}z_{i}'\epsilon_{i}^{2}\right].\)</span></p>
-</div>
-<div class="admonition- admonition">
-<p class="admonition-title">定理 11.2 (渐进正态性)</p>
-<p>基于假设 A.1 和 A.2 有：</p>
+</section>
+</div><div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">定理 11.1 </span> (定理 11.2 (渐进正态性))</p>
+<section class="theorem-content" id="proof-content">
+<p>基于假设<a class="reference internal" href="#A.1">Assumption 11.1</a> 和<a class="reference internal" href="#A.2">Assumption 11.2</a>有：</p>
 <div class="math notranslate nohighlight">
 \[
 \sqrt{n}\left(\widehat{\beta}-\beta_{0}\right)\stackrel{d}{\to}N\left(0_{K},\left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}\right).\label{eq:normality}.
 \]</div>
-</div>
-<p><strong>证明</strong> ：在 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta_{0})\)</span> 之前乘上 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> 可以得到</p>
+</section>
+</div><p><strong>证明</strong> ：在 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta_{0})\)</span> 之前乘上 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> 可以得到</p>
 <div class="math notranslate nohighlight" id="equation-eq-as-normal">
-<span class="eqno">(11.4)<a class="headerlink" href="#equation-eq-as-normal" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(11.4)<a class="headerlink" href="#equation-eq-as-normal" title="公式的永久链接">#</a></span>\[
 \sqrt{n}\left(\widehat{\beta}-\beta_{0}\right)=\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{Z'\epsilon}{\sqrt{n}}=\left(\frac{X'Z}{n}W\frac{Z'X}{n}\right)^{-1}\frac{X'Z}{n}W\frac{1}{\sqrt{n}}\sum_{i=1}^{n}z_{i}'\epsilon_{i}.
 \]</div>
-<p>依据 Slutsky’s theorem ，就能得到结论如下：</p>
+<p>依据<a class="reference internal" href="#A.1">Assumption 11.1</a>和<a class="reference internal" href="#A.2">Assumption 11.2</a>，就能得到结论如下：</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{X'Z}{n}W\frac{Z'X}{n}\stackrel{\mathrm{p}}{\to}\Sigma'W\Sigma
@@ -545,24 +658,26 @@ Q_{n}\left(\beta\right)=\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\be
 \[
 \frac{X'Z}{n}W\frac{1}{\sqrt{n}}\sum z_{i}'\epsilon_{i}\stackrel{d}{\to}\Sigma'W\times N\left(0,\Omega\right)\sim N\left(0,\Sigma'W\Omega W\Sigma\right).
 \]</div>
-<section id="id5">
-<h3><span class="section-number">11.2.1. </span>有效GMM<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>从 <a class="reference internal" href="#equation-eq-as-normal">(11.4)</a> 中我们可以清楚地知道，GMM估计量的渐近方差依赖于 <span class="math notranslate nohighlight">\(W\)</span> 的选择。 哪一个 <span class="math notranslate nohighlight">\(W\)</span> 会使得渐近方差尽可能小呢?
-答案是 <span class="math notranslate nohighlight">\(W=\Omega^{-1}\)</span>。将其代入渐近方差的公式，它我们能够得到如下有效渐近方差</p>
+<p>根据上述两个式子，代入<a class="reference internal" href="#equation-eq-as-normal">(11.4)</a>，并使用Slusky’s Theorem，就能得到方差最小的有效估计量。</p>
+<section id="id4">
+<h3><span class="section-number">11.2.1. </span>有效GMM<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
+<p>从 <a class="reference internal" href="#equation-eq-as-normal">(11.4)</a> 中我们可以清楚地知道，GMM估计量的渐近方差取决于 <span class="math notranslate nohighlight">\(W\)</span> 。 哪一个 <span class="math notranslate nohighlight">\(W\)</span> 会使得渐近方差尽可能小呢?
+答案是 <span class="math notranslate nohighlight">\(W=\Omega^{-1}\)</span>。将其代入公式就能得到有效渐近方差</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'\Omega^{-1}\Omega\Omega^{-1}\Sigma\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}.
 \]</div>
-<div class="admonition- admonition">
-<p class="admonition-title">命题 11.1 </p>
+<div class="proof proposition admonition" id="proposition-6">
+<p class="admonition-title"><span class="caption-number">命题 11.1 </span></p>
+<section class="proposition-content" id="proof-content">
 <p>对于任意的正定对称矩阵 <span class="math notranslate nohighlight">\(W\)</span> ，它与渐近方差之间的差：</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}-\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}
 \]</div>
 <p>是半正定矩阵。</p>
-</div>
-<p><strong>证明</strong> ：为了简化符号，记
+</section>
+</div><p><strong>证明</strong> ：为了简化符号，记
 <span class="math notranslate nohighlight">\(A:=W\Sigma\left(\Sigma'W\Sigma\right)^{-1}\)</span> 以及
 <span class="math notranslate nohighlight">\(B:=\Omega^{-1}\Sigma\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\)</span> ，然后两个矩阵的差值变为：</p>
 <div class="math notranslate nohighlight">
@@ -574,7 +689,7 @@ Q_{n}\left(\beta\right)=\left[\frac{1}{n}\sum_{i=1}^{n}z_{i}\left(y_{i}-x_{i}\be
  &amp; = \left(A-B\right)'\Omega\left(A-B\right)+\left(A-B\right)'\Omega B+B'\Omega\left(A-B\right).
 \end{aligned}
 \end{split}\]</div>
-<p>注意到：</p>
+<p>注意到</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -582,43 +697,49 @@ B'\Omega A &amp; =\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'\Omega^{-1}\O
  &amp; =\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'W\Sigma\left(\Sigma'W\Sigma\right)^{-1}=\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=B'\Omega B
 \end{aligned}
 \end{split}\]</div>
-<p>该式能够得到： <span class="math notranslate nohighlight">\(B'\Omega\left(A-B\right)=0\)</span> 和
-<span class="math notranslate nohighlight">\(\left(A-B\right)'\Omega B=0\)</span> 。进而可以得到结论：</p>
+<p>该式能够得到 <span class="math notranslate nohighlight">\(B'\Omega\left(A-B\right)=0\)</span> 和
+<span class="math notranslate nohighlight">\(\left(A-B\right)'\Omega B=0\)</span> 。进而可以得到结论</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\Sigma'W\Sigma\right)^{-1}\Sigma'W\Omega W\Sigma\left(\Sigma'W\Sigma\right)^{-1}-\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}=\left(A-B\right)'\Omega\left(A-B\right)
 \]</div>
 <p>为半正定矩阵。</p>
 </section>
-<section id="id6">
-<h3><span class="section-number">11.2.2. </span>两阶段GMM<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p><strong>两阶段GMM</strong> 能够构造可行的有效GMM估计量。</p>
-<ol class="simple">
-<li><p>如果我们选定任意 <span class="math notranslate nohighlight">\(W\)</span> ，并且令 <span class="math notranslate nohighlight">\(W=I_{L}\)</span> 从而得到相合 (但通常不有效) 的估计量：
+<section id="id5">
+<h3><span class="section-number">11.2.2. </span>两阶段GMM<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
+<p><strong>两阶段GMM</strong> 能够用来构造可行的有效GMM估计量。</p>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">定义 11.3 </span> (可行估计量)</p>
+<section class="definition-content" id="proof-content">
+<p>这里的可行估计量指的是不带有任何的位置参数，可以直接利用数据计算的统计量。与之相对的，不可行统计量的表达式中存在需要估计的未知参数，不能直接通过数据求解不可行统计量</p>
+</section>
+</div><ol class="simple">
+<li><p>如果我们选定任意 <span class="math notranslate nohighlight">\(W\)</span> ，比如令 <span class="math notranslate nohighlight">\(W=I_{L}\)</span> ，从而得到相合 (但通常不有效) 的估计量
 <span class="math notranslate nohighlight">\(\hat{\beta}^{\sharp}=\hat{\beta}^{\sharp}\left(W\right)\)</span> 。
 计算残差 <span class="math notranslate nohighlight">\(\widehat{\epsilon}_{i}=y_{i}-x_{i}'\hat{\beta}^{\sharp}\)</span>
-并估计方差矩阵：
-<span class="math notranslate nohighlight">\(\widehat{\Omega}=\frac{1}{n}\sum z_{i}z_{i}'\widehat{\epsilon}_{i}^{2}.\)</span> 。注意，这个 <span class="math notranslate nohighlight">\(\widehat{\Omega}\)</span>
+并估计方差矩阵
+<span class="math notranslate nohighlight">\(\widehat{\Omega}=\frac{1}{n}\sum z_{i}z_{i}'\widehat{\epsilon}_{i}^{2}\)</span> 。这时 <span class="math notranslate nohighlight">\(\widehat{\Omega}\)</span>
 与 <span class="math notranslate nohighlight">\(\Omega\)</span> 相合。</p></li>
-<li><p>设 <span class="math notranslate nohighlight">\(W=\widehat{\Omega}^{-1}\)</span> ，获得第二个估计量：</p></li>
+<li><p>设定 <span class="math notranslate nohighlight">\(W=\widehat{\Omega}^{-1}\)</span> ，获得第二个估计量：</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}^{\natural}=\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})=\left(X'Z\widehat{\Omega}^{-1}Z'X\right)^{-1}X'Z\widehat{\Omega}^{-1}Z'y.
 \]</div>
 <p>第二个估计量是渐近有效的。</p>
-<div class="admonition- admonition">
-<p class="admonition-title">练习 11.2 </p>
+<div class="proof exercise admonition" id="exercise-8">
+<p class="admonition-title"><span class="caption-number">练习 11.2 </span> (练习 11.2 )</p>
+<section class="exercise-content" id="proof-content">
 <p>可以看出如果 <span class="math notranslate nohighlight">\(\widehat{\Omega}\stackrel{p}{\to}\Omega\)</span>，那么
 <span class="math notranslate nohighlight">\(\sqrt{n}\left(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})-\widehat{\beta}\left(\Omega^{-1}\right)\right)\stackrel{p}{\to}0\)</span> 。
 换言之，可行估计量
 <span class="math notranslate nohighlight">\(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})\)</span> 渐近等同于不可行但有效的估计量
 <span class="math notranslate nohighlight">\(\widehat{\beta}\left(\Omega^{-1}\right)\)</span> 。</p>
-</div>
 </section>
+</div></section>
 <section id="sls">
-<h3><span class="section-number">11.2.3. </span>两阶段最小二乘(2SLS)<a class="headerlink" href="#sls" title="Permalink to this headline">¶</a></h3>
-<p>如果我们进而假设满足条件同方差：
+<h3><span class="section-number">11.2.3. </span>两阶段最小二乘(2SLS)<a class="headerlink" href="#sls" title="永久链接至标题">#</a></h3>
+<p>如果我们假设条件同方差成立：
 <span class="math notranslate nohighlight">\(\mathbb{E}\left[\epsilon_{i}^{2}|z_{i}\right]=\sigma^{2}\)</span>，那么：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -632,21 +753,23 @@ B'\Omega A &amp; =\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\Sigma'\Omega^{-1}\O
  &amp; =  \left(X'Z\left(Z'Z\right)^{-1}Z'X\right)^{-1}X'Z\left(Z'Z\right)^{-1}Z'y.
 \end{aligned}
 \end{split}\]</div>
-<p>当 <span class="math notranslate nohighlight">\(L&gt;K\)</span> 时，这个表达式与 2SLS 表达式完全一致。因此， 两阶段最小二乘可以被视为GMM带有伴随矩阵 <span class="math notranslate nohighlight">\(\left(Z'Z/n\right)^{-1}\)</span> 的特例。在条件同方差假设下，2SLS 是有效估计量。然而，尽管 2SLS 十分流行，但在异方差的情况下它不是有效估计量。</p>
-<div class="admonition- admonition">
-<p class="admonition-title">评注 11.3</p>
-<p>2SLS 得名于它通过两步得到回归结果: 首先用所有工具变量 <span class="math notranslate nohighlight">\(Z\)</span> 对 <span class="math notranslate nohighlight">\(X\)</span> 进行回归，之后用对应的值和包含的外生变量对 <span class="math notranslate nohighlight">\(y\)</span> 进行回归。然而，通过上述等式，2SLS实际上可以一步得到，因为它是GMM的特例。</p>
-</div>
-<div class="admonition- admonition">
-<p class="admonition-title">评注 11.4</p>
-<p>如果有效估计量不难找，计量经济学者会更倾向于使用有效估计量。使用有效估计量的好处不仅仅在于系数估计更加精确。许多专门的检验，比如之后我们将介绍的 <span class="math notranslate nohighlight">\(J\)</span>-统计量，将依赖于有效估计量在原假设中得到 <span class="math notranslate nohighlight">\(\chi^{2}\)</span> 分布。否则它们的渐进分布将是不标准的，分布的临界值将只能用蒙特卡罗方法(Monte Carlo simulations)才能找到。</p>
-</div>
+<p>当 <span class="math notranslate nohighlight">\(L&gt;K\)</span> 时，这个表达式与 2SLS 表达式完全一致。因此， 两阶段最小二乘可以被视为带有权重矩阵 <span class="math notranslate nohighlight">\(\left(Z'Z/n\right)^{-1}\)</span> 的特殊GMM。在条件同方差假设下，2SLS 是有效估计量。尽管 2SLS 十分受学者们的欢迎，但在异方差的情况下它并不是有效估计量。</p>
+<div class="proof remark admonition" id="remark-9">
+<p class="admonition-title"><span class="caption-number">评注 11.1 </span> (评注 11.3)</p>
+<section class="remark-content" id="proof-content">
+<p>就如同它的名字一样，2SLS 的计算分为两步: 首先用所有工具变量 <span class="math notranslate nohighlight">\(Z\)</span> 对 <span class="math notranslate nohighlight">\(X\)</span> 进行回归，之后用计算得到的预测值对 <span class="math notranslate nohighlight">\(y\)</span> 进行回归。不过，2SLS实际上可以通过上述等式一步得到，因为它是GMM的特例。</p>
 </section>
+</div><div class="proof remark admonition" id="remark-10">
+<p class="admonition-title"><span class="caption-number">评注 11.2 </span> (评注 11.4)</p>
+<section class="remark-content" id="proof-content">
+<p>如果有效估计量不难计算，计量经济学者会更倾向于使用有效估计量。使用有效估计量的好处不仅仅在于系数估计更加精确。许多专门的检验，比如之后我们将介绍的 <span class="math notranslate nohighlight">\(J\)</span>-统计量，将依赖于有效估计量在原假设中得到 <span class="math notranslate nohighlight">\(\chi^{2}\)</span> 分布。否则它们的渐进分布将是非标准的，分布的临界值将只能用蒙特卡罗方法(Monte Carlo simulations)才能找到。</p>
 </section>
-<section id="id7">
-<h2><span class="section-number">11.3. </span>非线性GMM模型<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+</div></section>
+</section>
+<section id="id6">
+<h2><span class="section-number">11.3. </span>非线性GMM模型<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <p>GMM 的原理也适用于矩条件中存在非线性参数的模型。
-令 <span class="math notranslate nohighlight">\(g_{i}\left(\beta\right)=g\left(w_{i},\beta\right)\mapsto\mathbb{R}^{L}\)</span> 为 <span class="math notranslate nohighlight">\(w_{i}\)</span> 和参数 <span class="math notranslate nohighlight">\(\beta\)</span> 的函数。如果在经济学理论中 <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0\)</span> (统计学家称之为 <strong>估计方程</strong>) 我们就可以将 GMM 总体标准方程写作：</p>
+令 <span class="math notranslate nohighlight">\(g_{i}\left(\beta\right)=g\left(s_{i},\beta\right)\mapsto\mathbb{R}^{L}\)</span> 为 <span class="math notranslate nohighlight">\(s_{i}\)</span> 和参数 <span class="math notranslate nohighlight">\(\beta\)</span> 的函数。如果在经济学理论中 <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0\)</span> (统计学家称之为 <strong>估计方程</strong>) 我们就可以将 GMM 总体目标方程写作：</p>
 <div class="math notranslate nohighlight">
 \[
 Q\left(\beta\right)=\mathbb{E}\left[g_{i}\left(\beta\right)\right]'W\mathbb{E}\left[g_{i}\left(\beta\right)\right]
@@ -654,22 +777,23 @@ Q\left(\beta\right)=\mathbb{E}\left[g_{i}\left(\beta\right)\right]'W\mathbb{E}\l
 <div class="admonition-example-11-1 admonition">
 <p class="admonition-title">Example 11.1</p>
 <p>线性模型是非线性模型的一种特殊情况。在前面章节提到的线性工具变量模型中，数据是
-<span class="math notranslate nohighlight">\(w_{i}=\left(y_{i},x_{i},z_{i}\right)\)</span>，且矩函数为
-<span class="math notranslate nohighlight">\(g\left(w_{i},\beta\right)=z_{i}'\left(y_{i}-x_{i}\beta\right)\)</span>.</p>
+<span class="math notranslate nohighlight">\(s_{i}=\left(y_{i},x_{i},z_{i}\right)\)</span>，且矩函数为
+<span class="math notranslate nohighlight">\(g\left(s_{i},\beta\right)=z_{i}'\left(y_{i}-x_{i}\beta\right)\)</span>.</p>
 </div>
-<p>在现实中，我们用样本矩来表示标准函数中的总体矩：</p>
+<p>在现实中，我们用样本矩来逼近目标函数的总体矩：</p>
 <div class="math notranslate nohighlight">
 \[
 Q_{n}\left(\beta\right)=\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)\right)'W\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)\right).
 \]</div>
-<p>GMM估计量被定义为：</p>
+<p>GMM估计量为：</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{\beta}=\arg\min_{\beta}Q_{n}\left(\beta\right).
 \]</div>
-<p>这些非线性模型往往得不到一个封闭解，但是渐近性质依然成立。在此我们不给出具体证明，对这些渐近性质仅作介绍：</p>
-<div class="admonition- admonition">
-<p class="admonition-title">定理 11.3 </p>
+<p>尽管这些非线性模型往往不存在封闭解，但是它们的渐近性质依然成立。在此我们不给出具体证明，对这些渐近性质作一下简要介绍：</p>
+<div class="proof theorem admonition" id="theorem-11">
+<p class="admonition-title"><span class="caption-number">定理 11.2 </span> (定理 11.3 )</p>
+<section class="theorem-content" id="proof-content">
 <p>(a) 如果模型是可识别的，且对于任意常数 <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span></p>
 <div class="math notranslate nohighlight">
 \[
@@ -688,16 +812,17 @@ Q_{n}\left(\beta\right)=\left(\frac{1}{n}\sum_{i=1}^{n}g_{i}\left(\beta\right)\r
 \]</div>
 <p>其中
 <span class="math notranslate nohighlight">\(\Omega=\mathbb{E}\left[g_{i}\left(\beta_{0}\right)g_{i}\left(\beta_{0}\right)'\right]\)</span>.</p>
-<p>(c) 如果我们选 <span class="math notranslate nohighlight">\(W=\Omega^{-1}\)</span> ，于是该估计量有效，
+<p>(c) 如果我们令 <span class="math notranslate nohighlight">\(W=\Omega^{-1}\)</span> ，能够得到有效估计量，
 渐近方差会变为：
 <span class="math notranslate nohighlight">\(\left(\Sigma'\Omega^{-1}\Sigma\right)^{-1}\)</span>.</p>
-<div class="admonition- admonition">
-<p class="admonition-title">评注 11.5</p>
-<p>上述的这些假设并非全部假设。我们只陈列出了关键部分，略过了其中的一些技术细节。</p>
-</div>
-</div>
-<p><span class="math notranslate nohighlight">\(Q_{n}\left(\beta\right)\)</span> 计算这些矩与0的距离。适当的放缩后，它可以作为一个检验统计量。在原假设 <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0_{L}\)</span> 中，
-Sargan-Hansen <span class="math notranslate nohighlight">\(J\)</span>-检验 验证了模型是否违反了矩条件。该检验统计具体如下：</p>
+<div class="proof remark admonition" id="remark-12">
+<p class="admonition-title"><span class="caption-number">评注 11.3 </span> (评注 11.5)</p>
+<section class="remark-content" id="proof-content">
+<p>以上只列出了几个关键假设，而略过了其中的一些技术细节。</p>
+</section>
+</div></section>
+</div><p><span class="math notranslate nohighlight">\(Q_{n}\left(\beta\right)\)</span> 是测算这些矩与0之间距离的距离函数。适当的放缩后，它可以作为一个检验统计量。在原假设 <span class="math notranslate nohighlight">\(\mathbb{E}\left[g_{i}\left(\beta\right)\right]=0_{L}\)</span> 中，
+Sargan-Hansen <span class="math notranslate nohighlight">\(J\)</span>-检验可以帮助我们判断模型是否违反了矩条件。该检验统计具体如下：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -705,21 +830,21 @@ J\left(\widehat{\beta}\right) &amp; =nQ_{n}\left(\widehat{\beta}\right)=n\left(\
  &amp; =\left(\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)'\widehat{\Omega}^{-1}\left(\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\left(\widehat{\beta}\right)\right)\end{aligned}
 \end{split}\]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\widehat{\Omega}\)</span> 是 <span class="math notranslate nohighlight">\(\Omega\)</span> 的相合估计量，且
-<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是一个有效估计量，比如两阶段
-GMM 估计量 <span class="math notranslate nohighlight">\(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})\)</span> 。这个统计量在分布中会收敛于一个自由度为 <span class="math notranslate nohighlight">\(L-K\)</span> 的 <span class="math notranslate nohighlight">\(\chi^{2}\)</span> 随机变量。也就是说，在原假设中：</p>
+<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是一个有效估计量，例如两阶段
+GMM 估计量 <span class="math notranslate nohighlight">\(\widehat{\beta}^{\natural}(\widehat{\Omega}^{-1})\)</span> 。在分布中 <span class="math notranslate nohighlight">\(J\)</span> 统计量会收敛于一个自由度为 <span class="math notranslate nohighlight">\(L-K\)</span> 的 <span class="math notranslate nohighlight">\(\chi^{2}\)</span> 随机变量。也就是说，在原假设中：</p>
 <div class="math notranslate nohighlight">
 \[
 J\left(\widehat{\beta}\right)\stackrel{d}{\to}\chi^{2}\left(L-K\right).
 \]</div>
 <p>如果原假设为假，往往检验统计量会偏大，从而更倾向于拒绝原假设。</p>
 </section>
-<section id="id8">
-<h2><span class="section-number">11.4. </span>总结<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
-<p>GMM 在计量经济学中的流行是因为经济学理论往往没有足够的信息判断变量间的参数关系，然而许多经济学假设能够得出矩约束条件。例如，<strong>有效市场假设</strong> 表明未来的价格走势 <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span> 不能用过去公开的信息集 <span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span> 预测，因此 <span class="math notranslate nohighlight">\(\mathbb{E}\left[\Delta p_{t+1}|\mathscr{I}_{t}\right]=0\)</span> 。它表明信息集 <span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span> 中变量的任意函数都与 <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span> 正交。
-于是我们可以建立一系列矩条件来检验有效市场假设。尽管GMM不难理解，但是在现实中它会遇到各种问题。因此有大量的经济学文献讨论GMM的局限性和它们的解决办法。</p>
-<p><strong>历史轶闻</strong>: 2SLS 的发现归功于 <span id="id9">[<a class="reference internal" href="bibfile_place.html#id6" title="Henri Theil. Repeated least squares applied to complete equation systems. The Hague: central planning bureau, 1953.">Theil, 1953</a>]</span> 。在线性工具变量模型中， <span class="math notranslate nohighlight">\(J\)</span>-统计量由
-<span id="id10">[<a class="reference internal" href="bibfile_place.html#id4" title="John D Sargan. The estimation of economic relationships using instrumental variables. Econometrica: Journal of the Econometric Society, pages 393–415, 1958.">Sargan, 1958</a>]</span> 提出，且 <span id="id11">[<a class="reference internal" href="bibfile_place.html#id5" title="Lars Peter Hansen. Large sample properties of generalized method of moments estimators. Econometrica: Journal of the Econometric Society, pages 1029–1054, 1982.">Hansen, 1982</a>]</span> 把它推广到非线性模型中。</p>
-<p><strong>拓展阅读</strong>:  GMM 的二次型形式使得它在面对大量数据时很难建立足够多的矩。<strong>经验似然</strong> 是另一种可供选择的方法，它可以用来进行矩约束模型的估计。<span id="id12">[<a class="reference internal" href="bibfile_place.html#id3" title="Zhentao Shi. Econometric estimation with high-dimensional moment equalities. Journal of Econometrics, 195(1):104–119, 2016.">Shi, 2016</a>]</span> 在经验似然的研究框架下解决了高维矩的估计问题。</p>
+<section id="id7">
+<h2><span class="section-number">11.4. </span>总结<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
+<p>经济学理论往往没有足够的信息直接判断变量间的参数关系，而许多经济学假设中却都蕴含着矩约束条件，因此利用矩进行估计的GMM在计量研究中备受学者们的欢迎。例如，<strong>有效市场假设</strong> 表明未来的价格走势 <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span> 不能用过去公开的信息集 <span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span> 来准确预测，也就是 <span class="math notranslate nohighlight">\(\mathbb{E}\left[\Delta p_{t+1}|\mathscr{I}_{t}\right]=0\)</span> 。它表明信息集 <span class="math notranslate nohighlight">\(\mathscr{I}_{t}\)</span> 中变量的任意函数都与 <span class="math notranslate nohighlight">\(\Delta p_{t+1}\)</span> 正交。
+于是我们可以建立一系列矩条件来检验有效市场假设。尽管GMM不难理解，并且有良好的渐近性质，但是在现实中它会遇到各种问题。因此有大量的经济学文献讨论GMM的局限性和它们的解决办法。</p>
+<p><strong>历史轶闻</strong>: 2SLS 的发现归功于 <span id="id8">[<a class="reference internal" href="bibfile_place.html#id6" title="Henri Theil. Repeated least squares applied to complete equation systems. The Hague: central planning bureau, 1953.">Theil, 1953</a>]</span> 。在线性工具变量模型中， <span class="math notranslate nohighlight">\(J\)</span>-统计量由
+<span id="id9">[<a class="reference internal" href="bibfile_place.html#id4" title="John D Sargan. The estimation of economic relationships using instrumental variables. Econometrica: Journal of the Econometric Society, pages 393–415, 1958.">Sargan, 1958</a>]</span> 提出。 <span id="id10">[<a class="reference internal" href="bibfile_place.html#id5" title="Lars Peter Hansen. Large sample properties of generalized method of moments estimators. Econometrica: Journal of the Econometric Society, pages 1029–1054, 1982.">Hansen, 1982</a>]</span> 把它推广到非线性模型中。</p>
+<p><strong>拓展阅读</strong>:  在面对大量数据时，GMM 的二次型将要面对大量的矩条件。然而现实情况是，在有大量的矩条件时，往往不能很好地估计每一个矩来 拟合我们感兴趣的参数。 <strong>经验似然</strong> 是另一种可供选择的方法，它可以用来进行矩约束模型的估计。<span id="id11">[<a class="reference internal" href="bibfile_place.html#id3" title="Zhentao Shi. Econometric estimation with high-dimensional moment equalities. Journal of Econometrics, 195(1):104–119, 2016.">Shi, 2016</a>]</span> 在经验似然的研究框架下解决了高维矩的估计问题。</p>
 </section>
 </section>
 
@@ -745,42 +870,48 @@ J\left(\widehat{\beta}\right)\stackrel{d}{\to}\chi^{2}\left(L-K\right).
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="lecture10-CN.html" title="previous page">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lecture10-CN.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-subtitle">上一页</p>
             <p class="prev-next-title"><span class="section-number">10. </span>内生性</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bibfile_place.html" title="next page">
+    <a class='right-next' id="next-link" href="bibfile_place.html" title="下一页 页">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">下一页</p>
         <p class="prev-next-title"><span class="section-number">12. </span>参考文献</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By 史震涛 Shi Zhentao<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By 史震涛 Shi Zhentao<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
