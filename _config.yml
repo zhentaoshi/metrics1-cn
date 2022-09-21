@@ -39,7 +39,8 @@ html:
 sphinx:
   config:
     bibtex_reference_style: author_year
+    language: zh_CN
     
   extra_extensions:
     - sphinx_proof
-    - sphinx_exercise
+#    - sphinx_exercise
