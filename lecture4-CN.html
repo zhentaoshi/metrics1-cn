@@ -484,13 +484,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">4. </span>最小二乘法:有限样本理论<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>今天我们继续研究最小二乘法的性质. 我们选取有限样本精确分布为学习的主题.它可以很好地被用于统计推断.
-高斯-马尔可夫理论证明了满足经典假设的OLS的最优性.</p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Two groups, control and treatment. If there are people in the control group and <span class="math notranslate nohighlight">\(n-1\)</span> people in the treatment group. What is the consequence?</p>
-</div>
-<p>基于我们已经在前一讲中学习过的线性投影模型:</p>
+<p>本章研究最小二乘法的性有限样本精确，以用于统计推断。</p>
+<p>基于线性投影模型:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{aligned}y &amp; =x'\beta+e\end{aligned}, 
@@ -500,58 +495,60 @@ title="Print to PDF"
 <span class="eqno">(4.1)<a class="headerlink" href="#equation-eqn-label1" title="公式的永久链接">#</a></span>\[
 \beta=\left(E\left[xx'\right]\right)^{-1}E\left[xy\right]. 
 \]</div>
-<p>我们从 <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布中取出一个观测值, 记作 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span>。 重复此过程 <span class="math notranslate nohighlight">\(n\)</span> 次得到 <span class="math notranslate nohighlight">\(n\)</span> 个观测值, 即 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, 那么我们随即就得到了一个样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> .</p>
-<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量。 将式 {eq}eqn:label1 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的最小二乘法系数的估计值就可以写作：</p>
+<p>我们从 <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布中取出一个观测值，记作 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 。重复此过程 <span class="math notranslate nohighlight">\(n\)</span> 次得到 <span class="math notranslate nohighlight">\(n\)</span> 个观测值，即 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span>, 那么我们就得到一个样本 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> 。</p>
+<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量。 将式 <a class="reference internal" href="#equation-eqn-label1">(4.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span> ,那么相应的最小二乘法系数的估计值就可以写作：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
 \widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
  &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
 \end{split}\]</div>
-<p>上式假设中 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的。 这是一种理解最小二乘法的观点。</p>
-<div class="admonition-remark admonition">
-<p class="admonition-title">Remark</p>
+<p>(上式假设了 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的)。上式中最小二乘法的显示解和最小化残差平方和获得的解释一样的。</p>
+<div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">评注 4.1 </span></p>
+<section class="remark-content" id="proof-content">
 <p>样本<span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 到底是随机的呢？还是固定的呢？</p>
-<p>——在我们观测之前, 样本是随机变量, 而随机变量的值是不确定的。 当我们谈起样本的统计学性质时, 我们必须将其视之为随机变量, 因为只有随机变量才有统计学性质, 固定值的统计学性质是无意义的。 而在我们观测之后, 样本的值就确定下来了, 成为固定值, 不能再更改。</p>
-<p>在实际操作中, 我们手中只有一些给定的数据 (当然, 现在的大数据也可以将文本, 照片声音和图像处理成为数据, 这些数据在计算机当中用0和1来表示)。 我们把这些数据扔给计算机, 让计算机给出一个结果. 在统计学意义上, 我们认为这些数字是从一个概率分布上得出的<strong>思想实验</strong>结果. 思想实验是一个学术用语, 说白了, 它就是一个故事. 在公理体系统治的概率论当中, 这个故事在数学上是自洽的。 但是要知道，数学本身是一个套套逻辑 (tautology) , 而不是科学。</p>
-<p>而概率模型的科学价值恰恰在于, 它到底在多大程度上能够逼近事实的真相？以及, 它是不是能够帮我们预测一些真相？在这门课中, 我们假设数据来自于某种机制, 我们把这种机制当成真相. 比如, 在线性回归当中, <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布就是我们头脑中的真相. 而我们想要研究的线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 即为此真相的某个侧面表现形式.</p>
-</div>
-<div class="cell docutils container">
+<p>——在我们观测之前, 样本是随机变量，而随机变量的值是不确定的。 当我们谈起样本的统计学性质时，我们必须将其视之为随机变量，因为只有随机变量才有统计学性质，固定值的统计学性质是无意义的。而在我们观测之后, 样本的值就确定下来了，成为固定值, 不能再更改。</p>
+<p>在实际操作中, 我们手中只有一些给定的数据 (当然, 现在的大数据也可以将文本, 照片声音和图像处理成为数据, 这些数据在计算机当中用0和1来表示)。 我们把这些数据扔给计算机, 让计算机给出一个结果。在统计学意义上, 我们认为这些数字是从一个概率分布上得出的 <strong>思想实验</strong> 结果。思想实验说白了就是一个故事。在公理体系统治的概率论当中, 这个故事在数学上是自洽的。 但是要知道，数学本身是一个套套逻辑 (tautology) , 而不是科学。</p>
+<p>概率模型的科学价值在于它到底在多大程度上逼近事实的真相？以及, 它是不是能够帮我们预测一些真相？进一步，我们要问，究竟什么是 <strong>真相</strong> ？我们在第二章开头引用了”盲人摸象”的故事，这里的 <strong>象</strong> 就是真相，而每一个盲人从某个侧面去了解真相。在这门课中, 我们假设数据来自于某种机制，我们把这种机制当成真相。比如，在线性回归当中， <span class="math notranslate nohighlight">\(\left(y,x\right)\)</span> 的联合分布就是我们头脑中的真相。而我们想要研究的线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 即为此真相的某个侧面表现形式。</p>
+</section>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rpois</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rpois</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
 
-<span class="n">rnorm</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nf">rnorm</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>样本均值 (sample mean) 是总体均值 (population mean) 的天然估计量。 将式 <a class="reference internal" href="#equation-eqn-label1">(4.1)</a> 中总体均值 <span class="math notranslate nohighlight">\(E\left[\cdot\right]\)</span> 替换为样本均值 <span class="math notranslate nohighlight">\(\frac{1}{n}\sum_{i=1}^{n}\cdot\)</span>, 那么相应的, 最小二乘法系数的估计值就可以写作：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-\widehat{\beta} &amp; =\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}y_{i}\\
- &amp; =\left(\frac{X'X}{n}\right)^{-1}\frac{X'y}{n}=\left(X'X\right)^{-1}X'y.\end{aligned}
-\end{split}\]</div>
-<p>上式假设 <span class="math notranslate nohighlight">\(X'X\)</span> 是可逆的. 这是一种理解最小二乘法的观点。</p>
 <section id="id2">
 <h2><span class="section-number">4.1. </span>有限样本分布<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
-<p>我们可以看到有限样本精确分布 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 假设误差项满足服从分布。
-<strong>有限样本分布</strong> 意味着它适用于任何的 <span class="math notranslate nohighlight">\(n\)</span>; 与之相对的是<strong>渐近分布</strong>, 通过大样本来逼近有限样本分布。
-首先我们来复习正态随机向量的一些常见性质。</p>
-<p><span id="fact31" label="fact31">[fact31]</span> 令
-<span class="math notranslate nohighlight">\(z\sim N\left(\mu,\Omega\right)\)</span> 为 <span class="math notranslate nohighlight">\(l\times1\)</span> 的随机向量，其中 <span class="math notranslate nohighlight">\(\Omega\)</span> 为正定的方差与协方差矩阵。
-令 <span class="math notranslate nohighlight">\(A\)</span> 为
-<span class="math notranslate nohighlight">\(m\times l\)</span> 非随机矩阵，其中 <span class="math notranslate nohighlight">\(m\leq l\)</span>. 那么
-<span class="math notranslate nohighlight">\(Az\sim N\left(A\mu,A\Omega A'\right)\)</span>.</p>
-<p><span id="fact32" label="fact32">[fact32]</span>
-如果<span class="math notranslate nohighlight">\(z\sim N\left(0,1\right)\)</span>, <span class="math notranslate nohighlight">\(w\sim\chi^{2}\left(d\right)\)</span>, 且 <span class="math notranslate nohighlight">\(z\)</span> 和 <span class="math notranslate nohighlight">\(w\)</span>
-相互独立. 那么 <span class="math notranslate nohighlight">\(\frac{z}{\sqrt{w/d}}\sim t\left(d\right)\)</span>.</p>
-<p>我们使用最小二乘估计参数</p>
+<p>要得到有限样本精确分布，我们需要假设误差项服从某种分布。
+<strong>有限样本分布</strong> 意味着它适用于任何的 <span class="math notranslate nohighlight">\(n\)</span> ；与之相对的是<strong>渐近分布</strong> ，通过大样本来逼近有限样本分布。
+正态分布是一种常用的分布，首先我们来复习正态随机向量的一些常见性质。</p>
+<div class="proof fact admonition" id="fact31">
+<p class="admonition-title"><span class="caption-number">事实 4.1 </span></p>
+<section class="fact-content" id="proof-content">
+<p>令 <span class="math notranslate nohighlight">\(z\sim N\left(\mu,\Omega\right)\)</span> 为 <span class="math notranslate nohighlight">\(l\times1\)</span> 的随机向量，其中 <span class="math notranslate nohighlight">\(\Omega\)</span> 为正定的方差与协方差矩阵。令 <span class="math notranslate nohighlight">\(A\)</span> 为 <span class="math notranslate nohighlight">\(m\times l\)</span> 非随机矩阵，其中 <span class="math notranslate nohighlight">\(m\leq l\)</span> 那么 <span class="math notranslate nohighlight">\(Az\sim N\left(A\mu,A\Omega A'\right)\)</span> 。</p>
+<p>以上是联合正态分布的线性转换不变性。</p>
+</section>
+</div><div class="proof fact admonition" id="fact32">
+<p class="admonition-title"><span class="caption-number">事实 4.2 </span></p>
+<section class="fact-content" id="proof-content">
+<p>如果 <span class="math notranslate nohighlight">\(z\sim N\left(0,1\right)\)</span> ， <span class="math notranslate nohighlight">\(w\sim\chi^{2}\left(d\right)\)</span> 且 <span class="math notranslate nohighlight">\(z\)</span> 和 <span class="math notranslate nohighlight">\(w\)</span>
+相互独立。那么 <span class="math notranslate nohighlight">\(\frac{z}{\sqrt{w/d}}\sim t\left(d\right)\)</span> 。</p>
+</section>
+</div><p>我们使用最小二乘估计</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}=\left(X'X\right)^{-1}X'Y=\left(X'X\right)^{-1}X'\left(X'\beta+e\right)=\beta+\left(X'X\right)^{-1}X'e,
 \]</div>
-<p>它的条件分布可以被写为：</p>
+<div class="proof assumption admonition" id="assumption-3">
+<p class="admonition-title"><span class="caption-number">假设 4.1 </span></p>
+<section class="assumption-content" id="proof-content">
+<p>(i) 对于 <span class="math notranslate nohighlight">\( i = 1,\ldots,n\)</span> , <span class="math notranslate nohighlight">\(\left(y_i, x_i\right)\)</span> 独立同分布；(ii) <span class="math notranslate nohighlight">\(e_i|x_i\sim N\left(0,\gamma\right)\)</span> ,其中 <span class="math notranslate nohighlight">\(\gamma &gt; 0\)</span></p>
+</section>
+</div><p>则它的条件分布可以被写为：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -560,18 +557,15 @@ title="Print to PDF"
  &amp; \sim N\left(\beta,\gamma\left(X'X\right)^{-1}X'X\left(X'X\right)^{-1}\right)\sim N\left(\beta,\gamma\left(X'X\right)^{-1}\right)
 \end{aligned}
 \end{split}\]</div>
-<p>基于
-<a href="#fact31" data-reference-type="ref" data-reference="fact31">[fact31]</a>, <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>  的第 <span class="math notranslate nohighlight">\(k\)</span> 个元素是：</p>
+<p>基于<a class="reference internal" href="#fact31">事实3.1</a>， <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>  的第 <span class="math notranslate nohighlight">\(k\)</span> 个元素是：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}_{k}|X=\eta_{k}'\widehat{\beta}|X\sim N\left(\beta_{k},\gamma\eta_{k}'\left(X'X\right)^{-1}\eta_{k}\right)\sim N\left(\beta_{k},\gamma\left[\left(X'X\right)^{-1}\right]_{kk}\right),
 \]</div>
-<p>其中</p>
-<div class="math notranslate nohighlight">
-\[
+<p>其中 <span class="math notranslate nohighlight">\(
 \eta_{k}=\left(1\left\{ l=k\right\} \right)_{l=1,\ldots,K}
-\]</div>
-<p>用于选出第 <span class="math notranslate nohighlight">\(k\)</span> 个元素。</p>
+\)</span>
+用于选出第 <span class="math notranslate nohighlight">\(k\)</span> 个元素。</p>
 <p>以上表达式中， <span class="math notranslate nohighlight">\(\gamma\)</span> 是一个未知参数。
 我们可以用</p>
 <div class="math notranslate nohighlight">
@@ -587,33 +581,33 @@ E\left[s^{2}|X\right] &amp; =\frac{1}{n-K}E\left[e'M_{X}e|X\right]=\frac{1}{n-K}
  &amp; =\frac{1}{n-K}\mathrm{trace}\left(M_{X}\gamma I_{n}\right)=\frac{\gamma}{n-K}\mathrm{trace}\left(M_{X}\right)=\gamma
 \end{aligned}
 \end{split}\]</div>
-<p>其中我们使用了迹的性质
-<span class="math notranslate nohighlight">\(\mathrm{trace}\left(AB\right)=\mathrm{trace}\left(BA\right)\)</span>.</p>
+<p>上式的推导中，我们使用了迹的性质
+<span class="math notranslate nohighlight">\(\mathrm{trace}\left(AB\right)=\mathrm{trace}\left(BA\right)\)</span> 。</p>
 <p>如果 <span class="math notranslate nohighlight">\(\beta_{k}^{*}\)</span> 是我们想要检验的值, 基于
-原假设 <span class="math notranslate nohighlight">\(H_{0}:\beta_{k}=\beta_{k}^{*}\)</span> 我们可以建立相应的 <span class="math notranslate nohighlight">\(t\)</span> 统计量</p>
+原假设 <span class="math notranslate nohighlight">\(H_{0}:\beta_{k}=\beta_{k}^{*}\)</span> 我们可以计算相应的 <span class="math notranslate nohighlight">\(t\)</span> 统计量</p>
 <div class="math notranslate nohighlight">
 \[
 T_{k}=\frac{\widehat{\beta}_{k}-\beta_{k}^{*}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}},
 \]</div>
-<p>该统计量当中没有任何的未知数, 可以直接用数据计算.
+<p>该统计量当中没有任何的未知数, 可以直接用数据计算。
 当原假设成立时, <span class="math notranslate nohighlight">\(\beta_{k}=\beta_{k}^{*}\)</span> , 因此</p>
 <div class="math notranslate nohighlight" id="equation-eqn-t-stat">
 <span class="eqno">(4.2)<a class="headerlink" href="#equation-eqn-t-stat" title="公式的永久链接">#</a></span>\[\begin{split}
 \begin{aligned}
 T_{k} &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{s^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}} \\
- &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\sigma^{2}}}{\sqrt{s^{2}}} \\
- &amp; =\frac{\left(\widehat{\beta}_{k}-\beta_{0,k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}}{\sqrt{\frac{e'}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}},
+ &amp; =\frac{\widehat{\beta}_{k}-\beta_{k}}{\sqrt{\gamma\left[\left(X'X\right)^{-1}\right]_{kk}}}\cdot\frac{\sqrt{\gamma}}{\sqrt{s^{2}}} \\
+ &amp; =\frac{\left(\widehat{\beta}_{k}-\beta_{0,k}\right)/\sqrt{\gamma\left[\left(X'X\right)^{-1}\right]_{kk}}}{\sqrt{\frac{e'}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}},
 \end{aligned}
 \end{split}\]</div>
-<p>此时我们引入 <span class="math notranslate nohighlight">\(\sigma^{2}=\gamma\)</span> 到第二个等式中来帮忙求出分布中最后一个表达式的分子和分母。
+<p>此时我们引入 <span class="math notranslate nohighlight">\(\gamma= \sigma^{2}\)</span> 到第二个等式中来帮忙求出分布中最后一个表达式的分子和分母。
 分子为</p>
 <div class="math notranslate nohighlight">
 \[
-\left(\widehat{\beta}_{k}-\beta_{k}\right)/\sqrt{\sigma^{2}\left[\left(X'X\right)^{-1}\right]_{kk}}\sim N\left(0,1\right);
+\left(\widehat{\beta}_{k}-\beta_{k}\right)/\sqrt{\gamma\left[\left(X'X\right)^{-1}\right]_{kk}}\sim N\left(0,1\right);
 \]</div>
 <p>分母 <span class="math notranslate nohighlight">\(\sqrt{\frac{e'}{\sigma}M_{X}\frac{e}{\sigma}/\left(n-K\right)}\)</span>
-服从<span class="math notranslate nohighlight">\(\sqrt{\frac{1}{n-K}\chi^{2}\left(n-K\right)}\)</span>.
-此外, 因为</p>
+服从<span class="math notranslate nohighlight">\(\sqrt{\frac{1}{n-K}\chi^{2}\left(n-K\right)}\)</span> 。
+此外, 因为该联合正态分布的方差-协方差矩阵的非对角块元素均为0</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -630,15 +624,13 @@ M_{X}
 0 &amp; M_{X}
 \end{bmatrix}\right)\end{aligned}
 \end{split}\]</div>
-<p>符合方差为0非对角分块阵的联合正态分布, 因此 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta )\)</span> 和
-<span class="math notranslate nohighlight">\(\widehat{e}\)</span> 是相互独立的.  如果我们将 <span class="math notranslate nohighlight">\(X\)</span> 视为非随机的, 公式<a class="reference internal" href="#equation-eqn-t-stat">(4.2)</a> 的分子和分母相互独立.
-通过
-<a href="#fact32" data-reference-type="ref" data-reference="fact32">[fact32]</a> 我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span>.
-这使得我们可以进行统计推断。</p>
+<p>所以 <span class="math notranslate nohighlight">\((\widehat{\beta}-\beta )\)</span> 和
+<span class="math notranslate nohighlight">\(\widehat{e}\)</span> 是相互独立的。如果我们将 <span class="math notranslate nohighlight">\(X\)</span> 视为非随机的, 公式<a class="reference internal" href="#equation-eqn-t-stat">(4.2)</a> 的分子和分母相互独立。
+通过<a class="reference internal" href="#fact32">事实3.2</a>我们可以得到结果 <span class="math notranslate nohighlight">\(T_{k}\sim t\left(n-K\right)\)</span> 。这使得我们可以进行统计推断。</p>
 </section>
 <section id="id3">
 <h2><span class="section-number">4.2. </span>均值和方差<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
-<p>现在我们放松正态分布假设和统计独立性。
+<p>现在我们放松正态分布假设和 <span class="math notranslate nohighlight">\(x_i\)</span> 与 <span class="math notranslate nohighlight">\(e_i\)</span> 之间的统计独立性。
 我们用 <span class="math notranslate nohighlight">\(Y=X\beta+e\)</span> 来表示回归模型, 并且假设：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -647,7 +639,7 @@ E[e|X] &amp; =0_{n}\\
 \mathrm{var}\left[e|X\right] &amp; =E\left[ee'|X\right]=\sigma^{2}I_{n}.
 \end{aligned}
 \end{split}\]</div>
-<p>其中第一个条件被称为 <strong>均值独立</strong> 假设, 而第二个则被称为 <strong>同方差</strong> 假设.
+<p>其中第一个条件被称为 <strong>均值独立</strong> 假设, 而第二个则被称为 <strong>同方差</strong> 假设。
 与正态分布假设不同, 它们对 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的分布没有限制；
 而只是限制了给定 <span class="math notranslate nohighlight">\(x_{i}\)</span> 后 <span class="math notranslate nohighlight">\(e_{i}\)</span> 的一阶矩和二阶矩。
 这两个条件下，我们可以得到如下性质。</p>
@@ -665,7 +657,7 @@ E[e|X] &amp; =0_{n}\\
 \[
 E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\beta.
 \]</div>
-<p>无偏性不依赖同方差假设.</p>
+<p>注意，无偏性不依赖同方差假设.</p>
 <ul>
 <li><p>因为 <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> 的方差是</p>
 <div class="math notranslate nohighlight">
@@ -686,28 +678,29 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
     \end{split}\]</div>
 </li>
 </ul>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>(异方差) 如果 <span class="math notranslate nohighlight">\(e_{i}=x_{i}u_{i}\)</span>, 其中 <span class="math notranslate nohighlight">\(x_{i}\)</span> 是一个标量的随机变量, <span class="math notranslate nohighlight">\(u_{i}\)</span> 独立于 <span class="math notranslate nohighlight">\(x_{i}\)</span>,
-<span class="math notranslate nohighlight">\(E\left[u_{i}\right]=0\)</span> 和 <span class="math notranslate nohighlight">\(E\left[u_{i}^{2}\right]=\sigma_{u}^{2}\)</span>.
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">例子 4.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>(异方差) 如果 <span class="math notranslate nohighlight">\(e_{i}=x_{i}u_{i}\)</span>, 其中 <span class="math notranslate nohighlight">\(x_{i}\)</span> 是一个标量随机变量, <span class="math notranslate nohighlight">\(u_{i}\)</span> 独立于 <span class="math notranslate nohighlight">\(x_{i}\)</span>,
+<span class="math notranslate nohighlight">\(E\left[u_{i}\right]=0\)</span> 和 <span class="math notranslate nohighlight">\(E\left[u_{i}^{2}\right]=\sigma_{u}^{2}\)</span> 。
 那么有
 <span class="math notranslate nohighlight">\(E\left[e_{i}|x_{i}\right]=E\left[x_{i}u_{i}|x_{i}\right]=x_{i}E\left[u_{i}|x_{i}\right]=0\)</span>
 但是
 <span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]=E\left[x_{i}^{2}u_{i}^{2}|x_{i}\right]=x_{i}^{2}E\left[u_{i}^{2}|x_{i}\right]=\sigma_{u}^{2}x_{i}^{2}\)</span>
 是 <span class="math notranslate nohighlight">\(x_{i}\)</span> 的函数, 因此 <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> 是一个异方差误差项。</p>
-</div>
-<div class="cell docutils container">
+</section>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s2">&quot;e&quot;</span><span class="p">)</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">points</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="m">100</span><span class="p">;</span> <span class="n">X</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 独立同分布 (independently and identically distributed， 简记为 iid)  并不能得出 <span class="math notranslate nohighlight">\(e_i\)</span> 同方差。
+<p><span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 独立同分布并不能得出 <span class="math notranslate nohighlight">\(e_i\)</span> 同方差。
 同方差还是异方差是取决于单次观测中
 <span class="math notranslate nohighlight">\(\left(x_{i},e_{i}=y_{i}-\beta x\right)\)</span> 联合分布的内部关系,
 然而独立同分布与否取决于样本中不同次观测 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 和
@@ -721,10 +714,10 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 <p>这里的条件方差随着 <span class="math notranslate nohighlight">\(x_{i}\)</span> 而发生改变。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># feel free to change n and beta0 to see the effect of sample size </span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># feel free to change n and beta0 to see the effect of sample size </span>
 <span class="c1"># and parameter values</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">beta0</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> 
+<span class="n">n</span> <span class="o">=</span> <span class="m">100</span>
+<span class="n">beta0</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -732,10 +725,10 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 <p>The sample size is set to be 100, which is moderate for simple regressions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">rlogis</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nf">rpois</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="nf">rlogis</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span> <span class="p">)</span> <span class="o">%*%</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">e</span> <span class="c1"># generate data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">X</span> <span class="p">)</span> <span class="o">%*%</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">e</span> <span class="c1"># generate data</span>
 </pre></div>
 </div>
 </div>
@@ -743,17 +736,17 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 <p>Generate data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg1</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span> <span class="n">y</span> <span class="o">~</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># OLS regression</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">reg1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">reg1</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span> <span class="n">y</span> <span class="o">~</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># OLS regression</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">reg1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yhat</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span> <span class="n">reg1</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># predicted value from the OLS regression</span>
-<span class="n">matplot</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;predicted&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">yhat</span> <span class="o">=</span> <span class="nf">predict</span><span class="p">(</span> <span class="n">reg1</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># predicted value from the OLS regression</span>
+<span class="nf">matplot</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;y&quot;</span><span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="m">-2</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;predicted&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -761,27 +754,27 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 <p>Change <span class="math notranslate nohighlight">\(y\)</span> to be a binary variable</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y01</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> 
-<span class="n">reg2</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span> <span class="n">y01</span> <span class="o">~</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># logistic regression</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">reg2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y01</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="m">0</span><span class="p">)</span> 
+<span class="n">reg2</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span> <span class="n">y01</span> <span class="o">~</span> <span class="n">X</span> <span class="p">)</span> <span class="c1"># logistic regression</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">reg2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yhat01</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span> <span class="n">reg2</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span> <span class="p">)</span>
-<span class="n">reg3</span> <span class="o">=</span> <span class="n">glm</span><span class="p">(</span> <span class="n">y01</span> <span class="o">~</span> <span class="n">X</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">binomial</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="s1">&#39;logit&#39;</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">reg3</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">yhat01</span> <span class="o">=</span> <span class="nf">predict</span><span class="p">(</span> <span class="n">reg2</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span> <span class="p">)</span>
+<span class="n">reg3</span> <span class="o">=</span> <span class="nf">glm</span><span class="p">(</span> <span class="n">y01</span> <span class="o">~</span> <span class="n">X</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="nf">binomial</span><span class="p">(</span><span class="n">link</span><span class="o">=</span><span class="s">&#39;logit&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">reg3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yhat01_logit</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span> <span class="n">reg3</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;response&quot;</span> <span class="p">)</span>
-<span class="n">matplot</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cbind</span><span class="p">(</span><span class="n">y01</span><span class="p">,</span> <span class="n">yhat01</span><span class="p">,</span> <span class="n">yhat01_logit</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span> <span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">.3</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;linear pred.&quot;</span><span class="p">,</span> <span class="s2">&quot;logit pred.&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">yhat01_logit</span> <span class="o">=</span> <span class="nf">predict</span><span class="p">(</span> <span class="n">reg3</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;response&quot;</span> <span class="p">)</span>
+<span class="nf">matplot</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">y01</span><span class="p">,</span> <span class="n">yhat01</span><span class="p">,</span> <span class="n">yhat01_logit</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;y&quot;</span> <span class="p">)</span>
+<span class="nf">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">.</span><span class="m">3</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;linear pred.&quot;</span><span class="p">,</span> <span class="s">&quot;logit pred.&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -789,7 +782,7 @@ E\left[\widehat{\beta}\right]=E\left[E\left[\widehat{\beta}|X\right]\right]=\bet
 </section>
 <section id="heteroskedasticity">
 <h2><span class="section-number">4.3. </span>Heteroskedasticity<a class="headerlink" href="#heteroskedasticity" title="永久链接至标题">#</a></h2>
-<p>Heteroskedasticity can happen even if the observations are iid across <span class="math notranslate nohighlight">\(i\)</span>. In the following example, <span class="math notranslate nohighlight">\(e_i = x_{1i} u_i \)</span> and <span class="math notranslate nohighlight">\(x_{1i}\)</span> and <span class="math notranslate nohighlight">\(u_i \sim (0, \sigma^2 ) \)</span> are independent. The mean independence
+<p>Heteroskedasticity can happen even if the observations are iid across <span class="math notranslate nohighlight">\(i\)</span> 。 In the following example, <span class="math notranslate nohighlight">\(e_i = x_{1i} u_i \)</span> and <span class="math notranslate nohighlight">\(x_{1i}\)</span> and <span class="math notranslate nohighlight">\(u_i \sim (0, \sigma^2 ) \)</span> are independent. The mean independence
 $<span class="math notranslate nohighlight">\(E[e_i|x_i] = x_{1i} E[u_i|x_i] = 0\)</span><span class="math notranslate nohighlight">\( 
 is still satisfied, but 
 \)</span><span class="math notranslate nohighlight">\(E[e_i^2 |x_i] = x_{1i}^2 E[u_i^2 |x_i] = x_{1i}^2 \sigma^2.\)</span>$</p>
@@ -801,12 +794,13 @@ is still satisfied, but
 的定理。 这里的 <strong>有效</strong> 指的是它在所有线性无偏估计量中方差最小。</p>
 <p>无偏线性估计量五花八门。 比如, <span class="math notranslate nohighlight">\(\left(Z'X\right)^{-1}Z'y\)</span> (
 <span class="math notranslate nohighlight">\(z_{i}=x_{i}^{2}\)</span>) 是无偏的，因为它满足
-<span class="math notranslate nohighlight">\(E\left[\left(Z'X\right)^{-1}Z'y\right]=E\left[\left(Z'X\right)^{-1}Z'\left(X\beta+e\right)\right]=\beta\)</span>.
+<span class="math notranslate nohighlight">\(E\left[\left(Z'X\right)^{-1}Z'y\right]=E\left[\left(Z'X\right)^{-1}Z'\left(X\beta+e\right)\right]=\beta\)</span> 。
 我们也已经通过 <span class="math notranslate nohighlight">\(E\left[\widehat{\beta}\right]=\beta\)</span> 证明了OLS是无偏的。
 从无偏性这个角度来讲，它们一样好。
-我们只能把目光转到第二个特性方差上面：如果一个估计量的方差更小，则认为这个估计量比其他的更好。</p>
-<div class="admonition-remark admonition">
-<p class="admonition-title">Remark</p>
+我们只能把目光转到第二个特性方差上面：比较两个无偏估计量，如果一个估计量的方差更小，则认为这个估计量比另一个更好。</p>
+<div class="proof remark admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">评注 4.2 </span></p>
+<section class="remark-content" id="proof-content">
 <p>对于两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span>， 如果其方差之差
 <span class="math notranslate nohighlight">\(\left(\Omega_{Y}-\Omega_{X}\right)\)</span> 是个半正定矩阵，则称
 <span class="math notranslate nohighlight">\(X\)</span> 的方差小于等于 <span class="math notranslate nohighlight">\(Y\)</span> 的方差。
@@ -815,8 +809,8 @@ is still satisfied, but
 \[
 \mathrm{var}\left(c'X\right)=c'\Omega_{X}c\leq c'\Omega_{Y}c=\mathrm{var}\left(c'Y\right)
 \]</div>
-</div>
-<p>令 <span class="math notranslate nohighlight">\(\tilde{\beta}=A'y\)</span> 为一个线性估计量, 其中 <span class="math notranslate nohighlight">\(n\times K\)</span> 矩阵 <span class="math notranslate nohighlight">\(A\)</span> 可以是 <span class="math notranslate nohighlight">\(X\)</span> 的某个函数。
+</section>
+</div><p>令 <span class="math notranslate nohighlight">\(\tilde{\beta}=A'y\)</span> 为一个线性估计量, 其中 <span class="math notranslate nohighlight">\(n\times K\)</span> 矩阵 <span class="math notranslate nohighlight">\(A\)</span> 可以是 <span class="math notranslate nohighlight">\(X\)</span> 的某个函数。
 有</p>
 <div class="math notranslate nohighlight">
 \[
@@ -840,26 +834,25 @@ E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
 \[
 \left(X'X\right)^{-1}X'C=\left(X'X\right)^{-1}X'\left(A-X\left(X'X\right)^{-1}\right)=\left(X'X\right)^{-1}-\left(X'X\right)^{-1}=0.
 \]</div>
-<p>因此得到 <span class="math notranslate nohighlight">\(A'A-\left(X'X\right)^{-1}\)</span> 是个半正定矩阵. 任意 <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span> 的方差都不可能小于OLS估计量的方差 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span>. 上述推导表明了 OLS在所有的线性无偏估计量中达到了最小方差。</p>
+<p>因此得到 <span class="math notranslate nohighlight">\(A'A-\left(X'X\right)^{-1}\)</span> 是个半正定矩阵。任意 <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span> 的方差都不可能小于OLS估计量的方差 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 。 上述推导表明了 OLS在所有的线性无偏估计量中达到了最小方差。</p>
 <p>同方差是一个严苛的假设。 在同方差假设下,
-<span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span>.
-常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span>. 当存在异方差时, 高斯-马尔可夫定理不适用。</p>
+<span class="math notranslate nohighlight">\(\mathrm{var}\left[\widehat{\beta}\right]=\sigma^{2}\left(X'X\right)^{-1}\)</span> 。
+常见的估计量 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 是残差的样本均值，即 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\frac{1}{n}\widehat{e}'\widehat{e}\)</span> 或者无偏的表达式为 <span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-K}\widehat{e}'\widehat{e}\)</span> 。 当存在异方差时, 高斯-马尔可夫定理不适用。</p>
 </section>
 <section id="id5">
 <h2><span class="section-number">4.5. </span>总结<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
-<p>经典的数理统计推导基于误差项正态分布下在精确分布。 高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差。</p>
+<p>经典的数理统计推导基于误差项正态分布下的精确分布。高斯-马尔可夫定理成立要基于两个关键的假设：线性的条件期望函数（CEF）和同方差。</p>
 <p><strong>This historical note comes from an earlier version</strong></p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
 <p>极大似然估计由 Ronald Fisher (1890–1962) 是频率学派的奠基人。
-这些研究方法时至今日还占据着主流地位, 同时他尖锐地批评了贝叶斯学派的研究方法. Fisher 在他1936年的生物学研究中，搜集了一个150个样本
-的鸢尾花数据组，在R软件中输入指令<code class="docutils literal notranslate"><span class="pre">iris</span></code>就能看到相应的展示. 许多在经典数学统计中的概念都是由Fisher发明的，
+这些研究方法时至今日还占据着主流地位, 同时他尖锐地批评了贝叶斯学派的研究方法。Fisher 在他1936年的生物学研究中，搜集了一个150个样本
+的鸢尾花数据组，在R软件中输入指令<code class="docutils literal notranslate"><span class="pre">iris</span></code>就能看到相应的展示。许多在经典数学统计中的概念都是由Fisher发明的，
 比如充分统计量，辅助统计量，完备性和指数族等等。</p>
 </div>
-<p>``{admonition} 拓展阅读
-<span id="id6">[<a class="reference internal" href="bibfile_place.html#id23" title="Peter CB Phillips. Exact small sample theory in the simultaneous equations model. Handbook of Econometrics, 1:449–516, 1983.">Phillips, 1983</a>]</span> 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
+<div class="admonition- admonition">
+<p class="admonition-title">拓展阅读</p>
+<p><span id="id6">[<a class="reference internal" href="bibfile_place.html#id23" title="Peter CB Phillips. Exact small sample theory in the simultaneous equations model. Handbook of Econometrics, 1:449–516, 1983.">Phillips, 1983</a>]</span> 总结了计量经济学理论的精确小样本理论结果。 在这之后，计量经济学的理论研究转向了大样本理论。</p>
 </div>
 </section>
 <section id="id7">
@@ -867,9 +860,9 @@ E\left[A'y|X\right]=E\left[A'\left(X\beta+e\right)|X\right]=A'X\beta
 <section id="id8">
 <h3><span class="section-number">4.6.1. </span>联合正态分布<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
 <p>毫无疑问，在统计学推断中最经常遇到的分布就是正态分布，因为他是许多常见的统计量的渐进分布。
-此外，它有着许多独特的性质使得对于事物的计算大大简便了。在这里总结当中的部分性质。</p>
-<p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布。
-<span class="math notranslate nohighlight">\(N\left(\mu,\Sigma\right)\)</span>, 其中的 <span class="math notranslate nohighlight">\( \mu \)</span> 是一个 <span class="math notranslate nohighlight">\(n\times 1\)</span> 向量而
+此外，它有着许多独特的性质大大简化了计算。在这里总结当中的部分性质。</p>
+<p>一个 <span class="math notranslate nohighlight">\(n\times1\)</span> 随机变量 <span class="math notranslate nohighlight">\(Y\)</span> 遵循一个联合随机变量分布
+<span class="math notranslate nohighlight">\(N\left(\mu,\Sigma\right)\)</span> ，其中的 <span class="math notranslate nohighlight">\( \mu \)</span> 是一个 <span class="math notranslate nohighlight">\(n\times 1\)</span> 向量而
 <span class="math notranslate nohighlight">\(\Sigma\)</span> 则是一个 <span class="math notranslate nohighlight">\(n\times n\)</span> 对称正定矩阵。 概率密度函数是</p>
 <div class="math notranslate nohighlight">
 \[
@@ -877,7 +870,7 @@ f_{y}\left(y\right)=\left(2\pi\right)^{-n/2}\left(\mathrm{det}\left(\Sigma\right
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\( \mathrm{det}\left(\cdot\right) \)</span> 是矩阵的行列式。
 矩量母函数则是：
-<span class="math notranslate nohighlight">\(M_{y}\left(t\right)=\exp\left(t'\mu+\frac{1}{2}t'\Sigma t\right)\)</span>.</p>
+<span class="math notranslate nohighlight">\(M_{y}\left(t\right)=\exp\left(t'\mu+\frac{1}{2}t'\Sigma t\right)\)</span> 。</p>
 <p>我们将在这里讨论一个随机变量的两个组成部分间的关系，为了统一符号:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -892,20 +885,20 @@ Y_{2}
 \Sigma_{21} &amp; \Sigma_{22}
 \end{array}\right)\right)
 \end{split}\]</div>
-<p>当中 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 是一个 <span class="math notranslate nohighlight">\(m\times 1\)</span> 向量, 而
-<span class="math notranslate nohighlight">\(Y_{2}\)</span> 是一个 <span class="math notranslate nohighlight">\(\left(n-m\right)\times1\)</span> 向量. <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和 <span class="math notranslate nohighlight">\(\mu_{2}\)</span>
-是对应的平均向量。 <span class="math notranslate nohighlight">\(\Sigma_{ij}\)</span>, <span class="math notranslate nohighlight">\(j=1,2\)</span> 则是相应的方差和协方差矩阵。 从此往下，我们仍然假设： <span class="math notranslate nohighlight">\(Y=\left(Y_{1},Y_{2}\right)\)</span> 服从联合正态分布。</p>
-<p><a href="#fact31" data-reference-type="ref" data-reference="fact31">[fact31]</a>
-指出了正态分布一个非常方便的性质。 一般来说， 如果我们给定两个随机变量的联合概率密度函数，
+<p>当中 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 是一个 <span class="math notranslate nohighlight">\(m\times 1\)</span> 向量，而
+<span class="math notranslate nohighlight">\(Y_{2}\)</span> 是一个 <span class="math notranslate nohighlight">\(\left(n-m\right)\times1\)</span> 向量。 <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和 <span class="math notranslate nohighlight">\(\mu_{2}\)</span>
+是对应的平均向量。 <span class="math notranslate nohighlight">\(\Sigma_{ij}\)</span>，<span class="math notranslate nohighlight">\(j=1,2\)</span> 则是相应的方差-协方差矩阵。 从此往下，我们仍然假设 <span class="math notranslate nohighlight">\(Y=\left(Y_{1},Y_{2}\right)\)</span> 服从联合正态分布。</p>
+<p><a class="reference internal" href="#fact31">事实3.1</a>
+指出了正态分布的线性转换不变性质。一般来说，如果我们给定两个随机变量的联合概率密度函数，
 并且希望得到他们其中一个随机变量的边际分布，我们需要把另一个变量从联合概率密度函数中
-积分出去. 然而，如果变量符合联合正态，那么另一个变量的信息与我们感兴趣的那个随机变量的边际分布无关. 我们只需要知道我们关心的那一部分的信息，比如平均数 <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和方差
+积分出去。然而，如果变量符合联合正态，那么另一个变量的信息与我们感兴趣的那个随机变量的边际分布无关。我们只需要知道我们关心的那一部分的信息，比如平均数 <span class="math notranslate nohighlight">\(\mu_{1}\)</span> 和方差
 <span class="math notranslate nohighlight">\(\Sigma_{11}\)</span> 来决定 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 的边际分布。</p>
-<p><span id="fact:marginal"
-label="fact:marginal">[fact:marginal]</span>
-<span class="math notranslate nohighlight">\(Y_{1}\sim N\left(\mu_{1},\Sigma_{11}\right)\)</span> 的边际分布。</p>
-<p>如果我们对于估计量的一些组成部分感兴趣的话，那么这个结论非常方便, 但它不能帮助我们搞懂估计量的完整向量。 例如,
-线性回归模型的OLS估计量
-<span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span>, 如果满足以下经典假设 (i) 样本随机; (ii) <span class="math notranslate nohighlight">\(z_{i}\)</span> 和 <span class="math notranslate nohighlight">\(e_{i}\)</span> 独立; (iii)
+<div class="proof fact admonition" id="fact_marginal">
+<p class="admonition-title"><span class="caption-number">事实 4.3 </span></p>
+<section class="fact-content" id="proof-content">
+<p>边际分布 <span class="math notranslate nohighlight">\(Y_{1}\sim N\left(\mu_{1},\Sigma_{11}\right)\)</span> 。</p>
+</section>
+</div><p>如果我们对于估计量的某个子向量(subvector)感兴趣的话，那么这个结论非常方便。例如线性回归模型的OLS估计量 <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span>，如果满足以下经典假设 (i) 样本随机；(ii) <span class="math notranslate nohighlight">\(z_{i}\)</span> 和 <span class="math notranslate nohighlight">\(e_{i}\)</span> 独立； (iii)
 <span class="math notranslate nohighlight">\(e_{i}\sim N\left(0,\gamma\right)\)</span> ，那么会有</p>
 <div class="math notranslate nohighlight">
 \[
@@ -917,23 +910,22 @@ label="fact:marginal">[fact:marginal]</span>
 \left(\widehat{\beta}-\beta\right)|X\sim N\left(0,\gamma\left(X'X\right)^{-1}\right)
 \]</div>
 <p>如果我们只是对于
-<span class="math notranslate nohighlight">\(\beta_{0}^{\left(j\right)}\)</span> 的j阶组件的推断感兴趣, 那么根据
-<a href="#fact:marginal" data-reference-type="ref" data-reference="fact:marginal">[fact:marginal]</a>,</p>
+<span class="math notranslate nohighlight">\(\beta_{0}^{\left(j\right)}\)</span> 的第 <span class="math notranslate nohighlight">\(j\)</span> 个分量感兴趣，那么根据<a class="reference internal" href="#fact_marginal">事实3.3</a></p>
 <div class="math notranslate nohighlight">
 \[
 \left(\widehat{\beta}_{k}-\beta_{k}\right)/\left(X'X\right)_{kk}^{-1}\sim N\left(0,\gamma\right)
 \]</div>
-<p>其中的 <span class="math notranslate nohighlight">\(\left[\left(X'X\right)^{-1}\right]_{kk}\)</span> 是 <span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}\)</span> 的 <span class="math notranslate nohighlight">\(k\)</span> 阶对角线元素。边际分布是独立于
-其他的组成部分的。这使得我们不同将其他的组成部分积分出去. 如果向量的维度很高的话，这样的积分还会给我们带来不少的麻烦。</p>
-<p>总结来看, 两个随机变量的协方差为0只能表明他们是不相关的，然而统计上完全独立则要求更高。
-但是, 如果 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 在这种情况下协方差为0就可以等同于完全独立。</p>
-<p>如果 <span class="math notranslate nohighlight">\(\Sigma_{12}=0\)</span>, 那么 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 相互独立。</p>
-<p>如果 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是可逆的, 那么
-<span class="math notranslate nohighlight">\(Y'\Sigma^{-1}Y\sim\chi^{2}\left(\mathrm{rank}\left(\Sigma\right)\right)\)</span>.</p>
+<p>其中的 <span class="math notranslate nohighlight">\(\left[\left(X'X\right)^{-1}\right]_{kk}\)</span> 是 <span class="math notranslate nohighlight">\(\left(X'X\right)^{-1}\)</span> 的 <span class="math notranslate nohighlight">\(k\)</span> 阶对角线元素。其边际分布独立于
+向量中的其他元素。这使得我们不用将其他的组成部分积分出去。</p>
+<p>总结来看，两个随机变量的协方差为0只能表明他们是不相关的，然而统计上完全独立则要求更高。
+但是，如果 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布，在这种情况下协方差为0就可以等同于完全独立。</p>
+<p>如果 <span class="math notranslate nohighlight">\(\Sigma_{12}=0\)</span>，那么 <span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 相互独立。</p>
+<p>如果 <span class="math notranslate nohighlight">\(\Sigma\)</span> 是可逆的，那么
+<span class="math notranslate nohighlight">\(Y'\Sigma^{-1}Y\sim\chi^{2}\left(\mathrm{rank}\left(\Sigma\right)\right)\)</span> 。</p>
 <p>最后的一个结论在线性回归中十分有用。 如果
-<span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布, 那么<span class="math notranslate nohighlight">\(Y_{1}\)</span> 基于 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 的条件分布依然是联合正态分布。</p>
+<span class="math notranslate nohighlight">\(Y_{1}\)</span> 和 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 服从联合正态分布，那么<span class="math notranslate nohighlight">\(Y_{1}\)</span> 基于 <span class="math notranslate nohighlight">\(Y_{2}\)</span> 的条件分布依然是联合正态分布。</p>
 <p>它们的均值和方差满足：
-<span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span>.</p>
+<span class="math notranslate nohighlight">\(Y_{1}|Y_{2}\sim N\left(\mu_{1}+\Sigma_{12}\Sigma_{22}^{-1}\left(Y_{2}-\mu_{2}\right),\Sigma_{11}-\Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\right)\)</span> 。</p>
 </section>
 </section>
 </section>

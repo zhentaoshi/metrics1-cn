@@ -419,12 +419,12 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
+  <a class="reference internal nav-link" href="#id9">
    2.4. 总结
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id12">
    2.5. 参考文献
   </a>
  </li>
@@ -487,12 +487,12 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
+  <a class="reference internal nav-link" href="#id9">
    2.4. 总结
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
+  <a class="reference internal nav-link" href="#id12">
    2.5. 参考文献
   </a>
  </li>
@@ -514,70 +514,70 @@ title="Print to PDF"
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">数学符号</p>
-<p>在本讲义中， <span class="math notranslate nohighlight">\(y\)</span> 为一元随机变量, <span class="math notranslate nohighlight">\(x=(x_1,...,x_K)^{\prime}\)</span> 为 <span class="math notranslate nohighlight">\(K\times1\)</span> 的随机向量。另外，在本课程中提到的向量均为<strong>列向量</strong>，即只有一列的矩阵。</p>
+<p>在本讲义中， <span class="math notranslate nohighlight">\(y\)</span> 为一元随机变量， <span class="math notranslate nohighlight">\(x=(x_1,...,x_K)^{\prime}\)</span> 为 <span class="math notranslate nohighlight">\(K\times1\)</span> 的随机向量。另外，在本课程中提到的向量均为<strong>列向量</strong>，即只有一列的矩阵。</p>
 </div>
 <section id="id2">
 <h2><span class="section-number">2.1. </span>条件期望<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>条件期望是数据预测理论中一个非常重要的概念。
-机器学习是一揽子处理数据的算法, 回归分析也包含于其中。回归是一种<strong>监督学习</strong> (<em>supervised leaning</em>)。 监督式学习用 <span class="math notranslate nohighlight">\(x\)</span> 的函数 (比如 <span class="math notranslate nohighlight">\(g(x)\)</span> )来预测 <span class="math notranslate nohighlight">\(y\)</span> ，然而除非二者之间是确定性的关系, 否则 <span class="math notranslate nohighlight">\(x\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 并不能完全精准地预测。而预测误差 <span class="math notranslate nohighlight">\(y-g(x)\)</span> 依赖于函数 <span class="math notranslate nohighlight">\(g\)</span> 的选择。我们如何才能从各种各样的可选函数中找到最优的 <span class="math notranslate nohighlight">\(g\)</span> 来帮助我们做预测呢? 由于我们并不关心相应联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 的数据生成过程 (<em>data generating process</em>, 简记 DGP)，我们希望能找到一种通用的方法，无论 <span class="math notranslate nohighlight">\((x,y)\)</span> 随机变量是怎样生成的，我们都可以用它来进行尽量精准的预测。</p>
-<p>我们用决策理论来处理这个问题。其关键在于, 我们选择什么标准来比较不同 <span class="math notranslate nohighlight">\(g\)</span> 的优劣。这个标准称为<strong>损失函数</strong>, 常记为<span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 。 <strong>平方损失</strong>  (<em>quadratic loss</em>)</p>
+机器学习是一揽子处理数据的算法，其中包括回归分析。回归是一种<strong>监督学习</strong> (supervised leaning)。监督式学习用 <span class="math notranslate nohighlight">\(x\)</span> 的函数 (比如 <span class="math notranslate nohighlight">\(g(x)\)</span> )来预测 <span class="math notranslate nohighlight">\(y\)</span> ，然而除非二者之间是确定性的关系，否则 <span class="math notranslate nohighlight">\(x\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 的预测必然存在误差。而预测误差 <span class="math notranslate nohighlight">\(y-g(x)\)</span> 依赖于函数 <span class="math notranslate nohighlight">\(g\)</span> 的选择。我们如何才能从各种各样的可选函数中找到最优的 <span class="math notranslate nohighlight">\(g\)</span> 来帮助我们做预测呢? 由于我们并不关心相应联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 的数据生成过程 (data generating process，简记 DGP)，我们希望能找到一种通用的方法，无论 <span class="math notranslate nohighlight">\((x,y)\)</span> 随机变量是怎样生成的，我们都可以用它来进行尽量精准的预测。</p>
+<p>我们用决策理论(decision theory)来处理这个问题。其关键在于，我们选择什么标准来比较不同 <span class="math notranslate nohighlight">\(g\)</span> 的优劣。这个标准称为<strong>损失函数</strong>，常记为 <span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 。<strong>平方损失</strong>  (quadratic loss)</p>
 <div class="math notranslate nohighlight">
 \[
 L(y,g(x))=(y-g(x))^2.
 \]</div>
 <p>是一种常见的损失函数。
-由于数据的随机性， 损失函数 <span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 也是随机的。 这里的”随机”意味着不确定性， 即使在同一分布下， 每次抽样也可能产生不同的结果。 为了摆脱这种随机性的影响， 我们根据联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 对损失函数取数学期望,得到 <span class="math notranslate nohighlight">\(R(y,g(x))=E[L(y,g(x))]\)</span>, 我们将其称为<strong>风险</strong>.
-与损失函数不同, 风险是一个确定性的量。与平方损失函数相对应的风险是 <strong>均方误差</strong> (<em>mean square error</em>, 简记MSE)</p>
+由于数据的随机性， 损失函数 <span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 也是随机的。这里的”随机”意味着不确定性， 即使在同一分布下，每次抽样也可能产生不同的结果。为了摆脱这种随机性的影响，我们根据联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 对损失函数取数学期望，得到 <span class="math notranslate nohighlight">\(R(y,g(x))=E[L(y,g(x))]\)</span>，我们将其称为<strong>风险</strong>。
+与损失函数不同，风险是一个确定性的量。与平方损失函数相对应的风险是 <strong>均方误差</strong> (mean square error，简记MSE)</p>
 <div class="math notranslate nohighlight">
 \[
 R(y,g(x))=E\left[(y-g(x))^2 \right],
 \]</div>
-<p>均方误差是最常用的风险测度方法，虽然文献中还有其他可替代的度量, 例如<strong>平均绝对误差</strong> (<em>mean absolute error</em>, 简记MAE) <span class="math notranslate nohighlight">\(E[|y-g(x)|]\)</span> 等。</p>
-<p>均方误差之所以好用，是因为它的特定函数形式往往能帮助我们较为方便地求出解析解。反观其他的风险函数如平均绝对误差, 由于其不可微性, 会给计算解析解带来困难。 在经济学中, 效用函数的选择也有着类似的考量。我们通常只选择几种函数形式, 如CRRA效用函数，CARA效用函数等，这些函数形式得以广泛使用也是因为它们往往能够较为便捷地求得解析解。</p>
+<p>均方误差是最常用的风险测度方法，虽然文献中还有其他可替代的度量，例如<strong>平均绝对误差</strong> (mean absolute error，简记MAE) <span class="math notranslate nohighlight">\(E[|y-g(x)|]\)</span> 等。</p>
+<p>均方误差之所以好用，是因为它的特定函数形式能帮助我们较为方便地求出解析解。反观其他的风险函数如平均绝对误差，由于其不可微性，会给计算解析解带来困难。在经济学中，效用函数的选择也有着类似的考量。我们通常只选择几种函数形式，如CRRA效用函数，CARA效用函数等，这些函数形式得以广泛使用也是因为它们往往能够较为便捷地求得解析解。</p>
 <p>明确了比较的标准， 我们的问题便十分清晰了: 如果我们的目标是最小化均方误差， 那么什么是函数 <span class="math notranslate nohighlight">\(g\)</span> 的最优选择?</p>
 <div class="proof proposition admonition" id="proposition-0">
 <p class="admonition-title"><span class="caption-number">命题 2.1 </span></p>
 <section class="proposition-content" id="proof-content">
-<p>条件均值函数 (<em>conditional mean function</em>, 即CEF) <span class="math notranslate nohighlight">\(m(x)=E[y|x]=\int yf(y|x)dy\)</span> 可以最小化均方误差。</p>
+<p>条件均值函数 (conditional mean function，即CEF) <span class="math notranslate nohighlight">\(m(x)=E[y|x]=\int yf(y|x)dy\)</span> 可以最小化均方误差。</p>
 </section>
-</div><p>在证明上述命题之前, 我们先讨论条件均值函数的一些性质。定义 <span class="math notranslate nohighlight">\(\varepsilon:=y-m(x)\)</span>。显然, 可以对 <span class="math notranslate nohighlight">\(y\)</span> 进行如下分解：</p>
+</div><p>在证明上述命题之前，我们先讨论条件均值函数的一些性质。定义 <span class="math notranslate nohighlight">\(\varepsilon:=y-m(x)\)</span>。显然，可以对 <span class="math notranslate nohighlight">\(y\)</span> 进行如下分解：</p>
 <div class="math notranslate nohighlight">
 \[
 y=m(x)+(y-m(x))=m(x)+\varepsilon,
 \]</div>
-<p>只要条件期望<span class="math notranslate nohighlight">\(E[y|x]\)</span>存在, 无论 <span class="math notranslate nohighlight">\((y,x)\)</span> 服从何种分布, 该等式都成立。 我们将 <span class="math notranslate nohighlight">\(\varepsilon\)</span> 称为 <strong>回归误差</strong> (<em>regression error</em>)。
+<p>只要条件期望<span class="math notranslate nohighlight">\(E[y|x]\)</span>存在，无论 <span class="math notranslate nohighlight">\((y,x)\)</span> 服从何种分布，该等式都成立。我们将 <span class="math notranslate nohighlight">\(\varepsilon\)</span> 称为 <strong>回归误差</strong> (regression error)。
 误差项 <span class="math notranslate nohighlight">\(\varepsilon\)</span> 具有以下性质：</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(E[y|x]=E[y-m(x)|x]=E[y|x]-m(x)=0\)</span>,</p></li>
 <li><p><span class="math notranslate nohighlight">\(E[\varepsilon]=E[E[\varepsilon|x]]=E[0]=0\)</span>,</p></li>
 <li><p>给定任意函数<span class="math notranslate nohighlight">\(h(x)\)</span>有</p>
-<div class="math notranslate nohighlight">
-\[
-  E[h(x)\varepsilon]=E[E[h(x)\varepsilon|x]]=E[h(x)E[\varepsilon|x]]=0.\tag{2.1}
+<div class="math notranslate nohighlight" id="equation-eqn-label21">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eqn-label21" title="公式的永久链接">#</a></span>\[
+  E[h(x)\varepsilon]=E[E[h(x)\varepsilon|x]]=E[h(x)E[\varepsilon|x]]=0.
   \]</div>
 </li>
 </ul>
-<p>最后一个性质表明， <span class="math notranslate nohighlight">\(\varepsilon\)</span> 与 <span class="math notranslate nohighlight">\(x\)</span> 的任何函数都不相关。 特别地， 当 <span class="math notranslate nohighlight">\(h(x)=x\)</span> 时有 <span class="math notranslate nohighlight">\(E[x\varepsilon]=Cov(x,\varepsilon)\)</span>=0 。</p>
-<p><strong>命题2.1的证明</strong>  我们采用先猜后证 (“guess-and-verify”) 的思路。 我们首先猜测CEF是最优解, 然后验证它确实是最优解: 对于任意一个函数 <span class="math notranslate nohighlight">\(g\)</span> 验证CEF至少不比<span class="math notranslate nohighlight">\(g\)</span>差。对任给的 <span class="math notranslate nohighlight">\(g(x)\)</span>，其均方误差可以分解为三部分：</p>
+<p>最后一个性质表明， <span class="math notranslate nohighlight">\(\varepsilon\)</span> 与 <span class="math notranslate nohighlight">\(x\)</span> 的任何函数都不相关。特别地， 当 <span class="math notranslate nohighlight">\(h(x)=x\)</span> 时有 <span class="math notranslate nohighlight">\(E[x\varepsilon]=Cov(x,\varepsilon)\)</span>=0 。</p>
+<p><strong>命题2.1的证明</strong> : 我们采用先猜后证 (“guess-and-verify”) 的思路。我们首先猜测CEF是最优解，然后验证它确实是最优解: 对于任意一个函数 <span class="math notranslate nohighlight">\(g\)</span> 验证CEF至少不比<span class="math notranslate nohighlight">\(g\)</span>差。对任给的 <span class="math notranslate nohighlight">\(g(x)\)</span>，其均方误差可以分解为三部分：</p>
 <div class="math notranslate nohighlight" id="equation-eqn-cefmse">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eqn-cefmse" title="公式的永久链接">#</a></span>\[\begin{split}
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eqn-cefmse" title="公式的永久链接">#</a></span>\[\begin{split}
 \begin{align}
 &amp;E\left[(y-g(x))^2\right]\\
 =&amp;E\left[(y-m(x)+m(x)-g(x))^2\right]\\
 =&amp;E\left[(y-m(x))^2\right]+2E\left[(y-m(x))(m(x)-g(x))\right]+E\left[(m(x)-g(x))^2\right].
 \end{align}
 \end{split}\]</div>
-<p>其中第一项为CEF的MSE， 显然与 <span class="math notranslate nohighlight">\(g(x)\)</span> 无关。在<a class="reference internal" href="#equation-eqn-cefmse">(2.1)</a>中取 <span class="math notranslate nohighlight">\(h(x)=m(x)-g(x)\)</span> ，于是第二项满足</p>
+<p>其中第一项为CEF的MSE， 显然与 <span class="math notranslate nohighlight">\(g(x)\)</span> 无关。在<a class="reference internal" href="#equation-eqn-cefmse">(2.2)</a>中取 <span class="math notranslate nohighlight">\(h(x)=m(x)-g(x)\)</span> ，于是第二项满足</p>
 <div class="math notranslate nohighlight">
 \[
 2E\left[(y-m(x))(m(x)-g(x))\right]=2E\left[\varepsilon(m(x)-g(x))\right]=0.
 \]</div>
-<p>因此第二项也与 <span class="math notranslate nohighlight">\(g(x)\)</span> 无关。 又因为第三项非负且在 <span class="math notranslate nohighlight">\(g(x)=m(x)\)</span> 时取得最小值，证毕。</p>
-<p>讨论至此，可以发现目前我们的观点与大多数计量经济学教科书有一些区别。 传统的计量经济学教科书中大多假设因变量 <span class="math notranslate nohighlight">\(y\)</span> 是由一个未知的函数 <span class="math notranslate nohighlight">\(g(\cdot)\)</span> 和满足 <span class="math notranslate nohighlight">\(E[\varepsilon|x]=0\)</span> 的误差项 <span class="math notranslate nohighlight">\(\varepsilon\)</span> ， 通过 <span class="math notranslate nohighlight">\(y=g(x)+\varepsilon\)</span> 的形式生成的。 而我们采用了一种与DGP无关的观点: 在观察到 <span class="math notranslate nohighlight">\(y\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 的情况下， 我们关心的仅仅是寻找到最优的预测函数 <span class="math notranslate nohighlight">\(g(x)\)</span> ， 使得它能够在均方误差标准下对 <span class="math notranslate nohighlight">\(y\)</span> 做出最好的预测。</p>
+<p>因此第二项也与 <span class="math notranslate nohighlight">\(g(x)\)</span> 无关。又因为第三项非负且在 <span class="math notranslate nohighlight">\(g(x)=m(x)\)</span> 时取得最小值，证毕。</p>
+<p>讨论至此，可以发现目前我们的观点与大多数计量经济学教科书有一些区别。传统的计量经济学教科书中大多假设因变量 <span class="math notranslate nohighlight">\(y\)</span> 是由一个未知的函数 <span class="math notranslate nohighlight">\(g(\cdot)\)</span> 和满足 <span class="math notranslate nohighlight">\(E[\varepsilon|x]=0\)</span> 的误差项 <span class="math notranslate nohighlight">\(\varepsilon\)</span> ， 通过 <span class="math notranslate nohighlight">\(y=g(x)+\varepsilon\)</span> 的形式生成的。而我们采用了一种与DGP无关的观点: 在观察到 <span class="math notranslate nohighlight">\(y\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 的情况下， 我们关心的仅仅是寻找到最优的预测函数 <span class="math notranslate nohighlight">\(g(x)\)</span> ， 使得它能够在均方误差标准下对 <span class="math notranslate nohighlight">\(y\)</span> 做出最好的预测。</p>
 </section>
 <section id="id3">
 <h2><span class="section-number">2.2. </span>线性投影<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
-<p>上一节中我们证明了条件均值函数 <span class="math notranslate nohighlight">\(m(x)\)</span> 的MSE最小， 但 <span class="math notranslate nohighlight">\(m(x)=E[y|x]\)</span> 依赖于 <span class="math notranslate nohighlight">\((y,x)\)</span> 的联合分布， 而在实际中联合分布通常是未知的，条件期望通常是一个比较复杂的函数， 使用起来比较复杂。 那么如何简化我们的预测函数呢? 一个自然的想法就是我们将范围缩小为线性函数 <span class="math notranslate nohighlight">\(h(x)=h(x;b)=x^{\prime}b, \ b\in\mathbb{R}^{K}\)</span> ，然后在所有线性函数中寻找一个MSE最小的函数。 于是我们的问题简化为:</p>
+<p>上一节中我们证明了条件均值函数 <span class="math notranslate nohighlight">\(m(x)\)</span> 的均方误差最小， 但 <span class="math notranslate nohighlight">\(m(x)=E[y|x]\)</span> 依赖于 <span class="math notranslate nohighlight">\((y,x)\)</span> 的联合分布， 而在实际中联合分布通常是未知的，条件期望通常是一个比较复杂的函数，不易估计。那么如何简化我们的预测函数呢? 一个自然的想法就是我们将范围缩小为线性函数 <span class="math notranslate nohighlight">\(h(x)=h(x;b)=x^{\prime}b, \ b\in\mathbb{R}^{K}\)</span> ，然后在所有线性函数中寻找均方误差最小的函数。于是我们的问题简化为:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{align}
@@ -593,28 +593,23 @@ y=m(x)+(y-m(x))=m(x)+\varepsilon,
 =-2E\left[x(y-x^{\prime}b)\right].
 \end{align}
 \]</div>
-<p>第一个式子交换了期望符号与求导符号的顺序， 只要满足 <span class="math notranslate nohighlight">\(E\left[(y-x^{\prime}b)^2\right]&lt;\infty\)</span> 即可成立。 第二个等式依据链式法则与期望的线性性质得出。令一阶条件为0, 我们求解</p>
-<div class="math notranslate nohighlight">
-\[
-\beta=\arg\min_{b\in\mathbb{R}^{K}}E\left[(y-x^{\prime}b)^2\right].
-\]</div>
-<p>如果<span class="math notranslate nohighlight">\(E[xx^{\prime}]\)</span>可逆, 相应的解析解为</p>
+<p>第一个等号交换了期望符号与求导符号的顺序，第二个等号依据链式法则与期望的线性性质得出。如果 <span class="math notranslate nohighlight">\(E[xx^{\prime}]\)</span> 可逆，当一阶条件等于0时，我们得到相应的解析解为</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{align}
 \beta=(E[xx^{\prime}])^{-1}E[xy].
 \end{align}
 \]</div>
-<p>在这里 <span class="math notranslate nohighlight">\(b\)</span> 表示任一<span class="math notranslate nohighlight">\(K\)</span>维向量， 而 <span class="math notranslate nohighlight">\(\beta\)</span> 为最优解。 函数 <span class="math notranslate nohighlight">\(x^{\prime}\beta\)</span> 称为 <span class="math notranslate nohighlight">\(y\)</span> 对 <span class="math notranslate nohighlight">\(x\)</span> 的<strong>最优线性投影</strong> (<em>best linear projection</em>, 即BLP), 而<span class="math notranslate nohighlight">\(\beta\)</span>称为<strong>线性投影系数</strong> (<em>linear projection coefficient</em>)。</p>
+<p>在这里 <span class="math notranslate nohighlight">\(b\)</span> 表示任一<span class="math notranslate nohighlight">\(K\)</span>维向量， 而 <span class="math notranslate nohighlight">\(\beta\)</span> 为最优解。函数 <span class="math notranslate nohighlight">\(x^{\prime}\beta\)</span> 称为 <span class="math notranslate nohighlight">\(y\)</span> 对 <span class="math notranslate nohighlight">\(x\)</span> 的<strong>最优线性投影</strong> (best linear projection*，即BLP)，而 <span class="math notranslate nohighlight">\(\beta\)</span> 称为<strong>线性投影系数</strong> (linear projection coefficient)。</p>
 <div class="proof remark admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">评注 2.1 </span></p>
 <section class="remark-content" id="proof-content">
-<p>线性函数的适用范围可能比我们直观想象的更广, 如果我们重新定义 <span class="math notranslate nohighlight">\(x\)</span> ， 它也能够用于反映一些非线性的情况. 例如</p>
+<p>如果我们重新定义 <span class="math notranslate nohighlight">\(x\)</span> ，线性函数也能够用于反映一些非线性的情况。例如</p>
 <div class="math notranslate nohighlight">
 \[
 y=x_1\beta_1+x_2\beta_2+x_1^2\beta_3+e,
 \]</div>
-<p>则 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial x_1}m(x_1,x_2)=\beta_1+2x_1\beta_3\)</span> ， 该模型中 <span class="math notranslate nohighlight">\(x_1\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 存在非线性的影响. 但我们如果将回归量重设为<span class="math notranslate nohighlight">\((\tilde{x}_1,\tilde{x}_2,\tilde{x}_3)=(x_1,x_2,x^2_1)\)</span> ， 那么在相应的参数 <span class="math notranslate nohighlight">\(\beta=(\beta_1,\beta_2,\beta_3)\)</span> 下该模型仍然是线性的。</p>
+<p>则 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial x_1}m(x_1,x_2)=\beta_1+2x_1\beta_3\)</span> ， 该模型中 <span class="math notranslate nohighlight">\(x_1\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 存在非线性的影响。但我们如果将回归变量重设为<span class="math notranslate nohighlight">\((\tilde{x}_1,\tilde{x}_2,\tilde{x}_3)=(x_1,x_2,x^2_1)\)</span> ， 那么在相应的参数 <span class="math notranslate nohighlight">\(\beta=(\beta_1,\beta_2,\beta_3)\)</span> 下该模型仍然是线性的。</p>
 </section>
 </div><div class="proof remark admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">评注 2.2 </span></p>
@@ -643,7 +638,7 @@ N
 \right)
 \right),
 \end{split}\]</div>
-<p>其中<span class="math notranslate nohighlight">\(\rho\)</span>为相关系数。 此时的条件期望是<span class="math notranslate nohighlight">\(x\)</span>的线性函数</p>
+<p>其中<span class="math notranslate nohighlight">\(\rho\)</span>为相关系数。此时的条件期望是<span class="math notranslate nohighlight">\(x\)</span>的线性函数</p>
 <div class="math notranslate nohighlight">
 \[
 E[y|x]=\mu_y+\rho\frac{\sigma_y}{\sigma_x}(x-\mu_x)=\left(\mu_y-\rho\frac{\sigma_y}{\sigma_x}\mu_x\right)+\rho\frac{\sigma_y}{\sigma_x}x
@@ -653,18 +648,17 @@ E[y|x]=\mu_y+\rho\frac{\sigma_y}{\sigma_x}(x-\mu_x)=\left(\mu_y-\rho\frac{\sigma
 </div><div class="proof remark admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">评注 2.3 </span></p>
 <section class="remark-content" id="proof-content">
-<p>通常来说, 条件期望函数并非线性的, 即 <span class="math notranslate nohighlight">\(m(x)\not=x^{\prime}\beta\)</span> 。当我们依然可以用线性函数 <span class="math notranslate nohighlight">\(x^{\prime}\beta\)</span> 估计 <span class="math notranslate nohighlight">\(m(x)\)</span> 。也就是说</p>
+<p>在一般情况下，条件期望函数并非线性的，即 <span class="math notranslate nohighlight">\(m(x)\not=x^{\prime}\beta\)</span> 。但我们依然可以用线性函数 <span class="math notranslate nohighlight">\(x^{\prime}\beta\)</span> 估计 <span class="math notranslate nohighlight">\(m(x)\)</span> 。也就是说，事实上 <span class="math notranslate nohighlight">\(x^{\prime}\beta\)</span> 是在均方误差下对 <span class="math notranslate nohighlight">\(m(x)\)</span> 的最优线性估计</p>
 <div class="math notranslate nohighlight">
 \[
 \beta=\arg\min_{b\in\mathbb{R}^{K}}E\left[(m(x)-x^{\prime}b)^{2}\right]
 \]</div>
 <p>证明如下:</p>
-<p>考虑一阶条件 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial b}E\left[(m(x)-x^{\prime}b)^{2}\right]=-2E\left[x(m(x)-x^{\prime}b)\right]=0\)</span> 。 移项得到 <span class="math notranslate nohighlight">\(E[x\cdot m(x)]=E[xx^{\prime}]b\)</span> 。 若<span class="math notranslate nohighlight">\(E[xx^{\prime}]\)</span>可逆, 则有</p>
+<p>考虑一阶条件 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial b}E\left[(m(x)-x^{\prime}b)^{2}\right]=-2E\left[x(m(x)-x^{\prime}b)\right]=0\)</span> 。移项得到 <span class="math notranslate nohighlight">\(E[x\cdot m(x)]=E[xx^{\prime}]b\)</span> 。若<span class="math notranslate nohighlight">\(E[xx^{\prime}]\)</span>可逆，则有</p>
 <div class="math notranslate nohighlight">
 \[
 (E[xx^{\prime}])^{-1}E[x\cdot m(x)]=(E[xx^{\prime}])^{-1}E[E[xy|x]]=(E[xx^{\prime}])^{-1}E[xy]=\beta.
 \]</div>
-<p>因此在均方误差准则下， <span class="math notranslate nohighlight">\(\beta\)</span>是<span class="math notranslate nohighlight">\(m(x)\)</span>的最优线性估计。</p>
 <p>将线性回归模型重写为如下形式</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -673,29 +667,29 @@ E[y|x]=\mu_y+\rho\frac{\sigma_y}{\sigma_x}(x-\mu_x)=\left(\mu_y-\rho\frac{\sigma
 &amp;E[xe]=0,
 \end{align}
 \end{split}\]</div>
-<p>它也被称为<strong>线性投影模型</strong> (<em>linear projection model</em>)， 其中 <span class="math notranslate nohighlight">\(e=y-x^{\prime}\beta\)</span> 称为<strong>线性投影误差</strong> (<em>linear projection error</em>)。 这里我们使用符号 <span class="math notranslate nohighlight">\(e\)</span> 以区别于 <span class="math notranslate nohighlight">\(\varepsilon=y-m(x)\)</span> 。</p>
+<p>它也被称为<strong>线性投影模型</strong> (linear projection model)， 其中 <span class="math notranslate nohighlight">\(e=y-x^{\prime}\beta\)</span> 称为<strong>线性投影误差</strong> (linear projection error)。这里我们使用符号 <span class="math notranslate nohighlight">\(e\)</span> 以区别于 <span class="math notranslate nohighlight">\(\varepsilon=y-m(x)\)</span> 。</p>
 </section>
 </div><div class="proof exercise admonition" id="exercise-4">
 <p class="admonition-title"><span class="caption-number">练习 2.1 </span></p>
 <section class="exercise-content" id="proof-content">
 <p>证明:
 (a) <span class="math notranslate nohighlight">\(E[xe]=0\)</span>
-(b) 若 <span class="math notranslate nohighlight">\(x\)</span> 中包含常数项, 则 <span class="math notranslate nohighlight">\(E[e]=0\)</span></p>
+(b) 若 <span class="math notranslate nohighlight">\(x\)</span> 中包含常数项，则 <span class="math notranslate nohighlight">\(E[e]=0\)</span></p>
 </section>
 </div><section id="id4">
 <h3><span class="section-number">2.2.1. </span>遗漏变量偏误<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
-<p>考虑如下的<strong>长回归</strong> (<em>long regression</em>)</p>
+<p>考虑如下的<strong>长回归</strong> (long regression)</p>
 <div class="math notranslate nohighlight">
 \[
 y=x^{\prime}_1\beta_1+x^{\prime}_2\beta_2+\beta_3+e_{\beta}.
 \]</div>
-<p>再考虑如下的<strong>短回归</strong> (<em>short regression</em>)</p>
+<p>再考虑如下的<strong>短回归</strong> (short regression)</p>
 <div class="math notranslate nohighlight">
 \[
 y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 \]</div>
-<p>其中 <span class="math notranslate nohighlight">\(e_{\beta}\)</span> 和 <span class="math notranslate nohighlight">\(e_{\gamma}\)</span> 分别为相应模型的投影误差。 如果 <span class="math notranslate nohighlight">\(\beta_1\)</span> 为长回归中我们感兴趣的参数， 遗漏变量 <span class="math notranslate nohighlight">\(x_2\)</span> 将会导致模型成为短回归模型, 产生<strong>遗漏变量偏误</strong> (<em>omitted variable bias</em>)， 使得 <span class="math notranslate nohighlight">\(\gamma_1\not=\beta_1\)</span> 。 但这里也有例外, 如果 <span class="math notranslate nohighlight">\(x_1\)</span> 与 <span class="math notranslate nohighlight">\(x_2\)</span> 不相关， 此时仍然有 <span class="math notranslate nohighlight">\(\gamma_1=\beta_1\)</span> 。</p>
-<p>为了便于讨论, 我们将两个回归模型中的变量进行零均值化, 这样就可以在回归模型中去掉常数项. 可以证明, 这样处理后结果与带常数项的回归结果是等价的. 此时长回归模型变为</p>
+<p>其中 <span class="math notranslate nohighlight">\(e_{\beta}\)</span> 和 <span class="math notranslate nohighlight">\(e_{\gamma}\)</span> 分别为相应模型的投影误差。如果 <span class="math notranslate nohighlight">\(\beta_1\)</span> 为长回归中我们感兴趣的参数，但是我们遗漏了变量 <span class="math notranslate nohighlight">\(x_2\)</span> ，则我们只能处理为短回归模型，产生<strong>遗漏变量偏误</strong> (omitted variable bias)， 使得 <span class="math notranslate nohighlight">\(\gamma_1\not=\beta_1\)</span> 。但这里也有例外，如果 <span class="math notranslate nohighlight">\(x_1\)</span> 与 <span class="math notranslate nohighlight">\(x_2\)</span> 不相关， 此时仍然有 <span class="math notranslate nohighlight">\(\gamma_1=\beta_1\)</span> 。</p>
+<p>为了便于讨论，我们将两个回归模型中的变量进行零均值化，这样就可以在回归模型中去掉常数项。可以证明，这样处理后结果与带常数项的回归结果是等价的。此时长回归模型变为</p>
 <div class="math notranslate nohighlight">
 \[
 \tilde{y}=\tilde{x}^{\prime}_1\beta_1+\tilde{x}^{\prime}_2\beta_2+\tilde{e}_{\beta},
@@ -705,9 +699,12 @@ y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 \[
 \tilde{y}=\tilde{x}^{\prime}_1\gamma_1+\tilde{e}_{\gamma}.
 \]</div>
-<p>其中波浪上标表示零均值化的变量.</p>
-<p><strong>练习.</strong>  证明: <span class="math notranslate nohighlight">\(\tilde{e}_{\beta}=e_{\beta}, \ \tilde{e}_{\gamma}=e_{\gamma}\)</span>.</p>
-<p>零均值化后, 两个交互项的期望等于相应的协方差, 于是短回归的系数为</p>
+<p>其中波浪上标表示零均值化的变量。</p>
+<div class="proof exercise admonition" id="exercise-5">
+<p class="admonition-title"><span class="caption-number">练习 2.2 </span></p>
+<section class="exercise-content" id="proof-content">
+<p>证明: <span class="math notranslate nohighlight">\(\tilde{e}_{\beta}=e_{\beta}, \ \tilde{e}_{\gamma}=e_{\gamma}\)</span>.</p>
+<p>零均值化后，短回归的系数为</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -719,26 +716,36 @@ y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 (E[\tilde{x}_1\tilde{x}_1^{\prime}])^{-1}E[\tilde{x}_1\tilde{x}_2^{\prime}]\beta_2,
 \end{align}
 \end{split}\]</div>
-<p>其中第三个等号成立是因为<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{e}_{\beta}]=0\)</span>. 因此, <span class="math notranslate nohighlight">\(\gamma_1=\beta_1\)</span>当且仅当<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{x}_2^{\prime}]\beta_2=0\)</span>, 即<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{x}_2^{\prime}]=0\)</span>或<span class="math notranslate nohighlight">\(\beta_2=0\)</span>.</p>
-<p>显然, 如果条件允许, 我们更愿意使用长回归模型来得到系数 <span class="math notranslate nohighlight">\(\beta_1\)</span> ，因为相比于短回归模型，长回归模型是一个更加广义的模型, 并且达到了最优的投影误差。 然而有时候在实际中 <span class="math notranslate nohighlight">\(x_2\)</span> 无法观测, 这使得我们无法使用长回归模型， 这种类型的遗漏变量偏误在应用计量经济学中非常普遍。 当然, 最理想的情况下我们希望能够直接观测到需要的回归量， 但现实可能并不会如此完美， 我们也许并不能直接得到这些数据。相应地, 当模型不够理想时，我们应该了解潜在的影响是什么。由于种种限制， 有时长回归是无法实现的， 此时只能退而求其次使用短回归模型。 不过在有些情况下， 我们能够识别出遗漏变量偏差的符号, 这就意味着此时我们能够基于已有的知识对 <span class="math notranslate nohighlight">\(\gamma_1\)</span> 和 <span class="math notranslate nohighlight">\(\beta_1\)</span> 的大小关系进行判断, 这对于我们的推断也是十分有用的。</p>
+<p>其中第三个等号成立是因为<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{e}_{\beta}]=0\)</span>. 因此，<span class="math notranslate nohighlight">\(\gamma_1=\beta_1\)</span>当且仅当<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{x}_2^{\prime}]\beta_2=0\)</span>，即<span class="math notranslate nohighlight">\(E[\tilde{x}_1\tilde{x}_2^{\prime}]=0\)</span>或<span class="math notranslate nohighlight">\(\beta_2=0\)</span>.</p>
+</section>
+</div><div class="proof exercise admonition" id="exercise-6">
+<p class="admonition-title"><span class="caption-number">练习 2.3 </span></p>
+<section class="exercise-content" id="proof-content">
+<p>证明: <span class="math notranslate nohighlight">\(E\left[(y-x^{\prime}_1\beta_1-x^{\prime}_2\beta_2-\beta_3)^2\right]\leq E\left[(y-x^{\prime}_1\gamma_1-\gamma_2)^2\right]\)</span></p>
+</section>
+</div><p>显然，如果条件允许，我们更愿意使用长回归模型来得到系数 <span class="math notranslate nohighlight">\(\beta_1\)</span> ，因为相比于短回归模型，长回归模型是一个更加广义的模型，有更小的投影误差。然而有时候在实际中 <span class="math notranslate nohighlight">\(x_2\)</span> 无法观测，这使得我们无法使用长回归模型， 这种类型的遗漏变量偏误在应用中非常普遍。当然，最理想的情况下我们希望能够直接观测到需要的回归变量， 但现实中， 我们也许并不能直接得到这些数据。由于种种限制，有时长回归是无法实现的，此时只能退而求其次使用短回归模型。当数据不够理想时，我们应该了解潜在的影响是什么。在有些特定情况下，我们能够确认遗漏变量偏差的符号，这就意味着此时我们能够基于已有的知识对 <span class="math notranslate nohighlight">\(\gamma_1\)</span> 和 <span class="math notranslate nohighlight">\(\beta_1\)</span> 的大小关系进行判断，这对于我们的推断也是十分有用的。</p>
 </section>
 </section>
 <section id="id5">
 <h2><span class="section-number">2.3. </span>因果关系<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <section id="id6">
 <h3><span class="section-number">2.3.1. </span>结构与识别<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
-<p>经济学被称为社会科学皇冠上的明珠， 常常被拿来与物理学这颗自然科学皇冠上的明珠进行对比。 在开始本节内容之前， 我们对经济学与物理学进行一些对比， 以明确我们引入本节问题的必要性。 回想一下那些耳熟能详的物理定律， 比如爱因斯坦的质能方程 <span class="math notranslate nohighlight">\(E=mc^{2}\)</span> ， 比如牛顿的万有引力公式 <span class="math notranslate nohighlight">\(F=Gm_1 m_2/r^2\)</span> 。这些物理学定律非常简洁明确， 体现着事物的一般规律。 经济学中是否也有这样的规律呢? 遗憾的是，与物理学定律不同，经济现象很少能够像这样被简洁地描述。</p>
+<p>经济学被称为社会科学皇冠上的明珠， 常常被拿来与物理学这颗自然科学皇冠上的明珠进行对比。在开始本节内容之前， 我们对经济学与物理学进行一些对比， 以明确我们引入本节问题的必要性。回想一下那些耳熟能详的物理定律， 比如爱因斯坦的质能方程 <span class="math notranslate nohighlight">\(E=mc^{2}\)</span> ，和牛顿的万有引力公式 <span class="math notranslate nohighlight">\(F=Gm_1 m_2/r^2\)</span> 。这些物理学定律非常简洁明确， 体现着事物的一般规律。经济学中是否也有这样的规律呢? 遗憾的是，与物理学定律不同，经济现象很少能够像这样被简洁地描述。</p>
 <p>在物理学中， 实验是验证物理定律的重要方式。在进行实验时，科学家们常常会通过一些精巧的设计来控制可能影响实验结果的其他因素，将噪声控制在可以忽略不计的水平上，使得实验的信噪比尽可能高。与之相反，经济学规律并不适合在实验室里进行实验。最糟糕的是，经济学研究的对象，人类，具有很强的异质性， 有许许多多难以控制的特征。对于同样的事件，来自不同文化和家庭背景的人可能会做出不同的反应。研究者很难对人们进行同质化的处理。总结来说，由于实验设置的缺陷与研究主体的异质性，经济学规律中的信噪比要显著低于物理学定律。</p>
-<p>我们再来回顾经济学中的两个经典课题: 教育回报与供求系统。 要研究教育回报问题，我们需要控制其他因素对个人收入的影响，但一个人的收入由其学术与职业道路中无数的随机因素决定，经济学院不可能完美地观察并控制这些变量。在供求问题中，我们观察到的价格与市场总量是均衡的结果，因此需求和供给二者是互相影响的。我们该如何在复杂的经济学问题中识别出因果关系?</p>
-<p>但在讨论这个问题之前, 有一个重要的问题: 何为因果关系? 实际上，因果关系本身的定义，也经过了许多代思想家的争论。在经济学中， <strong>结构因果关系</strong> (<em>structural causality</em>) 是一种可接受的定义。 结构因果关系是一种思想实验，假设观察到的数据是由某一DGP生成的。 如果我们能够用数据还原出DGP或者其某些特征，那么我们就能得到因果关系或者对因果关系的暗示。</p>
-<p>在观察实现的样本之前，还有一个重要的问题需要解决，这就是<strong>识别</strong> (<em>identification</em>) 问题。 考察一个模型 (或者DGP)中我们关注的每一个参数，如果参数的取值不同，相应观测到数据特征也所有不同，我们就称模型是<strong>可识别的</strong> (<em>identified</em>)。 相反，如果一个模型中，不同的参数可能会产生具有相同特征的数据，我们就称这个模型是<strong>不可识别的</strong> (<em>under-identified</em>)。换言之，如果对于给定的数据，我们无法得到模型中唯一的参数，那么模型就是不可识别的。</p>
-<p>当然, 模型正确设定是讨论一切识别问题的先决条件。但实际上，”所有的模型都是错误的”，因此在讨论识别问题时，我们实际上是在一个想象的世界中进行。如果在这样一个思想实验中，我们仍然不能唯一确定DGP中的参数，那么识别就失败了。无论我们有多么大的样本量，我们都无法确定正确的模型。</p>
+<p>我们再来回顾经济学中的两个经典课题: 教育回报与供求系统。要研究教育回报问题，我们需要控制其他因素对个人收入的影响，但一个人的收入由其学术与职业道路中无数的随机因素决定，经济学家不可能完美地观察并控制这些变量。在供求问题中，我们观察到的价格与市场总量是均衡的结果，因此需求和供给二者是互相影响的。我们该如何在复杂的经济学问题中识别出因果关系?</p>
+<p>但在讨论这个问题之前，有一个重要的问题: 何为因果关系? 实际上，因果关系本身的定义，也经过了许多代思想家的争论。在经济学中， <strong>结构因果关系</strong> (structural causality) 是一种可接受的定义。结构因果关系是一种思想实验，假设观察到的数据是由某一数据生成过程(DGP)生成的。如果我们能够用数据还原出DGP或者其某些特征，那么我们就能得到因果关系或者对因果关系下推论。</p>
+<p>在观察实现的样本之前，还有一个重要的问题需要解决，这就是<strong>识别</strong> (identification) 问题。考察一个模型 (或者DGP)中我们关注的每一个参数，如果参数的取值不同，相应观测到数据特征也所有不同，我们就称模型是<strong>可识别的</strong> (identified)。相反，如果不同的参数可能会产生具有相同特征的数据，我们就称这个模型是<strong>不可识别的</strong> (under-identified)。换言之，如果对于给定的数据，我们无法得到模型中唯一的参数，那么模型就是不可识别的。</p>
+<p>当然，模型正确设定是讨论一切识别问题的先决条件。但实际上，”所有的模型都是错误的”，因此在讨论识别问题时，我们实际上是在一个想象的世界中进行。如果在这样一个思想实验中，我们仍然不能唯一确定DGP中的参数，那么该模型就无法被识别。也就是说，无论我们有多么大的样本量，我们都无法确定正确的模型。</p>
 </section>
 <section id="id7">
 <h3><span class="section-number">2.3.2. </span>处置效应<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
-<p>因果关系与识别问题是非常大的课题, 我们这里缩小我们的讨论范围, 将研究框架限定在 <span class="math notranslate nohighlight">\(y\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 的关系上。 <strong>处置效应</strong> (<em>treatment effect</em>) 是一个我们特别感兴趣的问题. 假设我们关心的变量是<span class="math notranslate nohighlight">\(d\)</span>, 在保持其他所有变量不变 (包括不可观测的变量)的条件下改变一单位的<span class="math notranslate nohighlight">\(d\)</span>, 相应的<span class="math notranslate nohighlight">\(y\)</span>产生的改变就是处置效应. 拉丁语中<em>ceteris paribus</em>意为”其他条件不变”, 就是这个意思.</p>
-<p><strong>例2.1.</strong>  在2020年新冠肺炎疫情期间, 香港地区的失业率升至高位, 消费也经历了较大的衰退. 为了提振经济,  政府向一些香港居民发放了1万港元的现金津贴. 我们感兴趣的问题是: 1万港元的津贴能增加多少消费? 对于每个个体, 我们想象有两个平行世界, 其中一个世界里这个个体获得了现金津贴, 记相应的消费为<span class="math notranslate nohighlight">\(Y(1)\)</span>; 而另一个世界中没有获得现金津贴, 相应的消费为<span class="math notranslate nohighlight">\(Y(0)\)</span>, 二者的差值就是该个体的处置效应. 这样的思想实验称为<strong>潜在结果框架</strong> (<em>potential outcome framework</em>).</p>
-<p>然而， 在现实中， 有且仅有一种情况发生， 正如古希腊哲学家Heraclitus (553 BC–475 BC)所说， “人不能两次踏入同一条河流”。 每个个体身上有且仅有一种结果得到实现， 因此个体的处置效应不具有<strong>可操作性</strong> (<em>operational</em>)， 即无法从总体水平的数据计算出来。 但我们有很多个体的数据， 于是我们可以定义<strong>平均处置效应</strong> (<em>average treatment effect</em>, 即ATE)</p>
+<p>因果关系与识别问题是非常大的课题，我们这里缩小我们的讨论范围，将研究框架限定在 <span class="math notranslate nohighlight">\(y\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 的关系上。<strong>处置效应</strong> (treatment effect) 是一个我们特别感兴趣的问题. 假设我们关心的变量是<span class="math notranslate nohighlight">\(d\)</span>，在保持其他所有变量不变 (包括不可观测的变量)的条件下改变一单位的<span class="math notranslate nohighlight">\(d\)</span>，相应的<span class="math notranslate nohighlight">\(y\)</span>产生的改变就是处置效应. 拉丁语中<em>ceteris paribus</em>意为”其他条件不变”，就是这个意思.</p>
+<div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">例子 2.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>(写于2020年9月)在2020年新冠肺炎疫情期间，香港的失业率升至高位，消费也经历了较大的衰退. 为了振兴经济， 政府向某些符合条件的香港居民发放了每人1万港元的现金津贴。我们感兴趣的问题是: 1万港元的津贴能增加多少个人消费? 对于每个个体，我们想象有两个平行世界，其中一个世界里这个个体获得了现金津贴，记相应的消费为<span class="math notranslate nohighlight">\(Y(1)\)</span>; 而另一个世界中没有获得现金津贴，相应的消费为 <span class="math notranslate nohighlight">\(Y(0)\)</span> ，二者的差值就是该个体的处置效应. 这样的思想实验称为<strong>潜在结果框架</strong> (potential outcome framework).</p>
+</section>
+</div><p>然而，在现实中，有且仅有一种情况发生，正如古希腊哲学家Heraclitus(553 BC–475 BC)所说， “人不能两次踏入同一条河流”。每个个体身上有且仅有一种结果得到实现， 因此个体的处置效应不具有<strong>可操作性</strong> (operational)。但我们有很多个体的数据，于是我们可以定义<strong>平均处置效应</strong> (average treatment effect*，即ATE)</p>
 <div class="math notranslate nohighlight">
 \[
 ATE=E[Y(1)-Y(0)]=E[Y(1)]-E[Y(0)].
@@ -754,33 +761,33 @@ D=1\{\text{treatment received}\}.
 \[
 ATE=E[Y(1)|D=1]-E[Y(0)|D=0].
 \]</div>
-<p>因此，为了得到ATE的理想估计，我们需要用类似于彩票的方式随机地决定哪些人进入处理组 (<em>treatment group</em>, 此时<span class="math notranslate nohighlight">\(D=1\)</span>)，哪些人进入控制组 (<em>control group</em>, 此时<span class="math notranslate nohighlight">\(D=0\)</span>)。</p>
+<p>因此，为了得到ATE的估计，我们需要用类似于彩票的方式随机地决定哪些人进入处理组 (treatment group*，此时<span class="math notranslate nohighlight">\(D=1\)</span>)，哪些人进入控制组 (control group*，此时<span class="math notranslate nohighlight">\(D=0\)</span>)。</p>
 <p>如果我们还有其它的控制变量，我们也可以进一步定义在条件 <span class="math notranslate nohighlight">\(x\)</span> 上的处置效应:</p>
 <div class="math notranslate nohighlight">
 \[
 ATE(x)=E[Y(1)|x]-E[Y(0)|x].
 \]</div>
-<p>直观来看，ATE就是保持其它所有因素<span class="math notranslate nohighlight">\(x\)</span>不变的情况下，假设对每个个体施加处置时的总体平均影响。如果在条件 <span class="math notranslate nohighlight">\(x\)</span> 下，处置变量 <span class="math notranslate nohighlight">\(D\)</span> 与 <span class="math notranslate nohighlight">\((Y(1),Y(0))\)</span> 独立，则ATE可以被已有数据估计:</p>
+<p>直观来看，ATE就是保持其它所有因素 <span class="math notranslate nohighlight">\(x\)</span> 不变的情况下，假设对每个个体施加处置时的平均影响。如果在给定的 <span class="math notranslate nohighlight">\(x\)</span> 下，处置变量 <span class="math notranslate nohighlight">\(D\)</span> 与 <span class="math notranslate nohighlight">\((Y(1),Y(0))\)</span> 独立，则ATE可以被已有数据估计:</p>
 <div class="math notranslate nohighlight">
 \[
 ATE(x)=E[Y(1)|D=1,x]-E[Y(0)|D=0,x]
 \]</div>
-<p>注意，该式成立需要满足一个重要的条件，即 <span class="math notranslate nohighlight">\(((Y(1),Y(0))\perp D)|x\)</span> ， 这个条件也被称为<strong>条件独立假设</strong> (<em>conditional independence assumption</em>, 即CIA)。</p>
-<div class="proof example admonition" id="example-5">
-<p class="admonition-title"><span class="caption-number">例子 2.1 </span></p>
+<p>注意，该式成立需要满足一个重要的条件，即 <span class="math notranslate nohighlight">\(((Y(1),Y(0))\perp D)|x\)</span> ， 这个条件也被称为<strong>条件独立假设</strong> (conditional independence assumption*，即CIA)。</p>
+<div class="proof example admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">例子 2.2 </span></p>
 <section class="example-content" id="proof-content">
-<p>条件独立假设CIA比完全的独立性更易满足. 考虑 <span class="math notranslate nohighlight">\(Y(1)=x+u(1),\ Y(0)=x+u(0)\)</span>以及<span class="math notranslate nohighlight">\(D=1\{x+u_d\geq 0\}\)</span> 。如果有<span class="math notranslate nohighlight">\(((u(0),u(1))\perp u_d)|x\)</span>成立, 则条件独立假设CIA成立. 然而, <span class="math notranslate nohighlight">\(x\)</span> 同时出现在这几个随机变量中, 因此 <span class="math notranslate nohighlight">\((Y(1),Y(0))\)</span> 和 <span class="math notranslate nohighlight">\(D\)</span> 在统计学上是独立的。</p>
+<p>条件独立假设CIA比完全的独立性更易满足. 考虑 <span class="math notranslate nohighlight">\(Y(1)=x+u(1),\ Y(0)=x+u(0)\)</span>以及<span class="math notranslate nohighlight">\(D=1\{x+u_d\geq 0\}\)</span> 。如果有<span class="math notranslate nohighlight">\(((u(0),u(1))\perp u_d)|x\)</span>成立，则条件独立假设CIA成立. 然而，<span class="math notranslate nohighlight">\(x\)</span> 同时出现在这几个随机变量中，因此 <span class="math notranslate nohighlight">\((Y(1),Y(0))\)</span> 和 <span class="math notranslate nohighlight">\(D\)</span> 在统计学上是独立的。</p>
 </section>
 </div></section>
 <section id="atecef">
 <h3><span class="section-number">2.3.3. </span>ATE与CEF<a class="headerlink" href="#atecef" title="永久链接至标题">#</a></h3>
-<p>在前面一节，我们讨论了 <span class="math notranslate nohighlight">\(D\)</span> 为二值变量时的情况。现在我们来考虑连续的处置变量 <span class="math notranslate nohighlight">\(D\)</span> 。假设数据生成过程DGP(或结构式模型)为 <span class="math notranslate nohighlight">\(Y=h(D,x,u)\)</span> ，其中 <span class="math notranslate nohighlight">\(D\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 是可观测的，而 <span class="math notranslate nohighlight">\(u\)</span> 不可观测。自然地，我们在连续的处置变量 <span class="math notranslate nohighlight">\(D\)</span> 下定义ATE (在Hansen书的Chapter2.30中将其称为 <strong>平均因果效应</strong> ， <em>average causal effect</em>)</p>
+<p>在前面一节，我们讨论了 <span class="math notranslate nohighlight">\(D\)</span> 为二值变量时的情况。现在我们来考虑连续的处置变量 <span class="math notranslate nohighlight">\(D\)</span> 。假设数据生成过程DGP(或结构式模型)为 <span class="math notranslate nohighlight">\(Y=h(D,x,u)\)</span> ，其中 <span class="math notranslate nohighlight">\(D\)</span> 和 <span class="math notranslate nohighlight">\(x\)</span> 是可观测的，而 <span class="math notranslate nohighlight">\(u\)</span> 不可观测。自然地，对连续的处置变量 <span class="math notranslate nohighlight">\(D\)</span> ，我们可以定义ATE (在Hansen书的Chapter2.30中将其称为 <strong>平均因果效应</strong> ，(average causal effect)</p>
 <div class="math notranslate nohighlight">
 \[
 ATE(d,x)=E\left[\lim_{\Delta\to 0}\frac{h(d+\Delta,x,u)-h(d,x,u)}{\Delta}\right]=E\left[\frac{\partial}{\partial d}h(d,x,u)\right],
 \]</div>
-<p>其中隐含了 <span class="math notranslate nohighlight">\(h(d,x,u)\)</span> 在 <span class="math notranslate nohighlight">\(d\)</span> 处连续可微的假设。与二值的情况不同，这里 <span class="math notranslate nohighlight">\(d\)</span> 显式地出现在了定义式 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 中，因为处置效应在不同的 <span class="math notranslate nohighlight">\(d\)</span> 下是变化的。直观来看，连续情况下的ATE就是保持其它所有因素 <span class="math notranslate nohighlight">\(x\)</span> 不变的情况下，假设对每个个体施加的处置发生极小的变动时产生的总体平均影响。</p>
-<p>在前面的章节中讨论了条件期望函数CEF <span class="math notranslate nohighlight">\(m(d,x)\)</span> ，这里我们加入了 <span class="math notranslate nohighlight">\(d\)</span> ，表示它是我们感兴趣的变量。我们的目标并不是对经济机制 <span class="math notranslate nohighlight">\(h(D,x,u)\)</span> 进行建模，那样会使得我们的工作变得非常复杂。一个简化的思路为: <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 具有结构性的因果解释 (structural causal interpretation)，而 <span class="math notranslate nohighlight">\(m(d,x)\)</span> 关心的仅仅是最优的预测，那么我们能否利用 <span class="math notranslate nohighlight">\(m(d,x)\)</span> 得到 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> ? 在条件独立假设CIA下, 即 <span class="math notranslate nohighlight">\((u\perp D)|x\)</span> 成立时, 答案是肯定的。</p>
+<p>其中隐含了 <span class="math notranslate nohighlight">\(h(d,x,u)\)</span> 在 <span class="math notranslate nohighlight">\(d\)</span> 处连续可微的假设。与二值的情况不同，这里 <span class="math notranslate nohighlight">\(d\)</span> 显式地出现在了定义式 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 中，因为处置效应在不同的 <span class="math notranslate nohighlight">\(d\)</span> 下是变化的。直观来看，连续情况下的ATE就是保持其它所有因素 <span class="math notranslate nohighlight">\(x\)</span> 不变的情况下，假设对每个个体施加的处置发生极小的变动时产生的平均影响。</p>
+<p>在前面的章节中讨论了条件期望函数 <span class="math notranslate nohighlight">\(m(d,x)\)</span> ，这里我们加入了 <span class="math notranslate nohighlight">\(d\)</span> ，表示它是我们感兴趣的变量。我们的目标并不是对经济机制 <span class="math notranslate nohighlight">\(h(D,x,u)\)</span> 进行建模，那样会使得我们的工作变得非常复杂。一个简化的思路为: <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 具有结构性的因果解释 (structural causal interpretation)，而 <span class="math notranslate nohighlight">\(m(d,x)\)</span> 关心的仅仅是最优的预测，那么我们能否利用 <span class="math notranslate nohighlight">\(m(d,x)\)</span> 得到 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> ? 在条件独立假设下，即 <span class="math notranslate nohighlight">\((u\perp D)|x\)</span> 成立时，答案是肯定的。</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -790,40 +797,82 @@ ATE(d,x)=E\left[\lim_{\Delta\to 0}\frac{h(d+\Delta,x,u)-h(d,x,u)}{\Delta}\right]
 &amp;=\int \left[\frac{\partial}{\partial d}h(d,x,u)\right]f(u|d,x)du+\int h(d,x,u)\left[\frac{\partial}{\partial d}f(u|d,x)\right]du
 \end{align}
 \end{split}\]</div>
-<p>上面推理过程的第二行隐含了求导符号与积分符号的可交换性。在条件独立假设CIA下我们有 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial d}f(u|d,x)=0\)</span> ，因此最终结果中的第二项为 <span class="math notranslate nohighlight">\(0\)</span> ，于是有</p>
+<p>上面推理过程的第二行隐含了求导符号与积分符号的可交换性。在条件独立假设下我们有 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial d}f(u|d,x)=0\)</span> ，因此最终结果中的第二项为 <span class="math notranslate nohighlight">\(0\)</span> ，于是有</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial}{\partial d}m(d,x)=\int \left[\frac{\partial}{\partial d}h(d,x,u)\right]f(u|d,x)du
 =E\left[\frac{\partial}{\partial d}h(d,x,u)\right]=ATE(d,x).
 \]</div>
-<p>这是一个非常重要的结论。该结论表明，如果条件独立假设CIA成立，那么在 <span class="math notranslate nohighlight">\(x\)</span> 的条件下，我们就可以利用条件均值函数CEF的偏导数来得到 <span class="math notranslate nohighlight">\(d\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 的因果效应。考虑一个常见的特例，假设条件均值函数CEF为线性, 即有 <span class="math notranslate nohighlight">\(m(d,x)=\beta_d d+\beta^{\prime}_{x}x\)</span> ，那么 <span class="math notranslate nohighlight">\(d\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 的因果效应就是相应的系数<span class="math notranslate nohighlight">\(\beta_d\)</span> 。</p>
-<p>条件独立假设CIA是连接条件均值函数CEF与因果效应的关键条件。需要强调的是，CIA条件并不能轻易假设其成立。因此在应用中，只有当我们能够验证条件独立假设CIA时，得到的因果结论才是可信的。</p>
-<p>有时候, 使用者会简单粗暴地将DGP假设为 <span class="math notranslate nohighlight">\(y=m(d,x)+u\)</span> ( <span class="math notranslate nohighlight">\(E[u|d,x]=0\)</span> )。其中 <span class="math notranslate nohighlight">\(d\)</span> 为我们感兴趣的变量， <span class="math notranslate nohighlight">\(x\)</span> 为控制变量组成的向量。在这些假设下，我们有</p>
+<p>这是一个非常重要的结论。该结论表明，如果条件独立假设成立，那么给定 <span class="math notranslate nohighlight">\(x\)</span> ，我们就可以利用条件均值函数的偏导数来得到 <span class="math notranslate nohighlight">\(d\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 的因果效应。考虑一个常见的特例，假设条件均值函数为线性，即有 <span class="math notranslate nohighlight">\(m(d,x)=\beta_d d+\beta^{\prime}_{x}x\)</span> ，那么 <span class="math notranslate nohighlight">\(d\)</span> 对 <span class="math notranslate nohighlight">\(y\)</span> 的因果效应就是相应的系数<span class="math notranslate nohighlight">\(\beta_d\)</span> 。</p>
+<p>条件独立假设是连接条件均值函数与因果效应的关键条件。需要强调的是，不能轻易假设条件独立成立。因此在应用中，只有当我们能够验证条件独立假设时，得到的因果结论才是可信的。</p>
+<div class="proof exercise admonition" id="exercise-9">
+<p class="admonition-title"><span class="caption-number">练习 2.4 </span></p>
+<section class="exercise-content" id="proof-content">
+<p>假设工厂的产出服从柯布-道格拉斯函数 <span class="math notranslate nohighlight">\(Y=AK^{\alpha}L^{\beta}\)</span> ，其中资本水平 <span class="math notranslate nohighlight">\(K\)</span> ，劳动投入 <span class="math notranslate nohighlight">\(L\)</span> 和产出 <span class="math notranslate nohighlight">\(Y\)</span> 是可观测的，而技术水平 <span class="math notranslate nohighlight">\(A\)</span> 是无法直接观测的。在等式两边取对数得到</p>
+<div class="math notranslate nohighlight">
+\[
+y=u+\alpha k+\beta l \tag{2.3}
+\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(y=\log Y,\ u=\log A,\ k=\log K,\ l=\log L\)</span> 。假设真实的DGP由下面的参数生成:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(\begin{array}{r}
+u\\
+k\\
+l
+\end{array} \right)
+\sim
+N
+\left(
+\left(
+\begin{array}{r}
+1\\
+1\\
+1
+\end{array}
+\right),
+\left(
+\begin{array}{cc}
+1 &amp;0.5 &amp;0\\
+0.5 &amp;1 &amp;0\\
+0 &amp;0 &amp;1
+\end{array}
+\right)
+\right),
+\alpha=\beta=1/2
+\end{split}\]</div>
+<p>注意到这里的 <span class="math notranslate nohighlight">\(u\)</span> 和 <span class="math notranslate nohighlight">\(k\)</span> 是相关的，因为大规模的工程能够负担起机器人的费用，从而实现自动化生产。</p>
+<ol class="simple">
+<li><p>对于固定的劳动水平<span class="math notranslate nohighlight">\(l\)</span>，当我们以<span class="math notranslate nohighlight">\(k\)</span>作为处置变量时，求相应条件期望函数的偏导数. (提示: 由于联合正态性，条件期望函数是线性的)</p></li>
+<li><p>它是否等于因果模型 (2.3) 中的系数<span class="math notranslate nohighlight">\(\alpha=1/2\)</span>? (提示: 不是，因为条件独立假设被违反了)</p></li>
+</ol>
+</section>
+</div><p>有时候，使用者会简单粗暴地将DGP假设为 <span class="math notranslate nohighlight">\(y=m(d,x)+u\)</span> ，其中 <span class="math notranslate nohighlight">\(E[u|d,x]=0\)</span> 。<span class="math notranslate nohighlight">\(d\)</span> 为我们感兴趣的变量， <span class="math notranslate nohighlight">\(x\)</span> 为控制变量组成的向量。在这些假设下，我们有</p>
 <div class="math notranslate nohighlight">
 \[
 ATE(d,x)=E\left[\frac{\partial}{\partial d}(m(d,x)+u)|d,x\right]=\frac{\partial m(d,x)}{\partial d}+\frac{\partial}{\partial d}E[u|d,x]=\frac{\partial m(d,x)}{\partial d},
 \]</div>
-<p>其中第二个等式在满足 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial d}E[u|d,x]=E\left[\frac{\partial}{\partial d}u|d,x\right]\)</span> 时成立。乍一看, 似乎只需要满足均值独立假设 <span class="math notranslate nohighlight">\(E[u|d,x]=0\)</span> 就能建立起 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 和 <span class="math notranslate nohighlight">\(\partial m(d,x)/\partial d\)</span> 之间的等价关系。这一假设弱于条件独立假设CIA，似乎是一个非常好的结论。 然而, 这个条件的轻微弱化必须由非常强的假设支撑: 我们假设 <span class="math notranslate nohighlight">\(h(d,x,u)\)</span> 服从 <span class="math notranslate nohighlight">\(m(d,x)+u\)</span> 这种可以用加法分离的形式。我们对DGP作出的这一假设并没有得到经济理论的支撑, 这至多算是<strong>简约形式</strong> (<em>reduced-form</em>) 下的最优选择.</p>
-<p>这里我们作进一步的说明。由经济理论指导的 <strong>结构化方法</strong> (<em>structural approach</em>) 对经济机制进行建模。 <strong>简约形式方法</strong> (<em>reduced-form approach</em>) 则方便不少, 可以在无法建立合适的经济模型时表示特征事实。这两种方法的优缺点的讨论经久不息，参见 <em>Jorimal of Economic Perspectives</em> Vol. 24, No. 2 Spring 2010。比如一个经典的例子，在宏观经济学中，由A.W. Phillips提出的菲利普斯曲线揭示了通胀与失业之间的负相关关系，它就是通过简约形式方法得到的一个特征事实。卢卡斯批判 (Lucas, 1976) 揭示了它在微观基础方面的缺失，提倡对那些不随政策改变的参数进行深度建模，也就是结构式方法。但具有讽刺意味的是，距离卢卡斯批判的提出已有40余年，这类几乎没有微观基础的方程仍然在央行官员的分析工具中占据着主导地位。所以，让人不禁思考，看似精美但无法普及的深度建模就一定是更好的方法吗?</p>
+<p>其中第二个等式在满足 <span class="math notranslate nohighlight">\(\frac{\partial}{\partial d}E[u|d,x]=E\left[\frac{\partial}{\partial d}u|d,x\right]\)</span> 时成立。乍一看，似乎只需要满足均值独立假设 <span class="math notranslate nohighlight">\(E[u|d,x]=0\)</span> 就能建立起 <span class="math notranslate nohighlight">\(ATE(d,x)\)</span> 和 <span class="math notranslate nohighlight">\(\partial m(d,x)/\partial d\)</span> 之间的等价关系。这一假设弱于条件独立假设，似乎是一个非常好的结论。然而，这个条件的轻微弱化必须由非常强的假设支撑: 我们假设 <span class="math notranslate nohighlight">\(h(d,x,u)\)</span> 服从 <span class="math notranslate nohighlight">\(m(d,x)+u\)</span> 这种可以用加法分离的形式。如果我们对DGP作出的这一假设并没有得到经济理论的支撑，这至多算是<strong>简约形式</strong> (reduced-form) 。</p>
+<p>这里我们作进一步的说明。由经济理论指导的 <strong>结构化方法</strong> (structural approach) 是对经济机制进行建模。<strong>简约形式方法</strong> (reduced-form approach) 则方便不少，可以在无法建立合适的经济模型时发掘一些统计上的特征。这两种方法的优缺点的讨论经久不息，参见 <em>Jorimal of Economic Perspectives</em> Vol. 24, No. 2 Spring 2010。比如一个经典的例子，在宏观经济学中，由A.W. Phillips提出的菲利普斯曲线揭示了通胀与失业之间的负相关关系，它就是通过简约形式方法得到的一个特征事实。卢卡斯批判 (<span id="id8">[<a class="reference internal" href="bibfile_place.html#id27" title="Robert E Lucas. Econometric policy evaluation: a critique. In Carnegie-Rochester conference series on public policy, volume 1, 19–46. 1976.">Lucas, 1976</a>]</span>) 揭示了它在微观基础方面的缺失，提倡对那些不随政策改变的参数进行深度建模，也就是结构式方法。但具有讽刺意味的是，距离卢卡斯批判的提出已有40余年，这类几乎没有微观基础的方程仍然在央行官员的分析工具中占据着主导地位。所以，这让人不禁思考，看似精美但无法普及的深度建模就一定是更好的方法吗?</p>
 </section>
 </section>
-<section id="id8">
-<h2><span class="section-number">2.4. </span>总结<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h2>
-<p>在本章中，我们讨论了条件均值函数与因果关系。对于从联合分布中抽样的一对随机变量 <span class="math notranslate nohighlight">\((y,x)\)</span> ，条件期望函数CEF为它们的最优预测。进一步我们还讨论了处置变量 <span class="math notranslate nohighlight">\(d\)</span> 与被解释变量 <span class="math notranslate nohighlight">\(y\)</span> 之间的结构因果关系，证明了在条件独立条件CIA下ATE与CEF的偏导数之间的等价性。当然，我们目前的讨论都是总体下的结论，还没有涉及到样本的结论。</p>
+<section id="id9">
+<h2><span class="section-number">2.4. </span>总结<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
+<p>在本章中，我们讨论了条件均值函数与因果关系。对于从联合分布中抽样的一对随机变量 <span class="math notranslate nohighlight">\((y,x)\)</span> ，条件期望函数为它们的最优预测。进一步我们还讨论了处置变量 <span class="math notranslate nohighlight">\(d\)</span> 与被解释变量 <span class="math notranslate nohighlight">\(y\)</span> 之间的结构因果关系，证明了在条件独立条件CIA下ATE与CEF的偏导数之间的等价性。当然，我们目前的讨论都是总体下的结论，还没有涉及到样本的结论。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
-<p>回归与条件期望是统计学中的重要概念，这两个概念很早就被引入了计量经济学中。Cowles委员会 (现Cowles经济学研究基金会) 的研究者们，包括Jacob Marschak (1898-1977)，Tjalling Koopmans (1910-1985, 获1975年诺贝尔经济学奖)，Trygve Haavelmo (1977-1999, 获1989年诺贝尔经济学奖)，都是计量经济学中结构式方法的开拓者。</p>
-<p>潜在结果框架 (potential outcome framework) 并非经济学独有的，它同时也被广泛用于生物统计学和医药研究等领域。它最初由Jerzy Neyman (1894-1981)提出，并且由清华大学统计学教授Donald B. Rubin (1943-) 在此基础上拓展延伸。</p>
+<p>回归与条件期望是统计学中的重要概念，这两个概念很早就被引入了计量经济学中。Cowles委员会 (现Cowles经济学研究基金会) 的研究者们，包括Jacob Marschak (1898-1977)，Tjalling Koopmans (1910-1985，获1975年诺贝尔经济学奖)，Trygve Haavelmo (1977-1999，获1989年诺贝尔经济学奖)，都是计量经济学中结构式方法的开拓者。</p>
+<p>潜在结果框架 (potential outcome framework) 并非经济学独有的，它同时也被广泛用于生物统计学和医药研究等领域。它最初由Jerzy Neyman (1894-1981)提出，并且由目前在清华大学就职的统计学教授Donald B. Rubin (1943-) 在此基础上拓展延伸。</p>
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
-<p>Lewbel (2019) 全面总结了计量经济学中的识别问题。会计学是一个重要的应用领域，其中许多声明的因果推断都是由简单的回归得到。而 Gow et al. (2016) 在他们的实践中反映了因果关系。</p>
+<p><span id="id10">[<a class="reference internal" href="bibfile_place.html#id26" title="Arthur Lewbel. The identification zoo: meanings of identification in econometrics. Journal of Economic Literature, 57(4):835–903, 2019.">Lewbel, 2019</a>]</span> 全面总结了计量经济学中的识别问题。会计学是一个重要的应用领域，其中许多声称的因果推断都是由简单的回归得到。令人欣慰的是， <span id="id11">[<a class="reference internal" href="bibfile_place.html#id29" title="Ian D Gow, David F Larcker, and Peter C Reiss. Causal inference in accounting research. Journal of Accounting Research, 54(2):477–523, 2016.">Gow <em>et al.</em>, 2016</a>]</span> 反思了他们在实践中所谓的因果关系。</p>
 </div>
 </section>
-<section id="id9">
-<h2><span class="section-number">2.5. </span>参考文献<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
-<p>Gow, I. D., D. F. Larcker, and P.C. Reiss (2016). Causal inference in accounting research. <em>Journal of Accounting Research 54</em>(2), 477-523. 2.4</p>
-<p>Lewbel, A. (2019). The identification zoo: Meanings of identification in econometrics. Journal of Economic Literature 57(4), 835-903. 2.4</p>
+<section id="id12">
+<h2><span class="section-number">2.5. </span>参考文献<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h2>
+<p>Gow, I. D., D. F. Larcker, and P.C. Reiss (2016). Causal inference in accounting research. <em>Journal of Accounting Research 54</em>(2)，477-523. 2.4</p>
+<p>Lewbel, A. (2019). The identification zoo: Meanings of identification in econometrics. Journal of Economic Literature 57(4)，835-903. 2.4</p>
 <p>Lucas, R. E. (1976). Econometric policy evaluation: A critique. In <em>Carnegie-Rochester conference series on public policy</em>, Volume 1, pp. 19-46. 2.3</p>
 </section>
 </section>
