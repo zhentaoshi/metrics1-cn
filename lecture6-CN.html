@@ -400,7 +400,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    7.5. 附录
   </a>
  </li>
@@ -444,7 +444,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id6">
+  <a class="reference internal nav-link" href="#id7">
    7.5. 附录
   </a>
  </li>
@@ -460,15 +460,16 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">7. </span>最小二乘法:渐近性质<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>在先前的章节中，我们已经学习了一些基本的渐近理论。通过这些结论，我们可以研究OLS统计量 <span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'Y\)</span> 的各种渐近性质。 这是本次课程的重点,在本章节我们将会涉及如下要点：（i） <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 的相合估计量；（ii）<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近正态性；（iii） 渐近正态性使我们可以渐近推断 <span class="math notranslate nohighlight">\(\beta\)</span> ；（iiii）在哪些条件下我们能够用可行的检验方法，相合估计检验统计量中的方差分量。</p>
+<p>在先前的章节中，我们已经学习了一些基本的渐近理论。通过这些结论，我们可以研究OLS统计量 <span class="math notranslate nohighlight">\(\widehat{\beta}=\left(X'X\right)^{-1}X'Y\)</span> 的各种渐近性质。在本章节我们将会涉及如下要点：(i) <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是线性投影系数 <span class="math notranslate nohighlight">\(\beta\)</span> 的相合估计量；(ii) <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近正态性；(iii) 渐近正态性使我们可以对 <span class="math notranslate nohighlight">\(\beta\)</span> 进行渐近推断。</p>
 <section id="id2">
 <h2><span class="section-number">7.1. </span>相合性<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
-<p>在大样本估计中，<strong>相合性</strong>是最基本的要求。从直觉上说，在样本无限大时，一个理想的估计量应该无限趋近于总体的真实值（也就是概率收敛）。如果某个估计量，在无限大的样本中得到的结果仍然与真实值有偏差，那么除非有很可靠的证明推导，否则恐怕没有人想使用这样的估计量。</p>
-<div class="admonition-definition-6-1 admonition">
-<p class="admonition-title">Definition 6.1 相合性</p>
+<p>在大样本估计中，<strong>相合性</strong>是最基本的要求。从直觉上说，在样本无限大时，一个好的估计量应该无限趋近于总体的真实值(也就是概率收敛)。如果某个估计量在无限大的样本中得到的结果仍然与真实值有偏差，那么除非有很强的特殊理由，否则恐怕没有人想使用这样的估计量。</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">定义 7.1 </span> (相合性)</p>
+<section class="definition-content" id="proof-content">
 <p>对于估计量 <span class="math notranslate nohighlight">\(\widehat{\theta}\)</span> ，如果满足 <span class="math notranslate nohighlight">\(\widehat{\theta}\stackrel{p}{\to}\theta\)</span> ，则称 <span class="math notranslate nohighlight">\(\widehat{\theta}\)</span> 为 <span class="math notranslate nohighlight">\(\theta\)</span> 的<strong>相合估计</strong>，其中 <span class="math notranslate nohighlight">\(\theta\)</span> 是某个非随机常数。</p>
-</div>
-<p>在OLS当中，如果 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时 <span class="math notranslate nohighlight">\(\widehat{\beta}\stackrel{p}{\to}\beta\)</span> ，则称 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是<strong>相合的</strong>。其中的 <span class="math notranslate nohighlight">\(\beta\)</span> 是总体模型 <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span> ( <span class="math notranslate nohighlight">\(E\left[x_{i}e_{i}\right]=0\)</span> ) 的线性映射系数。为了验证<strong>相合性</strong>，我们写出公式：</p>
+</section>
+</div><p>在OLS当中，如果 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 时 <span class="math notranslate nohighlight">\(\widehat{\beta}\stackrel{p}{\to}\beta\)</span> ，则称 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是<strong>相合的</strong>。其中的 <span class="math notranslate nohighlight">\(\beta\)</span> 是总体模型 <span class="math notranslate nohighlight">\(y_{i}=x_{i}'\beta+e_{i}\)</span> ( <span class="math notranslate nohighlight">\(E\left[x_{i}e_{i}\right]=0\)</span> ) 的线性映射系数。为了验证<strong>相合性</strong>，我们写出公式：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}-\beta=\left(X'X\right)^{-1}X'e=\left(\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\right)^{-1}\frac{1}{n}\sum_{i=1}^{n}x_{i}e_{i}.
@@ -479,27 +480,28 @@ title="Print to PDF"
 \widehat{Q}:=\frac{1}{n}\sum_{i=1}^{n}x_{i}x_{i}'\stackrel{p}{\to}Q:=E\left[x_{i}x_{i}'\right].
 \]</div>
 <p>这里的 <span class="math notranslate nohighlight">\(\widehat{Q}\)</span> 是 <span class="math notranslate nohighlight">\(x_{i}x_{i}'\)</span> 的样本均值, <span class="math notranslate nohighlight">\(Q\)</span> 则是 <span class="math notranslate nohighlight">\(x_{i}x_{i}'\)</span> 的总体均值。</p>
-<p>同样根据LLN，我们可以得到第二项：</p>
+<p>同样根据大数定律，我们可以得到第二项：</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{1}{n}\sum_{i=1}^{n}x_{i}e_{i}\stackrel{p}{\to}0.
 \]</div>
-<p>连续映射定理就能够推出：</p>
+<p>根据连续映射定理，我们就能够推出：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}-\beta\stackrel{p}{\to}Q^{-1}\times0=0.
 \]</div>
 <p>从而证明了 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是 <span class="math notranslate nohighlight">\(\beta\)</span> 的 相合估计量。</p>
-<div class="admonition-remark-6-1 admonition">
-<p class="admonition-title">Remark 6.1</p>
-<p>无论 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> 是否满足独立同分布，或者相依样本，或独立但不同分布（inid），
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">评注 7.1 </span></p>
+<section class="remark-content" id="proof-content">
+<p>无论 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)_{i=1}^{n}\)</span> 是否满足独立同分布，或者相依样本，或独立但不同分布(inid)，
 只要上述的两个表达式满足依概率收敛，同时 <span class="math notranslate nohighlight">\(Q\)</span> 是可逆矩阵，<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 就依然满足相合性。</p>
-</div>
 </section>
+</div></section>
 <section id="id3">
 <h2><span class="section-number">7.2. </span>渐近分布<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
 <p>在有限样本中，<span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 是随机变量。先前我们已经展示过正态性的 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的分布。没有了正态性假设的约束，我们将如何描述OLS估计量的随机性呢？</p>
-<p>从前面的章节中我们已经了解到 <span class="math notranslate nohighlight">\(\hat{\beta}-\beta\stackrel{p}{\to}0\)</span> 会归于一个常数。为了研究它们的分布，我们需要用一个合适的乘数将其放大，使得它在极限中既不收敛也不发散。这个合适的比例因子是 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ，
+<p>从前面的章节中我们已经了解到 <span class="math notranslate nohighlight">\(\hat{\beta}-\beta\stackrel{p}{\to}0\)</span> 会归于一个常数。为了研究它们的分布，我们需要用一个合适的乘数将其放大，使得它在极限情况下既不收敛也不发散。这个合适的比例因子是 <span class="math notranslate nohighlight">\(\sqrt{n}\)</span> ，
 类似于中心极限定理有:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -531,9 +533,10 @@ E\left[e_{i}^{2}|x_{i}\right]=\sigma^{2}
 \[
 \sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}N\left(0,\sigma^{2}Q^{-1}\right).
 \]</div>
-<div class="admonition-remark-6-2 admonition">
-<p class="admonition-title">Remark 6.2</p>
-<p>如果我们对 <span class="math notranslate nohighlight">\(k\)</span> 阶参数 <span class="math notranslate nohighlight">\(\beta_{k}\)</span> 感兴趣，那么可以从<a class="reference internal" href="#equation-eq-asym-norm">(7.1)</a>中的联合分布推导出：</p>
+<div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">评注 7.2 </span></p>
+<section class="remark-content" id="proof-content">
+<p>如果我们对第 <span class="math notranslate nohighlight">\(k\)</span> 个参数 <span class="math notranslate nohighlight">\(\beta_{k}\)</span> 感兴趣，那么可以从<a class="reference internal" href="#equation-eq-asym-norm">(7.1)</a>中的联合分布推导出：</p>
 <div class="math notranslate nohighlight" id="equation-eq-asym-norm-homok-pivot">
 <span class="eqno">(7.2)<a class="headerlink" href="#equation-eq-asym-norm-homok-pivot" title="公式的永久链接">#</a></span>\[\begin{split}
 \begin{aligned}
@@ -541,10 +544,11 @@ E\left[e_{i}^{2}|x_{i}\right]=\sigma^{2}
  &amp; \stackrel{d}{\to}N\left(0,\sigma^{2}\eta_{k}'Q^{-1}\eta_{k}\right)\sim N\left(0,\sigma^{2}[Q^{-1}]_{kk}\right),
 \end{aligned}
 \end{split}\]</div>
-<p>其中特殊向量 <span class="math notranslate nohighlight">\(\eta_{k}=\left(0,\ldots,0,1,0\ldots,0\right)'\)</span> 用于挑选 <span class="math notranslate nohighlight">\(k\)</span> 阶元素。</p>
-</div>
-<div class="admonition-remark-6-3 admonition">
-<p class="admonition-title">Remark 6.3</p>
+<p>其中特殊向量 <span class="math notranslate nohighlight">\(\eta_{k}=\left(0,\ldots,0,1,0\ldots,0\right)'\)</span> 用于挑选第 <span class="math notranslate nohighlight">\(k\)</span> 个元素。</p>
+</section>
+</div><div class="proof remark admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">评注 7.3 </span></p>
+<section class="remark-content" id="proof-content">
 <p>如果在<a class="reference internal" href="#equation-eq-asym-norm">(7.1)</a>的两边乘上 <span class="math notranslate nohighlight">\(\Omega^{-1/2}\)</span> ，我们就有：</p>
 <div class="math notranslate nohighlight" id="equation-eq-asym-norm-pivot">
 <span class="eqno">(7.3)<a class="headerlink" href="#equation-eq-asym-norm-pivot" title="公式的永久链接">#</a></span>\[
@@ -552,12 +556,12 @@ E\left[e_{i}^{2}|x_{i}\right]=\sigma^{2}
 \]</div>
 <p>因为<a class="reference internal" href="#equation-eq-asym-norm-pivot">(7.3)</a>中的渐近分布 <span class="math notranslate nohighlight">\(N\left(0,I_{K}\right)\)</span> 不涉及任何的未知参数，我们称之为<strong>枢轴量</strong>(pivotal)。
 相反，因为 <span class="math notranslate nohighlight">\(\Omega\)</span> 在 <span class="math notranslate nohighlight">\(N\left(0,\Omega\right)\)</span> 中是未知的，<a class="reference internal" href="#equation-eq-asym-norm">(7.1)</a>中的渐近分布不是枢轴量。如果我们想要了解 <span class="math notranslate nohighlight">\(\beta_{k}\)</span> 我们可以将<a class="reference internal" href="#equation-eq-asym-norm-pivot">(7.3)</a>以枢轴量的形式写为：</p>
-<div class="math notranslate nohighlight" id="equation-eqn-label6">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-eqn-label6" title="公式的永久链接">#</a></span>\[
+<div class="math notranslate nohighlight" id="equation-eq-label6">
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-eq-label6" title="公式的永久链接">#</a></span>\[
 \frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}\stackrel{d}{\to}N\left(0,1\right).
 \]</div>
-</div>
 </section>
+</div></section>
 <section id="id4">
 <h2><span class="section-number">7.3. </span>渐近推断<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
 <p>到目前为止，我们已经得到了 <span class="math notranslate nohighlight">\(\widehat{\beta}\)</span> 的渐近分布。然后，只有当 <span class="math notranslate nohighlight">\(\Omega\)</span> 已知时，<a class="reference internal" href="#equation-eq-asym-norm">(7.1)</a> 到 <a class="reference internal" href="#equation-eq-asym-norm-pivot">(7.3)</a> 才能派上用场。在现实情况中， <span class="math notranslate nohighlight">\(\Omega\)</span> 通常是未知的，因此需要对其进行估计，才能进行统计推断。
@@ -575,20 +579,20 @@ E\left[e_{i}^{2}|x_{i}\right]=\sigma^{2}
 <span class="eqno">(7.5)<a class="headerlink" href="#equation-eq-asym-norm-feasible" title="公式的永久链接">#</a></span>\[
 \tilde{\Omega}^{-1/2}\sqrt{n}\left(\widehat{\beta}-\beta\right)\stackrel{d}{\to}N\left(0,I_{K}\right)
 \]</div>
-<p>接下来的问题是如何相合估计 <span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}\)</span> ，或者等同于怎么获得合适的 <span class="math notranslate nohighlight">\(\tilde{\Omega}\)</span> 。
-我们之前已经得出 <span class="math notranslate nohighlight">\(\widehat{Q}\stackrel{p}{\to}Q\)</span> ，如果也有 <span class="math notranslate nohighlight">\(\Sigma\)</span> 的相合估计量 <span class="math notranslate nohighlight">\(\tilde{\Sigma}\)</span> ，那么可以将他们带入形成 <span class="math notranslate nohighlight">\(\tilde{\Omega}=\widehat{Q}^{-1}\tilde{\Sigma}\widehat{Q}^{-1}\)</span> 。棘手的问题在于如何相合估计<span class="math notranslate nohighlight">\(\Sigma=E\left[x_{i}x_{i}'e_{i}^{2}\right]\)</span> 。因为 <span class="math notranslate nohighlight">\(e_{i}\)</span> 无法观测，我们不能用样本均值 <span class="math notranslate nohighlight">\(x_{i}x_{i}'e_{i}^{2}\)</span> 来进行估计。基于同方差假设：<span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}=\sigma^{2}Q^{-1}\)</span>，我们同样不能用 <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> 来估计 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> 。</p>
-<div class="admonition-remark-6-4 admonition">
-<p class="admonition-title">Remark 6.4</p>
+<p>接下来的问题是如何相合地估计 <span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}\)</span>，或者说，怎么获得合适的 <span class="math notranslate nohighlight">\(\tilde{\Omega}\)</span> 。
+我们之前已经得出 <span class="math notranslate nohighlight">\(\widehat{Q}\stackrel{p}{\to}Q\)</span>，如果我们也有 <span class="math notranslate nohighlight">\(\Sigma\)</span> 的相合估计量 <span class="math notranslate nohighlight">\(\tilde{\Sigma}\)</span>，那么可以将它们代入，得到 <span class="math notranslate nohighlight">\(\tilde{\Omega}=\widehat{Q}^{-1}\tilde{\Sigma}\widehat{Q}^{-1}\)</span>。棘手的问题在于如何相合估计<span class="math notranslate nohighlight">\(\Sigma=E\left[x_{i}x_{i}'e_{i}^{2}\right]\)</span>。因为 <span class="math notranslate nohighlight">\(e_{i}\)</span> 无法观测，我们不能用样本均值 <span class="math notranslate nohighlight">\(x_{i}x_{i}'e_{i}^{2}\)</span> 来进行估计。基于同方差假设：<span class="math notranslate nohighlight">\(\Omega=Q^{-1}\Sigma Q^{-1}=\sigma^{2}Q^{-1}\)</span>，我们同样不能用 <span class="math notranslate nohighlight">\(e_{i}^{2}\)</span> 来估计 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span>。</p>
+<div class="proof remark admonition" id="remark-4">
+<p class="admonition-title"><span class="caption-number">评注 7.4 </span></p>
+<section class="remark-content" id="proof-content">
 <p>如果选用 <span class="math notranslate nohighlight">\(\widehat{e}_{i}=\widehat{y}_{i}-x_{i}'\widehat{\beta}\)</span> 并用其代替 <span class="math notranslate nohighlight">\(e_{i}\)</span>，那么我们就可以得到同方差的估计量 <span class="math notranslate nohighlight">\(\widehat{\Omega}=\widehat{\sigma}^{2}\widehat{Q}^{-1}\)</span> <br />
 其中 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)\)</span> 或
 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/n\)</span></p>
-<p>如果是异方差，得到的估计量为：<span class="math notranslate nohighlight">\(\widehat{\Omega}=\widehat{Q}^{-1}\widehat{\Sigma}\widehat{Q}^{-1}\)</span> 相应地，其中<span class="math notranslate nohighlight">\(\widehat{\Sigma}=n^{-1}\sum_{i}x_{i}x_{i}'\widehat{e}_{i}^{2}\)</span>。
-本讲略去
-<span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> 和 <span class="math notranslate nohighlight">\(\widehat{\Sigma}\stackrel{p}{\to}\Sigma\)</span> 的推导。</p>
+<p>如果是异方差，得到的估计量为：<span class="math notranslate nohighlight">\(\widehat{\Omega}=\widehat{Q}^{-1}\widehat{\Sigma}\widehat{Q}^{-1}\)</span>。相应地，其中<span class="math notranslate nohighlight">\(\widehat{\Sigma}=n^{-1}\sum_{i}x_{i}x_{i}'\widehat{e}_{i}^{2}\)</span>。
+本讲略去 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> 和 <span class="math notranslate nohighlight">\(\widehat{\Sigma}\stackrel{p}{\to}\Sigma\)</span> 的推导。</p>
 <p>如果我们选用 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}=\widehat{e}'\widehat{e}/\left(n-K\right)\)</span> 然后替换<a class="reference internal" href="#equation-eq-asym-norm-homok-pivot">(7.2)</a>中的 <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> ，那么 <span class="math notranslate nohighlight">\(T_{k}=\frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\widehat{\sigma}^{2}[\widehat{Q}^{-1}]_{kk}}}\)</span> 的结果就等于有限样本估计中的 <span class="math notranslate nohighlight">\(t\)</span> 统计量。</p>
-</div>
-<p>之前我们学过，在经典正态误差的假设中， <span class="math notranslate nohighlight">\(t\)</span> 统计量遵循精确有限样本 <span class="math notranslate nohighlight">\(t\)</span> 分布，自由度为 <span class="math notranslate nohighlight">\(n-K\)</span> 。在渐近分析中，如果<span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]&lt;\infty\)</span> ，我们允许 <span class="math notranslate nohighlight">\(e_{i}\)</span> 服从任何的分布。渐近正态性允许我们进行渐近统计推断。对于 <span class="math notranslate nohighlight">\(t\)</span> 统计量，我们必须从正态分布中获得临界值，
-因为如果 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> ，根据 Slutsky’s Theorem 有：</p>
+</section>
+</div><p>之前我们学过，在经典正态误差的假设中， <span class="math notranslate nohighlight">\(t\)</span> 统计量遵循精确有限样本 <span class="math notranslate nohighlight">\(t\)</span> 分布，其自由度为 <span class="math notranslate nohighlight">\(n-K\)</span> 。在渐近分析中，如果<span class="math notranslate nohighlight">\(E\left[e_{i}^{2}|x_{i}\right]&lt;\infty\)</span> ，我们允许 <span class="math notranslate nohighlight">\(e_{i}\)</span> 服从任何的分布。渐近正态性允许我们进行渐近统计推断。对于 <span class="math notranslate nohighlight">\(t\)</span> 统计量，我们必须从正态分布中获得临界值，
+因为如果 <span class="math notranslate nohighlight">\(\widehat{\sigma}^{2}\stackrel{p}{\to}\sigma^{2}\)</span> ，根据<strong>Slutsky定理</strong>有：</p>
 <div class="math notranslate nohighlight">
 \[
 T_{k}=\frac{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}{\sqrt{\widehat{\sigma}^{2}[\widehat{Q}^{-1}]_{kk}}}\cdot\frac{\sqrt{n}\left(\widehat{\beta}_{k}-\beta_{k}\right)}{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}\stackrel{d}{\to}1\times N\left(0,1\right)\sim N\left(0,1\right).
@@ -596,21 +600,21 @@ T_{k}=\frac{\sqrt{\sigma^{2}[Q^{-1}]_{kk}}}{\sqrt{\widehat{\sigma}^{2}[\widehat{
 </section>
 <section id="id5">
 <h2><span class="section-number">7.4. </span>总结<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
-<p>不等式是渐近理论中最重要的工具之一。有些推导过程初看起来很复杂，但实际上会经常在各种结论的证明中频繁碰见。多被“折磨”几年，对你来说这种计算就是小菜一碟了。</p>
+<p>不等式是渐近理论中最重要的工具之一。有些推导过程初看起来很复杂，但实际上会经常在各种结论的证明中频繁碰见。被“折磨”几年之后，这种计算就是家常便饭了。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">历史趣闻</p>
-<p>{cite}white1980heteroskedasticity
+<p><span id="id6">[<a class="reference internal" href="bibfile_place.html#id24" title="Halbert White. A heteroskedasticity-consistent covariance matrix estimator and a direct test for heteroskedasticity. Econometrica, pages 817–838, 1980.">White, 1980</a>]</span>
 引起了人们对经济场景中违反经典假设的线性回归的注意。
 计量经济学家们开始关注统计推断中的方差估计。
 在接下来的几十年里，涌现出大量方差估计理论，用于处理各种各样偏离经典假设的情形。</p>
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
-<p>在本章中，所有的向量的维度都是有限的，如果 <span class="math notranslate nohighlight">\(K\to\infty\)</span> 的速率比 <span class="math notranslate nohighlight">\(n\)</span> 小得多，其中的结论可以被推广到 <span class="math notranslate nohighlight">\(K\)</span> 无限的情况。这样的渐近将需要多个指数，并且它超出了我们在这里学到的最简单的 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 的情况。大数据伴随着复杂的模型，模型往往随着 <span class="math notranslate nohighlight">\(n\)</span> 的增加而变得更加复杂。</p>
+<p>在本章中，所有的向量的维度都是有限的，如果 <span class="math notranslate nohighlight">\(K\to\infty\)</span> 的速率比 <span class="math notranslate nohighlight">\(n\)</span> 小得多，其中的结论可以被推广到 <span class="math notranslate nohighlight">\(K\)</span> 无限的情况。这样的渐近将需要多个维度，它超出了我们在这里学到的最简单的 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 的范畴。大数据伴随着复杂的模型，模型往往随着 <span class="math notranslate nohighlight">\(n\)</span> 的增加而变得更加复杂。</p>
 </div>
 </section>
-<section id="id6">
-<h2><span class="section-number">7.5. </span>附录<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
+<section id="id7">
+<h2><span class="section-number">7.5. </span>附录<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
 <p>我们在这里介绍符号 <em>big Op and small op</em> ，它们和随机情况中的 <em>big O and small o</em> 相对应。</p>
 <ul>
 <li><p>Small op: <span class="math notranslate nohighlight">\(x_{n}=o_{p}\left(r_{n}\right)\)</span> if

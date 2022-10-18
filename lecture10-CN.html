@@ -395,7 +395,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    10.4. 总结
   </a>
  </li>
@@ -434,7 +434,7 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#id6">
    10.4. 总结
   </a>
  </li>
@@ -452,6 +452,9 @@ title="Print to PDF"
 <h1><span class="section-number">10. </span>内生性<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>在微观经济分析中， 外生变量指的是那些不由被考虑的经济体系所决定的因素，
 而内生变量则是在经济体系内被决定的因素。</p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">例子 10.1 </span></p>
+<section class="example-content" id="proof-content">
 <p>如下是我们碰到过多次的一个微观经济习题。如果一个人的效用函数是
 <span class="math notranslate nohighlight">\(u\left(q_{1},q_{2}\right)\)</span>，其中
 <span class="math notranslate nohighlight">\(q_{1}\)</span> 和 <span class="math notranslate nohighlight">\(q_{2}\)</span> 是两件商品的数量。 他的预算是
@@ -461,10 +464,11 @@ title="Print to PDF"
 <span class="math notranslate nohighlight">\(u\left(\cdot,\cdot\right)\)</span>，物品价格 <span class="math notranslate nohighlight">\(p_{1}\)</span> 和
 <span class="math notranslate nohighlight">\(p_{2}\)</span>，和预算 <span class="math notranslate nohighlight">\(C\)</span> 是外生变量。 而最优数量
 <span class="math notranslate nohighlight">\(q_{1}^{*}\)</span> 和 <span class="math notranslate nohighlight">\(q_{2}^{*}\)</span> 是内生变量。</p>
-<p>这两个微观经济学中的术语“内生性”和“外生性”将被结转到多方程计量经济模型中。
+</section>
+</div><p>这两个微观经济学中的术语“内生性”和“外生性”将被结转到多方程计量经济模型中。
 在一个单方程回归模型中，</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eqn-label101">
+<span class="eqno">(10.1)<a class="headerlink" href="#equation-eqn-label101" title="公式的永久链接">#</a></span>\[
 y_{i}=x_{i}'\beta+e_{i}
 \]</div>
 <p>只是方程系统中的一部分。
@@ -477,7 +481,7 @@ y_{i}=x_{i}'\beta+e_{i}
 <h2><span class="section-number">10.1. </span>识别<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <p>内生性通常意味着难以仅用 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 识别我们感兴趣的参数。内生性的鉴别
 对于理解实证经济研究是至关重要的. 如果模型中的参数与被观测变量的分布之间的映射是一一对应的，
-那我们就认为这个参数是被<em>识别</em>的。反之我们就称这个参数为<em>识别不足</em>。 这是一个抽象的定义，
+那我们就认为这个参数是被<strong>识别</strong>的。反之我们就称这个参数为<strong>识别不足</strong>。 这是一个抽象的定义，
 让我们接下来在线性回归的背景下来讨论它。</p>
 <p>线性投影模型隐含了矩方程：</p>
 <div class="math notranslate nohighlight">
@@ -489,6 +493,9 @@ y_{i}=x_{i}'\beta+e_{i}
 是总体矩量的一个函数，并且它被识别。与之形成对比的是，如果一些 <span class="math notranslate nohighlight">\(x_{k}\)</span> 是完美共线的，
 意味着 <span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}x_{i}'\right]\)</span> 是秩不足的，亦即有多个
 <span class="math notranslate nohighlight">\(\beta\)</span> 可以满足 <span class="math notranslate nohighlight">\(k\)</span> 方程系统。</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">例子 10.2 </span></p>
+<section class="example-content" id="proof-content">
 <p>假设 <span class="math notranslate nohighlight">\(x_{i}\)</span> 是一个随机的标量，</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -501,8 +508,7 @@ e_{i}
 \end{pmatrix}\right)
 \end{split}\]</div>
 <p>服从联合正态分布，并且因变量 <span class="math notranslate nohighlight">\(y_{i}\)</span> 来源于
-(<a class="reference external" href="#eq:generative">[eq:generative]</a>{reference-type=”ref”
-reference=”eq:generative”})。 对联合正态分布的假设意味着条件均值</p>
+<a class="reference internal" href="#equation-eqn-label101">(10.1)</a>。 对联合正态分布的假设意味着条件均值</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}\left[y_{i}|x_{i}\right]=\beta x_{i}+\mathbb{E}\left[e_{i}|x_{i}\right]=\left(\beta+\sigma_{xe}\right)x_{i}
@@ -513,6 +519,10 @@ reference=”eq:generative”})。 对联合正态分布的假设意味着条件
 <span class="math notranslate nohighlight">\(\beta\)</span>。 这正是我们在本课程前面提到过的 <strong>遗漏变量偏差</strong> 。差距在于可用数据
 <span class="math notranslate nohighlight">\(\left(y_{i},x_{i}\right)\)</span> 和模型识别之间。在特殊情况下，我们假设
 <span class="math notranslate nohighlight">\(\sigma_{xe}=0\)</span>，此时内生性消失，<span class="math notranslate nohighlight">\(\beta\)</span> 可以被识别。</p>
+</section>
+</div><div class="proof remark admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">评注 10.1 </span></p>
+<section class="remark-content" id="proof-content">
 <p>到目前为止，线性投影模型是本课程中证明OLS合理性的最通用模型。
 OLS对于线性投影系数来说是一致的。根据线性投影模型的定义，
 <span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}e_{i}\right]=0\)</span>，因此在线性投影模型中，没有内生性的空间，
@@ -522,7 +532,8 @@ OLS对于线性投影系数来说是一致的。根据线性投影模型的定�
 观察到的数据是从一个简约模型中生成的，然后下一步是去估计模型中的未知参数。 由于
 我们通常可以发现一些未包含在回归变量中的参数，但他们又与包含的回归变量相关，同时
 又影响 <span class="math notranslate nohighlight">\(y_{i}\)</span>，因此内生性成为一个重要问题。</p>
-<p>为了解决内生性，我们寻求可以保证模型能识别的额外变量或数据结构。最常用的方法是：
+</section>
+</div><p>为了解决内生性，我们寻求可以保证模型能识别的额外变量或数据结构。最常用的方法是：
 (i) 固定效益模型 (ii) 工具变量：</p>
 <ul>
 <li><p>固定效应模型需要为每个个体 <span class="math notranslate nohighlight">\(i\)</span> 收集多个观察值，通常是跨时间的。此外，
@@ -548,12 +559,11 @@ OLS对于线性投影系数来说是一致的。根据线性投影模型的定�
 </section>
 <section id="id3">
 <h2><span class="section-number">10.2. </span>工具变量<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
-<p>有效的 IV 有两个要求：正交性和相关性。正交性需要正确指定模型。如果
-违反了相关性，即 IV 与内生变量不相关，则多个参数可以生成可观察数据。
+<p>有效的 IV 有两个要求：正交性和相关性。正交性需要正确指定模型。如果违反了相关性，即 IV 与内生变量不相关，则多个参数可以生成可观察数据。
 识别，按照计量经济学中的标准定义，在这种情况下被打破了。</p>
 <p>结构方程是一种我们关心的经济模型。让我们来看看以下这个线性结构模型：</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eqn-label102">
+<span class="eqno">(10.2)<a class="headerlink" href="#equation-eqn-label102" title="公式的永久链接">#</a></span>\[
 y_{i}=x_{1i}'\beta_{1}+z_{1i}'\beta_{2}+\epsilon_{i},
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(x_{1i}\)</span> 是一个 <span class="math notranslate nohighlight">\(k_{1}\)</span>维的内生解释变量，<span class="math notranslate nohighlight">\(z_{1i}\)</span> 是一个 <span class="math notranslate nohighlight">\(k_{2}\)</span>维
@@ -563,27 +573,32 @@ y_{i}=x_{1i}'\beta_{1}+z_{1i}'\beta_{2}+\epsilon_{i},
 外生向量。</p>
 <p>我们称这个外生变量为 <strong>工具变量</strong> (instrumental variable, or IV for short)。令 <span class="math notranslate nohighlight">\(\beta=\left(\beta_{1}',\beta_{2}'\right)'\)</span>
 为一个我们感兴趣的 <span class="math notranslate nohighlight">\(K\)</span>维的参数。从现在开始，我们将
-(<a class="reference external" href="#eq:basic_1">[eq:basic_1]</a>{reference-type=”ref”
-reference=”eq:basic_1”}) 重写为</p>
-<div class="math notranslate nohighlight">
-\[
+<a class="reference internal" href="#equation-eqn-label102">(10.2)</a>重写为</p>
+<div class="math notranslate nohighlight" id="equation-eqn-basic">
+<span class="eqno">(10.3)<a class="headerlink" href="#equation-eqn-basic" title="公式的永久链接">#</a></span>\[
 y_{i}=x_{i}'\beta+\epsilon_{i}
 \]</div>
 <p>我们就有了一个工具向量 <span class="math notranslate nohighlight">\(z_{i}\)</span>。</p>
 <p>在估计任何结构计量经济模型之前，我们必须检查是否能识别。在
-(<a class="reference external" href="#eq:basic_2">[eq:basic_2]</a>{reference-type=”ref”
-reference=”eq:basic_2”})的背景下， 识别需要真值 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 是参数空间上满足矩条件</p>
-<div class="math notranslate nohighlight">
-\[
+<a class="reference internal" href="#equation-eqn-basic">(10.3)</a>的背景下， 识别需要真值 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 是参数空间上满足矩条件</p>
+<div class="math notranslate nohighlight" id="equation-eqn-moment">
+<span class="eqno">(10.4)<a class="headerlink" href="#equation-eqn-moment" title="公式的永久链接">#</a></span>\[
 \mathbb{E}\left[z_{i}\left(y_{i}-x_{i}'\beta\right)\right]=0_{L}.
 \]</div>
 <p>的唯一值。秩条件是识别的充分必要条件。</p>
+<div class="proof assumption admonition" id="assumption-3">
+<p class="admonition-title"><span class="caption-number">假设 10.1 </span> (矩条件)</p>
+<section class="assumption-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\mathrm{rank}\left(\mathbb{E}\left[z_{i}x_{i}'\right]\right)=K\)</span>.</p>
 <p>注意 <span class="math notranslate nohighlight">\(\mathbb{E}\left[x_{i}'z_{i}\right]\)</span> 是一个 <span class="math notranslate nohighlight">\(K\times L\)</span> 的矩阵。
-秩条件意味着 <em>顺序条件</em> <span class="math notranslate nohighlight">\(L\geq K\)</span>， 即不被包含的工具的数量必须不少于内生变量的数量。</p>
-<p>(<a class="reference external" href="#eq:moment">[eq:moment]</a>{reference-type=”ref”
-reference=”eq:moment”})中的参数当且仅当秩条件成立时才被识别。</p>
-<p>（“正”方向的证明。） 对于任何使得 <span class="math notranslate nohighlight">\(\tilde{\beta}\neq\beta_{0}\)</span> 的 <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span>，</p>
+秩条件意味着 <strong>顺序条件</strong> <span class="math notranslate nohighlight">\(L\geq K\)</span>， 即不被包含的工具的数量必须不少于内生变量的数量。</p>
+</section>
+</div><div class="proof assumption admonition" id="assumption-4">
+<p class="admonition-title"><span class="caption-number">假设 10.2 </span></p>
+<section class="assumption-content" id="proof-content">
+<p><a class="reference internal" href="#equation-eqn-moment">(10.4)</a>中的参数当且仅当秩条件成立时才被识别。</p>
+<div class="proof admonition" id="proof">
+<p>Proof. （“正”方向的证明。） 对于任何使得 <span class="math notranslate nohighlight">\(\tilde{\beta}\neq\beta_{0}\)</span> 的 <span class="math notranslate nohighlight">\(\tilde{\beta}\)</span>，</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -595,33 +610,35 @@ reference=”eq:moment”})中的参数当且仅当秩条件成立时才被识�
 <span class="math notranslate nohighlight">\(\mathbb{E}\left[z_{i}x_{i}'\right]\left(\beta_{0}-\tilde{\beta}\right)=0_{L}\)</span>
 当且仅当 <span class="math notranslate nohighlight">\(\beta_{0}-\tilde{\beta}=0_{K}\)</span>，而这违反了
 <span class="math notranslate nohighlight">\(\tilde{\beta}\neq\beta_{0}\)</span>。因此 <span class="math notranslate nohighlight">\(\beta_{0}\)</span> 是唯一满足
-(<a class="reference external" href="#eq:moment">[eq:moment]</a>{reference-type=”ref”
-reference=”eq:moment”})的值。</p>
+<a class="reference internal" href="#equation-eqn-moment">(10.4)</a>的值。</p>
 <p>（“反”方向的证明留作练习。 提示：通过对立性，如果秩条件不成立，则模型无法被识别。
 我们可以通过举例子轻松地证明这个定理。）</p>
+</div>
 </section>
+</div></section>
 <section id="id4">
 <h2><span class="section-number">10.3. </span>内生性的来源<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
 <p>由于计量经济学家主要使用非实验数据，我们内生性问题非常重要性。下面我们来看几个例子。</p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">例子 10.3 </span></p>
+<section class="example-content" id="proof-content">
 <p>我们知道一阶差分 (FD) 估计值对于（静态）面板数据模型来说是一致的。但FD估计值
 在动态面板模型中将会遇到困难：</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eqn-panel">
+<span class="eqno">(10.5)<a class="headerlink" href="#equation-eqn-panel" title="公式的永久链接">#</a></span>\[
 y_{it}=\beta_{1}+\beta_{2}y_{i,t-1}+\beta_{3}x_{it}+\alpha_{i}+\epsilon_{it},\label{eq:dymPanel}
 \]</div>
 <p>即使我们假设</p>
-<div class="math notranslate nohighlight">
-\[
-\mathbb{E}\left[\epsilon_{is}|\alpha_{i},x_{i1},\ldots,x_{iT},y_{i,t-1},y_{i,t-2},\ldots,y_{i0}\right]=0,\ \ \forall s\geq t\label{eq:dyn_mean_0}
+<div class="math notranslate nohighlight" id="equation-eqn-labeldyn">
+<span class="eqno">(10.6)<a class="headerlink" href="#equation-eqn-labeldyn" title="公式的永久链接">#</a></span>\[
+\mathbb{E}\left[\epsilon_{is}|\alpha_{i},x_{i1},\ldots,x_{iT},y_{i,t-1},y_{i,t-2},\ldots,y_{i0}\right]=0,\ \ \forall s\geq t
 \]</div>
-<p>当对周期 <span class="math notranslate nohighlight">\(t\)</span> 和 <span class="math notranslate nohighlight">\(t-1\)</span> 取上述方程 (<a class="reference external" href="#eq:dymPanel">[eq:dymPanel]</a>{reference-type=”ref”
-reference=”eq:dymPanel”}) 的差时，我们得到:</p>
-<div class="math notranslate nohighlight">
-\[
-\left(y_{it}-y_{i,t-1}\right)=\beta_{2}\left(y_{it-1}-y_{i,t-2}\right)+\beta_{3}\left(x_{it}-x_{i,t-1}\right)+\left(\epsilon_{it}-\epsilon_{i,t-1}\right).\label{eq:dyn_mean_1}
+<p>当对周期 <span class="math notranslate nohighlight">\(t\)</span> 和 <span class="math notranslate nohighlight">\(t-1\)</span> 取上述方程<a class="reference internal" href="#equation-eqn-panel">(10.5)</a>的差时，我们得到:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-dynmean">
+<span class="eqno">(10.7)<a class="headerlink" href="#equation-eqn-dynmean" title="公式的永久链接">#</a></span>\[
+\left(y_{it}-y_{i,t-1}\right)=\beta_{2}\left(y_{it-1}-y_{i,t-2}\right)+\beta_{3}\left(x_{it}-x_{i,t-1}\right)+\left(\epsilon_{it}-\epsilon_{i,t-1}\right).
 \]</div>
-<p>根据 (<a class="reference external" href="#eq:dyn_mean_0">[eq:dyn_mean_0]</a>{reference-type=”ref”
-reference=”eq:dyn_mean_0”})，
+<p>根据<a class="reference internal" href="#equation-eqn-labeldyn">(10.6)</a>，
 <span class="math notranslate nohighlight">\(\mathbb{E}\left[\left(x_{it}-x_{i,t-1}\right)\left(\epsilon_{it}-\epsilon_{i,t-1}\right)\right]=0\)</span>，
 但是</p>
 <div class="math notranslate nohighlight">
@@ -629,11 +646,13 @@ reference=”eq:dyn_mean_0”})，
 \mathbb{E}\left[\left(y_{i,t-1}-y_{i,t-2}\right)\left(\epsilon_{it}-\epsilon_{i,t-1}\right)\right]=-\mathbb{E}\left[y_{i,t-1}\epsilon_{i,t-1}\right]=-\mathbb{E}\left[\epsilon_{i,t-1}^{2}\right]\neq0.
 \]</div>
 <p>因此系数 <span class="math notranslate nohighlight">\(\beta_{2}\)</span> 和 <span class="math notranslate nohighlight">\(\beta_{3}\)</span> 不能从线性回归模型
-(<a class="reference external" href="#eq:dyn_mean_1">[eq:dyn_mean_1]</a>{reference-type=”ref”
-reference=”eq:dyn_mean_1”}) 中被识别。</p>
+<a class="reference internal" href="#equation-eqn-dynmean">(10.7)</a>中被识别。</p>
+</section>
+</div><div class="proof remark admonition" id="remark-6">
+<p class="admonition-title"><span class="caption-number">评注 10.2 </span></p>
+<section class="remark-content" id="proof-content">
 <p>在上述例子中工具变量很容易找到。请注意里面的线性关系
-(<a class="reference external" href="#eq:dymPanel">[eq:dymPanel]</a>{reference-type=”ref”
-reference=”eq:dymPanel”}) 意味着</p>
+<a class="reference internal" href="#equation-eqn-labeldyn">(10.6)</a> 意味着</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -643,75 +662,78 @@ reference=”eq:dymPanel”}) 意味着</p>
 \end{aligned}
 \end{split}\]</div>
 <p>根据假设
-(<a class="reference external" href="#eq:dyn_mean_0">[eq:dyn_mean_0]</a>{reference-type=”ref”
-reference=”eq:dyn_mean_0”}). 上述关系以</p>
+<a class="reference internal" href="#equation-eqn-labeldyn">(10.6)</a>， 上述关系以</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}\left[\left(\epsilon_{i,t}-\epsilon_{i,t-1}\right)f\left(\epsilon_{i,t-2},\epsilon_{i,t-3},\ldots,\epsilon_{i1}\right)\right]=0.
 \]</div>
 <p>的形式给出正交条件。
 换句话说，任何关于 <span class="math notranslate nohighlight">\(y_{i,t-2},y_{i,t-3},\ldots,y_{i1}\)</span> 的函数都垂直于误差项
-<span class="math notranslate nohighlight">\(\left(\epsilon{}_{i,t-1}-\epsilon_{i,t-2}\right)\)</span>.
+<span class="math notranslate nohighlight">\(\left(\epsilon{}_{i,t-1}-\epsilon_{i,t-2}\right)\)</span>。
 这里被排除在外的IV（工具变量）是由模型本身自然生成的。</p>
-<p>另一个经典的内生性来源是测量误差。</p>
+</section>
+</div><p>另一个经典的内生性来源是测量误差。</p>
+<div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">例子 10.4 </span></p>
+<section class="example-content" id="proof-content">
 <p>当解释变量不是直接可观察的，而是被有误差的测量代替时，内生性的问题也会出现。假设真正的线性模型是:</p>
-<div class="math notranslate nohighlight">
-\[
-y_{i}=\beta_{1}+\beta_{2}x_{i}^{*}+u_{i},\label{eq:measurement_error}
+<div class="math notranslate nohighlight" id="equation-eqn-merror">
+<span class="eqno">(10.8)<a class="headerlink" href="#equation-eqn-merror" title="公式的永久链接">#</a></span>\[
+y_{i}=\beta_{1}+\beta_{2}x_{i}^{*}+u_{i}
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\mathbb{E}\left[u_{i}|x_{i}^{*}\right]=0\)</span> 。 我们观察不到
 <span class="math notranslate nohighlight">\(x_{i}^{*}\)</span> ，但我们能观察到 <span class="math notranslate nohighlight">\(x_{i}\)</span>，它是 <span class="math notranslate nohighlight">\(x_{i}^{*}\)</span> 的测量值，
 并且它们的关系是 $<span class="math notranslate nohighlight">\(x_{i}=x_{i}^{*}+v_{i}\)</span><span class="math notranslate nohighlight">\(，其中
 \)</span>\mathbb{E}\left[v_{i}|x_{i}^{*},u_{i}\right]=0$。这种测量误差的公式被称为<strong>经典测量误差</strong> 。
-替换(<a class="reference external" href="#eq:measurement_error">[eq:measurement_error]</a>{reference-type=”ref”
-reference=”eq:measurement_error”}),</p>
+替换<a class="reference internal" href="#equation-eqn-merror">(10.8)</a>，</p>
 <div class="math notranslate nohighlight">
 \[
 y_{i}=\beta_{1}+\beta_{2}\left(x_{i}-v_{i}\right)+u_{i}=\beta_{1}+\beta_{2}x_{i}+e_{i}\label{eq:measurement_error2}
 \]</div>
-<p>中的不可观察的 <span class="math notranslate nohighlight">\(x_{i}^{*}\)</span>，
-其中 <span class="math notranslate nohighlight">\(e_{i}=u_{i}-\beta_{2}v_{i}\)</span>。<br />
+<p>中的不可观察的 <span class="math notranslate nohighlight">\(x_{i}^{*}\)</span>，其中 <span class="math notranslate nohighlight">\(e_{i}=u_{i}-\beta_{2}v_{i}\)</span>。<br />
 相关性:</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eqn-merror2">
+<span class="eqno">(10.9)<a class="headerlink" href="#equation-eqn-merror2" title="公式的永久链接">#</a></span>\[
 \mathbb{E}\left[x_{i}e_{i}\right]=\mathbb{E}\left[\left(x_{i}^{*}+v_{i}\right)\left(u_{i}-\beta_{2}v_{i}\right)\right]=-\beta_{2}\mathbb{E}\left[v_{i}^{2}\right]\neq0.
 \]</div>
-<p>OLS
-(<a class="reference external" href="#eq:measurement_error2">[eq:measurement_error2]</a>{reference-type=”ref”
-reference=”eq:measurement_error2”}) 不能提供一个一致的估计量。</p>
+<p>OLS<a class="reference internal" href="#equation-eqn-merror2">(10.9)</a> 不能提供一个一致的估计量。</p>
+</section>
+</div><div class="proof remark admonition" id="remark-8">
+<p class="admonition-title"><span class="caption-number">评注 10.3 </span></p>
+<section class="remark-content" id="proof-content">
 <p>或者，我们可以从线性投影系数的表达式来看上述经典测量误差问题。我们知道在
-(<a class="reference external" href="#eq:measurement_error">[eq:measurement_error]</a>{reference-type=”ref”
-reference=”eq:measurement_error”})
-<span class="math notranslate nohighlight">\(\beta_{2}^{\mathrm{infeasible}}=\mathrm{cov}\left[x_{i}^{*},y_{i}\right]/\mathrm{var}\left[x_{i}^{*}\right].\)</span>
+<a class="reference internal" href="#equation-eqn-merror">(10.8)</a>中 <span class="math notranslate nohighlight">\(\beta_{2}^{\mathrm{infeasible}}=\mathrm{cov}\left[x_{i}^{*},y_{i}\right]/\mathrm{var}\left[x_{i}^{*}\right].\)</span>
 相反，当我们对可观察的 <span class="math notranslate nohighlight">\(x_{i}\)</span> 回归 <span class="math notranslate nohighlight">\(y_{i}\)</span> 时，对应的线性投影系数为:</p>
 <div class="math notranslate nohighlight">
 \[
 \beta_{2}^{\mathrm{feasible}}=\frac{\mathrm{cov}\left[x_{i},y_{i}\right]}{\mathrm{var}\left[x_{i}\right]}=\frac{\mathrm{cov}\left[x_{i}^{*}+v_{i},y_{i}\right]}{\mathrm{var}\left[x_{i}^{*}+v_{i}\right]}=\frac{\mathrm{cov}\left[x_{i}^{*},y_{i}\right]}{\mathrm{var}\left[x_{i}^{*}\right]+\mathrm{var}\left[v_{i}\right]}.
 \]</div>
-<p>很明显，
-<span class="math notranslate nohighlight">\(|\beta_{2}^{\mathrm{feasible}}|\leq|\beta_{2}^{\mathrm{infeasible}}|\)</span>
+<p>很明显， <span class="math notranslate nohighlight">\(|\beta_{2}^{\mathrm{feasible}}|\leq|\beta_{2}^{\mathrm{infeasible}}|\)</span>
 对应的线性投影系数为 <span class="math notranslate nohighlight">\(\mathrm{var}\left[v_{i}\right]=0\)</span> （无测量误差）
 时成立。这称为由于测量误差引起的 <strong>衰减偏差</strong> 。</p>
-<p>接下来，我们给出两个方程组的例子，一个来自微观经济学，另一个来自宏观经济学。</p>
+</section>
+</div><p>接下来，我们给出两个方程组的例子，一个来自微观经济学，另一个来自宏观经济学。</p>
+<div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">例子 10.5 </span> (供给与需求)</p>
+<section class="example-content" id="proof-content">
 <p>设 <span class="math notranslate nohighlight">\(p_{i}\)</span> 和 <span class="math notranslate nohighlight">\(q_{i}\)</span> 为第 <span class="math notranslate nohighlight">\(i\)</span> 个市场上一个商品的对数价格和对数数量，并且它们在市场上是独立同分布的。
 我们对下面的这个需求曲线感兴趣</p>
-<div class="math notranslate nohighlight">
-\[
-p_{i}=\alpha_{d}-\beta_{d}q_{i}+e_{di}\label{eq:demand}
+<div class="math notranslate nohighlight" id="equation-eq-demand">
+<span class="eqno">(10.10)<a class="headerlink" href="#equation-eq-demand" title="公式的永久链接">#</a></span>\[
+p_{i}=\alpha_{d}-\beta_{d}q_{i}+e_{di}
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\beta_{d}\geq0\)</span> ； 以及以下这个供给曲线</p>
-<div class="math notranslate nohighlight">
-\[
-p_{i}=\alpha_{s}+\beta_{s}q_{i}+e_{si}\label{eq:supply}
+<div class="math notranslate nohighlight" id="equation-eq-supply">
+<span class="eqno">(10.11)<a class="headerlink" href="#equation-eq-supply" title="公式的永久链接">#</a></span>\[
+p_{i}=\alpha_{s}+\beta_{s}q_{i}+e_{si
 \]</div>
-<p>其中
-<span class="math notranslate nohighlight">\(\beta_{s}\geq0\)</span>。 我们使用一个简单的线性规范，以便系数 <span class="math notranslate nohighlight">\(\beta_{d}\)</span>
+<p>其中 <span class="math notranslate nohighlight">\(\beta_{s}\geq0\)</span>。 我们使用一个简单的线性规范，以便系数 <span class="math notranslate nohighlight">\(\beta_{d}\)</span>
 可以被解释为需求弹性，而 <span class="math notranslate nohighlight">\(\beta_{s}\)</span> 可以被解释为供给弹性。
 本科微观经济学课程教授确定性形式，但我们添加了一个误差项来处理数据。
 我们可以通过对 <span class="math notranslate nohighlight">\(q_{i}\)</span> 回归 <span class="math notranslate nohighlight">\(p_{i}\)</span> 来得到弹性吗？</p>
 <p>这两个方程可以被写成矩阵形式：</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-structural">
+<span class="eqno">(10.12)<a class="headerlink" href="#equation-eq-structural" title="公式的永久链接">#</a></span>\[\begin{split}
 \begin{pmatrix}1 &amp; \beta_{d}\\
 1 &amp; -\beta_{s}
 \end{pmatrix}\begin{pmatrix}p_{i}\\
@@ -720,17 +742,16 @@ q_{i}
 \alpha_{s}
 \end{pmatrix}+\begin{pmatrix}e_{di}\\
 e_{si}
-\end{pmatrix}.\label{eq:structural}
+\end{pmatrix}
 \end{split}\]</div>
 <p>微观经济学术语称
 <span class="math notranslate nohighlight">\(\left(p_{i},q_{i}\right)\)</span> 为内生变量，称
 <span class="math notranslate nohighlight">\(\left(e_{di},e_{si}\right)\)</span> 为外生变量。
-(<a class="reference external" href="#eq:structural">[eq:structural]</a>{reference-type=”ref”
-reference=”eq:structural”}) 是一个<em>结构方程</em>，因为它是由经济理论驱动的，
+<a class="reference internal" href="#equation-eq-structural">(10.12)</a> 是一个<strong>结构方程</strong>，因为它是由经济理论驱动的，
 因此系数具有经济意义。如果我们排除明显的情况 <span class="math notranslate nohighlight">\(\beta_{d}=\beta_{s}=0\)</span>，
 我们可以解出</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-reduced">
+<span class="eqno">(10.13)<a class="headerlink" href="#equation-eq-reduced" title="公式的永久链接">#</a></span>\[\begin{split}
 \begin{aligned}
 \begin{pmatrix}p_{i}\\
 q_{i}
@@ -749,20 +770,15 @@ e_{si}
 e_{si}
 \end{pmatrix}\right].\label{eq:reduced}\end{aligned}
 \end{split}\]</div>
-<p>这个方程
-(<a class="reference external" href="#eq:reduced">[eq:reduced]</a>{reference-type=”ref”
-reference=”eq:reduced”}) 被称为 <strong>简化形式</strong> ——内生变量被表示为关于参数和外生变量的显式函数。
+<p>这个方程<a class="reference internal" href="#equation-eq-reduced">(10.13)</a> 被称为 <strong>简化形式</strong> ——内生变量被表示为关于参数和外生变量的显式函数。
 特别地，</p>
 <div class="math notranslate nohighlight">
 \[
 q_{i}=\left(\alpha_{d}+e_{di}-\alpha_{s}-e_{si}\right)/\left(\beta_{s}+\beta_{d}\right)
 \]</div>
 <p>因此对数价格与 <span class="math notranslate nohighlight">\(e_{si}\)</span> 和 <span class="math notranslate nohighlight">\(e_{di}\)</span> 都相关。由于 <span class="math notranslate nohighlight">\(q_{i}\)</span> 在
-(<a class="reference external" href="#eq:demand">[eq:demand]</a>{reference-type=”ref”
-reference=”eq:demand”}) 或 (<a class="reference external" href="#eq:supply">[eq:supply]</a>{reference-type=”ref”
-reference=”eq:supply”}) 中是内生的（在计量经济学意义上），因此需求弹性和供给弹性都不能与
-<span class="math notranslate nohighlight">\(\left(p_{i},q_{i}\right)\)</span> 相同。确实，由于在(<a class="reference external" href="#eq:reduced">[eq:reduced]</a>{reference-type=”ref”
-reference=”eq:reduced”})中，</p>
+<a class="reference internal" href="#equation-eq-demand">(10.10)</a>或<a class="reference internal" href="#equation-eq-supply">(10.11)</a>中是内生的（在计量经济学意义上），因此需求弹性和供给弹性都不能与
+<span class="math notranslate nohighlight">\(\left(p_{i},q_{i}\right)\)</span> 相同。确实，由于在<a class="reference internal" href="#equation-eq-reduced">(10.13)</a>中，</p>
 <div class="math notranslate nohighlight">
 \[
 p_{i}=\left(\beta_{s}\alpha_{d}+\beta_{d}\alpha_{s}+\beta_{s}e_{di}+\beta_{d}e_{si}\right)/\left(\beta_{s}+\beta_{d}\right)
@@ -778,11 +794,15 @@ p_{i}=\left(\beta_{s}\alpha_{d}+\beta_{d}\alpha_{s}+\beta_{s}e_{di}+\beta_{d}e_{
 <p>这是供需系统的经典例子。结构参数无法被直接识别，因为观察到的
 <span class="math notranslate nohighlight">\(\left(p_{i},q_{i}\right)\)</span> 是均衡的结果——需求曲线和供给曲线的交叉点。
 为了识别需求曲线，我们需要一个仅移动供给曲线的工具；反之亦然。</p>
-<p>这是借用 Hayashi (2000, p.193) 的模型，但其源自 &#64;haavelmo1943statistical。
+</section>
+</div><div class="proof example admonition" id="example-10">
+<p class="admonition-title"><span class="caption-number">例子 10.6 </span> (凯恩斯型方程)</p>
+<section class="example-content" id="proof-content">
+<p>这是借用 Hayashi (2000, p.193) 的模型，但其源自<span id="id5">[<a class="reference internal" href="bibfile_place.html#id11" title="Trygve Haavelmo. The statistical implications of a system of simultaneous equations. Econometrica, Journal of the Econometric Society, pages 1–12, 1943.">Haavelmo, 1943</a>]</span>。
 一位计量经济学家想求出 <span class="math notranslate nohighlight">\(\beta_{2}\)</span>， 也就是凯恩斯型方程中的 <strong>边际消费倾向</strong> :</p>
-<div class="math notranslate nohighlight">
-\[
-C_{i}=\beta_{1}+\beta_{2}Y_{i}+u_{i}\label{eq:keynes}
+<div class="math notranslate nohighlight" id="equation-eq-keynes">
+<span class="eqno">(10.14)<a class="headerlink" href="#equation-eq-keynes" title="公式的永久链接">#</a></span>\[
+C_{i}=\beta_{1}+\beta_{2}Y_{i}+u_{i}
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(C_{i}\)</span> 是家庭消费，<span class="math notranslate nohighlight">\(Y_{i}\)</span> 是 GNP，而 <span class="math notranslate nohighlight">\(u_{i}\)</span> 是不可观察误差。
 但是，<span class="math notranslate nohighlight">\(Y_{i}\)</span> 和 <span class="math notranslate nohighlight">\(C_{i}\)</span> 通过一个会计等式连接（没有误差）</p>
@@ -830,23 +850,22 @@ I_{i}
 \beta_{1}+u_{i}+I_{i}
 \end{pmatrix}.\end{aligned}
 \end{split}\]</div>
-<p>OLS
-(<a class="reference external" href="#eq:keynes">[eq:keynes]</a>{reference-type=”ref”
-reference=”eq:keynes”}) 将不一致，因为在简化形式中，
+<p>OLS<a class="reference internal" href="#equation-eq-keynes">(10.14)</a>将不一致，因为在简化形式中，
 <span class="math notranslate nohighlight">\(Y_{i}=\frac{1}{1-\beta_{2}}\left(\beta_{1}+u_{i}+I_{i}\right)\)</span> 意味着
-<span class="math notranslate nohighlight">\(\mathbb{E}\left[Y_{i}u_{i}\right]=\mathbb{E}\left[u_{i}^{2}\right]/\left(1-\beta_{2}\right)\neq0\)</span>.</p>
+<span class="math notranslate nohighlight">\(\mathbb{E}\left[Y_{i}u_{i}\right]=\mathbb{E}\left[u_{i}^{2}\right]/\left(1-\beta_{2}\right)\neq0\)</span>。</p>
 </section>
-<section id="id5">
-<h2><span class="section-number">10.4. </span>总结<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
+</div></section>
+<section id="id6">
+<h2><span class="section-number">10.4. </span>总结<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <p>尽管我们经常处理具有潜在内生变量的单方程模型，但基础的结构系统可能涉及多个方程。
 联立方程模型是一种经典的计量经济学建模方法，它在结构经济研究中仍然得到积极应用。
 当我们的经济模型是“结构性”时，我们需要牢记一个因果机制。在这里我们不会像在第2章中
 那样通过对照组和治疗组来确定因果关系，而将会从经济结构的角度来看待因果关系。</p>
-<p><strong>历史注释</strong>: 工具最初出现在 Philip &#64;wright1928tariff 中，
+<p><strong>历史注释</strong>: 工具最初出现在<span id="id7">[<a class="reference internal" href="bibfile_place.html#id10" title="Philip G Wright. Tariff on animal and vegetable oils. Macmillan Company, New York, 1928.">Wright, 1928</a>]</span>中，
 用于识别内生变量的系数。这被认为是与Philip的儿子Sewall Wright合作产生的想法。
-供需分析归因于 &#64;working1927statistical，而测量误差研究来源于 &#64;fricsh1934statistical。</p>
-<p><strong>拓展阅读</strong>: 因果关系是计量经济学的圣杯。&#64;pearl2018book 是一本颇具哲理的畅销书。
-阅读它是一种享受。 [&#64;chen2011nonlinear] 是对现代非线性测量误差模型的一个文献综述。</p>
+供需分析归因于<span id="id8">[<a class="reference internal" href="bibfile_place.html#id9" title="Elmer J Working. What do statistical &quot;demand curves&quot; show? The Quarterly Journal of Economics, 41(2):212–235, 1927.">Working, 1927</a>]</span>，而测量误差研究来源于<span id="id9">[<a class="reference internal" href="bibfile_place.html#id8" title="R Fricsh. Statistical confluence study. Oslo: University Institute of Economics, 1934.">Fricsh, 1934</a>]</span>。</p>
+<p><strong>拓展阅读</strong>: 因果关系是计量经济学的圣杯。<span id="id10">[<a class="reference internal" href="bibfile_place.html#id12" title="Judea Pearl and Dana Mackenzie. The book of why: the new science of cause and effect. Basic Books, 2018.">Pearl and Mackenzie, 2018</a>]</span> 是一本颇具哲理的畅销书。
+阅读它是一种享受。<span id="id11">[<a class="reference internal" href="bibfile_place.html#id7" title="Xiaohong Chen, Han Hong, and Denis Nekipelov. Nonlinear models of measurement errors. Journal of Economic Literature, 49(4):901–37, 2011.">Chen <em>et al.</em>, 2011</a>]</span> 是对现代非线性测量误差模型的一个文献综述。</p>
 </section>
 </section>
 

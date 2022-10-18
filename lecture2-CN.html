@@ -525,8 +525,7 @@ title="Print to PDF"
 \[
 L(y,g(x))=(y-g(x))^2.
 \]</div>
-<p>是一种常见的损失函数。
-由于数据的随机性， 损失函数 <span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 也是随机的。这里的”随机”意味着不确定性， 即使在同一分布下，每次抽样也可能产生不同的结果。为了摆脱这种随机性的影响，我们根据联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 对损失函数取数学期望，得到 <span class="math notranslate nohighlight">\(R(y,g(x))=E[L(y,g(x))]\)</span>，我们将其称为<strong>风险</strong>。
+<p>是一种常见的损失函数。由于数据的随机性， 损失函数 <span class="math notranslate nohighlight">\(L(y,g(x))\)</span> 也是随机的。这里的”随机”意味着不确定性， 即使在同一分布下，每次抽样也可能产生不同的结果。为了摆脱这种随机性的影响，我们根据联合分布 <span class="math notranslate nohighlight">\((y,x)\)</span> 对损失函数取数学期望，得到 <span class="math notranslate nohighlight">\(R(y,g(x))=E[L(y,g(x))]\)</span>，我们将其称为<strong>风险</strong>。
 与损失函数不同，风险是一个确定性的量。与平方损失函数相对应的风险是 <strong>均方误差</strong> (mean square error，简记MSE)</p>
 <div class="math notranslate nohighlight">
 \[
@@ -672,9 +671,9 @@ E[y|x]=\mu_y+\rho\frac{\sigma_y}{\sigma_x}(x-\mu_x)=\left(\mu_y-\rho\frac{\sigma
 </div><div class="proof exercise admonition" id="exercise-4">
 <p class="admonition-title"><span class="caption-number">练习 2.1 </span></p>
 <section class="exercise-content" id="proof-content">
-<p>证明:
-(a) <span class="math notranslate nohighlight">\(E[xe]=0\)</span>
-(b) 若 <span class="math notranslate nohighlight">\(x\)</span> 中包含常数项，则 <span class="math notranslate nohighlight">\(E[e]=0\)</span></p>
+<p>证明:</p>
+<p>(a) <span class="math notranslate nohighlight">\(E[xe]=0\)</span></p>
+<p>(b) 若 <span class="math notranslate nohighlight">\(x\)</span> 中包含常数项，则 <span class="math notranslate nohighlight">\(E[e]=0\)</span></p>
 </section>
 </div><section id="id4">
 <h3><span class="section-number">2.2.1. </span>遗漏变量偏误<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
@@ -699,7 +698,7 @@ y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 \[
 \tilde{y}=\tilde{x}^{\prime}_1\gamma_1+\tilde{e}_{\gamma}.
 \]</div>
-<p>其中波浪上标表示零均值化的变量。</p>
+<p>其中上标波浪线“ <span class="math notranslate nohighlight">\(\tilde{\cdot}\)</span> ”表示将变量零均值化。</p>
 <div class="proof exercise admonition" id="exercise-5">
 <p class="admonition-title"><span class="caption-number">练习 2.2 </span></p>
 <section class="exercise-content" id="proof-content">
@@ -730,7 +729,7 @@ y=x^{\prime}_1\gamma_1+\gamma_2+e_{\gamma}.
 <h2><span class="section-number">2.3. </span>因果关系<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <section id="id6">
 <h3><span class="section-number">2.3.1. </span>结构与识别<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h3>
-<p>经济学被称为社会科学皇冠上的明珠， 常常被拿来与物理学这颗自然科学皇冠上的明珠进行对比。在开始本节内容之前， 我们对经济学与物理学进行一些对比， 以明确我们引入本节问题的必要性。回想一下那些耳熟能详的物理定律， 比如爱因斯坦的质能方程 <span class="math notranslate nohighlight">\(E=mc^{2}\)</span> ，和牛顿的万有引力公式 <span class="math notranslate nohighlight">\(F=Gm_1 m_2/r^2\)</span> 。这些物理学定律非常简洁明确， 体现着事物的一般规律。经济学中是否也有这样的规律呢? 遗憾的是，与物理学定律不同，经济现象很少能够像这样被简洁地描述。</p>
+<p>经济学被称为社会科学皇冠上的明珠， 常常被拿来与物理学这颗自然科学皇冠上的明珠进行对比。在开始本节内容之前， 我们对经济学与物理学进行一些对比， 以明确我们引入本节问题的必要性。回想一下那些耳熟能详的物理定律， 比如爱因斯坦的质能方程 <span class="math notranslate nohighlight">\(E=mc^{2}\)</span> ，和牛顿的万有引力公式 <span class="math notranslate nohighlight">\(F=Gm_1 m_2/r^2\)</span>。这些物理学定律非常简洁明确， 体现着事物的一般规律。经济学中是否也有这样的规律呢? 遗憾的是，与物理学定律不同，经济现象很少能够像这样被简洁地描述。</p>
 <p>在物理学中， 实验是验证物理定律的重要方式。在进行实验时，科学家们常常会通过一些精巧的设计来控制可能影响实验结果的其他因素，将噪声控制在可以忽略不计的水平上，使得实验的信噪比尽可能高。与之相反，经济学规律并不适合在实验室里进行实验。最糟糕的是，经济学研究的对象，人类，具有很强的异质性， 有许许多多难以控制的特征。对于同样的事件，来自不同文化和家庭背景的人可能会做出不同的反应。研究者很难对人们进行同质化的处理。总结来说，由于实验设置的缺陷与研究主体的异质性，经济学规律中的信噪比要显著低于物理学定律。</p>
 <p>我们再来回顾经济学中的两个经典课题: 教育回报与供求系统。要研究教育回报问题，我们需要控制其他因素对个人收入的影响，但一个人的收入由其学术与职业道路中无数的随机因素决定，经济学家不可能完美地观察并控制这些变量。在供求问题中，我们观察到的价格与市场总量是均衡的结果，因此需求和供给二者是互相影响的。我们该如何在复杂的经济学问题中识别出因果关系?</p>
 <p>但在讨论这个问题之前，有一个重要的问题: 何为因果关系? 实际上，因果关系本身的定义，也经过了许多代思想家的争论。在经济学中， <strong>结构因果关系</strong> (structural causality) 是一种可接受的定义。结构因果关系是一种思想实验，假设观察到的数据是由某一数据生成过程(DGP)生成的。如果我们能够用数据还原出DGP或者其某些特征，那么我们就能得到因果关系或者对因果关系下推论。</p>
@@ -761,7 +760,7 @@ D=1\{\text{treatment received}\}.
 \[
 ATE=E[Y(1)|D=1]-E[Y(0)|D=0].
 \]</div>
-<p>因此，为了得到ATE的估计，我们需要用类似于彩票的方式随机地决定哪些人进入处理组 (treatment group*，此时<span class="math notranslate nohighlight">\(D=1\)</span>)，哪些人进入控制组 (control group*，此时<span class="math notranslate nohighlight">\(D=0\)</span>)。</p>
+<p>因此，为了得到ATE的估计，我们需要用类似于彩票的方式随机地决定哪些人进入处理组(treatment group，此时<span class="math notranslate nohighlight">\(D=1\)</span>)，哪些人进入控制组(control group，此时<span class="math notranslate nohighlight">\(D=0\)</span>)。</p>
 <p>如果我们还有其它的控制变量，我们也可以进一步定义在条件 <span class="math notranslate nohighlight">\(x\)</span> 上的处置效应:</p>
 <div class="math notranslate nohighlight">
 \[

@@ -568,7 +568,7 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 <div class="proof remark admonition" id="remark-0">
 <p class="admonition-title"><span class="caption-number">评注 1.1 </span></p>
 <section class="remark-content" id="proof-content">
-<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域是允许可数 (countable) 个集合进行并集、差集和交集操作的封闭域。因为以上这些都是集合的代数计算，所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> 代数。</p>
+<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域是允许可数(countable)个集合进行并集、差集和交集操作的封闭域。因为以上这些都是集合的代数计算，所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> 代数。</p>
 </section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">例子 1.1 </span></p>
@@ -632,7 +632,7 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 X^{-1}\left(B\right)=\left\{ \omega\in\Omega:X\left(\omega\right)\in B\right\} \in\mathcal{F}
 \]</div>
 <p>公式 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span> (<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>)
-是 <strong>可测函数</strong> (<em>measurable function</em>)。 <strong>随机变量</strong> 是可测函数带有浪漫气息的别名。由 <strong>随机变量 <span class="math notranslate nohighlight">\(X\)</span> 生成的<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 被定义为
+是 <strong>可测函数</strong> (measurable function)。 <strong>随机变量</strong> 是可测函数带有浪漫气息的别名。由 <strong>随机变量 <span class="math notranslate nohighlight">\(X\)</span> 生成的<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 被定义为
 <span class="math notranslate nohighlight">\(\sigma\left(X\right)=\left\{ X^{-1}\left(B\right):B\in\mathcal{R}\right\}\)</span> 。</p>
 <p>如果<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>是有限的或者可数的，
 我们将这样的可测函数称为<strong>离散性随机变量</strong>。如果集合<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>
@@ -651,8 +651,7 @@ P_{X}\left(B\right)=P\left(X^{-1}\left(B\right)\right)
 </section>
 <section id="id5">
 <h3><span class="section-number">1.1.3. </span>分布函数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
-<p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。<strong>累积分布函数</strong>
-（cumulative distribution function，简记CDF） <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
+<p>我们回溯一下几个在本科概率论课程上曾经接触过的概念。<strong>累积分布函数</strong>(cumulative distribution function，简记CDF) <span class="math notranslate nohighlight">\(F:\mathbb{R}\mapsto[0,1]\)</span> 被定义为</p>
 <div class="math notranslate nohighlight">
 \[
 F\left(x\right)=P\left(X\leq x\right)=P\left(\{X\leq x\}\right)=P\left(\left\{ \omega\in\Omega:X\left(\omega\right)\leq x\right\} \right).
@@ -681,7 +680,7 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">例子 1.3 </span></p>
 <section class="example-content" id="proof-content">
-<p>我们已经学过了许多的参数分布,比如二元分布、泊松分布、均匀分布、指数分布和正态分布, <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
+<p>我们已经学过了许多的参数分布，比如二元分布、泊松分布、均匀分布、指数分布和正态分布, <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
 </section>
 </div></section>
 </section>
@@ -735,7 +734,7 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 都是徒劳了)，但是期望能够告诉我们随机变量的均值。在频率论者的视角里，期望等于我们进行了大样本的实验后得出结果的均值。</p>
 <p>如果我们知道了一个离散型随机变量的概率质量函数(probability mass function),它的期望就是 <span class="math notranslate nohighlight">\(E\left[X\right]=\sum_{x}xP\left(X=x\right)\)</span> ，也就是一个简单函数的积分。如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
 <span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。这两个表达式被勒贝格
-积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span> 。</p>
+积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span>。</p>
 </section>
 <section id="id8">
 <h3><span class="section-number">1.2.2. </span>期望的性质<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
@@ -743,11 +742,9 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <ul>
 <li><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 的概率是指示函数的期望：
 <span class="math notranslate nohighlight">\(E\left[1\left\{ A\right\} \right]=1\times P(A)+0\times P(A^{c})=P\left(A\right)\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为 <span class="math notranslate nohighlight">\(X\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩。一个随机变量的<strong>均值</strong>
-是其一阶矩 <span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span> ；而二阶 <strong>中心</strong> 矩叫做 <span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span>
-方差。</p>
+<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为 <span class="math notranslate nohighlight">\(X\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩。一个随机变量的<strong>均值</strong>是其一阶矩 <span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span> ；而二阶 <strong>中心</strong> 矩叫做 <span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span> 方差。</p>
 <p>三阶中心矩 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{3}\right]\)</span> 称为<strong>偏度</strong>,
-用于衡量随机变量的对称性；四阶矩 <strong>峰度</strong>
+用于衡量随机变量的对称性；四阶矩<strong>峰度</strong>
 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{4}\right]\)</span> 则用来体现尾部厚度。</p>
 </li>
 <li><p>矩条件不一定存在。例如，柯西分布就不存在均值；<span class="math notranslate nohighlight">\(t(2)\)</span> 分布不存在方差。</p></li>
@@ -759,7 +756,7 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 例如， <span class="math notranslate nohighlight">\(x^{2}\)</span> 是一个凸函数。詹森不等式说明如果
 <span class="math notranslate nohighlight">\(\varphi\left(\cdot\right)\)</span> 是一个凸函数，那么
 <span class="math notranslate nohighlight">\(\varphi\left(E\left[X\right]\right)\leq E\left[\varphi\left(X\right)\right]。\)</span></p></li>
-<li><p><strong>Markov不等式</strong> 是另一个简单但是重要的事实。如果
+<li><p><strong>Markov不等式</strong>是另一个简单但是重要的事实。如果
 <span class="math notranslate nohighlight">\(E\left[\left|X\right|^{r}\right]\)</span> 存在，那么对于所有的<span class="math notranslate nohighlight">\(r\geq1\)</span>都有
 <span class="math notranslate nohighlight">\(P\left(\left|X\right|&gt;\epsilon\right)\leq E\left[\left|X\right|^{r}\right]/\epsilon^{r}\)</span>。
 <strong>Chebyshev不等式</strong>
@@ -779,14 +776,14 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <h2><span class="section-number">1.3. </span>多元随机变量<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <p>二元随机变量是
 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span> 上的映射。我们可以由此推广到多元的随机变量。
-<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span> 。 我们可以定义 <strong>联合CDF</strong> 为
+<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span> 。 我们可以定义<strong>联合CDF</strong>为
 <span class="math notranslate nohighlight">\(F\left(x_{1},\ldots,x_{n}\right)=P\left(X_{1}\leq x_{1},\ldots,X_{n}\leq x_{n}\right)\)</span> 。
 联合PDF的定义与之类似。</p>
 <p>我们有必要了解一下二元变量的联合分布、条件分布和边际分布，然后我们就可以将二元的情况推广到多元分布。假设二元随机变量
 <span class="math notranslate nohighlight">\((X,Y)\)</span> 有一个联合密度函数 <span class="math notranslate nohighlight">\(f(\cdot,\cdot)\)</span>。如果我们暂时忽略
-<span class="math notranslate nohighlight">\(f(x)=0\)</span> 的特殊情况，那么我们可以将它的 <strong>条件密度</strong> 简略地写成
+<span class="math notranslate nohighlight">\(f(x)=0\)</span> 的特殊情况，那么我们可以将它的<strong>条件密度</strong>简略地写成
 <span class="math notranslate nohighlight">\(f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)\)</span>
-。二元变量的 <strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
+。二元变量的<strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
 则是把我们不感兴趣的那一个变量通过积分使它不再成为函数中的一个变量。</p>
 <section id="id10">
 <h3><span class="section-number">1.3.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h3>
@@ -800,8 +797,7 @@ P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
 <p>在条件概率的定义中, <span class="math notranslate nohighlight">\(A_{2}\)</span>
 扮演了结果空间的角色，所以 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})\)</span> 被 <span class="math notranslate nohighlight">\(P(A_{2})\)</span>的值标准化了。
 如果 <span class="math notranslate nohighlight">\(P(A_{2})=0\)</span>，
-在部分的案例中，条件概率公式依然使用，但是在这种情况下，我们需要介绍两个测度之间的
-<strong>支配与被支配关系</strong> (dominating and dominated)，我们在此不打算细谈。</p>
+在部分的案例中，条件概率公式依然使用，但是在这种情况下，我们需要介绍两个测度之间的<strong>支配与被支配关系</strong> (dominating and dominated)，我们在此不打算细谈。</p>
 <p>既然 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是对称的,我们还能得出
 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span> ,它表明了</p>
 <div class="math notranslate nohighlight">
@@ -824,7 +820,7 @@ P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\
 <h3><span class="section-number">1.3.3. </span>期望迭代法则<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
 <p>给定 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ，<strong>子 <span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong>
 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 满足条件 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> 的 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
-<span class="math notranslate nohighlight">\(Y\)</span> 。<strong>条件期望</strong> <span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span> 被定义为
+<span class="math notranslate nohighlight">\(Y\)</span>。<strong>条件期望</strong> <span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span> 被定义为
 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>-可测函数，使得对于所有的 <span class="math notranslate nohighlight">\(A\in\mathcal{G}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
