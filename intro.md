@@ -34,13 +34,14 @@ Git的命令行界面相对于大学提供的封闭内部教学系统，修改�
 是否能在概率总体中识别模型参数等一系列问题。
 但是，我们不会涉及如何发掘有研究价值的经济学问题，
 如何获得数据，如何开展实证分析。这些不是我的专长。
+如今学科分工日见精细，我只能教授我理解的部分。
 
 
 
 ## 许可协议
 
 本讲义采用
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa] (CC By-NC-SA 4.0) 许可协议. [[中文协议内容](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)]
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](cc-by-nc-sa) (CC By-NC-SA 4.0) 许可协议. [[中文协议内容](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)]
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
@@ -49,6 +50,12 @@ Git的命令行界面相对于大学提供的封闭内部教学系统，修改�
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
 ---
+
+## 内容
+
+网上写作是不断更新的有生命力的过程。
+目前，每个章节的完成程度不一。
+前面的章节相对比较完整，后面的则较为简略。
 
 ```{tableofcontents}
 ```
@@ -88,8 +95,8 @@ Git的命令行界面相对于大学提供的封闭内部教学系统，修改�
 ## 引言
 
 随着大数据时代的到来,
-计算机科学家们不断提出新的算法来解释数据背后的规律。**机器学习** 和 **人工智能**
-早已变成了家喻户晓的热词。
+计算机科学家们不断提出新的算法来解释数据背后的规律。
+**机器学习**和**人工智能**早已变成了家喻户晓的热词。
 它们在当代的社会中扮演了各种功能，它们推动生产自动化，实现汽车的无人驾驶，精准识别人脸且在网上消费时为你提供个性化推荐。
 事实上，许多项目的成功都应该归功于统计学理论,
 统计学又是在概率论的基础上发展起来的。
