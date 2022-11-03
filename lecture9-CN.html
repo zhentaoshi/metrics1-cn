@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="10. 内生性" href="lecture10-CN.html" />
+    <link rel="next" title="10. 数据实例" href="real-data_2.html" />
     <link rel="prev" title="8. 假设检验" href="lecture8-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
@@ -159,18 +159,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data_2.html">
+   10. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   10. 内生性
+   11. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   11. 广义矩估计
+   12. 广义矩估计
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bibfile_place.html">
-   12. 参考文献
+   13. 参考文献
   </a>
  </li>
 </ul>
@@ -440,69 +445,77 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">9. </span>面板数据<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>经济学家们通常与可观测的数据打交道。但是数据生成的过程往往不受研究人员的控制。
-如果我们的手上只有横截面数据，那么处理个体间的异质性问题将会变得非常棘手。因此从另一角度来说，
+<p>如果我们的手上只有横截面数据，那么处理个体间的异质性问题将会变得非常棘手。
 面板数据为我们处理在某些情况下的异质性问题提供了机会。</p>
 <p>一个面板数据沿着时间维度 <span class="math notranslate nohighlight">\(t=1,\ldots,T\)</span> 观测同一个个体。
-简单起见，我们假设 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> 的各个样本点都是独立的。(今年有文献处理面板数据在横截面行的相关性。方法相对复杂。)
-但是我们允许对于同一个 <span class="math notranslate nohighlight">\(i\)</span> ，沿着 <span class="math notranslate nohighlight">\(t=1,\ldots,T\)</span> 得到的组内数据存在一定程度上相互依赖。
+简单起见，我们假设 <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span> 的各个样本点都是独立的。(近年有文献处理面板数据在横截面上的相关性，方法相对复杂。本章只讲经典方法)
+对于同一个 <span class="math notranslate nohighlight">\(i\)</span>，我们允许沿着 <span class="math notranslate nohighlight">\(t=1,\ldots,T\)</span> 得到的组内数据存在相依性。
 我们有线性回归方程：</p>
 <div class="math notranslate nohighlight" id="equation-eq-basic-eq">
 <span class="eqno">(9.1)<a class="headerlink" href="#equation-eq-basic-eq" title="公式的永久链接">#</a></span>\[
 y_{it}=\beta_{1}+x_{it}'\beta_{2}+u_{it},\ i=1,\ldots,n;t=1,\ldots,T
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 被称之为<strong>复合误差</strong> (composite error)。
-需要注意的是： <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 是不随时间变化的不可观测的异质性。而 <span class="math notranslate nohighlight">\(\epsilon_{it}\)</span> 则是在不同个体和时期间都不相同。</p>
-<p>面板数据回归中，最重要的方法就是固定效应回归和随机效应回归。两种估计的渐近分布都可以从OLS回归的知识中衍生出来。因此，面板数据估计是我们这门课程中学到的知识的一个很好的应用。它是计量经济学中基础线性回归部分的最重要的一块。</p>
+需要注意的是： <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 是个体 <span class="math notranslate nohighlight">\(i\)</span> 不随时间变化的不可观测的异质性，而 <span class="math notranslate nohighlight">\(\epsilon_{it}\)</span> 则在不同个体 <span class="math notranslate nohighlight">\(i\)</span> 和不同时期 <span class="math notranslate nohighlight">\(t\)</span> 都在变化。</p>
+<p>面板数据回归中，最重要的方法就是固定效应回归和随机效应回归。两种估计的渐近分布都可以从OLS回归的知识中衍生出来。因此，面板数据估计是我们这门课程中学到的知识的一个很好的应用。</p>
 <section id="id2">
 <h2><span class="section-number">9.1. </span>固定效应<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
-<p>无法观测的个体异质性 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 被复合误差 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 包含在内。如果 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，OLS估计是相合的，否则就不符合相合性。固定效应模型允许 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 之间存在任意的相关性。让我们把<a class="reference internal" href="#equation-eq-basic-eq">(9.1)</a>重新写为</p>
+<p>复合误差 <span class="math notranslate nohighlight">\(u_{it}=\alpha_{i}+\epsilon_{it}\)</span> 包含无法观测的个体异质性 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span>。如果 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，OLS估计是相合的，否则就不相合。固定效应模型允许 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 之间存在任意的相关性。让我们把<a class="reference internal" href="#equation-eq-basic-eq">(9.1)</a>重新写为</p>
 <div class="math notranslate nohighlight" id="equation-eq-basic-eq2">
 <span class="eqno">(9.2)<a class="headerlink" href="#equation-eq-basic-eq2" title="公式的永久链接">#</a></span>\[
 y_{it}=w_{it}'\boldsymbol{\beta}+u_{it}
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\boldsymbol{\beta}=\left(\beta_{1},\beta_{2}'\right)'\)</span> 而且
-<span class="math notranslate nohighlight">\(w_{it}=\left(1,x_{it}'\right)'\)</span> 是 <span class="math notranslate nohighlight">\(K+1\)</span> 的向量。<br />
+<span class="math notranslate nohighlight">\(w_{it}=\left(1,x_{it}'\right)'\)</span> 是 <span class="math notranslate nohighlight">\(K+1\)</span> 的向量。
 <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> 是包括截距的参数, 而
 <span class="math notranslate nohighlight">\(w_{it}\)</span> 是包括常数项的解释变量。</p>
-<p>如果有 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)\neq0\)</span>，那么在<a class="reference internal" href="#equation-eq-basic-eq2">(9.2)</a>里进行OLS估计时会得到不一致的估计结果。</p>
-<p>简单地在固定效应模型中应用OLS估计是不能实现相合性的。为了获得相合性，我们需要消去 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 。在这一部分，我们研究组内估计量（默认的固定效应估计量）的渐近分布和相合性。组内估计用对应的每组均值提取出所有可观测的变量，对于原回归中所有的 <span class="math notranslate nohighlight">\(i\)</span> ,计算所有 <span class="math notranslate nohighlight">\(T\)</span> 等式的均值，我们就能得到：</p>
+<div class="proof exercise admonition" id="exercise-0">
+<p class="admonition-title"><span class="caption-number">练习 9.1 </span></p>
+<section class="exercise-content" id="proof-content">
+<p>如果 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)\neq0\)</span>，证明在<a class="reference internal" href="#equation-eq-basic-eq2">(9.2)</a>里进行OLS估计时会得到不相合的估计结果。</p>
+</section>
+</div><p>简单地在固定效应模型中应用OLS估计是不能实现相合性的。为了获得相合性，我们需要消去 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span>。在这一部分，我们研究组内估计量(默认的固定效应估计量)的渐近分布和相合性。组内估计量(within-group estimator)又被称为固定效应(fixed effect, FE)估计量。对于原回归中每个 <span class="math notranslate nohighlight">\(i\)</span>，计算 <span class="math notranslate nohighlight">\(T\)</span> 个等式取均值，我们就能得到：</p>
 <div class="math notranslate nohighlight">
 \[
 \overline{y}_{i}=\beta_{1}+\overline{x}_{i}'\beta_{2}+\bar{u}_{it}=\beta_{1}+\overline{x}_{i}'\beta_{2}+\alpha_{i}+\bar{\epsilon}_{it}.
 \]</div>
-<p>该式满足：<span class="math notranslate nohighlight">\(\overline{y}_{i}=\frac{1}{T}\sum_{t=1}^{T}y_{it}\)</span> <br />
+<p>其中 <span class="math notranslate nohighlight">\(\overline{y}_{i}=\frac{1}{T}\sum_{t=1}^{T}y_{it}\)</span>。
 从原式中提取出这些平均后的等式就能得到：</p>
 <div class="math notranslate nohighlight">
 \[
 \tilde{y}_{it}=\tilde{x}_{it}'\beta_{2}+\tilde{\epsilon}_{it}
 \]</div>
-<p>其中 <span class="math notranslate nohighlight">\(\tilde{y}_{it}=y_{it}-\overline{y}_{i}\)</span> 。<br />
-我们使用除去平均值后的数据进行OLS回归，就能得到我们需要的组间估计量。</p>
+<p>其中 <span class="math notranslate nohighlight">\(\tilde{y}_{it}=y_{it}-\overline{y}_{i}\)</span>。我们使用去除平均值后的数据进行OLS回归，就能得到我们需要的组内估计量。</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}_{2}^{FE}=\left(\tilde{X}'\tilde{X}\right)^{-1}\tilde{X}'\tilde{y},
 \]</div>
-<p>其中 <span class="math notranslate nohighlight">\(\tilde{y}=\left(y_{it}\right)_{i,t}\)</span> 把所有的 <span class="math notranslate nohighlight">\(nT\)</span> 观测值都放到一个向量中。和它有类似定义的 <span class="math notranslate nohighlight">\(\tilde{X}\)</span> 是 <span class="math notranslate nohighlight">\(nT\times K\)</span> 矩阵，
+<p>其中 <span class="math notranslate nohighlight">\(\tilde{y}=\left(y_{it}\right)_{i,t}\)</span> 把所有的 <span class="math notranslate nohighlight">\(nT\)</span> 个观测值都放到一个向量中。和它有类似定义的 <span class="math notranslate nohighlight">\(\tilde{X}\)</span> 是 <span class="math notranslate nohighlight">\(nT\times K\)</span> 矩阵，
 且 <span class="math notranslate nohighlight">\(K\)</span> 是 <span class="math notranslate nohighlight">\(\beta_{2}\)</span> 的维数。</p>
-<p>我们都知道，如果
-<span class="math notranslate nohighlight">\(E\left[\tilde{\epsilon}_{it}|\tilde{x}_{it}\right]=0\)</span> 那么OLS估计是相合的。接下来我们会介绍相合性的一个充分条件，我们称之为
+<p>我们都知道，
+<span class="math notranslate nohighlight">\(E\left[\tilde{\epsilon}_{it}x_{it}\right]=0\)</span> 是OLS估计相合性的充分条件。接下来我们会介绍相合性的一个更强的充分条件，我们称之为
 <strong>严格外生性</strong>。</p>
-<p><strong>假设 FE.1</strong> <span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},\mathbf{x}_{i}\right]=0\)</span>，其中 <span class="math notranslate nohighlight">\(\mathbf{x}_{i}=\left(x_{i1},\ldots,x_{iT}\right)\)</span></p>
-<p>相对于异质性 <span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},x_{it}\right]=0\)</span> ，FE.1是更加严格的假设。因为它假设误差 <span class="math notranslate nohighlight">\(\epsilon_{it}\)</span> 均值独立于过去、现在和将来所有的解释变量。通常当我们讨论面板数据里的相合性时，我们一般指的是当 <span class="math notranslate nohighlight">\(T\)</span> 固定时， <span class="math notranslate nohighlight">\(n\to\infty\)</span> 。这种渐近的方法只对于时间变量较少但是个体数较大的面板数据集有效。</p>
-<p><strong>结论</strong></p>
-<p>如果FE.1成立，那么 <span class="math notranslate nohighlight">\(\widehat{\beta}_{2}^{FE}\)</span> 是相合估计量。<br />
-固定效应估计量的方差估计比较棘手。为了简化计算，我们假设其同方差。如果违背了这种假设，方差渐近的形式将会改变，但是渐近的正态性不会受到影响。</p>
-<p><strong>假设 FE.2</strong> 对于所有的 <span class="math notranslate nohighlight">\(i\)</span> ,都有<span class="math notranslate nohighlight">\(\mathrm{var}\left(\epsilon_{i}|\alpha_{i},\mathbf{x}_{i}\right)=\sigma_{\epsilon}^{2}I_{T}\)</span> 。</p>
-<p>在 FE.1 和 FE.2 假设下：
-<span class="math notranslate nohighlight">\(\widehat{\sigma}_{\epsilon}^{2}=\frac{1}{n\left(T-1\right)}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{\tilde{\epsilon}}_{it}^{2}\)</span> 是  <span class="math notranslate nohighlight">\(\sigma_{\epsilon}^{2}\)</span> 的相合估计量，其中的 <span class="math notranslate nohighlight">\(\widehat{\tilde{\epsilon}}=\tilde{y}_{it}-\tilde{x}_{it}'\widehat{\beta}_{2}^{FE}\)</span> 。</p>
-<p>值得注意的是，分母是 <span class="math notranslate nohighlight">\(n\left(T-1\right)\)</span> 而不是 <span class="math notranslate nohighlight">\(nT\)</span> 。从FWL定理( Frisch-Waugh-Lovell theorem ) 中我们就能看出改变自由度的必要性：斜率系数的FE估计量与每一个横截面数据带有虚拟变量的回归的对应的部分在数值上相等。</p>
-<p>如果FE.1和FE.2成立，那么：</p>
+<div class="proof assumption admonition" id="strictex">
+<p class="admonition-title"><span class="caption-number">假设 9.1 </span> (严格外生性)</p>
+<section class="assumption-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},\mathbf{x}_{i}\right]=0\)</span>，其中 <span class="math notranslate nohighlight">\(\mathbf{x}_{i}=\left(x_{i1},\ldots,x_{iT}\right)\)</span>。</p>
+</section>
+</div><p>相对于异质性 <span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},x_{it}\right]=0\)</span> ，<a class="reference internal" href="#strictex">严格外生性</a>更为严格。因为它假设了误差 <span class="math notranslate nohighlight">\(\epsilon_{it}\)</span> 的条件均值独立于过去、现在和将来所有的解释变量。通常当我们讨论面板数据里的相合性时，我们一般指的是当 <span class="math notranslate nohighlight">\(T\)</span> 固定时，个数数量 <span class="math notranslate nohighlight">\(n\to\infty\)</span> 。这种渐近框架只适用于时间变量较少但是个体数较大的面板数据集。</p>
+<p>如果<a class="reference internal" href="#strictex">严格外生性</a>成立，那么 <span class="math notranslate nohighlight">\(\widehat{\beta}_{2}^{FE}\)</span> 是相合估计量。
+固定效应估计量的方差估计比较棘手。为了简化计算，我们假设同方差。如果违背了这种假设，方差渐近的形式将会改变，但是渐近正态性不会受到影响。</p>
+<div class="proof assumption admonition" id="homo">
+<p class="admonition-title"><span class="caption-number">假设 9.2 </span> (同方差)</p>
+<section class="assumption-content" id="proof-content">
+<p>对于所有的 <span class="math notranslate nohighlight">\(i\)</span> ,都有<span class="math notranslate nohighlight">\(\mathrm{var}\left(\epsilon_{i}|\alpha_{i},\mathbf{x}_{i}\right)=\sigma_{\epsilon}^{2}I_{T}\)</span> 。</p>
+</section>
+</div><p>在<a class="reference internal" href="#strictex">严格外生性</a>和<a class="reference internal" href="#homo">同方差</a>假设下, <span class="math notranslate nohighlight">\(\widehat{\sigma}_{\epsilon}^{2}=\frac{1}{n\left(T-1\right)}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{\tilde{\epsilon}}_{it}^{2}\)</span> 是 <span class="math notranslate nohighlight">\(\sigma_{\epsilon}^{2}\)</span> 的相合估计量，其中<span class="math notranslate nohighlight">\(\widehat{\tilde{\epsilon}}=\tilde{y}_{it}-\tilde{x}_{it}'\widehat{\beta}_{2}^{FE}\)</span>。</p>
+<p>值得注意的是，这里的分母是 <span class="math notranslate nohighlight">\(n\left(T-1\right)\)</span> 而不是 <span class="math notranslate nohighlight">\(nT\)</span>。从FWL定理(Frisch-Waugh-Lovell theorem)中我们就能看出改变自由度的必要性：斜率系数的固定效应估计量与每一个横截面数据带有虚拟变量的回归的对应的部分在数值上相等。</p>
+<p>如果<a class="reference internal" href="#strictex">严格外生性</a>和<a class="reference internal" href="#homo">同方差</a>成立，那么：</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\widehat{\sigma}_{\epsilon}^{2}\left(\tilde{X}'\tilde{X}\right)^{-1}\right)^{-1/2}\left(\widehat{\beta}_{2}^{FE}-\beta_{2}^{0}\right)\stackrel{d}{\to}N\left(0,I_{K}\right).
 \]</div>
-<p>用 <span class="math notranslate nohighlight">\(M_{\iota}=I_{T}-\frac{1}{T}\iota_{T}\iota_{T}'\)</span> 去除组内均值，而且 <span class="math notranslate nohighlight">\(M=I_{n}\otimes M_{\iota}\)</span> 。(”<span class="math notranslate nohighlight">\(\otimes\)</span>” 是克罗内克积 <em>Kronecker product</em> 的表示符号)。FE估计量可以被直接写作为：</p>
+<p>用 <span class="math notranslate nohighlight">\(M_{\iota}=I_{T}-\frac{1}{T}\iota_{T}\iota_{T}'\)</span> 去除组内均值，而且 <span class="math notranslate nohighlight">\(M=I_{n}\otimes M_{\iota}\)</span> 。(<span class="math notranslate nohighlight">\(\otimes\)</span> 表示Kronecker积)。固定效应估计量可以被直接写作为：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\beta}_{2}^{FE}=\left(\tilde{X}'\tilde{X}\right)^{-1}\tilde{X}'\tilde{Y}=\left(X'MX\right)^{-1}X'MY.
@@ -534,35 +547,41 @@ y_{it}=w_{it}'\boldsymbol{\beta}+u_{it}
 <p>虽然往往在现实中我们只能观测到 <span class="math notranslate nohighlight">\(\widehat{\tilde{\epsilon}}_{it}\)</span> ，我们可以证明 <span class="math notranslate nohighlight">\(\widehat{\tilde{\epsilon}}_{it}\)</span> 和 <span class="math notranslate nohighlight">\(\tilde{\epsilon}_{it}\)</span> 之间的估计误差是可以忽略的，从而可以根据大数定律得到方差的相合估计量：</p>
 <div class="math notranslate nohighlight">
 \[
-\widehat{\sigma}_{\epsilon}^{2}=\frac{1}{n\left(T-1\right)}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{\tilde{\epsilon}}_{it}^{2}\stackrel{d}{\to}\frac{1}{n\left(T-1\right)}E\left[\sum_{i=1}^{n}\sum_{t=1}^{T}\tilde{\epsilon}_{it}^{2}\right]=\sigma_{\epsilon}^{2}
+\widehat{\sigma}_{\epsilon}^{2}=\frac{1}{n\left(T-1\right)}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{\tilde{\epsilon}}_{it}^{2}\stackrel{p}{\to}\frac{1}{n\left(T-1\right)}E\left[\sum_{i=1}^{n}\sum_{t=1}^{T}\tilde{\epsilon}_{it}^{2}\right]=\sigma_{\epsilon}^{2}
 \]</div>
-<p>我们隐含了可以使用大数定律和中心极限定理的正则条件，在此我们忽略这些技术细节。值得注意的是，在FE中减去组间均值会使得模型消去所有不随时间变化的解释变量，包括截距项。因此，我们不能从固定效应模型中得到这些不随时间变化的变量的系数的估计值。</p>
+<p>以上表达式隐含了可以使用大数定律和中心极限定理的条件，在此我们忽略这些技术细节。值得注意的是，在固定效应中减去组间均值会使得模型消去所有不随时间变化的解释变量，包括截距项。因此，我们不能从固定效应模型中得到这些不随时间变化的变量的系数估计值。</p>
 </section>
 <section id="id3">
 <h2><span class="section-number">9.2. </span>随机效应<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h2>
-<p>随机效应模型追求特殊情况 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> 的有效性。正如之前提到的，如果 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 不相关，那么固定效应模型是相合的。然而，协方差表明OLS不满足 <strong>有效性</strong> 。我们依然从最初的模型开始，并提出假设;</p>
-<p><strong>假设 RE.1</strong>
-<span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},\mathbf{x}_{i}\right]=0\)</span> 以及
+<p>随机效应模型追求特殊情况 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> 下的有效性。正如之前提到的，如果 <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> 和 <span class="math notranslate nohighlight">\(x_{it}\)</span> 不相关，那么固定效应模型是相合的。然而，协方差表明OLS不满足 <strong>有效性</strong> 。我们依然从最初的模型开始：</p>
+<div class="proof assumption admonition" id="RE1">
+<p class="admonition-title"><span class="caption-number">假设 9.3 </span> (随机效应-1)</p>
+<section class="assumption-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(E\left[\epsilon_{it}|\alpha_{i},\mathbf{x}_{i}\right]=0\)</span> 以及
 <span class="math notranslate nohighlight">\(E\left[\alpha_{i}|\mathbf{x}_{i}\right]=0\)</span></p>
-<p>RE.1 显然能够推出 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，因此：</p>
+</section>
+</div><p><a class="reference internal" href="#RE1">随机效应-1</a> 显然能够推出 <span class="math notranslate nohighlight">\(\mathrm{cov}\left(\alpha_{i},x_{it}\right)=0\)</span> ，因此：</p>
 <div class="math notranslate nohighlight">
 \[
 S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T}\mathbf{1}_{T}'+\sigma_{\epsilon}^{2}I_{T},\ \forall i=1,\ldots,n.
 \]</div>
-<p>因为协方差矩阵不能用单位矩阵通过标量乘法运算得到，所以OLS不存在有效性。</p>
-<p>正如之前提到的，固定效应估计会消去所有不随时间变化的回归量。与之相对，随机效应允许不随时间变化的解释变量存在。<br />
-不可行的GLS估计量是：</p>
+<p>因为协方差矩阵不能用单位矩阵乘以某个常数的形式得到，Gauss-Markov定理不再成立，所以OLS不是有效的。</p>
+<p>正如之前提到的，固定效应估计会消去所有不随时间变化的回归量。与之相对，随机效应允许不随时间变化的解释变量存在。
+不可行(infeasible)的广义最小二乘估计(Generalized Least Squares, GLS)估计量是：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\boldsymbol{\beta}}_{\mathrm{infeasible}}^{RE}=\left(\sum_{i=1}^{n}\mathbf{w}_{i}'S^{-1}\mathbf{w}_{i}\right)^{-1}\sum_{i=1}^{n}\mathbf{w}_{i}'S^{-1}\mathbf{y}_{i}=\left(W'\mathbf{S}^{-1}W\right)^{-1}W'\mathbf{S}^{-1}y
 \]</div>
 <p>其中 <span class="math notranslate nohighlight">\(\mathbf{S}=I_{T}\otimes S\)</span> 。在现实中，<span class="math notranslate nohighlight">\(S\)</span> 中的 <span class="math notranslate nohighlight">\(\sigma_{\alpha}^{2}\)</span>
-和 <span class="math notranslate nohighlight">\(\sigma_{\epsilon}^{2}\)</span> 都是未知的，所以我们需要寻找对应的相合估计量。同样地，我们提出一个与FE.2对应的假设。</p>
-<p><strong>假设 RE.2</strong>
-<span class="math notranslate nohighlight">\(\mathrm{var}\left(\epsilon_{i}|\mathbf{x}_{i},\alpha_{i}\right)=\sigma_{\epsilon}^{2}I_{T}\)</span>
+和 <span class="math notranslate nohighlight">\(\sigma_{\epsilon}^{2}\)</span> 都是未知的，所以我们需要寻找对应的相合估计量。同样地，我们提出一个与<a class="reference internal" href="#homo">固定效应的同方差</a>对应的假设。</p>
+<div class="proof assumption admonition" id="RE2">
+<p class="admonition-title"><span class="caption-number">假设 9.4 </span> (随机效应-2)</p>
+<section class="assumption-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\mathrm{var}\left(\epsilon_{i}|\mathbf{x}_{i},\alpha_{i}\right)=\sigma_{\epsilon}^{2}I_{T}\)</span>
 和
 <span class="math notranslate nohighlight">\(\mathrm{var}\left(\alpha_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}.\)</span></p>
-<p>在这个假设之下，我们可以从残差 <span class="math notranslate nohighlight">\(\widehat{u}_{it}=y_{it}-x_{it}'\widehat{\boldsymbol{\beta}}^{RE}\)</span> 中相合估计得到方差。也就是：</p>
+</section>
+</div><p>在这个假设之下，我们可以从残差 <span class="math notranslate nohighlight">\(\widehat{u}_{it}=y_{it}-x_{it}'\widehat{\boldsymbol{\beta}}^{RE}\)</span> 中相合估计得到方差。也就是：</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}\widehat{\sigma}_{u}^{2} &amp; =\frac{1}{nT}\sum_{i=1}^{n}\sum_{t=1}^{T}\widehat{u}_{it}^{2}\\
@@ -574,12 +593,12 @@ S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T
 \[
 \widehat{\mathbf{S}}=\left(\widehat{\sigma}_{u}^{2}-\widehat{\sigma}_{\epsilon}^{2}\right)\cdot I_{T}+\widehat{\sigma}_{\epsilon}^{2}\cdot\boldsymbol{1}_{T}\boldsymbol{1}_{T}'
 \]</div>
-<p>相应地我们能够得到可行的GLS（FGLS）：</p>
+<p>相应地我们能够得到可行的广义最小二乘估计(feasible generalized least squares, FGLS)：</p>
 <div class="math notranslate nohighlight">
 \[
 \widehat{\boldsymbol{\beta}}^{RE}=\left(W'\mathbf{\widehat{S}}^{-1}W\right)^{-1}W'\widehat{\mathbf{S}}^{-1}y
 \]</div>
-<p>我们可以证明，如果RE.1和RE.2成立，那么有：</p>
+<p>我们可以证明，如果假设<a class="reference internal" href="#RE1">随机效应-1</a>和<a class="reference internal" href="#RE2">随机效应-2</a>成立，那么有：</p>
 <div class="math notranslate nohighlight">
 \[
 \left(\widehat{\sigma}_{u}^{2}\left(W'\widehat{\mathbf{S}}^{-1}W\right)^{-1}\right)^{-1/2}\left(\widehat{\boldsymbol{\beta}}^{RE}-\boldsymbol{\beta}_{0}\right)\stackrel{d}{\to}N\left(0,I_{K+1}\right).
@@ -588,10 +607,10 @@ S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T
 </section>
 <section id="id4">
 <h2><span class="section-number">9.3. </span>总结<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h2>
-<p>固定效应或者随机效应回归的公式并不重要，因为计量经济学软件包就可以自动处理它们的估计和推断。真正重要的是他们在不可观测的个体异质性上概念性的区别。面板数据是经济学里的第一代 <strong>大数据</strong> 。因为面板数据观测值的数量等于横截面数据的数量再乘上时间的数量。它们反映了计量经济学家在控制异质性上的追求，以使得OLS在因果关系的解释中更加可信。</p>
+<p>固定效应或者随机效应回归的公式并不重要，因为计量经济学软件包就可以自动处理它们的估计和推断。真正重要的是他们在不可观测的个体异质性上概念性的区别。面板数据是经济学里的第一代 <strong>大数据</strong> 。因为面板数据观测值的数量等于横截面数据上的个体数量 <span class="math notranslate nohighlight">\(n\)</span> 再乘上时间维度 <span class="math notranslate nohighlight">\(T\)</span>。它们反映了计量经济学家在控制异质性上的追求，在某些场景下，以使得OLS在因果关系的解释中更加可信。</p>
 <div class="admonition- admonition">
 <p class="admonition-title">扩展阅读</p>
-<p>&#64;hsiao2014analysis 是一本关于面板数据的综合性专著。&#64;su2016identifying延伸了固定效应模型，使得它能够包含群体异质性。</p>
+<p><span id="id5">[<a class="reference internal" href="bibfile_place.html#id15" title="Cheng Hsiao. Analysis of panel data. Number 54. Cambridge University Press, 2014.">Hsiao, 2014</a>]</span>是一本关于面板数据的综合性专著。</p>
 </div>
 <p><code class="docutils literal notranslate"> <span class="pre">Zhentao</span> <span class="pre">Shi.</span> <span class="pre">Nov</span> <span class="pre">8,</span> <span class="pre">2020.</span></code></p>
 </section>
@@ -631,10 +650,10 @@ S=\mathrm{var}\left(u_{i}|\mathbf{x}_{i}\right)=\sigma_{\alpha}^{2}\mathbf{1}_{T
             <p class="prev-next-title"><span class="section-number">8. </span>假设检验</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="lecture10-CN.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="real-data_2.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>内生性</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>数据实例</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

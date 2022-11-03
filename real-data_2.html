@@ -4,8 +4,9 @@
 <html lang="zh_CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>搜索 &#8212; 计量经济学讲义</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>10. 数据实例2 &#8212; 计量经济学讲义</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -31,7 +32,6 @@
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -52,19 +52,18 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="11. 内生性" href="lecture10-CN.html" />
+    <link rel="prev" title="9. 面板数据" href="lecture9-CN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
 
     <!-- Google Analytics -->
     
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -100,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <h1 class="site-logo" id="site-title">计量经济学讲义</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="#" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -113,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1-CN.html">
    1. 概率
@@ -159,8 +158,8 @@ const thebe_selector_output = ".output, .cell_output"
    9. 面板数据
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="real-data_2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    10. 数据实例2
   </a>
  </li>
@@ -230,6 +229,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/zhentaoshi/metrics1-cn/master?urlpath=tree/docs/real-data_2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -269,7 +297,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/zhentaoshi/metrics1-cn/issues/new?title=Issue%20on%20page%20%2Freal-data_2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -289,6 +317,52 @@ title="Open an issue"
   </div>
 </div>
 
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/real-data_2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
@@ -300,7 +374,7 @@ title="Open an issue"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>数据实例2</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -312,35 +386,57 @@ title="Open an issue"
                 
               <div>
                 
-  <h1 id="search-documentation">搜索</h1>
-  
-  <noscript>
-  <div class="admonition warning">
-  <p>
-    请激活 JavaScript 以开启搜索功能。
-  </p>
-  </div>
-  </noscript>
-  
-  
-  <p>
-    搜寻包含多个字的词汇时，
-    只有所含所有内容都匹配时才会出现。
-  </p>
-  
-  
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-    <input type="submit" value="搜索" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  
-  
-  <div id="search-results">
-  
-  </div>
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><span class="section-number">10. </span>数据实例2<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p>2008年金融危机之后，世界经济面临严重的经济困境，这重新激发了人们了解银行业危机后果的兴趣。
+Baron等(2020)将银行业危机的概念定义为银行业的中介资金能力严重受损。由于银行危机损害了银行的中介能力，所以股权持有人将首先遭受损失，银行股本将大幅下跌。
+而银行股票大幅下跌是否与不利的宏观经济后果有关？</p>
+<p>为了研究银行股票回报率是否具有对未来宏观经济的预测能力，Baron等(2020)收集并构建了1870-2016年期间跨越46个国家的面板数据，包括银行股票回报率和实际GDP。为了检查整个回报分布的可预测性，Baron等(2020)将银行股票回报率分成了八个均匀分布的区间：小于-45%、-45%到-30%、-30%到-15%、-15%到0%、0%到15%、15%到30%、30%到45%和大于45%。其中，0%到15%的银行股票回报率被认为是“正常”时期的回报，将在回归中省略，所以面板回归方程中只包含7个区间。</p>
+<p>在面板回归中，采用<span class="math notranslate nohighlight">\(i\)</span>国第<span class="math notranslate nohighlight">\(t\)</span>年到第<span class="math notranslate nohighlight">\(t+1\)</span>年的实际GDP对数增长率作为因变量（<span class="math notranslate nohighlight">\(\Delta y_{i,t+1}\)</span>)，<span class="math notranslate nohighlight">\(i\)</span>国第<span class="math notranslate nohighlight">\(t\)</span>年的银行股票回报率（<span class="math notranslate nohighlight">\(r_{i,t}\)</span>）落入7个回报区间的7个指标变量作为自变量（<span class="math notranslate nohighlight">\(\mathbb{I} [r_{i,t} \in B_j] (j=1,...,7)\)</span>），并且将<span class="math notranslate nohighlight">\(i\)</span>国第<span class="math notranslate nohighlight">\(t-1\)</span>年到第<span class="math notranslate nohighlight">\(t\)</span>年的实际GDP对数增长率作为控制变量（<span class="math notranslate nohighlight">\(\Delta y_{i,t}\)</span>)。线性回归方程如下：</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta y_{i,t+1}=\alpha _i+\sum_{j} \beta _{j} \mathbb{I} [r_{i,t} \in B_j] +\gamma \Delta y_{i,t} +\epsilon _{i,t}
+\]</div>
+<p>下面运用R进行固定效应回归。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">plm</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;real_data_2.csv&quot;</span><span class="p">)</span>
+<span class="nf">attach</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">Fd1y</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">B1_R_B</span><span class="p">,</span> <span class="n">B2_R_B</span><span class="p">,</span> <span class="n">B3_R_B</span><span class="p">,</span> <span class="n">B4_R_B</span><span class="p">,</span> <span class="n">B6_R_B</span><span class="p">,</span> <span class="n">B7_R_B</span><span class="p">,</span> <span class="n">B8_R_B</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">L0g0y</span><span class="p">)</span>
+<span class="c1">#声明面板</span>
+<span class="n">pdata</span> <span class="o">&lt;-</span> <span class="nf">pdata.frame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;country&quot;</span><span class="p">,</span><span class="s">&quot;year&quot;</span><span class="p">))</span>
+<span class="c1">#固定效应</span>
+<span class="n">fixed</span> <span class="o">&lt;-</span> <span class="nf">plm</span><span class="p">(</span><span class="n">Y</span> <span class="o">~</span> <span class="n">X</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">pdata</span><span class="p">,</span><span class="n">model</span> <span class="o">=</span> <span class="s">&quot;within&quot;</span><span class="p">)</span> 
+<span class="nf">summary</span><span class="p">(</span><span class="n">fixed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>从固定效应的估计结果可以看出，银行股票的下跌预示着未来实际GDP将大幅持续下降。例如，相对于“正常时期”（0%至15%的回报率），银行股票跌幅超过45%预示着一年后产出将下降5%。</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
@@ -349,6 +445,20 @@ title="Open an issue"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lecture9-CN.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>面板数据</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lecture10-CN.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>内生性</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

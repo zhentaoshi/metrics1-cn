@@ -159,18 +159,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data_2.html">
+   10. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   10. 内生性
+   11. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   11. 广义矩估计
+   12. 广义矩估计
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bibfile_place.html">
-   12. 参考文献
+   13. 参考文献
   </a>
  </li>
 </ul>
@@ -568,22 +573,43 @@ title="Print to PDF"
 <p>对于某参数值 <span class="math notranslate nohighlight">\(\theta\in\Theta_{1}\)</span> 检验的<strong>功效(power)</strong> 被定义为 <span class="math notranslate nohighlight">\( \beta\left(\theta\right) \)</span> ，检验的 <strong>尺度(size)</strong> 被定义为 <span class="math notranslate nohighlight">\( \sup_{\theta\in\Theta_{0}}\beta\left(\theta\right)\)</span> 。</p>
 <p>注意, 检验功效的定义取决于备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 中的 <span class="math notranslate nohighlight">\( \theta \)</span> ；而检验尺度的定义与具体的 <span class="math notranslate nohighlight">\( \theta \)</span> 值无关, 因为它是零假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 的上确界。当难以推导出精确的上确界时, 我们也常用<strong>水平(level)</strong> <span class="math notranslate nohighlight">\( \alpha \)</span> 这一概念来衡量检验, 水平 <span class="math notranslate nohighlight">\( \alpha\in\left(0, 1\right) \)</span> 是任意使得 <span class="math notranslate nohighlight">\( \alpha\geq\sup_{\theta\in\Theta_{0}}\beta\left(\theta\right) \)</span> 成立的值。</p>
 <p>一个尺度为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验, 其水平一定大于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> ；一个水平为 <span class="math notranslate nohighlight">\( \alpha \)</span> 的检验，其尺度一定小于等于 <span class="math notranslate nohighlight">\( \alpha \)</span> 。</p>
-<table class="colwidths-auto table" id="mytable">
-<caption><span class="caption-number">表 8.1 </span><span class="caption-text">表格8.1</span><a class="headerlink" href="#mytable" title="永久链接至表格">#</a></caption>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">例子 8.1 </span></p>
+<section class="example-content" id="proof-content">
+<p>例如, 我们从某未知联合分布中随机抽取 <span class="math notranslate nohighlight">\( \left(X_{1i}, X_{2i}\right) _{i=1}^{n} \)</span> 。对于 <span class="math notranslate nohighlight">\( j=1, 2 \)</span> , 已知边际分布 <span class="math notranslate nohighlight">\( X_{ji}\sim N\left(\theta_{j}, 1\right) \)</span> 。为了检验联合假设 <span class="math notranslate nohighlight">\( \theta_{1}=\theta_{2}=0 \)</span> , 我们可以构造一个检验函数</p>
+<div class="math notranslate nohighlight">
+\[
+\phi_{\theta_{1}=\theta_{2}=0}\left(\mathbf{X}_{1}, \mathbf{X}_{2}\right) =1\left\{ \left\{ \sqrt{n}\left|\overline{X}_{1}\right|\geq z_{1-\alpha/4}\right\} \cup\left\{ \sqrt{n}\left|\overline{X}_{2}\right|\geq z_{1-\alpha/4}\right\} \right\} , 
+ \]</div>
+<p>其中 <span class="math notranslate nohighlight">\( z_{1-\alpha/4} \)</span> 是标准正态分布的 <span class="math notranslate nohighlight">\( \left(1-\alpha/4\right) \)</span> 分位数。该检验的水平是</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}P\left(\phi_{\theta_{1}=\theta_{2}=0}\left(\mathbf{X}_{1}, \mathbf{X}_{2}\right) \right) &amp; \leq P\left(\sqrt{n}\left|\overline{X}_{1}\right|\geq z_{1-\alpha/4}\right) +P\left(\sqrt{n}\left|\overline{X}_{2}\right|\geq z_{1-\alpha/4}\right) \\
+ &amp; =\alpha/2+\alpha/2=\alpha.
+\end{aligned}
+ \end{split}\]</div>
+<p>上式中的不等式可由下方的Bonferroni不等式推导得出。</p>
+<div class="math notranslate nohighlight">
+\[
+P\left(A\cup B\right) \leq P\left(A\right) +P\left(B\right) 
+ \]</div>
+<p>因此, 检验 <span class="math notranslate nohighlight">\( \phi\left(\mathbf{X}_{1}, \mathbf{X}_{2}\right) \)</span> 的水平为 <span class="math notranslate nohighlight">\( \alpha \)</span> 。但该检验的具体尺度未知, 除非我们可以得到有关该联合分布的具体信息。即使我们知道 <span class="math notranslate nohighlight">\( X_{1i} \)</span> 和 <span class="math notranslate nohighlight">\( X_{2i} \)</span> 的相关性, 将两个边际正态分布放在一起，并不能确认它们构成联合正态分布。</p>
+</section>
+</div><table class="colwidths-auto table" id="mytable">
 <thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>accept <span class="math notranslate nohighlight">\( H_{0} \)</span></p></th>
-<th class="head"><p>reject <span class="math notranslate nohighlight">\( H_{0} \)</span></p></th>
+<tr class="row-odd"><th class="text-align:left head"><p></p></th>
+<th class="text-align:left head"><p>接受 <span class="math notranslate nohighlight">\( H_{0} \)</span></p></th>
+<th class="text-align:left head"><p>拒绝 <span class="math notranslate nohighlight">\( H_{0} \)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\( H_{0} \)</span> true</p></td>
-<td><p>correct decision</p></td>
-<td><p>Type I error</p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\( H_{0} \)</span> 成立</p></td>
+<td class="text-align:left"><p>正确</p></td>
+<td class="text-align:left"><p>第一类错误</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\( H_{0} \)</span> false</p></td>
-<td><p>Type II error</p></td>
-<td><p>correct decision</p></td>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\( H_{0} \)</span> 不成立</p></td>
+<td class="text-align:left"><p>第二类错误</p></td>
+<td class="text-align:left"><p>正确</p></td>
 </tr>
 </tbody>
 </table>
@@ -595,8 +621,8 @@ title="Print to PDF"
 </ul>
 <p>假设检验的哲学理念是一个争论不休的话题。目前, 统计学教科书中普遍采用的框架是 <strong>频率学派的观点</strong> 。频率学派认为参数是一个固定的常数。他们对第一类错误秉持着非常保守的态度: 只有在有充足证据的情况下, 才可以拒绝零假设。在“保护零假设”这一原则下, 一个理想的检验应该有一个较小的水平。传统上我们采用 <span class="math notranslate nohighlight">\( \alpha=0.01, 0.05\)</span> 或者 <span class="math notranslate nohighlight">\(0.1\)</span>。如果
 <span class="math notranslate nohighlight">\( \beta\left(\theta\right) \geq\sup_{\theta\in\Theta_{0}}\beta\left(\theta\right) \)</span> , 我们说一个测试是 <strong>无偏的</strong> 。对于所有 <span class="math notranslate nohighlight">\( \Theta\in \Theta_{1} \)</span> 来说, 可以存在很多正确尺度的检验。</p>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">例子 8.1 </span></p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">例子 8.2 </span></p>
 <section class="example-content" id="proof-content">
 <p>对于任意 <span class="math notranslate nohighlight">\( \theta\in\Theta \)</span> ，我们构造一个很简单的检验函数 <span class="math notranslate nohighlight">\( \phi(\mathbf{x}) =1\left\{ 0\leq U\leq\alpha\right\} \)</span> ，其中 <span class="math notranslate nohighlight">\( U \)</span> 是取自在 <span class="math notranslate nohighlight">\( \left[0, 1\right] \)</span> 上的均匀分布。该检验有着正确尺度的 <span class="math notranslate nohighlight">\( \alpha \)</span>，但功效未知。在另一极端情况下, 检验函数 <span class="math notranslate nohighlight">\( \phi\left(\mathbf{x}\right) =1 \)</span> 拥有最大的功效, 但尺度是错误的。</p>
 </section>
@@ -626,8 +652,8 @@ title="Print to PDF"
  \]</div>
 <p>如果这样的检验 <span class="math notranslate nohighlight">\( \phi^{*}\in\Psi_{\alpha} \)</span> 成立, 我们称之为 <strong>一致最大功效检验(uniformly
 most powerful test)</strong>，简称UMP检验。</p>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">例子 8.2 </span></p>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">例子 8.3 </span></p>
 <section class="example-content" id="proof-content">
 <p>假设一个尺度为6的随机样本产生于</p>
 <div class="math notranslate nohighlight">
@@ -694,7 +720,7 @@ most powerful test)</strong>，简称UMP检验。</p>
 \[ 
 \mathcal{LR}\stackrel{d}{\to}\chi_{K}^{2}.
  \]</div>
-<div class="proof theorem admonition" id="theorem-2">
+<div class="proof theorem admonition" id="theorem-3">
 <p class="admonition-title"><span class="caption-number">定理 8.1 </span> (Wilks 定理)</p>
 <section class="theorem-content" id="proof-content">
 <p>当参数模型正确时， <span class="math notranslate nohighlight">\( \mathcal{LR}\stackrel{d}{\to}\chi^{2}\left(K\right) \)</span> 。</p>
@@ -707,7 +733,7 @@ most powerful test)</strong>，简称UMP检验。</p>
 <h2><span class="section-number">8.4. </span>置信区间<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h2>
 <p><strong>区间估计(interval estimate)</strong> 是一个函数 <span class="math notranslate nohighlight">\( C: \mathcal{X}^{n}\mapsto\left\{ \Theta_{1}: \Theta_{1}\subseteq\Theta\right\} \)</span> , 它将样本空间中的点映射到参数空间。</p>
 <p>区间估计量 <span class="math notranslate nohighlight">\( C\left(\mathbf{X}\right) \)</span> 的<strong>覆盖概率(coverage probability)</strong> 被定义为 <span class="math notranslate nohighlight">\( P_{\theta}\left(\theta\in C\left(\mathbf{X}\right) \right) \)</span> 。如果 <span class="math notranslate nohighlight">\( \theta \)</span> 是一维的，我们将区间估计量叫做 <strong>置信区间(confidence interval)</strong>。如果 <span class="math notranslate nohighlight">\( \theta \)</span> 是多维的，我们将区间估计量叫做 <strong>置信区域(confidence region)</strong>。当然，置信区域包括了一维置信区间的情况。覆盖概率是指区间估计量捕捉到生成样本的真实参数的频率。从频率学派的观点来看，真实参数 <span class="math notranslate nohighlight">\(\theta\)</span> 参数是固定的, 而置信区域是随机的。覆盖概率 <strong>不是</strong> <span class="math notranslate nohighlight">\( \theta \)</span> 在给定的置信区间内的概率。</p>
-<div class="proof exercise admonition" id="exercise-3">
+<div class="proof exercise admonition" id="exercise-4">
 <p class="admonition-title"><span class="caption-number">练习 8.1 </span></p>
 <section class="exercise-content" id="proof-content">
 <p>假设一个尺度为6的随机样本产生于 <span class="math notranslate nohighlight">\(\left(X_{1}, \ldots, X_{6}\right) \sim\text{iid }N\left(\theta, 1\right).\)</span>
@@ -735,8 +761,8 @@ P_{\theta}\left\{ \theta\in C\left(\mathbf{X}\right) \right\} =P_{\theta}\left\{
 p(\theta|\mathbf{X}_{n}) \propto f(\mathbf{X}_{n}|\theta) \pi(\theta) .
  \]</div>
 <p>其中 <span class="math notranslate nohighlight">\( f(\mathbf{X}_{n}|\theta) \)</span> 为似然函数。</p>
-<div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">例子 8.3 </span></p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">例子 8.4 </span></p>
 <section class="example-content" id="proof-content">
 <p>这里有一个说明贝叶斯统计推断的经典案例。假设 <span class="math notranslate nohighlight">\( \mathbf{X}_{n}=(X_{1}, \ldots, X_{n}) \)</span> 是取自正态分布 <span class="math notranslate nohighlight">\( N(\theta, \sigma^2) \)</span> 的iid随机样本, 其中 <span class="math notranslate nohighlight">\( \theta \)</span> 未知， <span class="math notranslate nohighlight">\( \sigma \)</span> 已知。如果先验分布是 <span class="math notranslate nohighlight">\( \theta\sim N(\theta_{0}, \sigma_{0}^{2}) \)</span> , 那么根据计算, 后验分布可写作</p>
 <div class="math notranslate nohighlight">
@@ -761,8 +787,8 @@ p(\theta|\mathbf{x}_{n}) \sim N\left(\tilde{\theta}, \tilde{\sigma}^{2}\right) ,
 <h2><span class="section-number">8.6. </span>线性回归中的应用<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h2>
 <p>我们将介绍三种对线性回归系数假设的检验方法——Wald检验, 拉格朗日乘数(Lagrangian multiplier, LM) 检验, 似然比检验(LRT) 。Wald检验基于不受限制的OLS估计值 <span class="math notranslate nohighlight">\( \widehat{\beta} \)</span> ；LM检验基于限制性的OLS估计值 <span class="math notranslate nohighlight">\( \tilde{\beta} \)</span>；而LRT基于对数似然函数在不受限制的OLS估计值与受限制的OLS估计值之间的差值。</p>
 <p>记 <span class="math notranslate nohighlight">\( R \)</span> 为一个 <span class="math notranslate nohighlight">\( q\times K \)</span> 的常数矩阵, 其中 <span class="math notranslate nohighlight">\( q\leq K \)</span> , <span class="math notranslate nohighlight">\( \mbox{rank}\left(R\right) =q \)</span> 。所有关于 <span class="math notranslate nohighlight">\( \beta \)</span> 的线性限制都可以写成 <span class="math notranslate nohighlight">\( R\beta=r \)</span> 的形式, 其中 <span class="math notranslate nohighlight">\( r \)</span> 是一个 <span class="math notranslate nohighlight">\( q\times1 \)</span> 的常量向量。</p>
-<div class="proof example admonition" id="example-5">
-<p class="admonition-title"><span class="caption-number">例子 8.4 </span></p>
+<div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">例子 8.5 </span></p>
 <section class="example-content" id="proof-content">
 <p>在上面的例子中, 我们想同时检验 <span class="math notranslate nohighlight">\( \beta_{1}=1 \)</span> 和 <span class="math notranslate nohighlight">\( \beta_{3}+\beta_{4}=2 \)</span> 。零假设可以表达为 <span class="math notranslate nohighlight">\( R\beta=r \)</span> , 其中限制矩阵 <span class="math notranslate nohighlight">\( R \)</span> 可写作</p>
 <div class="math notranslate nohighlight">
@@ -791,45 +817,14 @@ n\left(\widehat{\beta}-\beta\right) 'R'\left(R\Omega R'\right) ^{-1}R\left(\wide
 \mathcal{W}=n\left(R\widehat{\beta}-r\right) '\left(R\widehat{\Omega}R'\right) ^{-1}\left(R\widehat{\beta}-r\right) \stackrel{d}{\to}\chi_{q}^{2}, 
  \]</div>
 <p>其中 <span class="math notranslate nohighlight">\( \widehat{\Omega} \)</span> 是 <span class="math notranslate nohighlight">\( \Omega \)</span> 的相合估计量。</p>
-<div class="admonition-single-test admonition">
-<p class="admonition-title">Single test </p>
-<p>在线性回归一个针对工资 <span class="math notranslate nohighlight">\( y \)</span> 的线性回归中, 自变量为</p>
-<div class="math notranslate nohighlight">
-\[ 
-x=\left(\mbox{edu}, \mbox{age}, \mbox{experience}, \mbox{experience}^{2}, 1\right) '.
- \]</div>
-<p>回归方程为</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} 
-\begin{aligned}y &amp; =x_{i}'\beta+e_{i}=\sum_{k=1}^{5}\beta_{k}x_{ik}+e_{i}.\nonumber\\
-E\left[e_{i}x_{i}\right] &amp; =\mathbf{0}_{5}.
-\end{aligned}
- \end{split}\]</div>
-<p>为了测试 <strong>教育</strong> 是否影响工资, 我们将零假设写作 <span class="math notranslate nohighlight">\( \beta_{1}=0 \)</span> 。令 <span class="math notranslate nohighlight">\( R=\left(1, 0, 0, 0, 0\right) \)</span> , <span class="math notranslate nohighlight">\( r=0 \)</span>。</p>
-<div class="math notranslate nohighlight">
-\[
- \sqrt{n}\widehat{\beta}_{1}=\sqrt{n}\left(\widehat{\beta}_{1}-\beta_{1}\right) =\sqrt{n}R\left(\widehat{\beta}-\beta\right) \stackrel{d}{\to}N\left(0, R\Omega R'\right) \sim N\left(0, \Omega_{11}\right) , \label{eq: R11} 
- \]</div>
-<p>上式 <span class="math notranslate nohighlight">\( \Omega{}_{11} \)</span> 是 <span class="math notranslate nohighlight">\( \Omega \)</span> 的 <span class="math notranslate nohighlight">\( \left(1, 1\right) \)</span> 成分。在零假设下</p>
-<div class="math notranslate nohighlight">
-\[
-H_{0}: R\beta=\left(1, 0, 0, 0, 0\right) \left(\beta_{1}, \ldots, \beta_{5}\right) '=\beta_{1}=0, 
- \]</div>
-<p>我们有 <span class="math notranslate nohighlight">\( \sqrt{n}R\left(\widehat{\beta}-\beta\right) =\sqrt{n}\widehat{\beta}_{1}\stackrel{d}{\to}N\left(0, \Omega_{11}\right)\)</span> ，因此,</p>
-<div class="math notranslate nohighlight">
-\[ 
-\sqrt{n}\frac{\widehat{\beta}_{1}}{\widehat{\Omega}_{11}^{1/2}}=\sqrt{\frac{\Omega_{11}}{\widehat{\Omega}_{11}}}\sqrt{n}\frac{\widehat{\beta}_{1}}{\sqrt{\Omega_{11}}}.
- \]</div>
-<p>如果 <span class="math notranslate nohighlight">\( \widehat{\Omega}\stackrel{p}{\to}\Omega \)</span> , 那么根据连续映射定理， <span class="math notranslate nohighlight">\( \left(\Omega_{11}/\widehat{\Omega}_{11}\right) ^{1/2}\stackrel{p}{\to}1 \)</span>。由于 <span class="math notranslate nohighlight">\( \sqrt{n}\widehat{\beta}_{1}/\Omega_{11}^{1/2}\stackrel{d}{\to}N\left(0, 1\right) \)</span> , 有 <span class="math notranslate nohighlight">\( \sqrt{n}\widehat{\beta}_{1}/\widehat{\Omega}_{11}^{1/2}\stackrel{d}{\to}N\left(0, 1\right) . \)</span></p>
-</div>
-<div class="proof remark admonition" id="remark-6">
+<div class="proof remark admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">评注 8.1 </span></p>
 <section class="remark-content" id="proof-content">
 <p>上面的例子是关于单个系数的检验, 检验统计量是 <strong>t</strong> -统计量的平方, 而零分布是标准正态分布的平方。</p>
 </section>
 </div><p>我们可以使用Delta方法来检验回归系数的非线性约束。</p>
-<div class="proof example admonition" id="example-7">
-<p class="admonition-title"><span class="caption-number">例子 8.5 </span></p>
+<div class="proof example admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">例子 8.6 </span></p>
 <section class="example-content" id="proof-content">
 <p>在线性回归中, 最佳的experience水平可以通过设置为一阶条件为0来寻找, 也就是 <span class="math notranslate nohighlight">\( \beta_{3}+2\beta_{4}\mbox{experience}^{*}=0 \)</span> 。我们试图检验, 最优的experience水平是否为20年, 也就是</p>
 <div class="math notranslate nohighlight">
@@ -945,8 +940,8 @@ n\tilde{\lambda}'\Sigma^{-1}\tilde{\lambda}\stackrel{d}{\to}\chi_{q}^{2}.
 \[ 
 \begin{aligned}\frac{n\tilde{\lambda}'R\hat{Q}^{-1}R'\tilde{\lambda}}{\hat{\sigma}^{2}} &amp; =\frac{1}{n\hat{\sigma}^{2}}\left(y-X\tilde{\beta}\right) 'X\hat{Q}^{-1}R'(R\hat{Q}^{-1}R') ^{-1}R\hat{Q}^{-1}X'\left(y-X\tilde{\beta}\right) \stackrel{d}{\to}\chi_{q}^{2}.\end{aligned}
  \]</div>
-<div class="proof example admonition" id="example-8">
-<p class="admonition-title"><span class="caption-number">例子 8.6 </span></p>
+<div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">例子 8.7 </span></p>
 <section class="example-content" id="proof-content">
 <p>现在, 如果我们检验最佳的experience水平是否为20年: <span class="math notranslate nohighlight">\( \mbox{experience}^{*}=-\frac{\beta_{3}}{2\beta_{4}}=20. \)</span> 那么, 我们
 将 <span class="math notranslate nohighlight">\( \beta_{3} \)</span> 替换为 <span class="math notranslate nohighlight">\( -40\beta_{4} \)</span> , 就只用再检验三个斜率参数。另外, LM检验不受重新参数化的影响。</p>
@@ -1042,7 +1037,7 @@ R\widehat{Q}^{-1}\frac{1}{\sqrt{n}}X'\frac{e}{\sigma_{e}} &amp; =R\widehat{Q}^{-
 </section>
 <section id="id10">
 <h2><span class="section-number">8.7. </span>总结<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h2>
-<p>不少应用计量经济学家希望在变量间建立统计学上的关联关系，甚至建立因果关系，因此他们非常看重假设检验，更有甚者，成为痴迷的观星者(stargazer)。假设检验是统计学中的重要领域。表格<a class="reference internal" href="#mytable"><span class="std std-ref">表格8.1</span></a>中的状态和决策提醒了我们它和博弈论的关系。我作为一个参与者，正在与自然界进行一个序列博弈。</p>
+<p>不少应用计量经济学家希望在变量间建立统计学上的关联关系，甚至建立因果关系，因此他们非常看重假设检验，更有甚者，成为痴迷的观星者(stargazer)。假设检验是统计学中的重要领域。<a class="reference internal" href="#mytable"><span class="std std-ref">表格8.1</span></a>中的状态和决策提醒了我们它和博弈论的关系。我作为一个参与者，正在与自然界进行一个序列博弈。</p>
 <ul class="simple">
 <li><p>Step 0:  根据某个科学理论, 参数空间 <span class="math notranslate nohighlight">\( \Theta \)</span> 被划分为零假设 <span class="math notranslate nohighlight">\( \Theta_{0} \)</span> 和备择假设 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 。</p></li>
 <li><p>Step 1:  在我观察数据之前, 我根据 <span class="math notranslate nohighlight">\( \Theta_{0}\)</span> 和 <span class="math notranslate nohighlight">\( \Theta_{1} \)</span> 设计了一个检验函数 <span class="math notranslate nohighlight">\( \phi \)</span> 。用博弈论的术语来说, <span class="math notranslate nohighlight">\( \phi \)</span> 就是我的 <strong>策略</strong> 。</p></li>

@@ -159,18 +159,23 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="real-data_2.html">
+   10. 数据实例
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lecture10-CN.html">
-   10. 内生性
+   11. 内生性
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="lecture11-CN.html">
-   11. 广义矩估计
+   12. 广义矩估计
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bibfile_place.html">
-   12. 参考文献
+   13. 参考文献
   </a>
  </li>
 </ul>
@@ -542,16 +547,16 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1><span class="section-number">1. </span>概率<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国则通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，还有不少人光顾在庙街一带摆摊设点的算命先生。</p>
+<p>对于日常生活中的不确定性，人们总会不由自主地心生敬畏。在过去，古埃及人依靠祭司，希伯来人崇敬先知，而中国的先人则通过卜师来解读龟甲或者兽骨的裂纹。在今日的香港，还有不少人乐于光顾在庙街一带摆摊设点的算命先生来帮助他们解答生命中的困惑。</p>
 <p>概率论是一门关于不确定性的哲学。几百年来，全世界的数学家们都在苦心孤诣试图理解随机背后的规律。随着测度理论在20世纪早期发展成熟，Andrey
 Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑。当中使用的数学语言系统逻辑严谨、自洽，为未来该领域的进一步探索提供了起点。目前，这一套数学语言已经广泛地被学界所接受。</p>
-<p>本讲将会简要介绍概率论的公理以及在本科阶段的 <strong>概率论与数理统计</strong> 中已经为我们所熟悉的理论。</p>
+<p>本讲将会简要介绍概率论的公理以及在本科阶段的<strong>概率论与数理统计</strong>中已经为我们所熟悉的理论。</p>
 <section id="id2">
 <h2><span class="section-number">1.1. </span>概率论的公理<a class="headerlink" href="#id2" title="永久链接至标题">#</a></h2>
 <section id="id3">
 <h3><span class="section-number">1.1.1. </span>概率空间<a class="headerlink" href="#id3" title="永久链接至标题">#</a></h3>
-<p><strong>样本空间</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> 是所有可能结果的一个集合。<strong>事件</strong> <span class="math notranslate nohighlight">\(A\)</span> 是<span class="math notranslate nohighlight">\(\Omega\)</span>
-的一个子集。我们常用<span class="math notranslate nohighlight">\(\mathcal{F}\)</span>表示的<span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>域</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span> field)
+<p><strong>样本空间</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> 是所有可能结果的一个集合。<strong>事件</strong> <span class="math notranslate nohighlight">\(A\)</span> 是 <span class="math notranslate nohighlight">\(\Omega\)</span>
+的一个子集。我们常用 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 表示 <span class="math notranslate nohighlight">\(\sigma\)</span>-<strong>域</strong> (<span class="math notranslate nohighlight">\(\sigma\)</span> field)
 ，它是满足如下条件的事件的集合：</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\emptyset\in\mathcal{F}\)</span>;</p></li>
@@ -568,13 +573,14 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 <div class="proof remark admonition" id="remark-0">
 <p class="admonition-title"><span class="caption-number">评注 1.1 </span></p>
 <section class="remark-content" id="proof-content">
-<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域是允许可数(countable)个集合进行并集、差集和交集操作的封闭域。因为以上这些都是集合的代数计算，所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> 代数。</p>
+<p>从直觉来看，<span class="math notranslate nohighlight">\(\sigma\)</span> 域是允许可数(countable)个集合进行并集、差集和交集操作的封闭域。因为以上这些都是集合的代数计算，
+所以 <span class="math notranslate nohighlight">\(\sigma\)</span> 域也叫做 <span class="math notranslate nohighlight">\(\sigma\)</span> <strong>代数</strong>。</p>
 </section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">例子 1.1 </span></p>
 <section class="example-content" id="proof-content">
 <p>令 <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> 。
-以下是一些 <span class="math notranslate nohighlight">\(\sigma\)</span> <strong>域</strong>(<span class="math notranslate nohighlight">\(\sigma\)</span> field)的例子：</p>
+以下是一些 <span class="math notranslate nohighlight">\(\sigma\)</span>-域的例子：</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{F}_{1}=\{\emptyset,\{1,2,3\},\{4,5,6\},\Omega\}\)</span>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{F}_{2}=\{\emptyset,\{1,3\},\{2,4,5,6\},\Omega\}\)</span>；</p></li>
@@ -584,9 +590,12 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 <span class="math notranslate nohighlight">\(\mathcal{F}_{3}\)</span>。</p></li>
 </ul>
 </section>
-</div><p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 上建立的严谨架构。两者放在一起，
+</div><p><span class="math notranslate nohighlight">\(\sigma\)</span> 域是在样本空间 <span class="math notranslate nohighlight">\(\Omega\)</span> 上建立的严谨架构。将两者放在一起，
 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 称为 <strong>可测空间</strong> (measurable space)。</p>
-<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件 <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，而且对于任意的 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span> ， <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span> ，则称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 为 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的 <strong>最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 。一个 <strong>波莱尔</strong> <span class="math notranslate nohighlight">\(\sigma\)</span> 域是由实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 上的所有开集生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
+<p>令 <span class="math notranslate nohighlight">\(\mathcal{G}=\{B_{1},B_{2},\ldots\}\)</span> 为任意的一个集合。如果满足条件
+(i) <span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> ，
+(ii) 对于任意的包含 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域 <span class="math notranslate nohighlight">\(\mathcal{\tilde{F}}\)</span>，都有 <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq\mathcal{\tilde{F}}\)</span>，
+我们就称 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> 是由 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 产生的<strong>最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 。</p>
 <div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">例子 1.2 </span></p>
 <section class="example-content" id="proof-content">
@@ -597,11 +606,12 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 \sigma(\mathcal{A})=\{\emptyset,\{1\},\{1,3\},\{3\},\{2,4,5,6\},\{2,3,4,5,6\},\{1,2,4,5,6\},\Omega\}.
 \]</div>
 </section>
-</div><p>如果函数 <span class="math notranslate nohighlight">\(\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]\)</span>
+</div><p><strong>波莱尔 <span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong>是由实数 <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> 上的所有开集生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
+<p>如果函数 <span class="math notranslate nohighlight">\(\mu:(\Omega,\mathcal{F})\mapsto\left[0,\infty\right]\)</span>
 满足如下条件</p>
 <ol>
 <li><p>(非负性) 对任意 <span class="math notranslate nohighlight">\(A\in\mathcal{F}\)</span>，都有 <span class="math notranslate nohighlight">\(\mu\left(A\right)\geq0\)</span>;</p></li>
-<li><p>(可列可加性) 如果对于任意的 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span> , <span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> 互不相交,则</p>
+<li><p>(可列可加性) 如果对于任意的 <span class="math notranslate nohighlight">\(i\in\mathbb{N}\)</span>，<span class="math notranslate nohighlight">\(A_{i}\in\mathcal{F}\)</span> 互不相交，则</p>
 <div class="math notranslate nohighlight">
 \[
     \mu\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\mu\left(A_{i}\right),
@@ -612,42 +622,83 @@ Kolmogorov (1903-1987) 在1933年发表的专著是当代概率论的里程碑�
 <p>测度可以类比于日常生活中的宽度或重量来理解。
 特别是，当 <span class="math notranslate nohighlight">\(\mu\left(\Omega\right)=1\)</span>，
 我们就称 <span class="math notranslate nohighlight">\(\mu\)</span> 为<strong>概率测度</strong>。 概率测度通常用符号 <span class="math notranslate nohighlight">\(P\)</span> 来指代。
-在可测空间之上赋予一个概率测度，这三者
-<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> 称 <strong>概率空间</strong> (probability space)。</p>
+在可测空间之上赋予<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span> 概率测度 <span class="math notranslate nohighlight">\(P\)</span>，这三者
+<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> 称为 <strong>概率空间</strong> (probability space)。</p>
 <p>目前为止我们已经回答了问题:
 “什么是一个数学意义上定义完备的概率?”，但我们还没有回答一个问题“怎么分配概率？”
-在概率分配中有两个主流的学派：<strong>频率学派</strong> 把概率视作大样本实验之后出现结果的平均频率；
-而 <strong>贝叶斯学派</strong> 把概率解释为对于事情发生可能性的主观信念。
+在概率分配中有两个主流的学派：<strong>频率学派</strong>把概率视作多次实验之后出现结果的平均频率；
+而<strong>贝叶斯学派</strong>把概率解释为对于事情发生可能性的主观信念。
 两个学派的理论基本上互不兼容，他们的主张根据实际应用场景各有优缺点。
 有关这两个学派观点会在有关假设检验的章节涉及。</p>
 </section>
 <section id="id4">
 <h3><span class="section-number">1.1.2. </span>随机变量<a class="headerlink" href="#id4" title="永久链接至标题">#</a></h3>
 <p>术语 <strong>随机变量</strong>
-是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点“名不副实”。
-随机变量是连接两个测度空间的一种特定的映射，也就意味着置于值域中的任意事件都能追溯到定义域中的一个对应的事件。</p>
-<p>理论上, 如果对于任何的 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span></p>
+是一个历史遗留下来的称呼，实际上如果考虑到它定义中映射的确定性，这个术语会显得有一点名不副实。
+随机变量是连接两个可测空间的一种特定的映射，它要求置于值域中的任意事件都能追溯到定义域中的一个对应的事件。如果对于任何的 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>，都有</p>
 <div class="math notranslate nohighlight">
 \[
 X^{-1}\left(B\right)=\left\{ \omega\in\Omega:X\left(\omega\right)\in B\right\} \in\mathcal{F}
 \]</div>
-<p>公式 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span> (<span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>)
-是 <strong>可测函数</strong> (measurable function)。 <strong>随机变量</strong> 是可测函数带有浪漫气息的别名。由 <strong>随机变量 <span class="math notranslate nohighlight">\(X\)</span> 生成的<span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 被定义为
+<p>我们称 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}\)</span>
+是连接 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\backslash\left(\mathbb{R},\mathcal{R}\right)\)</span>
+的<strong>可测函数</strong> (measurable function)。 <strong>随机变量</strong> 是可测函数带有浪漫气息的别名。由 <strong>随机变量 <span class="math notranslate nohighlight">\(X\)</span> 生成的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong> 被定义为
 <span class="math notranslate nohighlight">\(\sigma\left(X\right)=\left\{ X^{-1}\left(B\right):B\in\mathcal{R}\right\}\)</span> 。</p>
 <p>如果<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>是有限的或者可数的，
 我们将这样的可测函数称为<strong>离散性随机变量</strong>。如果集合<span class="math notranslate nohighlight">\(\left\{ X\left(\omega\right):\omega\in\Omega\right\}\)</span>
 是不可数的，我们称之为<strong>连续型随机变量</strong> 。</p>
-<p>可测函数的定义中还没有涉及到任何概率相关的概念。但如果一个概率测度
-<span class="math notranslate nohighlight">\(P\)</span> 位于 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F})\)</span> 中，可测函数 <span class="math notranslate nohighlight">\(X\)</span> 可以在
+<p>可测函数的定义中还没有涉及到任何概率相关的概念。
+但如果 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F})\)</span> 上有一个概率测度 <span class="math notranslate nohighlight">\(P\)</span>，
+可测函数 <span class="math notranslate nohighlight">\(X\)</span> 可以在
 <span class="math notranslate nohighlight">\((\mathbb{R},\mathcal{R})\)</span> 上导出一个概率测度。不难证明，如果满足定义</p>
 <div class="math notranslate nohighlight">
 \[
 P_{X}\left(B\right)=P\left(X^{-1}\left(B\right)\right)
 \]</div>
 <p>那么<span class="math notranslate nohighlight">\(P_{X}:(\mathbb{R},\mathcal{R})\mapsto\left[0,1\right]\)</span>
-也是一个概率测度。 <span class="math notranslate nohighlight">\(B\in\mathcal{R}\)</span>的条件下，这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为由
+也是一个概率测度。
+这样的 <span class="math notranslate nohighlight">\(P_{X}\)</span> 被称为由
 <span class="math notranslate nohighlight">\(X\)</span> <strong>诱导</strong>的概率测度。诱导概率测度 <span class="math notranslate nohighlight">\(P_{X}\)</span> 是
-<span class="math notranslate nohighlight">\(P\)</span> 通过由 <span class="math notranslate nohighlight">\(X\)</span> 所衍生导出的。</p>
+<span class="math notranslate nohighlight">\(P\)</span> 通过由 <span class="math notranslate nohighlight">\(X\)</span> 所衍生出来的。</p>
+<div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">例子 1.3 </span> (数据实例)</p>
+<section class="example-content" id="proof-content">
+<p>我们以香港最受欢迎的300个Youtube账号为例子，查看他们上传的视频数量。</p>
+<p>数据来源: <a class="reference external" href="https://www.kaggle.com/datasets/patriotboy112/hks-top-300-youtubers">香港最受欢迎的300个Youtubers</a>.</p>
+</section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">d0</span> <span class="o">=</span> <span class="n">readr</span><span class="o">::</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;HKTop300YouTubers.csv&quot;</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">d0</span><span class="p">)</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
+
+<span class="c1"># remove NA and zeros</span>
+<span class="n">d0</span><span class="p">[</span> <span class="n">d0</span> <span class="o">==</span> <span class="m">0</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">sel</span> <span class="o">&lt;-</span> <span class="n">d0</span> <span class="o">%&gt;%</span> <span class="nf">is.na</span><span class="p">(</span> <span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">apply</span><span class="p">(</span> <span class="m">1</span><span class="p">,</span> <span class="n">any</span><span class="p">)</span>
+<span class="n">d0</span> <span class="o">%&lt;&gt;%</span> <span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span> <span class="o">!</span><span class="n">sel</span> <span class="p">)</span>
+
+<span class="n">d1</span> <span class="o">&lt;-</span> <span class="n">d0</span> <span class="o">%&gt;%</span> <span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;subs&quot;</span><span class="p">,</span> <span class="s">&quot;view&quot;</span><span class="p">,</span> <span class="s">&quot;count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span> <span class="n">d1</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">d1.log</span> <span class="o">&lt;-</span> <span class="nf">log</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id5">
 <h3><span class="section-number">1.1.3. </span>分布函数<a class="headerlink" href="#id5" title="永久链接至标题">#</a></h3>
@@ -663,7 +714,22 @@ F\left(x\right)=P\left(X\leq x\right)=P\left(\{X\leq x\}\right)=P\left(\left\{ \
 <li><p>(弱)单调递增,</p></li>
 <li><p>右连续 <span class="math notranslate nohighlight">\(\lim_{y\to x^{+}}F\left(y\right)=F\left(x\right).\)</span></p></li>
 </ol>
-<div class="proof exercise admonition" id="exercise-3">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">ecdf</span><span class="p">(</span><span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]]),</span> <span class="n">verticals</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">do.points</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>随机变量的第 <span class="math notranslate nohighlight">\(q\)</span> 分位点为 <span class="math notranslate nohighlight">\(\min_{x\in \mathbb R} P(X \leq x) \geq q\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]],</span> <span class="n">probs</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="o">/</span><span class="m">4</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof exercise admonition" id="exercise-4">
 <p class="admonition-title"><span class="caption-number">练习 1.1 </span></p>
 <section class="exercise-content" id="proof-content">
 <p>画出一个0-1分布的累积分布函数; <span class="math notranslate nohighlight">\(X=1\)</span>对应的概率为
@@ -677,21 +743,128 @@ F\left(x\right)=\int_{-\infty}^{x}f\left(y\right)\mathrm{d}y
 <p>那么 <span class="math notranslate nohighlight">\(f\)</span> 就是 <span class="math notranslate nohighlight">\(X\)</span> 的<strong>概率密度函数</strong>（probability distribution
 function，简记PDF）。容易看出它有以下性质：(i) <span class="math notranslate nohighlight">\(f\left(x\right)\geq0\)</span> ;
 (ii) <span class="math notranslate nohighlight">\(\int_{a}^{b}f\left(x\right)dx=F\left(b\right)-F\left(a\right)\)</span> 。</p>
-<div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">例子 1.3 </span></p>
+<div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">例子 1.4 </span></p>
 <section class="example-content" id="proof-content">
-<p>我们已经学过了许多的参数分布，比如二元分布、泊松分布、均匀分布、指数分布和正态分布, <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的CDF和PDF。</p>
+<p>我们已经学过了许多的参数分布，比如二项分布、泊松分布、均匀分布、指数分布和正态分布, <span class="math notranslate nohighlight">\(\chi^{2}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(F\)</span>分布等等。这些都是参数分布，意味着较少的参数就能够完全表征出他们的累积分布函数和概率密度函数。</p>
+<ul class="simple">
+<li><p>二项分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(x = k ;p) = \binom{n}{k}  p^k (1-p)^{n-k}
+\]</div>
+<ul class="simple">
+<li><p>泊松分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(x = k;\lambda) = \frac{\lambda^k \exp(-\lambda)}{k!}
+\]</div>
+<ul class="simple">
+<li><p>均匀分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(x; a, b) = \frac{1}{b-a} \cdot \mathbf{1}\{a\leq x \leq b\}
+\]</div>
+<ul class="simple">
+<li><p>正态分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi} \sigma} \exp\left( - \frac{(x-\mu)^2}{2\sigma^2}\right)
+\]</div>
+<p>其中均值为 <span class="math notranslate nohighlight">\(\mu\)</span> 而方差为 <span class="math notranslate nohighlight">\(\sigma^2\)</span>。</p>
+<ul class="simple">
+<li><p>对数正态分布</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi} \sigma} \exp\left( - \frac{(\log(x)-\mu)^2}{2\sigma^2}\right),
+\]</div>
+<p>它的均值为 <span class="math notranslate nohighlight">\(\exp(\mu + 0.5 \sigma^2)\)</span> 而方差为
+<span class="math notranslate nohighlight">\([\exp(\sigma^2 - 1)] \exp(2\mu+ \sigma^2)\)</span>。</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\chi^{2}\)</span>， <span class="math notranslate nohighlight">\(t\)</span>，和 <span class="math notranslate nohighlight">\(F\)</span> 分布</p></li>
+</ul>
 </section>
-</div></section>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">例子 1.5 </span></p>
+<section class="example-content" id="proof-content">
+<p><code class="docutils literal notranslate"><span class="pre">R</span></code>可以用一系列指令来处理各种常见的分布函数: <code class="docutils literal notranslate"><span class="pre">d</span></code>代表密度(density)，<code class="docutils literal notranslate"><span class="pre">p</span></code>代表概率(probability)，<code class="docutils literal notranslate"><span class="pre">q</span></code>代表分位点(quantile)，<code class="docutils literal notranslate"><span class="pre">r</span></code>用于生成随机变量。
+例如，<code class="docutils literal notranslate"><span class="pre">dnorm</span></code>、<code class="docutils literal notranslate"><span class="pre">pnorm</span></code>、<code class="docutils literal notranslate"><span class="pre">qnorm</span></code>和 <code class="docutils literal notranslate"><span class="pre">rnorm</span></code>都是正态分布的对应函数。形式参数(parameter) <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> 可以用函数的实际参数(argument)来设定。</p>
+</section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.975</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dnorm</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rnorm</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rpois</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>下方是用于展示的一小段 <code class="docutils literal notranslate"><span class="pre">R</span></code> 语言：</p>
+<ol class="simple">
+<li><p>在均匀的网格<code class="docutils literal notranslate"><span class="pre">x_axis</span> <span class="pre">=</span> <span class="pre">seq(-3,</span> <span class="pre">3,</span> <span class="pre">by</span> <span class="pre">=</span> <span class="pre">0.01)</span></code>上画出标准正态分布的密度函数 (黑线)；</p></li>
+<li><p>生成正态分布的1000个观测值 <span class="math notranslate nohighlight">\(N(0,1)\)</span>。画出核密度(kernel density)，即密度的非参数估计(红线)；</p></li>
+<li><p>求出第95分位点和观测值大于第95分位点的实际概率。
+在总体中这个概率是5%。那么本次实验会得到什么结果呢？</p></li>
+</ol>
+<p>(由于我们并未固定随机种子(random seed)，每一次运行的结果会略有不同)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x_axis</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x_axis</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;value&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;density&quot;</span><span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1000</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span> <span class="nf">density</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">crit</span> <span class="o">=</span> <span class="nf">qnorm</span><span class="p">(</span><span class="n">.</span><span class="m">95</span><span class="p">)</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;the empirical rejection probability is&quot;</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="n">crit</span> <span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="id6">
 <h2><span class="section-number">1.2. </span>数学期望<a class="headerlink" href="#id6" title="永久链接至标题">#</a></h2>
 <section id="id7">
 <h3><span class="section-number">1.2.1. </span>积分<a class="headerlink" href="#id7" title="永久链接至标题">#</a></h3>
-<p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过直观的黎曼积分。但是勒贝格积分才是更加泛用的积分定义。本讲简要介绍更加通用的勒贝格积分。<span class="math notranslate nohighlight">\(X\)</span> 被认为是一个在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
-中的<strong>简单函数</strong>。如果 <span class="math notranslate nohighlight">\(X=\sum_{i}a_{i}\cdot1\left\{ A_{i}\right\}\)</span>
-而且它的加总是有限的。同时其中 <span class="math notranslate nohighlight">\(a_{i}\in\mathbb{R}\)</span> 和 <span class="math notranslate nohighlight">\(\{A_{i}\in\mathcal{F}\}_{i\in\mathbb{N}}\)</span> 是
-<span class="math notranslate nohighlight">\(\Omega\)</span>的一部分。我们就可以认为一个简单函数是可测的。</p>
+<p>积分是数学分析中最基础的数学方法之一。我们已经在本科阶段学习过直观的黎曼积分。本讲简要介绍更加通用的<strong>勒贝格积分</strong>。</p>
+<p>给定 <span class="math notranslate nohighlight">\(a_{i}\in\mathbb{R}\)</span> 和 <span class="math notranslate nohighlight">\(\{A_{i}\in\mathcal{F}\}_{i\in\mathbb{N}}\)</span>，
+如果 <span class="math notranslate nohighlight">\(X=\sum_{i}a_{i}\cdot1\left\{ A_{i}\right\}\)</span>
+而且它的加总是有限的，我们称 <span class="math notranslate nohighlight">\(X\)</span> 为在测度空间 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}\right)\)</span>
+上的<strong>简单函数</strong>。简单函数是可测的。</p>
 <ol>
 <li><p>令 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},\mu\right)\)</span> 为一个测度空间。 简单函数
 <span class="math notranslate nohighlight">\(X\)</span> 相对于 <span class="math notranslate nohighlight">\(\mu\)</span> 的积分定义为</p>
@@ -702,7 +875,7 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <p>不同于黎曼积分，
 这种积分的定义不需要等额地分割定义域。相反，它依据函数的值域作相应的计算。</p>
 </li>
-<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 作为一个非负的函数。函数 <span class="math notranslate nohighlight">\(X\)</span> 对于 <span class="math notranslate nohighlight">\(\mu\)</span> 的积分为：</p>
+<li><p>令 <span class="math notranslate nohighlight">\(X\)</span> 为非负函数。函数 <span class="math notranslate nohighlight">\(X\)</span> 对于 <span class="math notranslate nohighlight">\(\mu\)</span> 的积分为：</p>
 <div class="math notranslate nohighlight">
 \[
     \int X\mathrm{d}\mu=\sup\left\{ \int Y\mathrm{d}\mu:0\leq Y\leq X,\text{ }Y\text{ is simple}\right\} .
@@ -718,42 +891,55 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 </li>
 </ol>
 <p>上述的第一步定义了简单函数的积分；第二步定义了用下方的阶梯函数测算非负函积分的方法；第三部把一个任意函数视为两个非负部分的差值。</p>
-<div class="proof remark admonition" id="remark-5">
+<div class="proof remark admonition" id="remark-7">
 <p class="admonition-title"><span class="caption-number">评注 1.2 </span></p>
 <section class="remark-content" id="proof-content">
 <ul class="simple">
-<li><p>勒贝格积分和黎曼积分之间在被积函数上的核心区别体现在单位区间 <span class="math notranslate nohighlight">\(1\left\{ x\in\mathbb{Q}\cap[0,1]\right\}\)</span> 上的狄利克雷函数（Dirichelet function）。它是黎曼不可积分的，但是可以使用勒贝格积分计算。
-它有明确的定义且满足
+<li><p>勒贝格积分和黎曼积分之间在被积函数上的核心区别体现在单位区间 <span class="math notranslate nohighlight">\(1\left\{ x\in\mathbb{Q}\cap[0,1]\right\}\)</span> 上的狄利克雷函数（Dirichelet function）。在黎曼意义下该函数不可积，但在勒贝格意义下可积，即
 <span class="math notranslate nohighlight">\(\int1\left\{ x\in\mathbb{Q}\cap[0,1]\right\} dx=0\)</span>.</p></li>
 </ul>
 </section>
 </div><p>如果测度 <span class="math notranslate nohighlight">\(\mu\)</span> 是一个概率测度 <span class="math notranslate nohighlight">\(P\)</span>, 那么积分 <span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span>
 就称为 <span class="math notranslate nohighlight">\(X\)</span> 的<strong>数学期望</strong>。我们通常会使用符号 <span class="math notranslate nohighlight">\(E\left[X\right]\)</span>来代替
 <span class="math notranslate nohighlight">\(\int X\mathrm{d}P\)</span> ，使得整个数学表达式更简洁方便。</p>
-<p>尽管我们不能预测在给定情况下一个随机变量的实际值(否则一切对于不确定性的研究
-都是徒劳了)，但是期望能够告诉我们随机变量的均值。在频率论者的视角里，期望等于我们进行了大样本的实验后得出结果的均值。</p>
-<p>如果我们知道了一个离散型随机变量的概率质量函数(probability mass function),它的期望就是 <span class="math notranslate nohighlight">\(E\left[X\right]=\sum_{x}xP\left(X=x\right)\)</span> ，也就是一个简单函数的积分。如果一个连续型随机变量存在概率密度函数 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
-<span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。这两个表达式被勒贝格
-积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span>。</p>
+<p>尽管我们不能预测在给定情况下一个随机变量的实际值(否则一切对于不确定性的研究都是徒劳)，但是期望能够告诉我们随机变量的均值。在频率学派的视角里，期望等于我们进行了大量实验后得出结果的均值。</p>
+<p>如果我们知道了一个离散型随机变量的概率质量函数(probability mass function),它的期望就是 <span class="math notranslate nohighlight">\(E\left[X\right]=\sum_{x}xP\left(X=x\right)\)</span> ，也就是一个简单函数的积分。
+如果一个连续型随机变量概率密度函数为 <span class="math notranslate nohighlight">\(f(x)\)</span> , 它的期望可以用
+<span class="math notranslate nohighlight">\(E\left[X\right]=\int xf\left(x\right)\mathrm{d}x\)</span> 计算。
+这两个表达式被勒贝格积分统一为 <span class="math notranslate nohighlight">\(E[X]=\int X\mathrm{d}P\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mean</span><span class="p">(</span> <span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id8">
 <h3><span class="section-number">1.2.2. </span>期望的性质<a class="headerlink" href="#id8" title="永久链接至标题">#</a></h3>
 <p>以下列举一些数学期望的重要性质：</p>
-<ul>
+<ul class="simple">
 <li><p>事件 <span class="math notranslate nohighlight">\(A\)</span> 的概率是指示函数的期望：
 <span class="math notranslate nohighlight">\(E\left[1\left\{ A\right\} \right]=1\times P(A)+0\times P(A^{c})=P\left(A\right)\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为 <span class="math notranslate nohighlight">\(X\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩。一个随机变量的<strong>均值</strong>是其一阶矩 <span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span> ；而二阶 <strong>中心</strong> 矩叫做 <span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span> 方差。</p>
-<p>三阶中心矩 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{3}\right]\)</span> 称为<strong>偏度</strong>,
-用于衡量随机变量的对称性；四阶矩<strong>峰度</strong>
-<span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{4}\right]\)</span> 则用来体现尾部厚度。</p>
-</li>
+<li><p><span class="math notranslate nohighlight">\(E\left[X^{r}\right]\)</span> 被称为 <span class="math notranslate nohighlight">\(X\)</span> 的 <span class="math notranslate nohighlight">\(r\)</span> 阶矩。一个随机变量的<strong>均值</strong>是其一阶矩 <span class="math notranslate nohighlight">\(\mu=E\left[X\right]\)</span> ；而二阶<strong>中心</strong>矩叫做 <span class="math notranslate nohighlight">\(\mathrm{var}\left[X\right]=E\left[\left(X-\mu\right)^{2}\right]\)</span> 方差。三阶中心矩 <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{3}\right]\)</span> 称为<strong>偏度</strong>,
+用于衡量随机变量的对称性；四阶矩<strong>峰度</strong> <span class="math notranslate nohighlight">\(E\left[\left(X-\mu\right)^{4}\right]\)</span> 则用来体现尾部厚度。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
 <li><p>矩条件不一定存在。例如，柯西分布就不存在均值；<span class="math notranslate nohighlight">\(t(2)\)</span> 分布不存在方差。</p></li>
 <li><p><span class="math notranslate nohighlight">\(E[\cdot]\)</span> 是线性算子。如果 <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> 是一个线性函数,
 那么有 <span class="math notranslate nohighlight">\(E[\phi(X)]=\phi(E[X])\)</span> 。</p></li>
-<li><p><strong>詹森不等式</strong>是一个重要的结论。
+<li><p><strong>Jensen不等式</strong>是一个重要的结论。
 如果定义域内的所有<span class="math notranslate nohighlight">\(x_{1},x_{2}\)</span>和<span class="math notranslate nohighlight">\(a\in[0,1]\)</span> 都有
-<span class="math notranslate nohighlight">\(\varphi(ax_{1}+(1-a)x_{2})\leq a\varphi(x_{1})+(1-a)\varphi(x_{2})\)</span> ，函数 <span class="math notranslate nohighlight">\(\varphi(\cdot)\)</span> 是凸函数
-例如， <span class="math notranslate nohighlight">\(x^{2}\)</span> 是一个凸函数。詹森不等式说明如果
+<span class="math notranslate nohighlight">\(\varphi(ax_{1}+(1-a)x_{2})\leq a\varphi(x_{1})+(1-a)\varphi(x_{2})\)</span> ，则函数 <span class="math notranslate nohighlight">\(\varphi(\cdot)\)</span> 是凸函数。
+例如， <span class="math notranslate nohighlight">\(x^{2}\)</span> 是一个凸函数。
+Jensen不等式说的是，如果
 <span class="math notranslate nohighlight">\(\varphi\left(\cdot\right)\)</span> 是一个凸函数，那么
 <span class="math notranslate nohighlight">\(\varphi\left(E\left[X\right]\right)\leq E\left[\varphi\left(X\right)\right]。\)</span></p></li>
 <li><p><strong>Markov不等式</strong>是另一个简单但是重要的事实。如果
@@ -761,8 +947,8 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <span class="math notranslate nohighlight">\(P\left(\left|X\right|&gt;\epsilon\right)\leq E\left[\left|X\right|^{r}\right]/\epsilon^{r}\)</span>。
 <strong>Chebyshev不等式</strong>
 <span class="math notranslate nohighlight">\(P\left(\left|X\right|&gt;\epsilon\right)\leq E\left[X^{2}\right]/\epsilon^{2}\)</span>
-是Markov不等式在 <span class="math notranslate nohighlight">\(r=2\)</span>的时候的一个特例。</p></li>
-<li><p>一个随机变量的分布可以被它的CDF或PDF完整刻画。而矩条件同样也是分布的一个函数。为了从矩中找出对应的分布，我们可以使用矩母函数（mgf） <span class="math notranslate nohighlight">\(M_{X}(t)=E[e^{tX}]\)</span>（<span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span>）。基于mgf进行计算可以计算 <span class="math notranslate nohighlight">\(r\)</span> 阶矩</p>
+是Markov不等式在 <span class="math notranslate nohighlight">\(r=2\)</span> 时的特例。</p></li>
+<li><p>一个随机变量的分布可以被它的CDF或PDF完整刻画，也可以用矩完整刻画。为了从矩中找出对应的分布，我们可以使用矩母函数（mgf） <span class="math notranslate nohighlight">\(M_{X}(t)=E[e^{tX}]\)</span>（<span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span>）。基于mgf可以得到 <span class="math notranslate nohighlight">\(r\)</span> 阶矩</p>
 <div class="math notranslate nohighlight">
 \[
     E[X^{r}]=\frac{\mathrm{d}^{r}M_{X}(t)}{\mathrm{d}t^{r}}\big\vert_{t=0}.
@@ -776,15 +962,25 @@ function，简记PDF）。容易看出它有以下性质：(i) <span class="math
 <h2><span class="section-number">1.3. </span>多元随机变量<a class="headerlink" href="#id9" title="永久链接至标题">#</a></h2>
 <p>二元随机变量是
 <span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{2}\)</span> 上的映射。我们可以由此推广到多元的随机变量。
-<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span> 。 我们可以定义<strong>联合CDF</strong>为
-<span class="math notranslate nohighlight">\(F\left(x_{1},\ldots,x_{n}\right)=P\left(X_{1}\leq x_{1},\ldots,X_{n}\leq x_{n}\right)\)</span> 。
-联合PDF的定义与之类似。</p>
-<p>我们有必要了解一下二元变量的联合分布、条件分布和边际分布，然后我们就可以将二元的情况推广到多元分布。假设二元随机变量
+<span class="math notranslate nohighlight">\(X:\Omega\mapsto\mathbb{R}^{n}\)</span> 。 我们可以定义<strong>联合CDF</strong>为</p>
+<div class="math notranslate nohighlight">
+\[
+F\left(x_{1},\ldots,x_{n}\right)=P\left(X_{1}\leq x_{1},\ldots,X_{n}\leq x_{n}\right).
+\]</div>
+<p>联合PDF的定义与之类似。</p>
+<p>我们复习二元变量的联合分布、条件分布和边际分布。二元的情况可以推广到多元分布。假设二元随机变量
 <span class="math notranslate nohighlight">\((X,Y)\)</span> 有一个联合密度函数 <span class="math notranslate nohighlight">\(f(\cdot,\cdot)\)</span>。如果我们暂时忽略
 <span class="math notranslate nohighlight">\(f(x)=0\)</span> 的特殊情况，那么我们可以将它的<strong>条件密度</strong>简略地写成
 <span class="math notranslate nohighlight">\(f\left(y|x\right)=f\left(x,y\right)/f\left(x\right)\)</span>
 。二元变量的<strong>边际密度</strong> <span class="math notranslate nohighlight">\(f\left(y\right)=\int f\left(x,y\right)dx\)</span>
-则是把我们不感兴趣的那一个变量通过积分使它不再成为函数中的一个变量。</p>
+则是把我们不感兴趣的那个变量通过积分将它消除。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">d1.log</span><span class="o">$</span><span class="n">subs</span><span class="p">,</span> <span class="n">d1.log</span><span class="o">$</span><span class="n">view</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="id10">
 <h3><span class="section-number">1.3.1. </span>条件概率和贝叶斯公式<a class="headerlink" href="#id10" title="永久链接至标题">#</a></h3>
 <p>对于概率空间中 <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span> 的两个事件
@@ -797,14 +993,14 @@ P\left(A_{1}|A_{2}\right)=\frac{P\left(A_{1}A_{2}\right)}{P\left(A_{2}\right)}
 <p>在条件概率的定义中, <span class="math notranslate nohighlight">\(A_{2}\)</span>
 扮演了结果空间的角色，所以 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})\)</span> 被 <span class="math notranslate nohighlight">\(P(A_{2})\)</span>的值标准化了。
 如果 <span class="math notranslate nohighlight">\(P(A_{2})=0\)</span>，
-在部分的案例中，条件概率公式依然使用，但是在这种情况下，我们需要介绍两个测度之间的<strong>支配与被支配关系</strong> (dominating and dominated)，我们在此不打算细谈。</p>
+有些情况下条件概率公式依然可用，但是在这种情况下，我们需要介绍两个测度之间的<strong>支配与被支配关系</strong> (dominating and dominated)，我们在此不展开。</p>
 <p>既然 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是对称的,我们还能得出
 <span class="math notranslate nohighlight">\(P(A_{1}A_{2})=P(A_{2}|A_{1})P(A_{1})\)</span> ,它表明了</p>
 <div class="math notranslate nohighlight">
 \[
 P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\right)}
 \]</div>
-<p>这个公式就是贝叶斯定理 <strong>Bayes’ Theorem</strong></p>
+<p>这个公式就是著名的<strong>贝叶斯定理</strong>。</p>
 </section>
 <section id="id11">
 <h3><span class="section-number">1.3.2. </span>独立性<a class="headerlink" href="#id11" title="永久链接至标题">#</a></h3>
@@ -812,36 +1008,60 @@ P(A_{1}|A_{2})=\frac{P\left(A_{2}|A_{1}\right)P\left(A_{1}\right)}{P\left(A_{2}\
 <span class="math notranslate nohighlight">\(A_{2}\)</span> 是<strong>独立</strong>的。 如果 <span class="math notranslate nohighlight">\(P(A_{2})\neq0\)</span> , 就相当于
 <span class="math notranslate nohighlight">\(P(A_{1}|A_{2})=P(A_{1})\)</span> 。换言之，如果 <span class="math notranslate nohighlight">\(A_{1}\)</span> 和 <span class="math notranslate nohighlight">\(A_{2}\)</span> 独立，已知 <span class="math notranslate nohighlight">\(A_{2}\)</span> 的信息，将不会改变
 <span class="math notranslate nohighlight">\(A_{1}\)</span> 的概率。</p>
-<p>如果两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么对于任意两个波莱尔集 <span class="math notranslate nohighlight">\(B_{1}\)</span> and <span class="math notranslate nohighlight">\(B_{2}\)</span>，会有
-<span class="math notranslate nohighlight">\(P\left(X\in B_{1},Y\in B_{2}\right)=P\left(X\in B_{1}\right)P\left(Y\in B_{2}\right)\)</span></p>
+<p>如果两个随机变量 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立， 那么对于任意两个波莱尔集 <span class="math notranslate nohighlight">\(B_{1}\)</span> 和 <span class="math notranslate nohighlight">\(B_{2}\)</span>，
+会有<span class="math notranslate nohighlight">\(P\left(X\in B_{1},Y\in B_{2}\right)=P\left(X\in B_{1}\right)P\left(Y\in B_{2}\right)\)</span></p>
 <p>若 <span class="math notranslate nohighlight">\(X\)</span> 和 <span class="math notranslate nohighlight">\(Y\)</span> 独立，则二者的期望有 <span class="math notranslate nohighlight">\(E[XY]=E[X]E[Y]\)</span> 。即期望的积等于积的期望。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">200</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[,</span> <span class="m">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[,</span> <span class="m">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">200</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span> <span class="o">%*%</span> <span class="nf">matrix</span><span class="p">(</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0.5</span><span class="p">,</span> <span class="m">0.5</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="m">2</span> <span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[,</span> <span class="m">1</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[,</span> <span class="m">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id12">
 <h3><span class="section-number">1.3.3. </span>期望迭代法则<a class="headerlink" href="#id12" title="永久链接至标题">#</a></h3>
 <p>给定 <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span> ，<strong>子 <span class="math notranslate nohighlight">\(\sigma\)</span> 域</strong>
-<span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和一个 满足条件 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> 的 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-测度函数
-<span class="math notranslate nohighlight">\(Y\)</span>。<strong>条件期望</strong> <span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span> 被定义为
-<span class="math notranslate nohighlight">\(\mathcal{G}\)</span>-可测函数，使得对于所有的 <span class="math notranslate nohighlight">\(A\in\mathcal{G}\)</span>:</p>
+<span class="math notranslate nohighlight">\(\mathcal{G}\subseteq\mathcal{F}\)</span> 和满足 <span class="math notranslate nohighlight">\(E\left|Y\right|&lt;\infty\)</span> 的 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>-可测函数。
+在这里 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 是一个粗糙的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域， 而 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>
+是一个精细的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。
+如果对于所有的 <span class="math notranslate nohighlight">\(A\in\mathcal{G}\)</span>，都有</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{A}Y\mathrm{d}P=\int_{A}E\left[Y|\mathcal{G}\right]\mathrm{d}P
 \]</div>
-<p>在这里
-<span class="math notranslate nohighlight">\(\mathcal{G}\)</span> 是一个粗糙的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域， 而 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>
-是一个平滑的 <span class="math notranslate nohighlight">\(\sigma\)</span> 域。</p>
-<p>使 <span class="math notranslate nohighlight">\(A=\Omega\)</span>，我们能够得到
-<span class="math notranslate nohighlight">\(E\left[Y\right]=\int Y\mathrm{d}P=\int E\left[Y|\mathcal{G}\right]\mathrm{d}P=E\left[E\left[Y|\mathcal{G}\right]\right]\)</span> 。这就是著名的</p>
-<p><strong>重复期望定律</strong></p>
+<p>我们称其为<strong>条件期望</strong> <span class="math notranslate nohighlight">\(E\left[Y|\mathcal{G}\right]\)</span>。它是 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>-可测的，</p>
+<p>令 <span class="math notranslate nohighlight">\(A=\Omega\)</span>，我们能够得到 <span class="math notranslate nohighlight">\(E\left[Y\right]=\int Y\mathrm{d}P=\int E\left[Y|\mathcal{G}\right]\mathrm{d}P=E\left[E\left[Y|\mathcal{G}\right]\right]\)</span>。这就是著名的<strong>期望迭代法则</strong>(the law of iterated expectation)</p>
 <div class="math notranslate nohighlight">
 \[
-E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
+E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right].
 \]</div>
-<p>按照条件期望的定义来看，这个公式不难理解。在二元变量的案例中，如果条件密度函数存在，那么条件期望可以
-这样计算
-<span class="math notranslate nohighlight">\(E\left[Y|X\right]=\int yf\left(y|X\right)\mathrm{d}y\)</span>，其中条件变量
-<span class="math notranslate nohighlight">\(E\left[\cdot|X\right]=E\left[\cdot|\sigma\left(X\right)\right]\)</span> 是 <span class="math notranslate nohighlight">\(X\)</span>
-生成的最小<span class="math notranslate nohighlight">\(\sigma\)</span> 域
-的简化表达。重复期望定律表明：<span class="math notranslate nohighlight">\(E\left[E\left[Y|X\right]\right]=E\left[Y\right]\)</span>.</p>
+<p>期望迭代法则也称重复期望法则。</p>
+<p>按照条件期望的定义来看，这个公式不难理解。在二元变量的案例中，如果条件密度函数存在，那么条件期望可以这样计算： <span class="math notranslate nohighlight">\(E\left[Y|X\right]=\int yf\left(y|X\right)\mathrm{d}y\)</span>，其中条件变量 <span class="math notranslate nohighlight">\(E\left[\cdot|X\right]=E\left[\cdot|\sigma\left(X\right)\right]\)</span> 是 <span class="math notranslate nohighlight">\(X\)</span>
+生成的最小 <span class="math notranslate nohighlight">\(\sigma\)</span> 域的简化表达。期望迭代法则表明：<span class="math notranslate nohighlight">\(E\left[E\left[Y|X\right]\right]=E\left[Y\right]\)</span>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">&lt;-</span> <span class="n">d1.log</span> <span class="o">%&gt;%</span> 
+  <span class="n">tibble</span><span class="o">::</span><span class="nf">add_column</span><span class="p">(</span><span class="n">category</span> <span class="o">=</span> <span class="n">d0</span><span class="o">$</span><span class="n">category</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">dplyr</span><span class="o">::</span><span class="nf">group_by</span><span class="p">(</span><span class="n">category</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="n">dplyr</span><span class="o">::</span><span class="nf">summarize</span><span class="p">(</span><span class="n">mean</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">count</span><span class="p">),</span> <span class="n">no</span> <span class="o">=</span> <span class="n">dplyr</span><span class="o">::</span><span class="nf">n</span><span class="p">()</span> <span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span> <span class="nf">sum</span><span class="p">(</span> <span class="n">dx</span><span class="o">$</span><span class="n">mean</span> <span class="o">*</span> <span class="p">(</span> <span class="n">dx</span><span class="o">$</span><span class="n">no</span><span class="o">/</span><span class="nf">nrow</span><span class="p">(</span><span class="n">d1.log</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># average over categories</span>
+<span class="nf">print</span><span class="p">(</span> <span class="nf">mean</span><span class="p">(</span><span class="n">d1.log</span><span class="p">[[</span><span class="s">&quot;count&quot;</span><span class="p">]]))</span> <span class="c1"># overall average</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>下方是条件期望的一些性质：</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(E\left[E\left[Y|X_{1},X_{2}\right]|X_{1}\right]=E\left[Y|X_{1}\right];\)</span></p></li>
@@ -857,13 +1077,13 @@ E\left[Y\right]=E\left[E\left[Y|\mathcal{G}\right]\right]
 <p>测度理论在20世纪的早期由一群富有才华的法国和德国学者建立。
 其中代表人物有Émile Borel, Henri Lebesgue, Johann
 Radon等等。几代俄罗斯学者如 Andrey Markov 和 Andrey Kolmogorov
-为数学化和符号化“不确定性”和“随机性”这些抽象的概念奠定了基础。这些贡献者们的名字被镌刻在在波莱尔集、勒贝格积分、马克洛夫链、柯尔莫哥洛夫零一法则和许多的术语中被牢牢铭记。</p>
+为数学化和符号化“不确定性”和“随机性”这些抽象的概念奠定了基础。这些贡献者们的名字被镌刻在在波莱尔集、勒贝格积分、Markov链、Kolmogorov零一法则等术语中。</p>
 <p>关于概率的各种各样的有趣的问题吸引了一批又一批学者。Francis Edgeworth
 (1845–1926) 在概率和统计方面写出了许多的著作； John Maynard Keynes
-(1883–1946)在1921年发表了 <strong>《概率论》</strong>
+(1883–1946)在1921年发表了《概率论》
 将概率和哲学融合到一起，尽管这本书的流传度不如他后来1936年革命性的著作
-<strong>《就业、利息和货币通论》</strong></p>
-<p>如今，搜集和处理信息的效率和成本相较于一百年前已经发生了翻天覆地的变化。然而可惜的是，学习和发展数学的投入成本与百年前相差无多。只有一小部分有才华的人才能聆听和体会这些伟大的数学思想。</p>
+《就业、利息和货币通论》。</p>
+<p>如今，搜集和处理信息的效率和成本相较于一百年前已经发生了翻天覆地的变化。然而，学习和研究数学的投入成本与百年前相差无多。只有一小部分有才华的人才能聆听、体会、继承和发展这些伟大的数学思想。</p>
 </div>
 <div class="admonition- admonition">
 <p class="admonition-title">拓展阅读</p>
@@ -882,16 +1102,16 @@ Radon等等。几代俄罗斯学者如 Andrey Markov 和 Andrey Kolmogorov
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               

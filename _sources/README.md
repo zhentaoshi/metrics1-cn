@@ -2,7 +2,7 @@
 
 * When we emphasize some words, use **黑体**, instead of *斜体*. 后者不符合中文习惯。
 * Foreigners' names, unless household names like 高斯 or 欧拉, in general we don't need to translate. (Done)
-* 还是恢复使用中文标点吧，除非句号出现在数学公式当中。It can be done with *find-and-replace* after we complete a chapter.
+* 使用中文标点，除非句号出现在数学公式当中。
 * Leave a space before and after a math symbol. 这样的 $\beta$ 比$\beta$好看。 (Done)
 
 ## Format
@@ -29,10 +29,13 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 ## Progress
 
 **Competed**
+
+* Prob
+
+
 * Least squares: CX
 * Basic asymptotics: CX
 
-**Just after first round**
 * Probability: HY
 * Projection:
 * OLS finite sample: HY
@@ -43,12 +46,6 @@ and display [math style](https://jupyterbook.org/en/stable/reference/cheatsheet.
 * GMM: HY
 
 **Assigned**
-
-
-
-**Untouched**
-
-* MLE asym.
 
 
 ---
