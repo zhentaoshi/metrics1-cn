@@ -8,3 +8,5 @@ image:
 vscode:
   extensions:
     - reditorsupport.r
+    - ms-toolsai.jupyter
+    - ms-python.python
