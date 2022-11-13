@@ -1,5 +1,12 @@
 # Style guideline
 
+<a href="https://gitpod.io/#https://github.com/zhentaoshi/metrics1-cn" target="_blank">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Play with Gitpod"
+  />
+</a>
+
 * When we emphasize some words, use **黑体**, instead of *斜体*. 后者不符合中文习惯。
 * Foreigners' names, unless household names like 高斯 or 欧拉, in general we don't need to translate. (Done)
 * 使用中文标点，除非句号出现在数学公式当中。
